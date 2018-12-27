@@ -1,0 +1,45 @@
+\documentclass[a4paper,11pt,debug]{scrartcl}
+
+\usepackage{vorschule}
+\usepackage[
+	typ=ab,
+	fach=Informatik,
+	lerngruppe={Diff 8},
+	seitenzahlen=keine,
+	module={},
+]{schule}
+
+\usepackage[
+	kuerzel=Ngb,
+	reihe={Webseiten erstellen mit HTML},
+	version={0.1 (2018)}
+]{ngbschule}
+
+\author{J. Neugebauer}
+\title{Übersicht wichtiger HTML-Tags}
+\date{\Heute}
+
+\usepackage{xinttools}
+
+\zeilennummernAus
+\begin{document}
+\ReiheTitel
+
+Ergänze die Tabelle nach und nach zu einem Spickzettel für wichtige HTML-Tags. Beginne mit den vorhandenen Tags und recherchiere ihre Bedeutung. Ergänze dann weitere Tags, die du kennenlernst.\medskip
+
+\setlength{\zeilenhoehe}{1.1cm}
+\begin{tabularx}{\textwidth}{|c|X|X|} \hline
+	\textbf{Tag} & \textbf{Beispiele} & \textbf{Beschreibung} \\ \hline
+	\texttt{doctype} & \texttt{<!doctype html>} & Legt fest welche Version von HTML verwendet wird. \\ \hline
+	
+	\xintFor #1 in {html,head,body}
+	\do {\texttt{#1} & & \Zeilenabstand \\ \hline}
+	
+	\texttt{title} & \texttt{<title>Meine Seite</title>} & \Zeilenabstand \\ \hline
+	\texttt{h1 (h2, h3, ...)} & \Zeilenabstand & Definiert Überschriften der ersten (zweiten, dritten, ...) Ebene. \\ \hline
+	
+	\xintFor #1 in {p, strong, em, u, img, a,,,,,,}
+	\do {\texttt{#1} & & \Zeilenabstand \\ \hline}
+\end{tabularx}
+
+\end{document}
