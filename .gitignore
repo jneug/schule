@@ -1,5 +1,5 @@
 # Private directory:
-./privat/*
+privat/*
 
 ## Core latex/pdflatex auxiliary files:
 *.aux
