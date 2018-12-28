@@ -1,0 +1,74 @@
+\begin{aufgabe}[subtitle=Verkettungsprinzipien]
+	\begin{teilaufgaben}
+		\teilaufgabe
+		\operator{Erklären} sie die Abkürzungen \emph{FIFO} und \emph{LIFO} anhand von Beispielen aus der Informatik.
+		
+		\teilaufgabe
+		\prettyref{anhang:objektdiagramm-fifo} zeigt das Objektdiagramm einer Schlange die Zahlen speichert (Inhaltsobjekte wurden zur besseren Übersicht weggelassen).
+		
+		\operator{Beschreiben} sie eine mögliche Abfolge an Operation, um den Zustand der Schlange in Schritt 1 zu erhalten.
+		
+		\operator{Stellen} sie dann \emph{jede Veränderung} der Schlange beim Aufruf der Operation \code{enqueue(13)} \operator{dar}. Sie können dazu das Struktogramm in \prettyref{anhang:struktogramme-1} nutzen.
+		
+		\teilaufgabe
+		\operator{Entscheiden} sie für die folgenden Anwendungssituationen, welche Datenstruktur (Schlange, Stapel oder Liste) für die Umsetzung in einem Programm am sinnvollsten ist und \operator{begründen} sie ihre Entscheidung jeweils \emph{möglichst präzise}. Gehen sie dabei auch darauf ein, warum die anderen Datenstrukturen weniger geeignet sind.
+		\begin{smallenumerate}
+			\item Die \enquote{Zurück}- und \enquote{Vor}-Funktion in Webbrowsern.
+			\item Ein Bankprogramm, in dem Überweisungen verschiedener Kunden ausgeführt werden.
+			\item Ein digitales Wartezimmer in einer Online-Beratungsstelle, bei dem sich Patienten an- und abmelden können. Patienten die einen Termin haben können keinen zweiten Termin vereinbaren, ohne ihren Ersten abzusagen.
+		\end{smallenumerate}
+		
+		
+		\teilaufgabe
+		\operator{Implementieren} sie die Methode \code{public void push(ContentType pContentObject)} der Klasse \code{Stack} anhand des Struktogramms in \prettyref{anhang:struktogramme-2}.
+	\end{teilaufgaben}
+	
+	\begin{loesung}
+		\begin{teilaufgaben}
+			\teilaufgabe \begin{description}
+				\item[FIFO] FIFO steht für \enquote{First-In-First-Out} und beschreibt das Verkettungsprinzip der Schlange. Dabei werden neue Elemente hinten an die Schlange angehängt (hinter das zuletzt eingefügte Elemente) und das erste Element als nächstes entfernt (also das zuerst eingefügte).
+				
+				Ein Beispiel ist die Abarbeitung von Aufträgen, die immer in der Reihenfolge ausgeführt werden müssen, in der sie eintreffen.
+				\item[LIFO] LIFO steht für \enquote{Last-In-First-Out} und beschreibt das Verkettungsprinzip des Stapels. Das letzte Element, das eingefügt wurde, ist das erste Element, das wieder entfernt wird. Dadruch entsteht eine Struktur, die z.B. wie ein Stapel Container im Hafen funktioniert.
+				
+				Ein Beispiel wäre die Umsetzung einer \enquote{Rückgängig} Funktion in einerm Schreibprogramm. Jede Aktion, wie das Ändern der Schriftgröße, wird als letzte Aktion auf den Stapel gelegt und durch auslösen der Funktion wieder herunter genommen und rückgängig gemacht.
+			\end{description}
+			\teilaufgabe
+			Ein Beispiel:
+			\code{enqueue(21)}, \code{enqueue(4)}, \code{enqueue(13)}, \code{dequeue()}
+			
+			Die \code{dequeue} Operation kann zu jedem Zeitpunkt nach dem ersten \code{enqueue} ausgeführt werden.
+			
+			\includepdf[pages=1,pagecommand={},height=.9\textheight]{Q1-GK_2-Abb2_Objektdiagramm_Queue_ML.pdf}
+			\teilaufgabe \begin{smallenumerate}
+				\item \textbf{Stapel}: Beim Aufruf einer neuen URL wird diese als oberstes Element auf den Stapel der besuchten Seiten gelegt. Bei jedem Betätigen des \enquote{Zurück}-Buttons wird die letzte URL vom Stapel genommen und als aktuelle URL aufgerufen, die dann wiederum auf den Stapel für die Vor-Funktion gelegt wird.
+				
+				Alternativ macht auch eine Liste Sinn, da dort die neues Seiten an- oder vorgehängt werden können und das Zurück- und Vor-Navigieren wird durch das Versetzen des \enquote{current}-Zeiger realisiert.
+				
+				Die Schlange macht am wenigsten Sinn, da hier neue Seiten hinten angehängt werden und man immer zur ersten Seite auf der man war zurück gehen würde.
+				\item \textbf{Schlange}: Die Reihenfolge der Überweisungen ist hier kritisch, da sonst ggf. Geld überwiesen wird, dass eigentlich schon abgehoben wurde. Daher müssen Überweisungen in der Reihenfolge abgearbeitet werden, in der sie getätigt werden. Dies ist durch die Struktur Schlange am besten umzusetzen.
+				
+				Die Liste kann generell eine Schlange ersetzen, ist hier aber nicht nötig, die die Funktionen der Schlange reichen.
+				
+				Der Stack macht hier keinen Sinn, da sonst die zuletzt eingereichte Überweisung als erstes ausgeführt werden würde.
+				\item \textbf{Liste}: Zunächst scheint eine Schlange sinnvoll, da diese gut die Wartereihenfolge der Termine abbilden kann. Allerdings bietet sie keinen Zugriff auf beliebige Elemente und kann daher kein Absagen oder Verschieben von Termine umsetzen. Daher muss hier eine Liste eingesetzt werden, mit der auch innerhalb der Elemente eingefügt, gelöscht und gesucht werden kann.
+				
+				Für Stack gilt das gleiche Argument wie bei 2.
+			\end{smallenumerate}
+			
+			\teilaufgabe
+			\lst{stack.push.java}
+		\end{teilaufgaben}
+	\end{loesung}
+	
+	\begin{erwartungen}
+		\erwartung{Erklärt das \emph{FIFO-Prinzip} präzise.}{4}
+		\erwartung{Erklärt das \emph{LIFO-Prinzip} präzise.}{4}
+		\erwartung{Beschreibt die vier mindestens notwendigen Operationen zum Erzeugen des Objektdiagramms.}{8}
+		\erwartung{Stellt alle Veränderungen der Schlange (Erzeugen eines neuen Knotens, Änderungen der Objektreferenzen) im Objektdiagramm als einzelne Schritte dar.}{9}
+		\erwartung{Erkennt, dass in der Situation \enquote{Webbrowser} ein \emph{Stapel} sinnvoll ist und erklärt seine Entscheidung verständlich.}{4}
+		\erwartung{Erkennt, dass in der Situation \enquote{Bankprogramm} eine \emph{Schlange} sinnvoll ist und erklärt seine Entscheidung verständlich.}{4}
+		\erwartung{Erkennt, dass in der Situation \enquote{Wartezimmer} eine \emph{Liste} sinnvoll ist und erklärt seine Entscheidung verständlich.}{4}
+		\erwartung{Implementiert die Methode \code{push} passend zum Struktogramm (Bedingte Anweisung, Erzeugen eines neuen \code{Node}-Objektes, Versetzen der Objektreferenzen).}{8}
+	\end{erwartungen}
+\end{aufgabe}

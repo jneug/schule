@@ -1,0 +1,160 @@
+\begin{aufgabe}[subtitle=(Mit) Datenstrukturen implementieren]
+	\begin{rahmen}\footnotesize
+		\begin{wrapfigure}{r}{4cm}
+			\includegraphics[width=4cm]{Q1-GK_2-Abb1_CheeseChampion.png}
+		\end{wrapfigure}
+		Beim Spiel \enquote{Cheese Champion} aus dem Unterricht gelten zusammengefasst folgende Spielregeln:
+		\begin{smallitemize}
+			\item Jede Maus aus dem Eingang muss zunächst an der Abzweigung vorbei in den Seitengang. 
+			\item Wenn Sie im Seitengang ist, dann kann Sie entweder den Zweikampf gegen die nachfolgende Maus aus dem Eingang gewinnen und so zum Ausgang gelangen, oder sie wird von der Gewinnerin tiefer in den unterirdischen Gang gedrängt. Die Gewinnerin betritt nun ihrerseits den Seitengang und kämpft gegen die nachfolgende Maus aus dem Eingang.	
+			\item Befinden sich keine Mäuse mehr im Eingang, dann können die verbliebenen Mäuse im Seitengang direkt zum Ausgang gehen.
+		\end{smallitemize}
+	\end{rahmen}
+	
+	\begin{teilaufgaben}
+		
+		\teilaufgabe
+		Das folgende \emph{Entwurfsdiagramm} zeigt die Klassen des CheeseChampion-Programms. \operator{Überführen} sie es in ein \emph{Implementierungsklassendiagramm} und ergänzen sie die passenden Datensammlungen (\code{Queue} und \code{Stack}).
+		
+		\begin{center}
+			\begin{klassendiagramm}
+				\begin{klasse}[text width=3cm]{CheeseChampion}{0,0}
+					\methode{kampf}
+					\methode{erzeugeMaeuse}
+				\end{klasse}
+				\begin{klasse}[text width=3cm]{Maus}{10,0}
+					\attribut{nummer : Zahl}
+					\attribut{staerke : Zahl}
+				\end{klasse}
+				%% Assoziationen manuell zeichnen
+				\draw[umlcd style,->] (CheeseChampion.north east) --node[above,sloped,black,label=below:0..*]{eingang} (Maus.north west);
+				\benutzt{CheeseChampion}{seitengang}{0..*}{Maus}
+				\draw[umlcd style,->] (CheeseChampion.south east) --node[above,sloped,black,label=below:0..*]{ausgang} (Maus.south west);
+			\end{klassendiagramm}
+		\end{center}
+		
+		{\small\textit{Hinweis}: Es reicht die Klassen \code{Queue} und \code{Stack} ohne Attribute und Methoden in der aus dem Unterricht bekannten Art darzustellen.}
+		
+		\teilaufgabe
+		Im \prettyref{anhang:methode-kampf} finden sie einen Teil der Methode \code{public void kampf()} aus der Klasse \\ \code{CheeseChampion}. Die Mäuse und Gänge sind bereit erzeugt und die Mäuse befinden sich alle im Eingang.
+		
+		\operator{Implementieren} sie die Methode nach den Regeln des Mäusekampfs oben, so dass sich alle Mäuse nach Ende der Methode passend im Ausgang befinden. (Ausgabe der Reihenfolge auf der Konsole ist nicht notwendig.)
+		
+		\teilaufgabe
+		Kurz vor dem Käse trifft noch ein zweiter Gang mit einer Schlange von Mäusen auf den Ausgang, in dem die Siegermäuse sich schon auf ihre Belohnung gefreut haben. An der Gabelung kann immer nur eine Maus zum saftigen Käse weiterlaufen. Auch hier gewinnt natürlich immer die Stärkere der Mäuse, die in beiden Gängen gerade vorne stehen, und darf sich als nächstes in den neuen Gang hinter den dort wartenden Mäusen einreihen.
+		
+		\operator{Beschreiben} sie \emph{umgangssprachlich} eine Strategie, für eine Methode
+		\begin{center}
+			\code{public Queue<Maus> vereinigeGaenge(Queue<Maus> gang1, Queue<Maus> gang2)}
+		\end{center}
+		die zwei Warteschlangen \code{gang1} und \code{gang2} von Mäusen übergeben bekommt und eine neue Schlange erstellt, in der die Mäuse aus beiden Gängen von der Stärksten bis zur Schwächsten aufgereiht sind.
+		
+		\operator{Implementieren} sie dann ihre Strategie in Java.
+	\end{teilaufgaben}
+	
+	\begin{loesung}
+		\begin{teilaufgaben}			
+			\teilaufgabe \hspace*{1pt}
+			\begin{center}
+				\begin{klassendiagramm}
+					\begin{klasse}[text width=5cm]{CheeseChampion}{0,0}
+						\methode{+ kampf() : void}
+						\methode{+ erzeugeMause() : void}
+					\end{klasse}
+					\begin{klasse}[text width=5cm]{Maus}{8,0}
+						\attribut{- nummer : int}
+						\attribut{- staerke : int}
+						\methode{+ getNummer() : int}
+						\methode{+ getSaerke() : int}
+					\end{klasse}
+					\begin{klasse}[text width=3cm]{Queue}{0,-4}
+					\end{klasse}
+					\begin{klasse}[text width=3cm]{Stack}{8,-4}
+					\end{klasse}
+					
+					\umlnote (contentNote) at (4,-6) {ContentType: Maus};
+					\draw[umlcd style dashed line] (Queue) -- (contentNote);
+					\draw[umlcd style dashed line] (Stack) -- (contentNote);
+					
+					\benutzt{CheeseChampion}{eingang, ausgang}{1}{Queue}
+					\benutzt{CheeseChampion}{seitengang}{1}{Stack}
+				\end{klassendiagramm}
+			\end{center}
+			
+			\teilaufgabe
+			\begin{lstlisting}[language=Java]
+			public class CheeseChampion {
+			private Queue<Maus> eingang;
+			private Stack<Maus> seitengang;
+			private Queue<Maus> ausgang;
+			
+			public void kampf() {
+			while( !eingang.isEmpty() ) {
+			if( seitengang.isEmpty() ) {
+			Maus m = eingang.front();
+			seitengang.push(m);
+			eingang.dequeue();
+			} else if( eingang.front().getStaerke()
+			>= seitengang.top().getStaerke() ) {
+			// Maus im Eingang hat gewonnen
+			Maus m = eingang.front();
+			seitengang.push(m);
+			eingang.dequeue();
+			} else {
+			Maus m = seitengang.top();
+			ausgang.enqueue(m);
+			seitengang.pop();
+			}
+			}
+			while( !seitengang.isEmpty() ) {
+			ausgang.enqueue(seitengang.top());
+			seitengang.pop();
+			}
+			}
+			}
+			\end{lstlisting}
+			
+			\teilaufgabe
+			\begin{lstlisting}[language=Java]
+			public Queue<Maus> vereinigeGaenge(
+			Queue<Maus> gang1, Queue<Maus> gang2) {
+			// Gang 3 ist das Ergebnis
+			Queue<Maus> gang3 = new Queue<Maus>();
+			// Solange Mäuse in beiden Gängen warten,
+			// wird gekämpft.
+			while( !gang1.isEmpty() && !gang2.isEmpty() ) {
+			if( gang1.front().getSaerke() > gang2.front().getSaerke() ) {
+			gang3.enqueue(gang1.front());
+			gang1.dequeue();
+			} else {
+			gang3.enqueue(gang2.front());
+			gang2.dequeue();
+			}
+			}
+			// Gang 1 oder 2 ist leer, den Rest aus dem anderen Gang
+			// noch nach Gang 3 schieben.
+			while( !gang1.isEmpty() ) {
+			gang3.enqueue(gang1.front());
+			}
+			while( !gang2.isEmpty() ) {
+			gang3.enqueue(gang2.front());
+			}
+			// Rückgabe von Gang 3
+			return gang3;
+			}
+			\end{lstlisting}
+		\end{teilaufgaben}
+	\end{loesung}
+	
+	\begin{erwartungen}
+		\erwartung{Ergänzt passende Datentypen und Sichtbarkeiten für die Attribute der \code{Maus}.}{2}
+		\erwartung{Ergänzt passende Rückgabetypen und Sichtbarkeiten für die Methoden der Klasse \code{CheeseChampion}.}{2}
+		\erwartung{Ergänzt passende Getter für die Attribute der \code{Maus}.}{2}
+		\erwartung{Ergänzt die Klassen \code{Queue} und \code{Stack}.}{2}
+		\erwartung{Kennzeichnet das Inhaltsobjekt \code{Maus} auf korrekte Weise.}{2}
+		\erwartung{Notiert Namen und Kardinalitäten der Assoziationen.}{3}
+		\erwartung{Ergänzt die fehlenden Teile der Methode \code{kamp} semantisch und syntaktisch korrekt.}{12}
+		\erwartung{Beschreibt eine Lösungsstrategie für die Methode \code{vereinigeGaenge} ausführlich in Umgangssprache.}{6}
+		\erwartung{Implementiert die Strategie als lauffähige Methode in Java.}{14}
+	\end{erwartungen}
+\end{aufgabe}
