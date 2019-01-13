@@ -1,0 +1,51 @@
+\documentclass[a4paper,11pt]{scrartcl}
+
+\usepackage{vorschule}
+\usepackage[
+	typ=ab,
+	fach=Informatik,
+	lerngruppe={Q1 GK},
+	seitenzahlen=keine,
+	module={},
+	nummer=5,
+]{schule}
+
+\usepackage[
+	kuerzel=Ngb,
+	reihe={Objektorientierte Programmierung mit Java},
+]{ngbschule}
+
+\author{J. Neugebauer}
+\title{Die Klasse Filesystem}
+\date{\Heute}
+
+\begin{document}
+
+\section*{\Titel}
+
+Weit hinten, hinter den Wortbergen, fern der Länder Vokalien und Konsonantien leben die Blindtexte. Abgeschieden wohnen sie in Buchstabhausen an der Küste des Semantik, eines großen Sprachozeans. Ein kleines Bächlein namens Duden fließt durch ihren Ort und versorgt sie mit den nötigen Regelialien. Es ist ein paradiesmatisches Land, in dem einem gebratene Satzteile in den Mund fliegen. Nicht einmal von der allmächtigen Interpunktion werden die Blindtexte beherrscht – ein geradezu unorthographisches Leben.
+
+\subsection*{Dokumentation der Klasse Filesystem}
+\begin{klassenDoku}
+	\methodenDoku{public Filesystem(String rootPath)}{
+		Erstellt ein neues \code{Filesystem}-Objekt mit dem angegebenen Pfad als Wurzelverzeichnis.
+	}
+	\methodenDoku{public Filesystem(String rootPath)}{
+		Liefert den aktuellen Ort als absoluten Pfad (z.B. "C:/Temp/Test").
+	}
+\end{klassenDoku}
+
+\begin{lstlisting}[language=Java]
+Filesystem fs = new Filesystem("C:/Temp");
+List<String> list = fs.getFileList();
+System.out.println(">> Dateien in " + fs.getPath());
+while( list.hasAccess() ) {
+	System.out.println(list.getContent());
+	list.next();
+}
+fs.cd("Test Ordner");
+
+List<String> content = fs.readFile("Test.txt");
+\end{lstlisting}
+
+\end{document}

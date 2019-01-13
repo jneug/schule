@@ -1,0 +1,178 @@
+\documentclass[11pt, a5paper, landscape, final]{scrartcl}
+\usepackage{pgfpages}
+\pgfpagesuselayout{2 on 1}[a4paper]
+
+\usepackage{vorschule}
+\usepackage[
+    typ=ab,
+    fach=Mathematik,
+    lerngruppe={Q1 GK},
+%    nummer=14,
+    seitenzahlen=keine,
+    module={Symbole},
+]{schule}
+
+\usepackage[
+	kuerzel=Ngb,
+	reihe={Analysis},
+	version=1,
+]{ngbschule}
+
+\author{J. Neugebauer}
+\title{Vermischte Übungen zur Klausur}
+\date{10.01.2018}
+
+\setzeAufgabentemplate{ngbohne}
+
+\chead{\Titel}
+
+\usepackage{qrcode}
+\qrset{height=4.5cm, nolink, padding}
+
+\begin{document}
+	%% Aufgabe 1
+	\begin{aufgabe}
+		\operator{Bestimmen} sie die ersten und zweiten Ableitungen der Funktionen.
+		\begin{multicols}{2}
+			\begin{enumerate}[label=\alph*)]
+				\item $f(x) = 2x^{-2} + 5x^{-3}$
+				\item $f(x) = \frac{3}{4x^2}$
+				\item $f(x) = 4x^{-5} + 2x^3 - \frac{1}{x^3}$
+				\item $f(x) = \frac{1}{3x^8} - 25x^4 - \frac{20}{x^5}$
+			\end{enumerate}
+		\end{multicols}
+	\end{aufgabe}
+	\clearpage
+	
+	%% Aufgabe 2
+	\begin{aufgabe}
+		\operator{Berechnen} sie die Lösungen der Gleichungssysteme \emph{ohne Einsatz des GTR}. \operator{Begründen} sie gegebenenfalls, warum es keine oder unendlich viele Lösungen gibt.
+		\begin{multicols}{2}
+			\begin{enumerate}[label=\alph*)]
+				\item 
+				\[ \left| \begin{alignedat}{4}
+				-x + && y + && z = & 0 \\
+				x - && 3y - && 2z = & 5 \\
+				5x + && y + && 4z = & 3
+				\end{alignedat} \right| \]
+				
+				\item 
+				\[ \left| \begin{alignedat}{4}
+				-2x - && 2y + &&  z = & 10 \\
+				3x + && 12y - &&  7z = & 42 \\
+				-16x - && 16y + && 8z = & 56
+				\end{alignedat} \right| \]
+			\end{enumerate}
+		\end{multicols}
+	\end{aufgabe}
+	\clearpage
+	
+	%% Hinweise Aufgabe 1
+	\begin{center}
+		Beachten sie, dass x\textasciicircum-3 gleichbedeutend ist mit $x^{-3}$.
+		\begin{multicols}{2}
+			1. Ableitung \\
+			\qrcode{a) f'(x) = -4 x\^-3 - 15 x\^-4
+				b) f'(x) = -3/2 x\^-3
+				c) f'(x) = -20 x\^-6 + 6 x\^2 + 3 x\^-4
+				d) f'(x) = -8/3 x\^-9 - 100 x\^3 + 100 x\^-6 }
+			\columnbreak
+			
+			2. Ableitung\\
+			\qrcode{a) f''(x) = 12 x^-4 + 60 x^-5
+				b) f''(x) = 9/2 x\^-4
+				c) f''(x) = 120 x^-7 + 12 x - 12 x^-5
+				d) f''(x) = 24 x^-10 - 300x^2 - 600 x^-7 }
+		\end{multicols}
+	\end{center}
+	\clearpage
+	
+	%% Hinweise Aufgabe 2
+	\begin{center}
+		\begin{multicols}{2}
+			Lösung zu a) \\
+			\qrcode{x = -1
+				y = -4
+				z = 3
+			
+				L=\{(-1|-4|3)\} }
+			\columnbreak
+			
+			Lösung zu b) \\
+			\qrcode{Keine Loesung
+				
+				L = \{\}
+				
+				Teilt man die letzte Gleichung durch 8 entsteht ein Widerspruch zur Gleichung 1}
+		\end{multicols}
+	\end{center}
+	\clearpage
+	
+	%% Aufgabe 3
+	\begin{aufgabe}
+		\operator{Bestimmen} sie die Gleichung einer ganzrationalen Funktion 3. Grades. Der Graph der Funktion geht durch den Punkt $(3|-28)$, sie hat eine Nullstelle bei $x = 1$ und an der Stelle $x = 0,5$ eine Wendestelle mit der Steigung $1,5$.
+	\end{aufgabe}
+	\clearpage
+
+	%% Aufgabe 4
+	\begin{aufgabe}
+		\operator{Bestimmen} sie die Gleichung der unten abgebildeten ganzrationalen Funktion.
+		
+		\begin{center}
+		\includegraphics{Q1-AB-Uebungen_Graph_Afg3.pdf}
+		\end{center}
+	\end{aufgabe}
+	\clearpage
+	
+	%% Hinweise Aufgabe 3
+	\begin{center}
+		\begin{multicols}{3}
+			Gleichungen\\
+			\qrcode{f(3) = -28
+				f(1) = 0
+				f''(0,5)=0
+				f'(0,5)=1,5 }
+			\columnbreak
+			
+			Koeffizientenmatrix\\
+			\qrcode{1     1   1   1    0
+				27     9   3   1  -28
+				0,75  1   1   0    1,5
+				3     2   0   0    0 }
+			\columnbreak
+			
+			Lösung\\
+			\qrcode{a = -2
+				b = 3
+				c = 0
+				d = -1 }
+		\end{multicols}
+	\end{center}
+	\clearpage
+	
+	%% Hinweise Aufgabe 4
+	\begin{center}
+		Beachten sie, dass x\textasciicircum-4 gleichbedeutend ist mit $x^{-4}$.
+		\begin{multicols}{3}
+			Gleichungen\\
+			\qrcode{Das Bild deutet auf Grad 4 hin. Wegen Symmetrie dann:
+			f(x) = ax^4 + bx^2 + c
+			Es lassen sich z.B. diese Punkte ablesen:
+			f(0) = -2
+			f(2) = 5
+			f'(2) = 0}
+			\columnbreak
+			
+			Koeffizientenmatrix\\
+			\qrcode{ 0    0    1    -2
+				16    4    1     5
+				32    4    0     0 }
+			\columnbreak
+			
+			Lösung\\
+			\qrcode{a = -7/16
+				b = 7/2
+				c = -2  }
+		\end{multicols}
+	\end{center}
+\end{document}

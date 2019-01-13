@@ -1,0 +1,44 @@
+\documentclass[a4paper,10pt]{scrartcl}
+
+\usepackage{vorschule}
+\usepackage[
+	typ=ab,
+	fach=Informatik,
+	lerngruppe={EF},
+	seitenzahlen=keine,
+	module={},
+]{schule}
+
+\usepackage[
+	kuerzel=Ngb,
+	reihe={Objektorientierte Programmierung mit Java},
+]{ngbschule}
+
+\author{J. Neugebauer}
+\title{Referenzen in BlueJ}
+\date{\Heute}
+
+\begin{document}
+\ReiheTitel
+
+\zeilennummernAus
+\noindent\begin{minipage}{.45\textwidth}
+\begin{lstlisting}[language=Java]
+public void fahreDeinenRoller( double pStrecke ) {
+	meinRoller.fahren(pStrecke);
+}
+\end{lstlisting}
+\end{minipage}\hfill
+\begin{minipage}{.45\textwidth}
+\begin{lstlisting}[language=Java]
+public void fahren( double pStrecke ) {
+	double verbrauch = 2*pStrecke/100;
+	if( tankinhalt >= verbrauch ) {
+		kilometerstand += pStrecke;
+		tankinhalt -= verbrauch;
+	}
+}
+\end{lstlisting}
+\end{minipage}
+
+\end{document}
