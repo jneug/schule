@@ -80,6 +80,18 @@
 				f'(x) &= \frac{21}{4000}x^2 - \frac{42}{400}x
 			\end{align*}
 			
+			\begin{center}
+				\begin{tikzpicture}[scale=.6]
+				\tkzInit[xmin=-1,xmax=25,ymin=-1,ymax=9]
+				\tkzGrid
+				\tkzAxeXY[origin=false,font=\sffamily\small]
+				\tkzFct[color=NavyBlue,line width=1.2pt,domain=0:20]{(7 * x ** 3)/4000 - (21 * x ** 2)/400 + 7}
+				\tkzFct[color=WildStrawberry,line width=.9pt,style=dashed]{(21 * x ** 2)/4000 - (42 * x)/400}
+				\Koordinate{3,7}{A}\PunktBeschriften[above]{A}{$f(x)$}
+				\Koordinate{1,0}{B}\PunktBeschriften[above]{B}{$f'(x)$}
+				\end{tikzpicture}
+			\end{center}
+			
 			Probe:
 			\begin{align*}
 			f(0) = \frac{7}{4000}\cdot 0^3 - \frac{21}{400}\cdot 0^2 + 7 = 7 \ \checkmark\\
