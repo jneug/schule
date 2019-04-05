@@ -3,22 +3,22 @@
 \usepackage{vorschule}
 \usepackage[
 	typ=ab,
-	fach=Informatik,
+	fach={Informatik},
 	lerngruppe={Diff 8},
 %	module={Lizenzen},
 %	lizenz={cc-by-nc-sa-4},
 ]{schule}
 
 \usepackage[
-	kuerzel=Ngb,
+	kuerzel={Ngb},
 	reihe={Webseiten erstellen mit HTML},
-%	version={0.1 (2018)},
-%	url={https://www.github.com/jneug/schule},
+	version={2019-03-30},
+	%url={https://www.github.com/jneug/schule},
 ]{ngbschule}
 
 \author{J. Neugebauer}
 \title{Grundstruktur einer HTML Seite}
-\date{\Heute}
+\date{30.03.2019}
 
 \setzeAufgabentemplate{ngbnormal}
 
@@ -29,13 +29,13 @@
 HTML steht für \enquote{Hypertext Markup Language}. HTML ist eine formale Sprache zur Beschreibung der Struktur von Hypertexten (in Form verlinkter Webseiten) mit Hilfe von Auszeichnungen.
 \end{quote}
 
-\begin{aufgabe}
+\begin{aufgabe}[symbol=\Large\symLaptop]
 Ruft die Adresse \url{https://link.ngb.schule/html-bailey} im Firefox Browser auf. Unten ist der Quelltext der Seite abgebildet. Studiert den Quelltext und vergleicht ihn mit der Darstellung der Seite im Browser. Beantwortet dann folgende Fragen:
-\begin{smallenumerate}
-	\item  Wieso ist HTML eine \enquote{Auszeichnungssprache}?
+\begin{enumeratea}\itemsep 0ex
+	\item Wieso ist HTML eine \enquote{Auszeichnungssprache}?
 	\item Welche Elemente erkennt ihr?
 	\item Welche Grundstruktur hat eine HTML-Seite?
-\end{smallenumerate}
+\end{enumeratea}
 \begin{lstlisting}[language=HTML,basicstyle=\scriptsize\ttfamily]
 <!doctype html>
 <html>
@@ -71,11 +71,13 @@ Ruft die Adresse \url{https://link.ngb.schule/html-bailey} im Firefox Browser au
 \end{lstlisting}
 \end{aufgabe}
 
-\begin{aufgabe}
-	\begin{wrapfigure}{r}{3cm}
-		\includegraphics[width=3cm]{01-Abb_Menu.jpg}
-	\end{wrapfigure}
-	Durch einen Rechtsklick im Browserfenster könnt ihr ein \menu{Element untersuchen} und sogar \enquote{live} bearbeiten. Nutzt diesen \enquote{Inspektor}, um die Seite weiter zu erkunden.
+\begin{wrapfigure}{r}{3cm}
+	\includegraphics[width=3cm]{01-Abb_Menu.jpg}
+\end{wrapfigure}
+\begin{aufgabe}[symbol=\Large\symLaptop]
+	Durch einen Rechtsklick im Browserfenster könnt ihr ein \menu{Element untersuchen}\\
+	 und sogar \enquote{live} bearbeiten. Nutzt diesen \enquote{Inspektor}, um die Seite weiter zu \\
+	 erkunden.
 \end{aufgabe}
 
 \end{document}
