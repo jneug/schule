@@ -15,6 +15,7 @@ privat/*
 *.cb2
 .*.lb
 *.xsim
+*.xmpi
 
 ## Intermediate documents:
 *.dvi
