@@ -30,13 +30,13 @@
 \begin{document}
 	\ReiheTitel
 	
-	Viele Wachstumsprozesse verlaufen \emph{Exponential} und können mathematisch 
+	Viele Wachstumsprozesse verlaufen \emph{exponential} und können mathematisch 
 	mit einer \emph{Exponentialfunktion} modelliert werden. Eine allgemeine 
 	Exponentialfunktion hat die Form
 	\[ f(x) = a\cdot b^x \]
 	
 	Für den Fall $a = 1$ und abhängig von der Basis $b$ lässt sich mit Hilfe des \emph{Differenzenquotienten} die
-	Ableitung bestimmen:
+	Ableitung bestimmen\footnote{Genaueres können sie im Buch auf Seite 124 nachlesen.}:
 	\[ f_b(x) = b^x \qquad f_b'(x) = f_b'(0)\cdot b^x \]
 
 	Für die Basis $b = 2$ sieht der Graph der Funktion und ihrer Ableitung beispielsweise so aus:
@@ -86,18 +86,22 @@
 			\item Die Eingabezeile für eine Funktion sollte nun offen sein und auf eine Eingabe warten ($f1(x)=$). Ist dies nicht der Fall, können sie mit \TINtab die Eingabezeile öffnen.
 			\item Geben sie die Formel der allgemeinen Exponentialfunktion ein ($f1(x) = b^x$) und bestätigen sie mit \TINenter*.
 			\item Das Dialogfenster \enquote{Schieberegler erstellen} bestätigen sie wieder mit \TINenter*.
+			
+			Sollte kein Dialogfenster aufgehen haben sie vermutlich die Variable $b$ schon festgelegt. Wechseln sie dann mit \TINscratch* in das Scratchpad und geben sie \texttt{DelVar b} ein.
 			\item Sobald das Eingabefenster geschlossen ist wechseln sie mit \TINtab wieder in die Eingabezeile. Drücken sie die Taste rechts neben der \TINnum{9} und finden sie das Symbol für die Ableitung ($\tfrac{d}{d\square}\square$). Ergänzen sie die Eingabezeile zu $f2(x) = \tfrac{d}{dx}(f1(x))$ und bestätigen sie wieder mit \TINenter*.
 			
 			Der Graph der Funktion $f2$ stellt nun die Ableitung der Funktion $f1$ dar.
 			\item Bewegen sie den Zeiger mit dem Trackpad über den Schieberegler und drücken sie \TINctrl + \TINmenu*. Wählen sie im Menü \texttin{2:Einstellungen...}.
 			\item Konfigurieren sie den Schieberegeler wie gezeigt:
+			
 				\begin{center}
-					\begin{tinwindow}{Schiebereinstellungen} 
-						\TINwfield[1]{Anfangswert:}
-						\TINwfield[1]{Minimum:}
-						\TINwfield[5]{Maximum:}
-						\TINwfield[0.2]{Schrittweite:}
-					\end{tinwindow}
+					\begin{tinwin}
+						\TINwtitle{Schiebereinstellungen}
+						\TINwinput{Anfangswert:}{1}
+						\TINwinput{Minimum:}{1}
+						\TINwinput{Maximum:}{5}
+						\TINwinput{Schrittweite:}{0.2}
+					\end{tinwin}
 				\end{center}
 			\item Durch einen Druck auf den Pfeil nach rechts wird der \texttt{OK} Knopf ausgewählt und mit \TINenter* das Fenster geschlossen werden.
 			\item Mit dem Zeiger können sie nun den Schieberegler verschieben und die Veränderung der Graphen beobachten. 
