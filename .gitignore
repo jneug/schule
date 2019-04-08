@@ -16,6 +16,10 @@ privat/*
 .*.lb
 *.xsim
 *.xmpi
+*.synctex.gz
+*.tkzfonct.gnuplot
+*.tkzfct.gnuplot
+*.tkzfct.table
 
 ## Intermediate documents:
 *.dvi
