@@ -1,6 +1,8 @@
 # Private directory:
 privat/*
 
+.DS_Store
+
 ## Core latex/pdflatex auxiliary files:
 *.aux
 *.lof
@@ -18,6 +20,7 @@ privat/*
 *.xmpi
 *.synctex.gz
 *.tkzfonct.gnuplot
+*.tkzfonct.table
 *.tkzfct.gnuplot
 *.tkzfct.table
 
