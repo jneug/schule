@@ -1,0 +1,116 @@
+\documentclass[10pt, a4paper]{scrartcl}
+
+\usepackage{vorschule}
+\usepackage[
+    typ=ab,
+    fach=Mathematik,
+    lerngruppe={Q1 GK},
+    nummer=18,
+    module={Symbole,Lizenzen},
+    seitenzahlen=keine,
+    farbig,
+    lizenz=cc-by-nc-sa-4,
+]{schule}
+
+\usepackage[
+	kuerzel={Ngb},
+	reihe={Analysis III},
+	version={2019-05-05},
+]{ngbschule}
+
+\author{J. Neugebauer}
+\title{Exponentialfunktionen ableiten II}
+\date{\Heute}
+
+\setzeAufgabentemplate{ngbohne}
+%\setzeAufgabentemplate{schule-binnen}
+
+\usepackage{qrcode}
+
+\renewcommand{\qrhinweis}[1]{%
+	\begin{wrapfigure}{r}{0pt}
+		\qrcode[height=1cm]{#1}
+	\end{wrapfigure}%
+}
+
+\begin{document}
+	\ReiheTitel
+	
+	Auf einem Konto werden \EUR{10000} zu \SI{1,5}{\percent\pa} angelegt. Das Wachstum des Guthabens kann durch eine \emph{Exponentialfunktion} abhängig von der Zeit $t$ modelliert werden:
+	\[ g(t) = \luecke{8cm} \]
+	
+	Mit welcher Rate wächst das Guthaben nach \SI{2}{Jahren}?
+	\begin{rahmen}
+	\paragraph{Lösungsansatz}
+	\begin{center}
+		\begin{smallenumerate}[label=\Alph*)]\itemsep -1ex
+			\item Exponentialfunktion als $e$-Funktion darstellen.
+			\item Ableitung bilden.
+			\item $t=2$ in die Ableitung einsetzen.
+		\end{smallenumerate}
+	\end{center}
+	\end{rahmen}
+
+	\qrhinweis{g(t) = 10000 * 1,015^t = 10000 * e^ln(1,015)^t = 10000 * e^(ln(1,015) * t)}
+	\paragraph{A)} Nutzen sie den \emph{natürlichen Algorithmus} und die \emph{Potenzgesetze}, um die Funktion $g(t)$ als $e$-Funktion darzustellen. (Stellen sie die Basis $1,015$ als Potenz von $e$ dar.)
+	\[ g(t) = \luecke{6cm} = \luecke{6cm} \]
+	
+	\qrhinweis{f(x) = a * b^x = a * e^ln(b)^x = a * e^(ln(b) * x)}
+	\symStern\ Leiten sie aus dem Beispiel eine \emph{allgemeine Regel} zur Umformung von Exponentialfunktionen ab.
+	\[ f(x) = a\cdot b^x = \luecke{6cm} \]
+	
+	\qrhinweis{f1'(x) = k * e^(kx)}
+	\paragraph{B)} Ermitteln sie mit \emph{GeoGebra}\footnote{Nutzen sie die Konstruktionsanleitung auf der Rückseite.} die Ableitung(en) von \[ f_1(x) = e^{k\cdot x} \qquad f_1'(x) = \luecke{6cm} \]
+	
+	\qrhinweis{f2'(x) = k * e^(kx+n)}
+	\[ \symStern\ f_2(x) = e^{k\cdot x + n} \qquad f_2'(x) = \luecke{6cm} \]
+	
+	\qrhinweis{g'(x) = 10000 * ln(1,015) * e^(ln(1,015) * t)}
+	Wenden sie die Regel\footnote{Denken sie auch an die anderen Ableitungsregeln.} auf $g(t)$ (in der Darstellung als $e$-Funktion) an:
+	\[ g'(t) = \luecke{6cm} \]
+	
+	\qrhinweis{g'(2) = 153,39}
+	\paragraph{C)} Berechnen sie $g'(2)$ und interpretieren sie das Ergebnis im Sachzusammenhang.
+	\[ g'(2) = \luecke{8cm} \]
+	
+	\clearpage
+	
+	\section*{Untersuchung von $e^{kx}$ in GeoGebra}
+	\begin{enumeraten}
+		\item Starten sie GeoGebra in der \appfunktion{Grafikrechner}-Ansicht.
+		\item In der Seitenleiste links können sie Eingaben machen (neben dem \appfunktion{+}-Symbol).
+		\item Klicken sie in das Eingabefeld und geben sie ein:
+		\begin{center}\large
+			\verb!f(x)=e^kx!
+		\end{center}
+		\hinweis{Geben sie die Symbole genauso ein. GeoGebra macht den Rest.}
+		\item Bestätigen sie mit \taste{ENTER}. GeoGebra zeigt die Funktion an und erstellt einen \enquote{Schieberegler}, mit dem $k$ verändert werden kann.
+		\item Das nächste Eingabefeld sollte automatisch ausgewählt worden sein. Geben sie hier ein
+		\begin{center}\large
+			\verb!P=(0,f(0))!
+		\end{center}
+		und bestätigen sie wieder mit \taste{Enter}.
+		\item Geben sie im nächsten Feld ein
+		\begin{center}\large
+			\verb!g=Tangente(P,f)!
+		\end{center}
+		\item Und zuletzt
+		\begin{center}\large
+			\verb!Steigung(g)!
+		\end{center}
+		\item Untersuchen sie nun die Steigung der Tangente an der Stelle \num{0} für verschiedene Werte von $k$, indem sie den Schieberegler manipulieren.
+	\end{enumeraten}
+
+	\section*{Untersuchung von $e^{kx+n}$ in GeoGebra}
+	Gehen sie vor wie oben beschrieben, aber geben sie in Schritt 3) die neue Funktion ein:
+	\begin{center}\large
+		\verb!f(x)=e^kx+n!
+	\end{center}
+
+
+	\section*{Vermutungen überprüfen}
+	\textbf{\llap{\Large\symInfo}\space}Um ihre Vermutungen zu überprüfen kann GeoGebra ihnen die Ableitung der Funktion direkt anzeigen mit der Eingabe
+	\begin{center}\large
+			\verb!Ableitung(f)!
+	\end{center}
+\end{document}
