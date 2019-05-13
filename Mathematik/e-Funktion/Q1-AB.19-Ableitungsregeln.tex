@@ -1,0 +1,78 @@
+\documentclass[10pt, a5paper, landscape]{scrartcl}
+
+\usepackage{vorschule}
+\usepackage[
+    typ=ab,
+    fach=Mathematik,
+    lerngruppe={Q1 GK},
+    nummer=19,
+    module={Symbole,Lizenzen},
+    seitenzahlen=keine,
+    farbig,
+    lizenz=cc-by-nc-sa-4,
+]{schule}
+
+\usepackage[
+	kuerzel={Ngb},
+	reihe={Analysis III},
+	version={2019-05-11},
+]{ngbschule}
+
+\author{J. Neugebauer}
+\title{Ableitungsregeln}
+\date{\Heute}
+
+\setzeAufgabentemplate{ngbohne}
+
+\begin{document}
+	\begin{multicols}{2}
+		\paragraph{Die Produktregel:}
+		\begin{align*}
+			f(x) &= u(x)\cdot v(x) \\
+			f'(x) &= u'(x)\cdot v(x) + u(x)\cdot v'(x)
+		\end{align*}
+		
+		\paragraph{Beispiele:}
+		\begin{align*}
+		f_1(x)  &= 2x^2\cdot e^x \\
+		f_1'(x) &= 4x\cdot e^x + 2x^2\cdot e^x\\[1em]
+		f_2(x)  &= \sin{x}\cdot 4x^3 \\
+		f_2'(x) &= \cos{x}\cdot 4x^3 + \sin{x}\cdot 12x^2\\[1em]
+		f_3(x)  &= 3e^x\cdot 7x^4 \\
+		f_3'(x) &= 
+		\end{align*}
+	\end{multicols}
+
+	Aufgaben:
+	\begin{enumeraten}
+		\item[\Large\symEinzel] Studieren sie zunächst alleine die Ableitungsregel und die Beispiele.
+		\item[\Large\symPartner] Tauschen sie sich mit ihrer Sitznachbarin über die Regel aus und klären sie Fragen. Ermitteln sie gemeinsam die Ableitung $f_3'(x)$. Finden sie gemeinsam ein weiteres Beispiel für die \emph{Produktregel}.
+		\item[\Large\symGruppe] Setzen sie sich mit einer Gruppe zusammen, die die \emph{Kettenregel} behandelt hat und erklären sie sich gegenseitig ihre Ableitungsregeln.
+	\end{enumeraten}
+	
+	\clearpage
+	\begin{multicols}{2}
+		\paragraph{Die Kettenregel:}
+		\begin{align*}
+		f(x) &= u(v(x)) \\
+		f'(x) &= v'(x)\cdot u'(v(x))
+		\end{align*}
+		
+		\paragraph{Beispiele:}
+		\begin{align*}
+		f_1(x)  &= \sin{2x^3} \\
+		f_1'(x) &= 6x^2\cdot \cos{2x^3}\\[1em]
+		f_2(x)  &= e^{2x+2} \\
+		f_2'(x) &= 2\cdot e^{2x+2}\\[1em]
+		f_3(x)  &= e^{2x^2} \\
+		f_3'(x) &= 
+		\end{align*}
+	\end{multicols}
+	
+	Aufgaben:
+	\begin{enumeraten}
+		\item[\Large\symEinzel] Studieren sie zunächst alleine die Ableitungsregel und die Beispiele.
+		\item[\Large\symPartner] Tauschen sie sich mit ihrer Sitznachbarin über die Regel aus und klären sie Fragen. Ermitteln sie gemeinsam die Ableitung $f_3'(x)$. Finden sie gemeinsam ein weiteres Beispiel für die \emph{Kettenregel}.
+		\item[\Large\symGruppe] Setzen sie sich mit einer Gruppe zusammen, die die \emph{Produktregel} behandelt hat und erklären sie sich gegenseitig ihre Ableitungsregeln.
+	\end{enumeraten}
+\end{document}
