@@ -19,6 +19,7 @@
 	kuerzel={Ngb},
 	reihe={Analysis},
 	version={2019-03-31},
+	hinweise=nein
 ]{ngbschule}
 
 \author{J. Neugebauer}
@@ -108,19 +109,34 @@
 	\begin{center}
 		\begin{multicols}{2}
 			Lösung zu a) \\
-			\qrcode{x = -1
+			\qrhinweis[x = -1
 				y = -4
 				z = 3
 			
-				L=\{(-1|-4|3)\} }
+				L=\{(-1|-4|3)\} ]{
+				\begin{align*}
+				x &= -1 \\
+				y &= -4 \\
+				z &= 3 \\
+				& \\
+				L&=\left\{(-1|-4|3)\right\}
+				\end{align*}
+			}
 			\columnbreak
 			
 			Lösung zu b) \\
-			\qrcode{Keine Loesung
+			\qrhinweis[
+				Keine Loesung
 				
 				L = \{\}
 				
-				Teilt man die letzte Gleichung durch 8 entsteht ein Widerspruch zur Gleichung 1}
+				Teilt man die letzte Gleichung durch 8 entsteht ein Widerspruch zur Gleichung 1 ]{
+				Keine Lösung.
+				
+				L = \{\}
+				
+				Teilt man die letzte Gleichung durch 8 entsteht ein Widerspruch zur Gleichung 1.
+			}
 		\end{multicols}
 	\end{center}
 	\clearpage
@@ -145,24 +161,45 @@
 	\begin{center}
 		\begin{multicols}{3}
 			Gleichungen\\
-			\qrcode{f(3) = -28
+			\qrhinweis[f(3) = -28
 				f(1) = 0
-				f''(0,5)=0
-				f'(0,5)=1,5 }
+				f''(0,5) = 0
+				f'(0,5) = 1,5 ]{
+				\begin{align*}
+				f(3) &= -28 \\
+				f(1) &= 0 \\
+				f''(0,5) &= 0 \\
+				f'(0,5) &= 1,5
+				\end{align*}
+			}
 			\columnbreak
 			
 			Koeffizientenmatrix\\
-			\qrcode{1     1   1   1    0
+			\qrhinweis[1     1   1   1    0
 				27     9   3   1  -28
 				0,75  1   1   0    1,5
-				3     2   0   0    0 }
+				3     2   0   0    0 ]{
+				\[\kom*{
+					1    & 1  & 1  & 1  &  0\\
+					27   &  9 &  3 &  1 & -28\\
+					0,75 & 1  & 1  & 0  &  1,5\\
+					3    & 2  & 0  & 0  &  0
+				}\]
+			}
 			\columnbreak
 			
 			Lösung\\
-			\qrcode{a = -2
+			\qrhinweis[a = -2
 				b = 3
 				c = 0
-				d = -1 }
+				d = -1 ]{
+				\begin{align*}
+				a &= -2 \\
+				b &= 3 \\
+				c &= 0 \\
+				d &= -1
+				\end{align*}
+			}
 		\end{multicols}
 	\end{center}
 	\clearpage
@@ -172,24 +209,45 @@
 		Beachten sie, dass x\textasciicircum-4 gleichbedeutend ist mit $x^{-4}$.
 		\begin{multicols}{3}
 			Gleichungen\\
-			\qrcode{Das Bild deutet auf Grad 4 hin. Wegen Symmetrie dann:
-			f(x) = ax^4 + bx^2 + c
-			Es lassen sich z.B. diese Punkte ablesen:
-			f(0) = -2
-			f(2) = 5
-			f'(2) = 0}
+			\qrhinweis[Das Bild deutet auf Grad 4 hin. Wegen Symmetrie dann:
+				f(x) = ax^4 + bx^2 + c
+				Es lassen sich z.B. diese Punkte ablesen:
+				f(0) = -2
+				f(2) = 5
+				f'(2) = 0]{
+				Das Bild deutet auf Grad 4 hin. Wegen Symmetrie dann:
+				\[ f(x) = ax^4 + bx^2 + c \]
+				Es lassen sich z.B. diese Punkte ablesen:
+				\begin{align*}
+				f(0) &= -2 \\
+				f(2) &= 5 \\
+				f'(2) &= 0
+				\end{align*}
+			}
 			\columnbreak
 			
 			Koeffizientenmatrix\\
-			\qrcode{ 0    0    1    -2
+			\qrhinweis[ 0    0    1    -2
 				16    4    1     5
-				32    4    0     0 }
+				32    4    0     0 ]{
+				\[ \kom*{
+					 0   & 0   & 1   & -2 \\
+					16   & 4   & 1   &  5 \\
+					32   & 4   & 0   &  0 
+				} \]
+			}
 			\columnbreak
 			
 			Lösung\\
-			\qrcode{a = -7/16
+			\qrhinweis[a = -7/16
 				b = 7/2
-				c = -2  }
+				c = -2  ]{
+				\begin{align*}
+				a &= \frac{-7}{16} \\
+				b &= \frac{7}{2} \\
+				c &= -2
+				\end{align*}
+			}
 		\end{multicols}
 	\end{center}
 \end{document}
