@@ -1,0 +1,224 @@
+\documentclass[11pt, a5paper, landscape, final]{scrartcl}
+
+% put to a5 pages on one a4 sheet
+\usepackage{pgfpages}
+\pgfpagesuselayout{2 on 1}[a4paper]
+
+\usepackage{vorschule}
+\usepackage[
+    typ=ab,
+    fach=Mathematik,
+    lerngruppe={Q1 GK},
+    nummer=20,
+    seitenzahlen=keine,
+%    loesungen=folgend,
+    module={Symbole},
+]{schule}
+
+\usepackage[
+	kuerzel={Ngb},
+	reihe={Analysis III},
+	version={2019-05-19},
+	hinweise=keine
+]{ngbschule}
+
+\author{J. Neugebauer}
+\title{Vermischte Übungen zur Klausur}
+\date{\Heute}
+
+\setzeAufgabentemplate{ngbohne}
+
+\chead{\Titel}
+
+\usepackage{qrcode}
+\qrset{height=4.5cm, nolink, padding}
+
+\begin{document}
+	%% Aufgabe 1
+	\begin{aufgabe}
+		\begin{multicols}{2}
+			\operator{Bestimmen} sie die ersten Ableitungen der Funktionen (ohne Verwendung des GTR).
+			\begin{enumeratea}
+				\item $f_1(x) = 5x^2 + 2e^{4x}$
+				\item $f_2(x) = 8x^4 + 6x^3 - e^{0,2x+3,4}$
+				\item $f_3(x) = 2,5x^4\cdot e^{3x}$
+				\item $f_4(x) = 4x\cdot e^x - cos(2x)$
+			\end{enumeratea}
+		
+			\operator{Bestimmen} sie die eine Stammfunktion der Funktionen (ohne Verwendung des GTR).
+			\begin{enumeratea}
+				\item $f_5(x) = 2e^{2x}$
+				\item $f_6(x) = e^{4x} + 2x^2$
+				\item $f_7(x) = 3e^{5x+9,3}$
+				\item $f_8(x) = cos(x) - e^{4x} + x^6$
+			\end{enumeratea}
+		\end{multicols}
+	\end{aufgabe}
+	\clearpage
+	
+	%% Aufgabe 2
+	\begin{aufgabe}
+		\operator{Bestimmen} sie $k$ (ohne Verwendung des GTR).
+		\begin{multicols}{2}
+			\begin{enumeratea}
+				\item \[ \int_0^1\! ke^x - e\d{x} = 0 \]
+				\item \[ \int_0^1\! e^x - k\d{x} = 1 \]
+				\item \[ \int_{-1}^1\! e^x + kx\d{x} = e \]
+				\item \[ \int_0^k\! e^x \d{x} = e + 1 \]
+			\end{enumeratea}
+		\end{multicols}
+	\end{aufgabe}
+	\clearpage
+	
+	%% Hinweise Aufgabe 1
+	\begin{center}
+		Beachten sie, dass e\textasciicircum 4x gleichbedeutend ist mit $e^{4x}$.
+		\begin{multicols}{2}
+			Ableitungen \\
+			\qrcode{a) f1'(x) = 10x + 8e^4x
+			b) f2'(x) = 32x^3 + 18x^2 - 0,2e^(0,2x+3,4)
+			c) f3'(x) = 10x^3 * e^(3x) + 2,5x^4 * 3e^(3x)
+			d) f4'(x) = x * e^x + 4x * e^x + 2sin(x)
+				Erfordert die Anwendung der Produkt-
+				und Kettenregel! }
+			\columnbreak
+			
+			Stammfunktionen \\
+			\qrcode{a) F5(x) = e^(2x)
+			b) F6(x) = 1/4 e^(4x) + 2/3 x^3
+			c) F7(x) = 3/5 e^(5x+9,3)
+			d) F8(x) = sin(x) - 1/4 e^(4x) + 1/7 x^7}
+		\end{multicols}
+	\end{center}
+	\clearpage
+	
+	%% Hinweise Aufgabe 2
+	\begin{center}
+		Beachten sie, dass x\textasciicircum-3 gleichbedeutend ist mit $x^{-3}$.
+		\begin{multicols}{3}
+			Lösungsansatz \\
+			\qrcode{Wenden sie den Hauptsatz an,
+			um das Integral umzuformen. Bilden sie 
+			dazu die Stammfunktion.}
+			\columnbreak
+			
+			Lösungshinweis \\
+			\qrcode{Die Stammfunktion von e^x ist e^x
+			Potenzen: e^0 = 1, e^1 = e
+			Logarithmus: ln(e^b) = e^ln(b) = b
+			Kehrwert: e^-1 = 1/e}
+			\columnbreak
+		
+			Lösungen \\
+			\qrcode{a) k = e/(e-1)
+			b) k = e-2
+			c) k = 1/e
+			d) k = ln(e+2)}
+		\end{multicols}
+	\end{center}
+	\clearpage
+	
+	%% Aufgabe 3
+	\begin{aufgabe}
+		Das Wachstum einer Wasseralgenart wurde auf einem \SI{20}{\square\meter} großen See gemessen. Es kann durch die Funktion
+		\[ f(t) = 4te^{0,02t} \]
+		beschrieben werden. Wobei $t$ die Zeit in \si{Tagen} darstellt, und $f(t)$ die belegte Wasserfläche in \si{\square\meter}.
+		
+		\begin{teilaufgaben}
+			\teilaufgabe \operator{Berechnen} sie den Funktionswert nach \SI{1,5}{Tagen} und interpretieren wie das Ergebnis im Sachzusammenhang. 
+			\teilaufgabe \operator{Bestimmen} sie die Wachstumsrate der Algen zum Zeitpunkt $t=0$.
+			\teilaufgabe Ungefähr wann haben die Algen die Oberfläche des Teichs vollständig belegt?\\
+			\hinweis{Nutzen sie den GTR!}
+			\teilaufgabe Haben die Algen den Teich vollständig belegt fangen sie mangels Ausbreitungsfläche an, abzusterben. Pro Tag sterben \SI{3}{\%} der Algen ab. \operator{Modellieren} sie die Abnahme mit einer e-Funktion.
+		\end{teilaufgaben}
+	\end{aufgabe}
+	\clearpage
+
+	%% Aufgabe 4
+	\begin{aufgabe}
+		Ein Fußballderby wird an einem Freitagabend vor 80 645 Zuschauern ausgetragen. Das Spiel beginnt um 20:30 Uhr, die EIngägne werden schon um 18:00 Uhr geöffnet.
+		
+		Der Andrang der Fans an den Eingängen des Fußballstadions kann näherungsweise durch die Funktion $f$ mit $f(x) = 40x\cdot e^{-0,02x}$ beschrieben werden. Dabei wird $x$ in Minuten seit der Öffnung der Eingänge um 18:00 Uhr und $f(x)$ in Zuschauer pro Minute gemessen.
+		
+		\begin{teilaufgaben}
+			\teilaufgabe Zeichnen sie den Graphen der Funktion im GTR und \operator{beschreiben} sie den Verlauf mit eigenen Worten im Sachzusammenhang.
+			\teilaufgabe \operator{Bestimmen} sie den Zeitpunkt, an dem der Zuschauerandrang am größten war. Wie viele Zuschauerinnen und Zuschauer kamen zu diesem Zeitpunkt an den Eingängen an?
+			\teilaufgabe Wie viele Personen waren nach diesem Modell um 20:30 Uhr im Stadion?\\
+			\hinweis{Nutzen sie den GTR!}
+		\end{teilaufgaben}
+	\end{aufgabe}
+	\clearpage
+	
+	%% Hinweise Aufgabe 3
+	\begin{center}
+		Beachten sie, dass x\textasciicircum ln(0,96)t gleichbedeutend ist mit $x^{\ln{0,96}t}$.
+		\begin{multicols}{4}
+			Teilaufgabe a)\\
+			\qrcode[height=3cm]{f(1,5) = 6,1827}
+			\columnbreak
+			
+			Teilaufgabe b)\\
+			\qrcode[height=3cm]{f'(t) mit der Produktregel bilden:
+			f'(t) = (4 + 0,08t) * e^0,02x
+		
+			t = 0 einsetzen:
+			f'(0) = 4}
+			\columnbreak
+			
+			Teilaufgabe c)\\
+			\qrcode[height=3cm]{f(t) = 20
+			
+			Probieren im GTR ergibt:
+			t = 4,56}
+			\columnbreak
+			
+			Teilaufgabe d)\\
+			\qrcode[height=3cm]{g(t)
+			= 20 * (1-0,03)^t
+			= 20 * e^ln(0,97)t
+			= 20 * e^-0,0305t}
+			\columnbreak
+		\end{multicols}
+	\end{center}
+	\clearpage
+	
+	%% Hinweise Aufgabe 4
+	\begin{center}
+		Beachten sie, dass x\textasciicircum ln(0,96)t gleichbedeutend ist mit $x^{\ln{0,96}t}$.
+		\begin{multicols}{4}
+			Teilaufgabe a)\\
+			\qrcode[height=3cm]{Am Graphen der Funktion erkennt man:
+			In der ersten halben Stunde nach Oeffnung steigt der Andrang stark an.
+			Der Hoechststand ist etwas nach 50 min.
+			Danach nimmt der Andrang ab.
+			Bei Spielbeginn (x=150) kommen immer noch
+			ca. 300 Zuschauer pro Minute an.}
+			\columnbreak
+			
+			Teilaufgabe b) Ableitung bilden\\
+			\qrcode[height=3cm]{f'(t) mit der Produktregel bilden:
+			f'(t) = 40 * (1 - 0,02x) * e^-0,02x}
+			\columnbreak
+			
+			Teilaufgabe b) Nullstellen\\
+			\qrcode[height=3cm]{f'(t) = 0 kann nur erfuellt 
+			sein, wenn:
+			(1 - 0,02x) = 0
+		
+			Also x = 50
+			
+			Hinreichende Bedingung bestaetigt HP}
+			\columnbreak
+			
+			Teilaufgabe c)\\
+			\qrcode[height=3cm]{Gesucht ist das
+			Integral von 0 bis 150 von f(x) dx
+		
+			Da wir keine Regel kennen, um die Stamm-
+			funktion zu bilden, nutzen wir den GTR.
+			
+			Loesung: ca. 80085 Zuschauer}
+			\columnbreak
+		\end{multicols}
+	\end{center}
+\end{document}
