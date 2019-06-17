@@ -1,0 +1,122 @@
+\documentclass[11pt, a5paper, landscape, final]{scrartcl}
+
+% put to a5 pages on one a4 sheet
+\usepackage{pgfpages}
+\pgfpagesuselayout{2 on 1}[a4paper]
+
+\usepackage{vorschule}
+\usepackage[
+    typ=ab,
+    fach=Mathematik,
+    lerngruppe={Q1 GK},
+    nummer=22,
+    seitenzahlen=keine,
+%    loesungen=folgend,
+    module={Symbole},
+]{schule}
+
+\usepackage[
+	kuerzel={Ngb},
+	reihe={Analysis III},
+	version={2019-06-16},
+	hinweise=keine
+]{ngbschule}
+
+\author{J. Neugebauer}
+\title{e-Funktion im Sachzusammenhang}
+\date{\Heute}
+
+\setzeAufgabentemplate{ngbohne}
+
+\chead{\Titel}
+
+\begin{document}
+	%% Aufgabe 1
+	\begin{aufgabe}
+		Der Querschnitt eines Deiches kann für $-2 \leq x \leq 6$ kann näherungsweise durch den Graph der Funktion $f$ mit $f(x) = 2\cdot (x+2)\cdot e^{-\tfrac{2}{3}x}$ beschrieben werden ($x$ und $f(x)$ in \si{\meter}). Die Deichsohle liegt auf der x-Achse.
+		
+		\begin{enumeratea}
+			\item \operator{Berechnen} sie die Schnittpunkte von $f$ mit den Koordinatenachsen. 
+			\item \operator{Bestimmen} sie die Höhe des Deiches.
+			\item Welches ist die Landseite, welches die Seeseite des Deiches? \operator{Begründen} sie ihre Meinung.
+			\item \operator{Berechnen} sie das Volumen des Deiches auf einer Länge von \SI{100}{\meter}.
+			\item Nach einem Hochwasser soll der Deich an der Wasserseite abgeflacht werden. Der Vorschlag lautet, den Deich ab einem Wendepunkt des Graphen so aufzuschütten, dass der Querschnitt ab dieser Stelle ein konstantes Gefälle von \prozent{30} aufweist.
+			
+			\operator{Bestimmen} sie die Breite der Deichsohle, wenn dieser Vorschlag realisiert wird.
+		\end{enumeratea}
+	\end{aufgabe}
+	\clearpage
+	
+	%% Aufgabe 2
+	\begin{aufgabe}
+		Die Entwicklung einer Stechmückenpopulation in einem Sumpfgebiet kann näherungsweise durch die Funktion $f$ mit $f(t) = -0,0065\cdot e^{0,6t} + 1,3\cdot e^{0,3t}$ beschrieben werden. ($t$ in Tagen und $f(t)$ in Millionen Stechmücken).
+		
+		Zum Zeitpunkt $t = 0$ wurde damit begonnen, einen biologischen Wirkstoff zur Bekämpfung der Mückenlarven einzusetzen.
+		\begin{enumeratea}
+			\item \operator{Beschreiben} sie anhand des Funktionsgraphen den Verlauf der Mückenbekämpfung.
+			
+			\operator{Berechnen} sie den y-Achsenabschnitt, den Hochpunkt und die Nullstelle der Funktion und \operator{erklären} sie deren Bedeutung im Sachzusammenhang.
+			
+			\item Zu welchem Zeitpunk nach Einsatz des Wirkstoffs wächst die Mückenpopulation am stärksten?
+			
+			\item Die Intensität des Wirkstoffes kann variiert werden. In der vorliegenden Modellfunktion wurde die Intensität $0,6$ gewählt. Im Allgemeinen kann die Entwicklung abhängig von der Intensität $a$ beschrieben werden durch $f_a(t) = -0,0065\cdot e^{a\cdot t} + 1,3\cdot e^{0,3t}$.
+			
+			\operator{Bestimmen} sie die Intensität so, dass die Mückenpopulation schon nach \SI{12}{Stunden} ausgerottet ist.
+		\end{enumeratea}
+	\end{aufgabe}
+	\clearpage
+	
+	%% Aufgabe 3
+	\begin{aufgabe}
+		In einem Produktionsprozess werden Flüssigkeiten erhitzt, eine Zeit lang bei konstanter Temperatur gehalten und anschließend wieder abgekühlt.
+		
+		Der Temperaturverlauf kann \emph{während des Erhitzens} und \emph{während des Abkühlens} mithilfe der in \R\ definierten Funktion $f$ mit $f(t) = 23 + 20\cdot t\cdot e^{-\tfrac{1}{10}t}$ modellhaft beschrieben werden. Dabei ist $t$ die vergangene Zeit in Minuten und $f(t)$ die Temperatur in \si{^\circ C}.
+		
+		\begin{enumeratea}
+			\item \operator{Geben Sie an}, welche Temperaturen die Funktion $f$ für den Beginn des Vorgangs und $für$ den Zeitpunkt zwei Minuten nach diesem Beginn liefert.
+			\item \operator{Zeigen sie rechnerisch}, dass der Graph von $f$ genau einen Extrempunkt besitzt.
+			\item \operator{Beschreiben}  Sie den Verlauf des Graphen von $f$ für große Werte von $t$ und inter-
+			pretieren Sie diesen Verlauf im Sachzusammenhang.
+			\item In dem Bereich, in dem $f$ über \SI{77}{^\circ C} verläuft, wird die Flüssigkeit in Wirklichkeit konstant bei dieser Temperatur gehalten.
+			
+			\operator{Bestimmen} Sie diesen Bereich und skizzieren sie den wirklichen Verlauf der Temperatur.
+		\end{enumeratea}
+	\end{aufgabe}
+	\clearpage
+	
+	%% Aufgabe 4
+	\begin{aufgabe}
+		In einem Entwicklungslabor wird der Ladevorgang bei Akkus an verschiedenen Ladegeräten getestet. Der zeitliche Verlauf der Ladung bei Verwendung eines bestimmten Ladegerätes wird durch die Funktion $Q$ mit $Q(t) = 1000(1-e^{-0,4t})$ modelliert ($t$ in Stunden, $Q(t)$ in \si{mAh}).
+		
+		\begin{smallenumerate}
+			\item Der Verlauf des Graphen legt die Vermutung nahe, dass sich die Funktion $Q$ für große Werte von $t$ dem Wert \num{1000} annähert und ihn nicht überschreitet. \operator{Entscheiden} Sie \operator{begründet}, ob diese Vermutung wahr ist und \operator{erklären} sie die Bedeutung der oberen Grenze \SI{1000}{mAh} im Sachzusammenhang.
+			
+			\item Am Ladegerät wird der Ladezustand des Akkus mit Balken angezeigt. Bei einem Balken beträgt die Ladung weniger als \prozent{30}. Bei zwei Balken zwischen \prozent{30} und \prozent{60}. \operator{Bestimmen} Sie nach wie vielen Minuten der erst Balken angezeigt wird.
+			
+			\item Die momentane Änderungsrate der Ladung $Q$ wird Ladestrom $I$ genannt (Einheit: \si{mA}). \operator{Bestimmen} sie eine Funktionsgleichung für $I$.
+			
+			\item \operator{Begründen} Sie, dass der Ladestrom $I$ zum Startzeitpunkt des Ladevorgangs am größten ist. Und prüfen sie, ob der Ladestrom die Schwelle \SI{500}{mA} überschreitet.
+			
+			\item Der Ladevorgang wird abgeschaltet, wenn der Ladestrom $I$ den Wert \num{10} erreicht. \operator{Bestimmen} Sie wann der Ladevorgang nach dieser Bedingung abgeschaltet wird.
+		\end{smallenumerate}
+	\end{aufgabe}
+	\clearpage
+	
+	%% Aufgabe 5
+	\begin{aufgabe}
+		In einem Entwicklungslabor wird der Ladevorgang bei Akkus an verschiedenen Ladegeräten getestet. Der zeitliche Verlauf der Ladung bei Verwendung eines bestimmten Ladegerätes wird durch die Funktion $Q$ modelliert ($t$ in Stunden, $Q(t)$ in \si{mAh}). Die momentane Änderungsrate der Ladung $Q$ wird Ladestrom $I$ genannt (Einheit: \si{mA}).
+		
+		Für einen Akku mit der Kapazität \SI{1000}{mAh} wurde im Test der Ladestrom durch die Funktion $I(t) = (100t + 50)\cdot e^{-0,4t+0,1}$ modelliert. Nach 12 Stunden wird der Ladevorgang abgebrochen.
+		
+		\begin{enumeratea}
+			\item \operator{Zeigen Sie rechnerisch}, dass die Funktion $I$ genau ein lokales Maximum besitzt.
+			
+			\item \operator{Begründen} sie, dass der Ladestrom den Wert \SI{150}{mA} nie überschreitet.
+			
+			\item \operator{Begründen} sie, dass die Funktion $Q$ für $t>0$ monoton steigt.
+			
+			\item Bestimmen sie die Ladung des Akkus an diesem Ladegerät, wenn der Ladevorgang nach 12 Stunden abgebrochen wird.
+		\end{enumeratea}
+	\end{aufgabe}
+	\clearpage
+\end{document}
