@@ -1,0 +1,87 @@
+\documentclass[10pt, a4paper, landscape, twocolumn]{scrartcl}
+
+\usepackage{vorschule}
+\usepackage[
+    typ=ab,
+    fach=Mathematik,
+    lerngruppe={Q1 GK},
+    nummer=4,
+    module={Symbole,Lizenzen},
+    seitenzahlen=keine,
+    farbig,
+    lizenz=cc-by-nc-sa-4,
+]{schule}
+
+\usepackage[
+	kuerzel={Ngb},
+	reihe={Analysis},
+	version={2019-06-17},
+]{ngbschule}
+
+\author{J. Neugebauer}
+\title{Die $e$-Funktion}
+\date{\Heute}
+
+\renewcommand{\arraystretch}{1.6}
+
+\begin{document}
+    \section*{Exponentialfunktionen}
+    \[ f(x) = a\cdot b^x = a\cdot e^{\ln{b}x} \]
+    \begin{multicols}{2}
+    \begin{description}
+        \item[$a$] Startwert
+        \item[$e$] $\approx 2,7183$
+        \item[$b>1$] Wachstumsfaktor ($\ln{b}>0$)
+        \item[$0<b<1$] Abnahmefaktor ($\ln{b}<0$)
+    \end{description}
+    \end{multicols}
+    
+    \section*{Eigenschaften der $e$-Funktion}
+    Für $f(x)=e^{k\cdot x},\ k \geq 1$ gilt:
+    \begin{multicols}{2}
+        \begin{tikzpicture}[scale=0.4]
+            \geoInit[xmin=-5,xmax=5,ymin=-5,ymax=5]
+            \tkzDrawXY[label={},]
+            %\geoGitter
+            \tkzFct[]{2.71828 ** \x}
+        \end{tikzpicture}
+        
+        \columnbreak
+            
+        \begin{itemize}
+            \item $f(0)=1$
+            \item $f(x)>0$ für alle $x\in \R$
+            \item $f$ wächst steng monoton
+            \item $f(x) \longrightarrow \infty$ für $x \longrightarrow \infty$
+            \item $f(x) \longrightarrow 0$ für $x \longrightarrow -\infty$
+        \end{itemize}
+    \end{multicols}
+    
+     Für $f(x)=e^{k\cdot x},\ k \leq -1$ gilt:
+    \begin{multicols}{2}
+        \begin{tikzpicture}[scale=0.4]
+            \geoInit[xmin=-5,xmax=5,ymin=-5,ymax=5]
+            \tkzDrawXY[label={},]
+            %\geoGitter
+            \tkzFct[]{2.71828 ** (-1 * \x)}
+        \end{tikzpicture}
+        
+        \columnbreak
+        
+        \begin{itemize}
+            \item $f(0)=1$
+            \item $f(x)>0$ für alle $x\in \R$
+            \item $f$ fällt steng monoton
+            \item $f(x) \longrightarrow 0$ für $x \longrightarrow \infty$
+            \item $f(x) \longrightarrow -\infty$ für $ex \longrightarrow -\infty$
+        \end{itemize}
+    \end{multicols}
+    
+    \section*{Kombinationen der $e$-Funktion}
+    \begin{tabular}{lc}
+        $f(x) = x^k\cdot e^x$ & \\
+        $f(x) = k\cdot e^x$ & \\
+        $f(x) = k\cdot e^x + k\cdot e^{-x}$ & \\
+        $f(x) = e^{k\cdot x} - e^{k\cdot -x}$ & \\
+    \end{tabular}
+\end{document}
