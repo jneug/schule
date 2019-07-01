@@ -1,8 +1,8 @@
 \documentclass[11pt, a5paper, landscape, final]{scrartcl}
 
 % put to a5 pages on one a4 sheet
-\usepackage{pgfpages}
-\pgfpagesuselayout{2 on 1}[a4paper]
+%\usepackage{pgfpages}
+%\pgfpagesuselayout{2 on 1}[a4paper]
 
 \usepackage{vorschule}
 \usepackage[
@@ -11,7 +11,8 @@
     lerngruppe={Q1 GK},
     nummer=22,
     seitenzahlen=keine,
-%    loesungen=folgend,
+    %loesungen=keine,
+    loesungen=folgend,
     module={Symbole},
 ]{schule}
 
@@ -37,15 +38,40 @@
 		
 		\begin{enumeratea}
 			\item \operator{Berechnen} sie die Schnittpunkte von $f$ mit den Koordinatenachsen. 
-			\item \operator{Bestimmen} sie die Höhe des Deiches.
+			\item \operator{Berechnen} sie die Höhe des Deiches.
 			\item Welches ist die Landseite, welches die Seeseite des Deiches? \operator{Begründen} sie ihre Meinung.
-			\item \operator{Berechnen} sie das Volumen des Deiches auf einer Länge von \SI{100}{\meter}.
+			\item \operator{Bestimmen} sie das Volumen des Deiches auf einer Länge von \SI{100}{\meter}.
 			\item Nach einem Hochwasser soll der Deich an der Wasserseite abgeflacht werden. Der Vorschlag lautet, den Deich ab einem Wendepunkt des Graphen so aufzuschütten, dass der Querschnitt ab dieser Stelle ein konstantes Gefälle von \prozent{30} aufweist.
 			
 			\operator{Bestimmen} sie die Breite der Deichsohle, wenn dieser Vorschlag realisiert wird.
 		\end{enumeratea}
 	\end{aufgabe}
 	\clearpage
+	
+	\begin{loesung}
+		\begin{enumeratea}
+			\item y-Achsenabschnitt: $f(0) = 2\cdot (0+2)\cdot e^{-\tfrac{2}{3}\cdot 0} = 4$
+			
+			Nullstellen: $f(x) = 0$. Da $e^x>0$, für alle $x$, ist $2\cdot (x+2) = 0$ zu bestimmen. Dann ergibt sich $x = -2$.
+			
+			\item Extremstellen von $f(x)$ bestimmen und auf Hochpunkt im Intervall $\interval{-2}{6}$ prüfen.  Randextrema auf größere Werte prüfen (Maximum bei $\pkt(-0,5|4,1868)$).
+			
+			\item Graph im GTR plotten und sinnvolle Begründung notieren.
+			
+			\item Integral im Intervall $\interval{-2}{6}$ bestimmen (GTR) und mit 100 multiplizieren:
+			
+			\[ \int_{-2}^6\!f(x)\d{x}\cdot 100 = 1654,95 \]
+			
+			\item\begin{enumerate}
+				\item Wendestelle bestimmen ($f''(x) = 0 \Leftrightarrow x = 1)$.
+				\item Geradengleichung $g(x) = -0,3x + b$ gesucht.
+				\item $b$ bestimmen ($g(1) = -0,3x + b = 3,0805\Leftrightarrow b = 3,3805$).
+				\item Nullstelle von $g(x)$ bestimmen ($g(x) = 0\Leftrightarrow x = 11,2683$).
+				\item Breite der Deichsohle berechnen ($11,2683 + 2 = 13,2683$).
+			\end{enumerate}
+		\end{enumeratea}
+		\clearpage
+	\end{loesung}
 	
 	%% Aufgabe 2
 	\begin{aufgabe}
