@@ -1,0 +1,79 @@
+\documentclass[10pt, a4paper]{scrartcl}
+
+\usepackage{qrcode}
+
+\usepackage{vorschule}
+\usepackage[
+    typ=ab,
+    fach=Informatik,
+    lerngruppe={9Diff},
+    nummer=2,
+    module={Symbole,Lizenzen},
+    seitenzahlen=keine,
+    farbig,
+    lizenz=cc-by-nc-sa-4,
+]{schule}
+
+\usepackage[
+	kuerzel=Ngb,
+	reihe={Der KnowHowPC},
+	version={2019-10-7},
+]{ngbschule}
+
+\author{J. Neugebauer}
+\title{Ablaufdiagramme}
+\date{\Heute}
+
+\setzeAufgabentemplate{ngbnormal}
+
+\begin{document}
+
+\ReiheTitel
+
+\begin{aufgabe}[symbol=\Large\symPartner]
+	Betrachte das Diagramm unten und versuch es zu lesen. Welche Elemente gibt es und was bedeuten sie?
+	
+	\begin{center}
+	\begin{tikzpicture}[pap]
+		\node[startstop] (s1) {Start};
+		\node[verzweigung, below=of s1] (v1) {\texttt{isz 2}};
+		\node[aktion, below=of v1] (a1) {\texttt{dec 2}};
+		\node[verzweigung, right=of v1] (v2) {\texttt{isz 1}};
+		\node[aktion, below=of v2] (a2) {\texttt{dec 1}};
+		\node[aktion, below=of a2] (a3) {\texttt{inc 2}};
+		\node[aktion, below=of a3] (a4) {\texttt{inc 2}};
+		\node[startstop, right=of v2] (e1) {\texttt{stp}};
+		
+		\draw[linie] (s1)--(v1);
+		\draw[linie] (v1)--(a1) node[near start, right] {nein};
+		\draw[linie] (a1.west) -| ($(v1.west) + (-.5,0)$) -- (v1.west);
+		\draw[linie] (v1)--(v2) node[near start, above] {ja};
+		\draw[linie] (v2)--(a2) node[near start, right] {nein};
+		\draw[linie] (v2)--(e1) node[near start, above] {ja};
+		\draw[linie] (v2)--(a2);
+		\draw[linie] (a2)--(a3);
+		\draw[linie] (a3)--(a4);
+		\draw[linie] (a4.west) -| ($(v2.west) + (-.5,0)$);
+	\end{tikzpicture}
+	\end{center}
+\end{aufgabe}
+
+\begin{aufgabe}[symbol=\Large\symLaptop]
+	Baue das Programm im \emph{KnowHowPC} nach und speichere es unter dem Namen \ordner{Drittes Programm.kph}.
+	Analysiere es mit dem \emph{Einzelschritt-Modus} und beschreibe seine Funktionsweise.
+\end{aufgabe}
+
+\begin{aufgabe}[symbol=\Large\symEinzel]
+	\begin{minipage}{0.8\textwidth}
+	Erstelle ein \emph{Ablaufdiagramm} zum Ersten Programm vom letzten Arbeitsblatt.
+	
+	Hier findest du Hilfe: \url{https://link.ngb.schule/paps}
+	\end{minipage}\hfill
+	\begin{minipage}{0.19\textwidth}
+		\begin{center}
+			\qrcode{https://link.ngb.schule/paps}
+		\end{center}
+	\end{minipage}
+\end{aufgabe}
+
+\end{document}

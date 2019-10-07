@@ -1,0 +1,127 @@
+\documentclass[10pt, a4paper]{scrartcl}
+
+\usepackage{vorschule}
+\usepackage[
+    typ=ab,
+    fach=Informatik,
+    lerngruppe={9Diff},
+    nummer=4,
+    module={Symbole,Lizenzen},
+    seitenzahlen=keine,
+    farbig,
+    lizenz=cc-by-nc-sa-4,
+]{schule}
+
+\usepackage[
+	kuerzel=Ngb,
+	reihe={Der KnowHowPC},
+	version={2019-10-07},
+]{ngbschule}
+
+\author{J. Neugebauer}
+\title{Multiplikation}
+\date{\Heute}
+
+\setzeAufgabentemplate{ngbnormal}
+
+%\usepackage{qrcode}
+
+
+
+\begin{document}
+
+\ReiheTitel
+
+\begin{aufgabe}
+	Erstelle im \emph{KnowHowPC} ein Programm, das folgendes leistet:
+	
+	\begin{itemize}
+		\item Es berechnet R1 $:=$ R1 $\cdot$ R2.
+		\item Hilfsregister werden zunächst gelöscht.
+		\item Wenn das Programm endet, sind die Hilfsregister und R2 wieder leer.
+	\end{itemize}
+	
+	\subsubsection*{Hilfestellung: Programm-Puzzle}
+	Zur Hilfe kannst du diese Liste an Befehlen nutzen. Bringe sie in die richtige Reihenfolge, um die Aufgabe zu lösen.
+	\begin{multicols}{4}\setlength{\parskip}{2ex}\ttfamily
+		isz 3
+		
+		jmp 4
+		
+		jmp 7
+		
+		dec 3
+		
+		jmp 10
+		
+		jmp 7
+		
+		jmp 24
+		
+		jmp 31
+		
+		jmp 41
+		
+		dec 3
+		
+		jmp 13
+		
+		inc 2
+		
+		jmp 13
+		
+		jmp 1
+		
+		isz 4
+		
+		jmp 19
+		
+		inc 4
+		
+		isz 3
+		
+		inc 1
+		
+		jmp 34
+		
+		isz 2
+		
+		isz 1
+		
+		stp
+		
+		isz 4
+		
+		dec 4
+		
+		jmp 24
+		
+		jmp 16
+		
+		dec 2
+		
+		jmp 41
+		
+		jmp 44
+		
+		dec 2
+		
+		inc 3
+		
+		jmp 34
+		
+		jmp 16
+		
+		jmp 27
+		
+		dec 1
+		
+		dec 4
+		
+		jmp 37
+		
+		isz 2
+	\end{multicols}
+\end{aufgabe}
+
+\end{document}
