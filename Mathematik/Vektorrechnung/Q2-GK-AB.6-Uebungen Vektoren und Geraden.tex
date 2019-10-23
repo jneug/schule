@@ -1,0 +1,211 @@
+\documentclass[11pt, a5paper, landscape]{scrartcl}
+
+\usepackage{qrcode}
+\qrset{height=4.5cm, nolink, padding}
+
+% put to a5 pages on one a4 sheet
+\usepackage{pgfpages}
+\pgfpagesuselayout{2 on 1}[a4paper]
+
+\usepackage{vorschule}
+\usepackage[
+    typ=ab,
+    fach=Mathematik,
+    lerngruppe={Q1 GK},
+    nummer=6,
+    seitenzahlen=keine,
+%    loesungen=folgend,
+    module={Symbole}
+]{schule}
+
+\usepackage[
+	kuerzel={Ngb},
+	reihe={Analytische Geometrie},
+	version={2019-10-20},
+	hinweise=keine
+]{ngbschule}
+
+\author{J. Neugebauer}
+\title{Vermischte Übungen zur Klausur}
+\date{\Heute}
+
+\setzeAufgabentemplate{ngbohne}
+
+\chead{\Titel}
+
+\begin{document}
+	%% Aufgabe 1
+	\begin{aufgabe}
+		\begin{enumeratea}
+			\item \operator{Zeichnen} sie die ein räumliches Koordinatensystem von \num{-8} bis \num{8} auf jeder Achse ($\SI{1}{LE} = \SI{1}{\centi\meter}$).
+			
+			\item \operator{Zeichnen} sie ein Rechteck mit der Breite \SI{6}{LE} und Höhe \SI{4}{LE} in die $x_2x_3$-Ebene. Die untere linke Ecke soll im Koordinatenursprung anliegen. \operator{Bestimmen} sie die \emph{Ortsvektoren} der vier Eckpunkte $A, B, C$ und $D$.
+			
+			\item Erweitern sie das Rechteck in Richtung der $x_1$-Achse zu einem Quader mit der Tiefe \SI{5}{LE}. \operator{Zeichnen} sie den Quader und bestimmen sie die Koordinaten der neuen Eckpunkte.
+			
+			\item \operator{Berechnen} sie die Länge der Diagonalen der Seiten des Quaders, die in den Koordinatenebenen liegen.
+			
+			\item \operator{Beschreiben} sie den vom Ursprung am weitesten entfernten Eckpunkt auf drei unterschiedliche Weisen (z.B. durch Addition von anderen Vektoren).
+			
+			\item \operator{Berechnen} sie die neuen Koordinaten des Quaders, nachdem er um den \emph{Vektor} $\vec{v} = \begin{pmatrix} 6,3 \\ -4,2 \\ -5,6 \end{pmatrix}$ verschoben wurde. 
+		\end{enumeratea}
+	\end{aufgabe}
+	\clearpage
+	
+	%% Aufgabe 2
+	\begin{aufgabe}
+		Rechnen sie möglichst viele der Aufgaben ohne Einsatz des GTR.
+		\begin{multicols}{2}
+%			\operator{Berechnen} sie den Ergebnisvektor.
+%			\begin{enumeratea}
+%				\item $\begin{pmatrix} 5 \\ -17 \\ 31 \end{pmatrix} + 3\cdot \begin{pmatrix} 1 \\ 0,5 \\ -2 \end{pmatrix}$
+%
+%				\item $4,75\cdot \begin{pmatrix} -6,8 \\ 15,2 \\ 2 \end{pmatrix} - 3,25\cdot \begin{pmatrix} 5 \\ 7 \\ -1 \end{pmatrix}$
+%				
+%				\item $\begin{pmatrix} 1,5 \\ 0 \\ -0,5 \end{pmatrix} + k\cdot \begin{pmatrix} 0,5 \\ 0 \\ 2 \end{pmatrix}$\\ für $k = 4$ und $k = 12$
+%			\end{enumeratea}
+			
+			\operator{Bestimmen} sie, ob der Punkt $P$ auf der Geraden $g$ liegt.
+			\begin{enumeratea}
+				\item $g:\vec{x} = \begin{pmatrix} 3 \\ 5 \\ 2 \end{pmatrix} + r\cdot \begin{pmatrix} 2 \\ 2 \\ 3 \end{pmatrix}\qquad P\pkt(1|3|-1)$
+				
+				\item $g:\vec{x} = \begin{pmatrix} 2 \\ 3 \\ 1 \end{pmatrix} + q\cdot \begin{pmatrix} 2 \\ 1 \\ 2 \end{pmatrix}\qquad P\pkt(1|2,5|3)$
+				
+				\item $g:\vec{x} = \begin{pmatrix} -2 \\ 4 \\ -3 \end{pmatrix} + s\cdot \begin{pmatrix} -2 \\ 3 \\ 1 \end{pmatrix}\quad P\pkt(4|-5|-6)$
+			\end{enumeratea}
+			
+			\vspace{2cm}
+			\operator{Bestimmen} sie, ob die Geraden $g$ und $h$ einen Schnittpunkt besitzen.
+			\begin{enumeratea}
+				\item $g:\vec{x} = \begin{pmatrix} -2 \\ 2 \\ -5 \end{pmatrix} + r\cdot \begin{pmatrix} 2 \\ -3 \\ 1 \end{pmatrix}$\\ $h:\vec{x} = \begin{pmatrix} -3 \\ 2 \\ -16 \end{pmatrix} + s\cdot \begin{pmatrix} -1 \\ 2 \\ 3 \end{pmatrix}$
+				
+				\item $g:\vec{x} = \begin{pmatrix} 3 \\ -4 \\ 1 \end{pmatrix} + r\cdot \begin{pmatrix} 5 \\ 2 \\ -4 \end{pmatrix}$\\ $h:\vec{x} = \begin{pmatrix} 3 \\ -4 \\ 1 \end{pmatrix} + s\cdot \begin{pmatrix} -2 \\ 6 \\ -1 \end{pmatrix}$
+			\end{enumeratea}
+		\end{multicols}
+	\end{aufgabe}
+	\clearpage
+	
+	%% Hinweise Aufgabe 1
+	\hspace{1em}
+	\clearpage
+	
+	%% Hinweise Aufgabe 2
+	\begin{center}
+		\begin{multicols}{2}
+			Punktprobe \\
+			\qrcode{Ortsvektor mit Gerade gleichsetzen:
+			
+			P = g
+			
+			Gleichungssystem aufstellen und nach der Unbekannten aufloesen.
+			Gibt es eine Loesung, dann liegt der Punkt auf der Geraden.}
+			\columnbreak
+			
+			Schnittpunkt \\
+			\qrcode{Die Geraden gleichsetzen:
+			
+			g = h
+			
+			Gleichungssystem aufstellen und nach den beiden Unbekannten aufloesen.
+			Gibt es genau eine Loesung, dann liegt der Punkt auf der Geraden.}
+		\end{multicols}
+	\end{center}
+	\clearpage
+	
+	%% Aufgabe 3
+	\begin{aufgabe}
+		Bezogen auf ein lokales Koordinatensystem mit der Einheit \si{\meter} kann die Flugroute eines Sportflugzeugs nach dem Start näherungsweise durch die Gerade
+		\[ g: \vec{x} = \begin{pmatrix} 420 \\ -630 \\ 120 \end{pmatrix} + r\cdot \begin{pmatrix} 40 \\ 50 \\ 11 \end{pmatrix}\]
+		angegeben werden.
+		
+		In der Nähe des Flugplatzes steht ein Windrad. Der Fußpunkt des Windrads befindet sich im Punkt P\pkt(1380|570|0), der höchste Punkt der Umlaufbahn der Rotorblätter liegt \SI{170}{\meter} über dem Boden.
+		
+		\begin{teilaufgaben}
+			\teilaufgabe \operator{Prüfen} sie, ob die Spitze des Windrads auf der Flugbahn des Sportflugzeugs liegt.
+		 
+			\teilaufgabe \operator{Überprüfen} sie, ob das Flugzeug bei gleichbleibendem Kurs genau über das Windrad hinweg fliegt. Wenn ja, \operator{bestimmen} sie den Abstand, in der es das Windrad überfliegt.
+		\end{teilaufgaben}
+	\end{aufgabe}
+	\clearpage
+
+	%% Aufgabe 4
+	\begin{aufgabe}\small
+		Von einem Flugplatz, der in der $x_1x_2$-Ebene liegt, hebt ein Sportflugzeug im Punkt A\pkt(4|1|0) von der Startbahn ab. Es fliegt in den ersten drei Minuten auf einem Kurs, der annähernd durch die Gerade $g: \vec{x} = \begin{pmatrix} 4 \\ 1 \\ 0 \end{pmatrix} + r\cdot \begin{pmatrix} 18 \\ 14 \\ 3 \end{pmatrix}$ ($r$ in Minuten ab dem Abheben), beschrieben werden kann. Die Längeneinheit beträgt \SI{100}{\meter}. Nach drei Minuten ändert der Pilot seinen Kurs und fliegt in den nächsten 20 Minuten ohne weitere Kursänderung pro Minute um den Vektor $\vec{u} = \begin{pmatrix} 22 \\ 19 \\ 1,2 \end{pmatrix}$ weiter.
+		
+		\begin{teilaufgaben}
+			\teilaufgabe \operator{Berechnen} sie: Mit welcher Geschwindigkeit hebt die Maschine vom Boden ab? In welchem Punkt befindet sich das Flugzeug 10 Minuten nach dem Abheben?
+			
+			\teilaufgabe Ein zweites Flugzeug befindet sich in dem Moment, in dem as Sportflugzeug in $A$ abhebt, im Punkt B\pkt(220|-180|32). Es bewegt sich über längere Zeit pro Minute um den Vektor $\vec{v} = \begin{pmatrix} 14 \\ 25 \\ 0 \end{pmatrix}$ weiter. \operator{Bestimmen} sie, wie weit die beiden Flugzeuge 10 Minuten nach dem Abheben des Sportflugzeuges voneinander entfernt sind.
+			
+			\teilaufgabe \operator{Untersuchen} sie, ob es zu einer Kollision kommen könnte, wenn die beiden Flugzeuge ihren Kurs beibehalten.
+		\end{teilaufgaben}
+	\end{aufgabe}
+	\clearpage
+	
+	%% Hinweise Aufgabe 3
+	\begin{center}
+		\begin{multicols}{3}
+			Teilaufgabe a)\\
+			\qrcode{Spitze des Windrads: S(1380|570|170)
+			
+			Punktprobe durchfuehren: OS mit g gleichsetzen.}
+			\columnbreak
+			
+			Teilaufgabe b) Ansatz\\
+			\qrcode{Geradengleichung fuer das Windrad aufstellen.
+			
+			Flugbahn und Gerade auf Schnittpunkte pruefen (gleich setzen).
+			
+			Gibt es einen Schnittpunkt, fliegt das Flugzeug ueber das Rad.
+			
+			Abstand: Laenge des Differenzvektors zwischen Schnittpunkt
+			und Spitze des Windrads.}
+			\columnbreak
+			
+			Teilaufgabe b) Lösungen\\
+			\qrcode{Das Flugzeug ueberfliegt das windrad in einer Hoehe von 384m.
+			Der Abstand zur Spitze betraegt dann 214m.}
+		\end{multicols}
+	\end{center}
+	\clearpage
+	
+	%% Hinweise Aufgabe 4
+	\begin{center}
+		\begin{multicols}{4}
+			Teilaufgabe a)\\
+			\qrcode[height=3cm]{Die Geschwindigkeit ist gleich
+			der Laenge des Richtungsvektors der Flugbahn.
+			
+			Achten sie bei der Bestimmung auf die korrekten Einheiten.
+			
+			Fuer die Position nach 10 Minuten bestimmen sie eine neue
+			Gerade mit der Position nach 3 Minuten als Stuetzvektor
+			und dem neuen Richtungsvektor.}
+			\columnbreak
+			
+			Teilaufgabe b)\\
+			\qrcode[height=3cm]{Flugbahn des zweiten Flugzeugs:
+			Position + r * Richtung
+			
+			Abstand:
+			Position nach 10 Minuten berechnen, Differenzvektor zur
+			Position des anderen Flugzeuges bilden, Laenge berechnen}
+			\columnbreak
+			
+			Teilaufgabe c)\\
+			\qrcode[height=3cm]{Flugbahnen (Geraden) gleichsetzen und pruefen,
+			ob es eine Loesung (einen Schnittpunkt) gibt.}
+			\columnbreak
+			
+			Lösungen\\
+			\qrcode[height=3cm]{a) 2300 m/min = 138 km/h
+			(212|176|17,4)
+			2909 m/min = 174,5 km/h
+			
+			b) Pos zweites Flugzeug: (360|70|32)
+			Abstand: ca. 18260 m
+			
+			c) Es gibt keinen Schnittpunkt, die Flugbahnen kreuzen sich nicht.}
+		\end{multicols}
+	\end{center}
+\end{document}
