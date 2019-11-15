@@ -84,9 +84,9 @@
 \def\clrLsg{\color{orange}}
 \def\tclrLsg#1{\textcolor{orange}{#1}}
 
-\usepackage{pgfmorepages}
-\pgfmorepagesloadextralayouts
-\pgfpagesuselayout{4 on 2, odd then even}[a4paper]
+%\usepackage{pgfmorepages}
+%\pgfmorepagesloadextralayouts
+%\pgfpagesuselayout{4 on 2, odd then even}[a4paper]
 
 \begin{document}
 	\begin{hilfekarte}{Bruchzahlen}{bruchzahlen}
@@ -127,9 +127,9 @@
 			
 			\begin{center}
 				\begin{tikzpicture}[scale=.5,baseline=3mm]
-				\tikzAnteile*{2}{5}{6}{7}{12}
+				\tikzAnteile[5,2]{7}{6}{12}
 				\end{tikzpicture} = \begin{tikzpicture}[scale=.5,baseline=3mm]
-				\tikzAnteile{2}{5}{1}{7}{2}
+				\tikzAnteile[5,2]{7}{1}{2}
 				\end{tikzpicture}
 			\end{center}
 		\end{multicols}
@@ -142,9 +142,9 @@
 			
 			\begin{center}
 				\begin{tikzpicture}[scale=.5,baseline=3mm]
-				\tikzAnteile*{2}{5}{2}{4}{3}
+				\tikzAnteile[5,2]{4}{2}{3}
 				\end{tikzpicture} = \begin{tikzpicture}[scale=.5,baseline=3mm]
-				\tikzAnteile*{2}{5}{8}{4}{12}
+				\tikzAnteile[5,2]{4}{8}{12}
 				\end{tikzpicture}
 			\end{center}
 		\end{multicols}
@@ -157,11 +157,11 @@
 			
 			\begin{center}
 				\begin{tikzpicture}[scale=.5,baseline=3mm]
-				\tikzAnteile{2}{3}{2}{3}{1}
+				\tikzAnteile{3}{2}{1}
 				\end{tikzpicture} + \begin{tikzpicture}[scale=.5,baseline=3mm]
-				\tikzAnteile{2}{3}{2}{3}{4}
+				\tikzAnteile{3}{2}{4}
 				\end{tikzpicture} = \begin{tikzpicture}[scale=.5,baseline=3mm]
-				\tikzAnteile{2}{3}{2}{3}{5}
+				\tikzAnteile{3}{2}{5}
 				\end{tikzpicture}
 			\end{center}
 		\end{multicols}
@@ -172,16 +172,11 @@
 		\[ \frac{6}{12} + \frac{3}{8} = \frac{12}{24} + \frac{9}{24} = \frac{21}{24} \]
 		
 		\begin{center}
-			\begin{tikzpicture}[scale=.5,baseline=6mm]
-			\tikzAnteile{3}{4}{3}{4}{6}
-			\end{tikzpicture} + \begin{tikzpicture}[scale=.5,baseline=6mm]
-			\tikzAnteile*{3}{4}{2}{4}{3}
-			\end{tikzpicture} = \begin{tikzpicture}[scale=.5,baseline=6mm]
-			\tikzAnteile{3}{4}{3}{8}{12}
-			\end{tikzpicture} +  \begin{tikzpicture}[scale=.5,baseline=6mm]
-			\tikzAnteile*{3}{4}{3}{8}{9}
-			\end{tikzpicture} = \tikz[scale=.5,baseline=6mm]{%
-			\tikzAnteile*{3}{4}{3}{8}{21}}
+			 \tikz[scale=.5,baseline=6mm]{\tikzAnteile[4,3]{4}{3}{6}} +
+			\tikz[scale=.5,baseline=6mm]{\tikzAnteile*[4,3]{4}{2}{3}} = 
+			\tikz[scale=.5,baseline=6mm]{\tikzAnteile[4,3]{6}{4}{12}} + 
+			\tikz[scale=.5,baseline=6mm]{\tikzAnteile[4,3]{6}{4}{0}\tikzAnteile[2,2.25]{3}{3}{9}} = 
+			\tikz[scale=.5,baseline=6mm]{\tikzAnteile[4,3]{6}{4}{12}\tikzAnteile(2,0)[2,2.25]{3}{3}{9}}
 		\end{center}
 		
 		Die Subtraktion geht genauso.
@@ -967,6 +962,31 @@
 		\end{enumeratea}
 		\infotext{$\tfrac{3}{20}, \tfrac{19}{20}, \tfrac{1}{20}, \tfrac{1}{20}$, \EUR{88}, \EUR{900}, $\tfrac{3}{50}$}
 	\end{karte2}
+	
+	\leereKarte
+	
+	\begin{karte3}[\symPartner]{Erstelle eine Lernstation}
+		\vspace*{1cm}
+		\begin{wrapfigure}{r}{0pt}
+			\includegraphics[width=5cm]{6.1-LT-Abb_Kartei}
+		\end{wrapfigure}
+		Überleg dir selber \emph{eine Lernstation} zum Thema \emph{Bruchrechnen}.
+		
+		Such dir zum Beispiel aus dem Buch eine Aufgabe, überlege dir mit einer Mitschülerin eine Karte oder erfinde selber eine tolle Aufgabe.
+		
+		Erstelle dann deine Karte auf einem Din-A5 Blatt.
+		
+		Deine Karte braucht auch
+		\begin{smallitemize}
+			\item einen Titel,
+			\item eine Farbe,
+			\item ein Symbol.
+		\end{smallitemize}
+		
+		Vergiss auch nicht, auf der Rückseite \emph{die Lösung} darzustellen.
+
+		\infotext{Bild \enquote{Datenbank} von Ute Ohlms (bidab.nibis.de)}
+	\end{karte3}
 	
 	\leereKarte
 	
