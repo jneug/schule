@@ -1,0 +1,53 @@
+\documentclass[10pt, a4paper]{scrartcl}
+
+\usepackage{vorschule}
+\usepackage[
+    typ=ab,
+    fach=Informatik,
+    lerngruppe={Q1-GK},
+    nummer=5,
+    module={Symbole,Lizenzen},
+    seitenzahlen=keine,
+    farbig,
+    lizenz=cc-by-nc-sa-4,
+]{schule}
+
+\usepackage[
+	kuerzel=Ngb,
+	reihe={Objektorientierte Programmierung},
+	version={2019-11-8},
+]{ngbschule}
+
+\author{J. Neugebauer}
+\title{Vererbung II}
+\date{\Heute}
+
+\setzeAufgabentemplate{ngbnormal}
+
+\begin{document}
+
+\ReiheTitel
+
+\begin{aufgabe}
+	Kopiert und öffnet das Projekt \ordner{05-Vererbung\_1} aus dem Tauschordner.
+	
+	Die Klasse \code{Dreieck} ist nicht als \emph{Unterklasse} von \code{Form} implementiert. Das soll geändert werden.
+\end{aufgabe}
+
+\begin{aufgabe}
+	Kopiert und öffnet das Projekt \ordner{05-Vererbung\_2} aus dem Tauschordner.
+	
+	Studiert den Aufbau. Die beiden Klassen haben einige Attribute und Methoden gemeinsam. Erstellt eine geeignete \emph{Oberklasse}, die die gemeinsamen \emph{Attribute} und \emph{Methoden} sammelt. Die bestehenden Klassen werden zu \emph{Unterklassen}.
+\end{aufgabe}
+
+\begin{aufgabe}
+	Kopiert und öffnet das Projekt \ordner{05-Vererbung\_3} aus dem Tauschordner.
+	
+	\begin{enumerate}
+		\item Ergänzt mindestens drei weitere Tiere im Projekt. Orientiert euch an den gezeigten Klassen.
+		\item Überschreibt die Methode \code{sagWas()} in den \emph{Unterklassen}.
+		\item Ergänzt neue \emph{Oberklassen}, die Tiere einer Art zusammenfassen (z.B: Fliegend, Schwimmend, Laufend ...).
+	\end{enumerate}
+\end{aufgabe}
+
+\end{document}
