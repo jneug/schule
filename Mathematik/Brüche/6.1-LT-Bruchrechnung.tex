@@ -770,9 +770,16 @@
 	\end{loesungskarte}
 	
 	\begin{karte2}[\symPartner]{Verhältnisse}
-		Im Fußball wird in der Tabelle auch das \emph{Torverhältnis} angegeben. Zum Beispiel bedeutet \enquote{6 zu 4}, dass der Verein in den bisher $6$ Tore geschossen und $4$ Tore kassiert hat.
+		% https://tex.stackexchange.com/a/27699/179614
+		\begingroup
+		\setlength\intextsep{0pt}
+		\begin{wrapfigure}{r}{2cm}
+			\includegraphics[width=2cm]{6.1-LT-Abb_Fussball}
+		\end{wrapfigure}
+		Im Fußball wird in der Tabelle auch das \emph{Torverhältnis} angegeben. Zum Beispiel bedeutet \enquote{6 zu 4}, dass der Verein in den bisherigen Spielen $6$ Tore geschossen und $4$ Tore kassiert hat.\par
+		\endgroup
 		
-		\begin{enumerate}
+		\begin{enumerate}\small
 			\item Wie viele Tore sind in den Spielen des Vereins oben insgesamt gefallen? Welchen Anteil der Tore hat die Mannschaft geschossen? Welchen Anteil hat sie selber rein bekommen?
 			\item Schreibe zu den folgenden Torverhältnissen die beiden Brüche auf.
 				\begin{tasks}(4)
@@ -951,18 +958,23 @@
 		\end{tasks}
 	\end{loesungskarte}
 	
-	\begin{karte2}{Textaufgaben}
-		\begin{enumeratea}
-			\item Von den 20 Schülern einer Klasse sind 3 krank. Welcher Anteil an der Schülerzahl sind das?
-			
-			\item Eine Klasse hat 40 Schüler, davon werden 38 versetzt. Welcher Anteil der Schüler erreichen das Klassenziel, welcher Anteil nicht?
-			
-			\item $\tfrac{1}{8}$ einer Geldsumme sind \EUR{11}. Welches ist die Gesamtsumme?
-			
-			\item Auf einen Kühlschrank wurde eine Anzahlung von \EUR{315} geleistet, das sind $\tfrac{7}{20}$ des Kaufpreises. Wie hoch war dieser?
-			
-			\item Die Schülerzahl einer Schule stieg von 600 auf 636 Schüler. Welcher Anteil der ursprünglichen Schülerzahl beträgt die Zunahme?
-		\end{enumeratea}
+	\begin{karte2}[\symEinzel]{Textaufgaben}
+	\hilfeMarke{bruchzahlen}\hilfeMarke{multiplikation}\hilfeMarke{division}
+		\begin{minipage}{\textwidth-4.5cm}
+			\begin{enumeratea}
+				\item Von den 20 Schülern einer Klasse sind 3 krank. Welcher Anteil an der Schülerzahl sind das?
+				
+				\item Eine Klasse hat 40 Schüler, davon werden 38 versetzt. Welcher Anteil der Schüler erreichen das Klassenziel, welcher Anteil nicht?
+				
+				\item $\tfrac{1}{8}$ einer Geldsumme sind \EUR{11}. Welches ist die Gesamtsumme?
+				
+				\item Auf einen Kühlschrank wurde eine Anzahlung von \EUR{315} geleistet, das sind $\tfrac{7}{20}$ des Kaufpreises. Wie hoch war dieser?
+				
+				\item Die Schülerzahl einer Schule stieg von 600 auf 636 Schüler. Welcher Anteil der ursprünglichen Schülerzahl beträgt die Zunahme?
+			\end{enumeratea}
+		\end{minipage}\hfill\begin{minipage}{4cm}
+			\includegraphics[width=4cm]{6.1-LT-Abb_Nachdenken}
+		\end{minipage}
 		\infotext{$\tfrac{3}{20}, \tfrac{19}{20}, \tfrac{1}{20}, \tfrac{1}{20}$, \EUR{88}, \EUR{900}, $\tfrac{3}{50}$}
 	\end{karte2}
 	
