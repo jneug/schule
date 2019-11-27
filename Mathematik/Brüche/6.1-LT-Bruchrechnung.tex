@@ -1,4 +1,3 @@
-%\documentclass[11pt,a5paper,landscape]{lerntheke}
 \documentclass[12pt,a5paper,landscape]{scrartcl}
 
 \usepackage{vorschule}
@@ -25,69 +24,9 @@
 \title{Bruchrechnung}
 \date{\Heute}
 
-\makeatletter
-\NewDocumentCommand \tikzRechteck {O{} D(){0,0} m} {\draw[#1] (#2) |- +(#3) |- (#2);}
-\NewDocumentCommand \tikzQuadrat {O{} D(){0,0} m} {\draw[#1] (#2) |- +(#3,#3) |- (#2);}
 
-\def\tikzAnteilFarbe{black!20}
-
-\newcounter{ngb@anteile}
-\NewDocumentCommand \tikzAnteile {s >{\SplitArgument{1}{,}}D(){0,0} >{\SplitArgument{1}{,}}o m m m} {%
-	\IfNoValueTF{#3}{%
-		\IfBooleanTF{#1}{%
-			\@tikzAnteileZeichnen #2 {#4} {#5} {#4} {#5} {#6-(#4*#5)+1}
-		}{%
-			\@tikzAnteileZeichnen #2 {#4} {#5} {#4} {#5} {#6}
-		}
-	}{%
-		\IfBooleanTF{#1}{%
-			\@tikzAnteileZeichnen #2 #3 {#4} {#5} {#6-(#4*#5)+1}
-		}{%
-			\@tikzAnteileZeichnen #2 #3 {#4} {#5} {#6}
-		}
-	}
-}
-\NewDocumentCommand \@tikzAnteileZeichnen {m m m m m m m}{%
-	\pgfmathsetmacro \xMax {#5-1}
-	\pgfmathsetmacro \yMax {#6-1}
-	\pgfmathsetmacro \xs {#3/#5}
-	\pgfmathsetmacro \ys {#4/#6}
-	\pgfmathsetmacro \d {sign(#7)*-1}
-	\setcounter{ngb@anteile}{#7-1}
-	\tikzRechteck(#1,#2){#3,#4};
-	\foreach \x in {0,...,\xMax} {%
-		\foreach \y in {0,...,\yMax} {%
-			\ifnum\value{ngb@anteile}<0
-				\tikzRechteck(#1+\x*\xs,#2+\y*\ys){\xs,\ys};
-			\else
-				\tikzRechteck[fill=\tikzAnteilFarbe](#1+\x*\xs,#2+\y*\ys){\xs,\ys}
-			\fi
-			\addtocounter{ngb@anteile}{\d}
-		}
-	}
-}
-
-\NewDocumentCommand \tikzAnteileKreis {s D(){0,0} O{1} m m O{0}} {%
-	\pgfmathsetmacro \a {#4}
-	\pgfmathsetmacro \b {#5}
-	\pgfmathsetmacro \ang {360/#5}
-	\pgfmathsetmacro \r {#6}
-	\draw (#2) circle (#3);
-	\foreach \i in {1,...,\a} {%
-		\draw[fill=\tikzAnteilFarbe] (#2) -- +({\i*\ang+\r}:#3) arc ({\i*\ang+\r}:{(\i+1)*\ang+\r}:#3) -- cycle;
-	}
-	\foreach \i in {\a,...,\b} {%
-		\draw (#2) -- +({\i*\ang+\r}:#3);
-	}
-}
-\makeatother
-
-\def\clrLsg{\color{orange}}
-\def\tclrLsg#1{\textcolor{orange}{#1}}
-
-%\usepackage{pgfmorepages}
-%\pgfmorepagesloadextralayouts
-%\pgfpagesuselayout{4 on 2, odd then even}[a4paper]
+\def\clrLsg{\color{\lsgFarbe}}
+\def\tclrLsg#1{\textcolor{\lsgFarbe}{#1}}
 
 \begin{document}
 	\begin{hilfekarte}{Bruchzahlen}{bruchzahlen}
@@ -95,16 +34,32 @@
 		
 		Zum Beispiel \enquote{3 von 4} $= \frac{3}{4} =$ \begin{tikzpicture}[baseline=-3pt,scale=.5]\tikzAnteileKreis{3}{4}\end{tikzpicture}
 		
+		\begin{center}
 		\begin{tikzpicture}
-				
+			\node[ellipse,draw=orange,thick] (frac) at (0,0) {\phantom{\Huge$\frac{a}{b}$}};
+			\node[ellipse,draw=green!50!gray,thick,inner sep=1pt] (a) at (0,.4) {\Large a};
+			\node[ellipse,draw=violet,thick,inner sep=1pt] (b) at (0,-.4) {\Large b};
+			\node (s) at (.35,0) {};
+			\draw[black,thick] (-.4,0) -- (.4,0);
+			
+			\node[font=\color{orange}] (bruch) at (-2,.5) {Bruch};
+			\node[font=\color{green!50!gray}] (zaehler) at (2,.8) {Zähler};
+			\node[font=\color{violet}] (nenner) at (2,-.6) {Nenner};
+			\node[anchor=west] (bstrich) at (1,0) {\footnotesize Bruchstrich};
+			
+			\draw[thick,orange] (bruch) -- (frac);
+			\draw[thick,green!50!gray] (zaehler) -- (a);
+			\draw[thick,violet] (nenner) -- (b);
+			\draw[->] (bstrich) -- (s);
 		\end{tikzpicture}
+		\end{center}
 		
-		Wir Teilen \emph{das Ganze} in so viele \emph{gleichgroße Teile}, wie im \textbf{Nenner} steht und nehmen von diesen Teilen so viele, wie im \textbf{Zähler} steht.
+		Wir Teilen \emph{das Ganze} in so viele \emph{gleichgroße Teile}, wie im \textbf{\textcolor{violet}{Nenner}} steht und nehmen von diesen Teilen so viele, wie im \textbf{\textcolor{green!50!gray}{Zähler}} steht.
 		
 		\vspace{1cm}
 		Anteile können auf verschiedene Arten dargestellt werden:
 		\begin{multicols}{2}
-			Als Bruchzahl: $\frac{3}{4}$
+			Als Bruchzahl: $\tfrac{3}{4}$
 			
 			\bigskip
 			Als Division: $3:4$
@@ -221,7 +176,7 @@
 		\begin{center}
 			Beim \emph{Kehrwert} vertauscht du Zähler und Nenner.
 		\end{center}
-		\[ \frac{2}{9} \rightarrow \frac{9}{2} \qquad \frac{4}{5} \rightarrow \frac{5}{4}\]
+		\[ \frac{2}{9} \tikz[baseline=-1mm,-latex]{\draw (-.2,.2) -- (.2,-.2);\draw (-.2,-.2) -- (.2,.2);} \frac{9}{2} \qquad \frac{4}{5} \tikz[baseline=-1mm,-latex]{\draw (-.2,.2) -- (.2,-.2);\draw (-.2,-.2) -- (.2,.2);} \frac{5}{4}\]
 	\end{hilfekarte}
 		
 	\begin{karte1}{Arten von Brüchen}\hilfeMarke{bruchzahlen}
@@ -769,15 +724,14 @@
 		\end{multicols}
 	\end{loesungskarte}
 	
-	\begin{karte2}[\symPartner]{Verhältnisse}
+	\begin{karte2}[\symPartner]{Verhältnisse II}
 		% https://tex.stackexchange.com/a/27699/179614
-		\begingroup
-		\setlength\intextsep{0pt}
+		\begin{wrapfig}
 		\begin{wrapfigure}{r}{2cm}
 			\includegraphics[width=2cm]{6.1-LT-Abb_Fussball}
 		\end{wrapfigure}
-		Im Fußball wird in der Tabelle auch das \emph{Torverhältnis} angegeben. Zum Beispiel bedeutet \enquote{6 zu 4}, dass der Verein in den bisherigen Spielen $6$ Tore geschossen und $4$ Tore kassiert hat.\par
-		\endgroup
+		Im Fußball wird in der Tabelle auch das \emph{Torverhältnis} angegeben. Zum Beispiel bedeutet \enquote{6 zu 4}, dass der Verein in den bisherigen Spielen $6$ Tore geschossen und $4$ Tore kassiert hat.
+		\end{wrapfig}\vspace{-.8em}
 		
 		\begin{enumerate}\small
 			\item Wie viele Tore sind in den Spielen des Vereins oben insgesamt gefallen? Welchen Anteil der Tore hat die Mannschaft geschossen? Welchen Anteil hat sie selber rein bekommen?
@@ -918,10 +872,6 @@
 			\end{tasks}
 		\end{enumerate}
 	\end{loesungskarte}
-	
-%	\begin{karte3}{Snapchat, Tik-Tok und WhatsApp}
-%		
-%	\end{karte3}
 
 	\begin{karte1}{Vollständiges kürzen}\hilfeMarke{kuerzen}
 		Kürze vollständig.
@@ -950,7 +900,7 @@
 			\task $\dfrac{3}{5}$
 			\task $\dfrac{3}{5}$
 			\task $\dfrac{2}{9}$
-			\task $\dfrac{1}{3}$
+			\task $\dfrac{3}{9}$
 			\task $\dfrac{3}{4}$
 			\task $\dfrac{1}{4}$
 			\task $\dfrac{1}{3}$
@@ -981,18 +931,92 @@
 	\leereKarte
 	
 	\begin{karte2}{Finde den Fehler}
-	Finde den Fehler in der Aufgabe und korrigiere ihn.
+		Finde den Fehler in der Aufgabe und korrigiere ihn.
+		
+		\begin{tasks}(2)
+			\task Erweitere mit $4$: $\dfrac{2}{3}\cdot 4 = \dfrac{8}{3}$
+			\task $\dfrac{1}{8}$ von $32$ sind $8$.
+			\task $6$ von $30$ Schülern entspricht einem Anteil von $\dfrac{1}{6}$.
+			\task $\dfrac{2}{5} < \dfrac{4}{5} < \dfrac{9}{15}$
+			\task $\dfrac{1}{20}$ entspricht \prozent{20}.
+			\task $8: 5 =\dfrac{5}{8}$
+			\task $\dfrac{8}{8} = 0$
+			\task $\dfrac{2}{3} + \dfrac{4}{3} = \dfrac{6}{6}$
+			\task $\dfrac{21}{49}: \dfrac{3}{7} = \dfrac{21 : 3}{49 : 7} = \dfrac{7}{7}$
+			\task $\dfrac{2}{3}\cdot 5 = \dfrac{2}{3\cdot 5} = \dfrac{2}{15}$
+		\end{tasks}
 	\end{karte2}
 	
-	\begin{karte1}{Noch leer}
+	\begin{loesungskarte}
+		\begin{tasks}(2)
+			\task $\dfrac{2}{3} = \clrLsg\dfrac{8}{12}$
+			\task $\dfrac{1}{8}$ von $32$ sind \clrLsg$4$.
+			\task $6$ von $30$ Schülern entspricht einem Anteil von \clrLsg$\dfrac{1}{5}$.
+			\task $\dfrac{2}{5} < \clrLsg\dfrac{9}{15} < \dfrac{4}{5}$
+			\task $\dfrac{1}{20}$ entspricht \clrLsg\prozent{5}.
+			\task $8: 5 =\clrLsg\dfrac{8}{5}$
+			\task $\dfrac{8}{8} = \clrLsg 1$
+			\task $\dfrac{2}{3} + \dfrac{4}{3} = \clrLsg\dfrac{6}{3}$
+			\task $\dfrac{21}{49}: \dfrac{3}{7} = \clrLsg\dfrac{21}{49}\cdot \dfrac{7}{3} = \dfrac{147}{147}$
+			\task $\dfrac{2}{3}\cdot 5 = \clrLsg\dfrac{2\cdot 5}{3} = \dfrac{10}{3}$
+		\end{tasks}
+	\end{loesungskarte}
+	
+	\begin{karte1}{Verhältnisse I}
+		\emph{Verhältnisse} sind eine besondere Art, \emph{Anteile} zu notieren. Ein Verhältnis beschreibt immer zwei Anteile:
+		\begin{center}
+			\enquote{5 zu 8} bedeutet \enquote{5 von 5+8} und \enquote{8 von 5+8}
+		\end{center}
+		oder als Brüche geschrieben
+		\[ \frac{5}{13} \quad\text{und}\quad \frac{8}{13} \]
+		
+		\begin{enumerate}
+			\item Notiere zu jedem Verhältnis die beiden Brüche.
+				\begin{tasks}(4)
+					\task 7 zu 3
+					\task 4 zu 8
+					\task 14 zu 21
+					\task 13 zu 9
+				\end{tasks}
+			
+			\item Notiere zu jedem Bruch den passenden zweiten Bruch und notiere als Verhältnis. (Beispiel: $\tfrac{1}{3} \rightarrow \tfrac{2}{3} \rightarrow \text{1 zu 2}$)
+				\begin{tasks}(4)
+					\task $\dfrac{4}{15}$
+					\task $\dfrac{8}{19}$
+					\task $\dfrac{5}{6}$
+					\task $\dfrac{12}{32}$
+				\end{tasks}
+		\end{enumerate}
 	\end{karte1}
 	
-	\begin{karte1}{Noch leer}
-	\end{karte1}
+	\begin{loesungskarte}
+		\begin{enumerate}
+			\vspace{1cm}
+			\item\begin{tasks}(4)
+					\task $\dfrac{7}{10}\quad\dfrac{3}{10}$
+					\task $\dfrac{4}{12}\quad\dfrac{8}{12}$
+					\task $\dfrac{14}{35}\quad\dfrac{21}{35}$
+					\task $\dfrac{13}{22}\quad\dfrac{9}{22}$
+				\end{tasks}
+			
+			\vspace{1cm}
+			\item\begin{tasks}(2)
+					\task $\dfrac{11}{15}\quad$ 4 zu 11
+					\task $\dfrac{11}{19}\quad$ 8 zu 11
+					\task $\dfrac{1}{6}\quad$ 5 zu 1
+					\task $\dfrac{20}{32}\quad$ 12 zu 20 
+				\end{tasks}
+		\end{enumerate}
+	\end{loesungskarte}
 	
-	\begin{karte1}{Noch leer}
-	\end{karte1}
-	
+	\begin{karte3}{Snapchat, Tik-Tok und WhatsApp}
+		
+	\end{karte3}
+
+	\begin{loesungskarte}
+		
+	\end{loesungskarte}
+		
 	\begin{karte1}{Noch leer}
 	\end{karte1}
 	
@@ -1030,10 +1054,18 @@
 		\end{smallitemize}
 		
 		Vergiss auch nicht, auf der Rückseite \emph{die Lösung} darzustellen.
+		
+		\bigskip
+		(\textit{Lies auf der Rückseite weiter})
 
 		\infotext{Bild \enquote{Datenbank} von Ute Ohlms (bidab.nibis.de)}
 	\end{karte3}
 	
-	\leereKarte
+	\begin{loesungskarte}[Wenn du fertig bist]
+		Wenn du mit deiner eigenen Karte fertig und zufrieden bist, dann such dir am besten einen Mitschüler, der die Karte für dich ausprobiert. Vielleicht findet er ja noch Fehler oder hat Verbesserungsvorschläge.
+		
+		\bigskip
+		Wenn du denkst, dass deine Karte wirklich fertig ist, dann \textbf{gib sie beim Lehrer ab}.
+	\end{loesungskarte}
 	
 \end{document}
