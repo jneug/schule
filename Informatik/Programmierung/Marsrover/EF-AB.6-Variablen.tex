@@ -1,0 +1,65 @@
+\documentclass[10pt, a4paper]{scrartcl}
+
+%\usepackage{qrcode}
+
+\usepackage{vorschule}
+\usepackage[
+	typ=ab,
+	fach=Informatik,
+	lerngruppe={EF},
+	nummer=6,
+	module={Symbole,Lizenzen},
+	seitenzahlen=keine,
+	farbig,
+	lizenz=cc-by-nc-sa-4,
+]{schule}
+
+\usepackage[
+	kuerzel=Ngb,
+	reihe={Objektorientierte Programmierung},
+	version={2019-11-27},
+]{ngbschule}
+
+\author{J. Neugebauer}
+\title{Variablen}
+\date{\Heute}
+
+\setzeAufgabentemplate{ngbnormal}
+
+
+\begin{document}
+
+\ReiheTitel
+
+\begin{aufgabe}
+	Studiere die Algorithmen auf der linken Seite sorgfältig. Notiere dann in der rechten Spalte die Werte der Variablen nachdem der Algorithmus beendet ist.
+	
+	\tipp{Gehe den Ablauf des Algorithmus durch und notiere die Veränderungen der Variablen in jedem Schritt in einer Tabelle.}
+	
+	\medskip
+	\begin{tabularx}{\textwidth}{|X|X|} \hline
+		\rowcolor{gray!50!white} \textbf{Algorithmus} & \textbf{Variablen nach Ablauf} \\ \hline
+		\code{int i;} & \code{i = } \\ \hline
+		\code{int i = 5;} & \code{i = } \\ \hline
+		\code{double zahl;} & \code{zahl = } \\ \hline
+		\code{double zahl1 = 2.3;\newline
+		double zahl2;\newline
+		double zahl3 = zahl1 + zahl2;} & \code{zahl1 = }\newline\code{zahl2 = }\newline\code{zahl3 = } \\ \hline
+		\code{int i = 0;\newline
+while( i < 10 ) \{\newline
+\hspace*{4em}int j = 2;\newline
+\hspace*{4em}i = i + 1;\newline
+\}} & \code{i = }\newline\code{j = } \\ \hline
+		\code{String a = "x";\newline
+String b = "y";\newline
+int x = 0;\newline
+while( x < 4 ) \{\newline
+\hspace*{4em}a = a + b;\newline
+\hspace*{4em}x = x + 1;\newline
+\}} & \code{a = }\newline\code{b = }\newline\code{x = } \\ \hline
+	\end{tabularx}
+\end{aufgabe}
+
+
+
+\end{document}

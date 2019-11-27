@@ -1,0 +1,94 @@
+\documentclass[10pt, a4paper]{scrartcl}
+
+%\usepackage{qrcode}
+
+\usepackage{vorschule}
+\usepackage[
+	typ=ab,
+	fach=Informatik,
+	lerngruppe={EF},
+	nummer=7,
+	module={Symbole,Lizenzen},
+	seitenzahlen=keine,
+	farbig,
+	lizenz=cc-by-nc-sa-4,
+]{schule}
+
+\usepackage[
+	kuerzel=Ngb,
+	reihe={Objektorientierte Programmierung},
+	version={2019-11-27},
+]{ngbschule}
+
+\author{J. Neugebauer}
+\title{Hilfsvariablen}
+\date{\Heute}
+
+\setzeAufgabentemplate{ngbnormal}
+
+
+
+
+\begin{document}
+
+\ReiheTitel
+
+\subsection*{Syntax}
+\begin{center}
+	\begin{tikzpicture}[syntaxdiagramm]
+		\node [] {};
+		\node [nonterminal] {Datentyp};
+		\node [nonterminal] {Bezeichner};
+		\node (opt) [point] {};
+		\node [terminal] {=};
+		\node [nonterminal] {Initialwert};
+		\node (semi) [point] {};
+		\node [terminal] {;};
+		\node (end) [endpoint] {};
+		{
+			[start chain=opt]
+			\node (optbelow) [point,below=of opt] {};
+			\node (endbelow) [point,below=of semi] {};
+			\draw [->] (opt) -- (optbelow) -- (endbelow) -- (semi);
+		}
+	\end{tikzpicture}
+\end{center}
+
+\subsection*{Datentypen in Java}
+\begin{tabularx}{\textwidth}{c|c|c|X}
+	\rowcolor{gray!50!white}Wertetyp & Datentyp & Initialwert & Beispiel \\\hline\hline
+	Ganze Zahl & \code{int} & \code{0} & \code{int zahl;} \newline \code{int zahl = 5;} \\ \hline
+	Fließkommazahl & \code{double} & \code{0.0} & \code{double kommazahl;} \newline \code{double kommazahl = 1.2;} \\ \hline
+	Wahrheitswert & \code{boolean} & \code{false} & \code{boolean wahrheit;} \newline \code{boolean wahrheit = true;} \\ \hline
+	Text & \code{String} & \code{null} & \code{String text;} \newline \code{String text = "Hallo, Welt!";} \\ \hline
+\end{tabularx}
+
+\subsection*{Vergleichsoperatoren in Java}
+\begin{tabularx}{\textwidth}{c|c|X}
+	\rowcolor{gray!50!white}Vergleich & Operator & Beispiel \\\hline\hline
+	Gleichheit & \code{==} & \code{if( zahl == 4 ) \{ \dots\ \}} \\\hline
+	Ungleichheit & \code{!=} & \code{int i = 10;\newline while( i != 0 ) \{ i -= 1; \}} \\\hline
+	Größer / Kleiner & \code{>} / \code{<} & \code{if( a > 1 \&\& a < 8 ) \{ \dots\ \}} \\\hline
+	Textvergleich & \code{equals()} & \code{String text = "Hallo, Welt!"\newline if( text.equals("Hallo, Welt!") ) \{ \dots\ \}} 
+\end{tabularx}
+
+\vspace{1cm}
+\begin{aufgabe}
+	Der Rover steht vor einer Reihe Steine, die mit einer Marke abgeschlossen sind. Er soll bis zur Marke vorfahren und auf dem Weg alle Gesteine einsammeln. Dann soll er umdrehen und zu seinem Startfeld zurückkehren.
+	
+	Versuche die Aufgabe zu lösen, ohne weitere Marken zu platzieren.
+\end{aufgabe}
+
+\begin{aufgabe}
+	Verallgemeinere Aufgabe 1: Der Rover soll eine zufällige\footnote{Du kannst \code{Greenfoot.getRandomNumber(max)} verwenden.} Strecke fahren und dieselbe Strecke zurück fahren.
+\end{aufgabe}
+
+\begin{aufgabe}
+	Programmiere den Rover so, dass er \emph{genau fünf Steine} aufnimmt.
+\end{aufgabe}
+
+\begin{aufgabe}
+	Der Rover soll ein Quadrat mit einer Kantenlänge von 8 Feldern abfahren und an jeder Ecke eine Marke platzieren.
+\end{aufgabe}
+
+\end{document}
