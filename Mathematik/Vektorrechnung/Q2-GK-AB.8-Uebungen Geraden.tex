@@ -11,7 +11,7 @@
     lerngruppe={Q1 GK},
     nummer=8,
     seitenzahlen=keine,
-%    loesungen=folgend,
+	loesungen=folgend,
     module={Symbole}
 ]{schule}
 
@@ -50,6 +50,24 @@
 
 %% Hinweise Aufgabe 1
 \begin{loesung}
+	\begin{multicols}{2}
+	\begin{teilaufgaben}
+		\teilaufgabe \[ g:\vec{x} = \vector(7|-3|2) + s\cdot \vector(-11|8|-4) \]
+		
+		\teilaufgabe Berechne $\vec{OA} + \vec{v}$. Der Richtungsvektor bleibt gleich.
+		\[ h:\vec{x} = \vector(6|1|10) + s\cdot \vector(-11|8|-4) \]
+		
+		\teilaufgabe z.B.
+		\[ i:\vec{x} = \vector(1|2|3) + s\cdot \vector(0|1|2) \]
+		
+		\teilaufgabe z.B.
+		\[ j:\vec{x} = \vector(7|-3|2) + s\cdot \vector(0|1|2) \]
+		
+		\teilaufgabe \begin{gather*}
+		\pkt[S_{x_1x_2}](1,5|1|0)\\ \pkt[S_{x_2x_3}](0|2,09|-0,55)\\ \pkt[S_{x_1x_3}](2,88|0|0,5)
+		\end{gather*}
+	\end{teilaufgaben}
+	\end{multicols}
 \end{loesung}
 \clearpage
 
@@ -64,22 +82,64 @@
     \teilaufgabe \[ g: \vec{x} = \vector(1|2|-2) + s\cdot \vector(1|0|-1)\quad h:\vec{x} = \vector(10|-1|4) + t\cdot \vector(3|4|3) \]
     \end{teilaufgaben}
 \end{aufgabe}
+\clearpage
+
+\begin{loesung}
+	\begin{teilaufgaben}
+		\teilaufgabe Die Geraden schneiden sich in \pkt(-3|2|-1).
+		
+		Sie sind nicht orthogonal. Das Skalarprodukt der Richtungsvektoren ist 13.
+		
+		\teilaufgabe Die Geraden sind echt parallel. Die Richtungsvektor sind mit dem Faktor $\dfrac{4}{3}$ skaliert.
+		
+		\teilaufgabe Die Geraden sind windschief zueinander.
+		
+		Sie sind orthogonal, das das Skalarprodukt der Richtungsvektoren gleich null ist: $1\cdot 3 + 0\cdot 4 + (-1)\cdot 3 = 3 - 3 = 0$.
+	\end{teilaufgaben}
+\end{loesung}
+\clearpage
 
 % Aufgabe 3
 \begin{aufgabe}
-
+	Gegeben ist ein Dreieck $ABD$ mit \pkt[A](-1|-1|1), \pkt[B](2|-2|1) und \pkt[D](2,5|-0,5|1).
+	
+	\begin{teilaufgaben}
+		\teilaufgabe \operator{Berechnen} sie die Länge der drei Seiten des Dreiecks.
+		\teilaufgabe \operator{Bestimmen} sie die Koordinaten eines Punktes $C$, so dass $ABCD$ ein \emph{Parallelogramm} ist.
+		\teilaufgabe \operator{Prüfen} sie, ob das Parallelogramm $ABCD$ ein Rechteck ist.
+		\teilaufgabe \operator{Bestimmen} sie Gleichungen für die Diagonalengeraden von $ABCD$ und ermitteln sie deren Schnittpunkt.
+		\teilaufgabe Mit einem Punkt $E$, der senkrecht über dem Schnittpunkt der Diagonalen liegt, bildet $ABCD$ eine Pyramide. \operator{Bestimmen} sie den Punkt $E$ so, dass das Volumen der Pyramide $10$ ist.
+	\end{teilaufgaben}
 \end{aufgabe}
+\clearpage
 
 \begin{loesung}
+	\begin{multicols}{2}
+	\begin{teilaufgaben}
+		\teilaufgabe $\abs{\vec{AB}} \approx 3,16$, $\abs{\vec{BD}} \approx 1,58$, $\abs{\vec{AD}} \approx 3,54$
+		\teilaufgabe \[ \vec{OA} + \vec{BD} = \vector(-0,5|0,5|1) \]
+		\teilaufgabe Ja, denn $\vec{AB}\ast \vec{BD} = 0$
+		\teilaufgabe \begin{gather*}
+		 g:\vec{x} = \vec{OA} + s\cdot \vec{AD}\\
+		 h:\vec{x} = \vec{OB} + s\cdot \vec{BC}\\
+		 \pkt[S](0,75|-0,75|1)
+		\end{gather*}
+		\teilaufgabe $E$ liegt über $S$, also $\pkt[E](0,75|-0,75|1+h)$. Das Volumen der Pyramide berechnet sich durch 
+		\[ V_P = 10 = \dfrac{1}{3}\cdot (\abs{\vec{AB}}\cdot \abs{\vec{BD}})\cdot h \]
+		Nach h umgestellt ergibt sich $h \approx 6$, also $\pkt[E](0,75|-0,75|7)$.
+	\end{teilaufgaben}
+	\end{multicols}
 \end{loesung}
+\clearpage
 
 
 % Aufgabe 4
-\begin{aufgabe}
+%\begin{aufgabe}
+%\end{aufgabe}
+\clearpage
 
-\end{aufgabe}
-
-\begin{loesung}
-\end{loesung}
+%\begin{loesung}
+%\end{loesung}
+\clearpage
 
 \end{document}
