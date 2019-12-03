@@ -134,12 +134,41 @@
 
 
 % Aufgabe 4
-%\begin{aufgabe}
-%\end{aufgabe}
+\begin{aufgabe}
+    In einem Bergwerk kann ein Minenschacht durch eine Gerade mit der Gleichung 
+    \[ g:\vec{x} = \vector(-20|12|8) + r\cdot \vector(70|22|-20) \]
+    beschrieben werden. Die $x_1x_2$-Ebene stellt den Meeresspiegel (NN) dar. Alle Werte sind in Metern angegeben.
+    
+    Ein zweiter Mienenschacht soll am Punkt \pkt[K](5|-6|16) orthogonal zu $g$ in den Berg gebohrt werden und im Berg auf $g$ treffen.
+    
+    \begin{teilaufgaben}
+        \teilaufgabe \operator{Bestimmen} sie die allgemeine Form (abhängig von einer unbekannten $r$) für einen Ortsvektor $\vec{OS_r}$, für einen Punkt $S_r$, der auf $g$ liegt.
+        \teilaufgabe Der neue Schacht soll orthogonal zu $g$ verlaufen. Stellen sie eine Gleichung mit $\vec{OS_r}$ auf, die dies ausdrückt und lösen sie nach $r$ auf (Kontrolle: $r\approx 0,224$).
+        \teilaufgabe \operator{Bestimmen} sie eine Gleichung für den zweiten Mienenschacht.
+        \teilaufgabe Wie weit muss gebohrt werden, bis der erste Mienenschacht erreicht ist?
+    \end{teilaufgaben}
+\end{aufgabe}
 \clearpage
 
-%\begin{loesung}
-%\end{loesung}
+\begin{loesung}
+    \begin{multicols}{2}
+    \begin{teilaufgaben}
+    \teilaufgabe \[ \vec{OS_r}=\vector(-20+70s|12+22s|8-20s) \]
+    \teilaufgabe\begin{align*}
+        \vec{OS_r}\ast \vector(70|22|-20) &= 0 \\
+        \Leftrightarrow s &\approx 0,224
+    \end{align*}
+    
+    \teilaufgabe Berechne $S_{0,224} = \pkt(-4,32|16,928|3,52)$
+    
+        Richtungsvektor berechnen: \[ \vec{w} = \vec{KS} = \vector(-4,32|16,928|3,52) - \vector(5|-5|16) = \vector(-9,32|22,928|-12,48) \]
+        
+        \[ h: \vec{x} = \vector(5|-5|16) + t\cdot \vector(-9,32|22,928|-12,48) \]
+    
+        \teilaufgabe \[ \abs{\vec{w}}\approx 27,7183 \]
+    \end{teilaufgaben}
+    \end{multicols}
+\end{loesung}
 \clearpage
 
 \end{document}
