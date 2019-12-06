@@ -1,9 +1,5 @@
 \documentclass[11pt, a5paper, landscape]{scrartcl}
 
-% put to a5 pages on one a4 sheet
-%\usepackage{pgfpages}
-%\pgfpagesuselayout{2 on 1}[a4paper]
-
 \usepackage{vorschule}
 \usepackage[
     typ=ab,
@@ -11,7 +7,7 @@
     lerngruppe={Q1 GK},
     nummer=6,
     seitenzahlen=keine,
-%    loesungen=folgend,
+    loesungen=keine,
     module={Symbole}
 ]{schule}
 
@@ -29,6 +25,8 @@
 \setzeAufgabentemplate{ngbohne}
 
 \chead{\Titel}
+
+\qrset{height=4.5cm, nolink, padding}
 
 \begin{document}
 	%% Aufgabe 1
@@ -108,6 +106,56 @@
 		\end{multicols}
 	\end{center}
 	\clearpage
+
+	%% Lösungen Aufgabe 2
+	\begin{loesung}
+		\begin{enumeratea}
+			\item Der Punkt liegt auf der Geraden ($r = -1$).
+			\item Der Punkt liegt nicht auf der Geraden.
+			\item Der Punkt liegt auf der Geraden ($r = -3$).
+		\end{enumeratea}
+		\begin{enumeratea}
+			\item Geradengleichungen gleichsetzen:
+			\[ \begin{pmatrix} -2 \\ 2 \\ -5 \end{pmatrix} + r\cdot \begin{pmatrix} 2 \\ -3 \\ 1 \end{pmatrix} = \begin{pmatrix} -3 \\ 2 \\ -16 \end{pmatrix} + s\cdot \begin{pmatrix} -1 \\ 2 \\ 3 \end{pmatrix} \]
+			
+			Gleichungssystem aufstellen:
+			\begin{align*}
+			\gls[]{
+				-2 & +2r &=& - 3 & - s \\
+				 2 & -3r &=&   2 & +2s \\
+				-5 & + r &=& -16 & +3s
+			}
+			\gls{
+				 2r & + s &=& - 1 \\
+				-3r & -2s &=&   0 \\
+				  r & -3s &=& -11
+			}
+			\end{align*}
+			
+			Einsetzungsverfahren anwenden: Eine Gleichung nach $s$ auflösen und $s$ in eine andere Gleichung einsetzen, um nach $r$ aufzulösen.
+			\begin{align*}
+				s &= -\tfrac{3}{2}r \\
+				  &= -1,5r\\[1em]
+				2r - 1,5r &= -1 \\
+				0,5r &= -1\\
+				r &= -2 \\[1em]s
+				s &= -1,5\cdot -2\\
+				  &= 3\\  
+			\end{align*}
+			
+			Um $s$ und $r$ zu ermitteln reichen zwei Gleichungen, damit ein Schnittpunkt existiert, müssen die Werte auch in der dritten Gleichung passen:
+			\[  -2 - 3\cdot 3 = -2 - 9 = -11 \checkmark \]
+			
+			Also existiert ein Schnittpunkt. Um den Schnittpunkt zu finden müssen $s$ oder $r$ in eine der Geradengleichungen eingesetzt werden.
+			\[ \begin{pmatrix} -2 \\ 2 \\ -5 \end{pmatrix} + -2\cdot \begin{pmatrix} 2 \\ -3 \\ 1 \end{pmatrix} = \begin{pmatrix} -2 \\ 2 \\ -5 \end{pmatrix} + \cdot \begin{pmatrix} -4 \\ 6 \\ -2 \end{pmatrix} = \begin{pmatrix} -6 \\ 8 \\ -7 \end{pmatrix} \]
+			\[ \begin{pmatrix} -3 \\ 2 \\ -16 \end{pmatrix} + 3\cdot \begin{pmatrix} -1 \\ 2 \\ 3 \end{pmatrix} = \begin{pmatrix} -3 \\ 2 \\ -16 \end{pmatrix} + \cdot \begin{pmatrix} -3 \\ 6 \\ 9 \end{pmatrix} = \cdot \begin{pmatrix} -6 \\ 8 \\ -7 \end{pmatrix} \]
+			
+			Der Schnittpunkt liegt also bei $S\pkt(-6|8|-7)$.
+			
+			\item Beide Geraden haben denselben Stützvektor. Da der Stützvektor immer ein Punkt auf der Geraden ist, haben die Geraden einen Schnittpunkt bei $S\pkt(3|-4|1)$.
+		\end{enumeratea}
+		\clearpage
+	\end{loesung}
 	
 	%% Aufgabe 3
 	\begin{aufgabe}
@@ -151,6 +199,26 @@
 		\end{multicols}
 	\end{center}
 	\clearpage
+	
+	%% Lösungen Aufgabe 3
+	\begin{loesung}
+		\begin{enumeratea}
+			\item Spitze des Windrads: $S\pkt(1380|570|170)$
+			
+			Punktprobe:
+			\[ \begin{pmatrix} 1380 \\ 570 \\ 170 \end{pmatrix} = \begin{pmatrix} 420 \\ -630 \\ 120 \end{pmatrix} + r\cdot \begin{pmatrix} 40 \\ 50 \\ 11 \end{pmatrix} \]
+			
+			Ergebnis: Die Spitze liegt nicht auf der Flugbahn des Flugzeuges.
+			
+			\item Geradengleichung für den Mast des Windrads aufstellen:
+			\[ g: \vect{x} = \begin{pmatrix} 1380 \\ 570 \\ 170 \end{pmatrix} + r\cdot \begin{pmatrix} 0 \\ 0 \\ 1 \end{pmatrix}\]
+			
+			(Der Richtungsvektor zeigt senkrecht nach oben, also entlang der z-Achse.)
+			
+			Flugbahn und $g$ gleichsetzen und auf Schnittpunkt prüfen ergibt: es gibt einen Schnittpunkt bei $P\pkt(1380|570|384)$. Das FLugzeug überfliegt den Mast also in \SI{384}{\meter} Höhe. Abzüglich der Höhe des Windrades ergibt das einen Abstand von \SI{214}{\meter}.
+		\end{enumeratea}
+		\clearpage
+	\end{loesung}
 	
 	%% Aufgabe 4
 	\begin{aufgabe}\small
@@ -205,4 +273,28 @@
 			c) Es gibt keinen Schnittpunkt, die Flugbahnen kreuzen sich nicht.}
 		\end{multicols}
 	\end{center}
+	
+	%% Lösungen Aufgabe 4
+	\begin{loesung}
+		\begin{enumeratea}
+			\item Geschwindigkeit ist gleich der Länge des Richtungsvektors:
+			\[ \left|\vector(18|14|3)\right| = \sqrt{18^2 + 14^2 + 3^2} = 23 \]
+			
+			Das Flugzeug hebt mit \SI{2300}{\meter\per\minute} = \SI{138}{\kilo\meter\per\minute} vom Boden ab.
+			
+			Nach \SI{3}{Minuten} ($r = 3$) befindet sich das Flugzeug bei $\vector(58|43|9)$. Dann ändert es den Kurs auf die Flugbahn $\vect{y} = \vector(58|43|9) + s\cdot \vector(22|19|1,2)$. Nach weiteren \SI{7}{Minuten} ($s = 7$) befindet es sich bei $P_10\vector(212|176|17,4)$.
+			
+			\item Flugbahn des zweiten Flugzeuges:
+			\[ k:\vect{x} = \vector(220|-180|32) + t\cdot \vector(14|25|0)  \]
+			
+			$t = 10$ setzen ergibt für die Position nach \SI{10}{Minuten}: $Q_10\pkt(360|70|32)$
+			
+			Der Abstand der Punkte $\abs{\vect{P_{10}Q_{10}}}$ kann mit dem Differenzvektor bestimmt werden:
+			\[ \abs{\vect{P_{10}Q_{10}}} = \left| \vect{OQ_{10}}-\vect{OP_{10}} \right| = \left|\vector(148|-106|14,6)\right| \approx 182,6 \]
+			
+			Der Abstand beträgt nach \SI{10}{Minuten} etwa \SI{18260}{\meter}.
+			
+			\item Geradengleichungen gleich setzen und Gleichungssystem aufstellen, um einen Schnittpunkt zu ermitteln. Das System hat eine leere Lösungsmenge. Also gibt es keinen Schnittpunkt.
+		\end{enumeratea}
+	\end{loesung}
 \end{document}
