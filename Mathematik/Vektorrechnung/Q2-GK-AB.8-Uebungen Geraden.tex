@@ -140,7 +140,7 @@
     
     \begin{teilaufgaben}
         \teilaufgabe \operator{Bestimmen} sie die allgemeine Form (abhängig von einer unbekannten $r$) für einen Ortsvektor $\vec{OS_r}$, für einen Punkt $S_r$, der auf $g$ liegt.
-        \teilaufgabe Der neue Schacht soll orthogonal zu $g$ verlaufen. Stellen sie eine Gleichung mit $\vec{OS_r}$ auf, die dies ausdrückt und lösen sie nach $r$ auf (Kontrolle: $r\approx 0,224$).
+        \teilaufgabe Der neue Schacht soll orthogonal zu $g$ verlaufen. Stellen sie eine Gleichung mit $\vec{OS_r}$ auf, die dies ausdrückt und lösen sie nach $r$ auf (Kontrolle: $r\approx 0,2064$).
         \teilaufgabe \operator{Bestimmen} sie eine Gleichung für den zweiten Mienenschacht.
         \teilaufgabe Wie weit muss gebohrt werden, bis der erste Mienenschacht erreicht ist?
     \end{teilaufgaben}
@@ -150,19 +150,19 @@
 \begin{loesung}
     \begin{multicols}{2}
     \begin{teilaufgaben}
-    \teilaufgabe \[ \vec{OS_r}=\vector(-20+70s|12+22s|8-20s) \]
+    \teilaufgabe \[ \vec{OS_r}=\vector(-20+70r|12+22r|8-20r) \]
     \teilaufgabe\begin{align*}
-        \vec{OS_r}\ast \vector(70|22|-20) &= 0 \\
-        \Leftrightarrow s &\approx 0,224
+        \left(\vec{OS_r}-\vec{OK}\right)\ast \vector(70|22|-20) &= 0 \\
+        \Leftrightarrow r &\approx 0,2064
     \end{align*}
     
-    \teilaufgabe Berechne $S_{0,224} = \pkt(-4,32|16,928|3,52)$
+    \teilaufgabe Berechne $S_{0,2064} = \pkt(-5,552|16,5408|3,872)$
     
-        Richtungsvektor berechnen: \[ \vec{w} = \vec{KS} = \vector(-4,32|16,928|3,52) - \vector(5|-5|16) = \vector(-9,32|22,928|-12,48) \]
+        Richtungsvektor berechnen: \[ \vec{w} = \vec{KS} = \vector(-5,552|16,5408|3,872) - \vector(5|-6|16) = \vector(-10,552|22,5408|-12,128) \]
         
-        \[ h: \vec{x} = \vector(5|-5|16) + t\cdot \vector(-9,32|22,928|-12,48) \]
+        \[ h: \vec{x} = \vector(5|-6|16) + t\cdot \vector(-10,552|22,5408|-12,128) \]
     
-        \teilaufgabe \[ \abs{\vec{w}}\approx 27,7183 \]
+    \teilaufgabe \[ \abs{\vec{w}}\approx 27,69 (\si{\meter}) \]
     \end{teilaufgaben}
     \end{multicols}
 \end{loesung}
