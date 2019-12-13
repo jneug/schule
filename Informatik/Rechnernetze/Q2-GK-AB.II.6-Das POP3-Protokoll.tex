@@ -1,0 +1,93 @@
+\documentclass[10pt, a4paper]{scrartcl}
+
+\usepackage{vorschule}
+\usepackage[
+	typ=ab,
+	fach=Informatik,
+	lerngruppe={Q2-GK},
+	nummer=II.6,
+	module={Symbole,Lizenzen},
+	seitenzahlen=keine,
+	farbig,
+	lizenz=cc-by-nc-sa-4,
+]{schule}
+
+\usepackage[
+	kuerzel=Ngb,
+	reihe={Rechnernetze},
+	version={2019-12-13},
+]{ngbschule}
+
+\author{J. Neugebauer}
+\title{Das POP3-Protokoll}
+\date{\Heute}
+
+\setzeAufgabentemplate{ngbnormal}
+
+
+\begin{document}
+\ReiheTitel
+
+\begin{infobox}
+Ein \textbf{Protokoll} ist eine Spezifikation der Vorschriften und Regeln zum Informationsaustausch zwischen zwei Partnern eines Kommunikationssystems.
+
+Festgelegt werden im Wesentlichen
+
+\begin{tabularx}{\textwidth}{lX}
+	\textbf{Vokabeln:} & Vorgegebene Befehle inklusive deren Bedeutung. \\
+	\textbf{Verhalten:} & Welche Befehle sind in welcher Reihenfolge erlaubt? Welches Verhalten wird als Reaktion erwartet?  \\
+	\textbf{Formate:} & Formate (Codierungen) der Befehle und der Antworten.
+\end{tabularx}
+\end{infobox}
+
+Das \emph{Post Office Protocol} (POP) ist ein Übertragungsprotokoll, über das ein Client E-Mails von einem E-Mail-Server abholen kann. POP3 (Version 3 des Protokolls) kommuniziert standardmäßig über den \emph{Port 110}.
+
+Das POP3 definiert neun \emph{Vokabeln} mit jeweils vier Zeichen. Einige Vokabeln erfordern einen zusätzlichen Parameter. Gleichzeitig wird das \emph{Verhalten} durch erwartete Antworten und Reihenfolge festgelegt. POP3 hat drei Phasen. Einige Befehle dürfen nur in bestimmten Phasen ausgeführt werden, bei anderen gibt es keine Einschränkung.
+
+\begin{center}
+\begin{tabular}{|c|p{7cm}|m{4cm}|c|} \hline
+	Befehl & Bedeutung & Beispiele für mögliche Antworten & Phase \\ \hline
+	\code{USER \textit{u}} & \Zeilenabstand[1.5cm] &\code{+OK} \newline\newline \code{-ERR user unknown} & \textbf{2} \\ \hline
+	\code{PASS \textit{p}} & \Zeilenabstand[1.5cm] & \code{+OK} \newline\newline \code{-ERR login failed} & \textbf{2} \\ \hline
+	\code{STAT} & \Zeilenabstand[1.5cm] & \code{+OK 2 952} & \textbf{2} \\ \hline
+	\code{NOOP} & \Zeilenabstand[1.5cm] & \code{+OK} \newline\newline \code{-ERR Unknown command.} & \textbf{1-3} \\ \hline
+	\code{LIST} & \Zeilenabstand[1.5cm] & \code{+OK 2 952\newline1 436\newline2 516} & \textbf{2} \\ \hline
+	\code{RETR \textit{n}} & \Zeilenabstand[1.5cm] & & \textbf{2} \\ \hline
+	\code{DELE \textit{n}} & \Zeilenabstand[1.5cm] & & \textbf{2} \\ \hline
+	\code{RSET} & \Zeilenabstand[1.5cm] & +OK & \textbf{2} \\ \hline
+	\code{QUIT} & \Zeilenabstand[1.5cm] & \code{+OK session ended} & \textbf{3} \\ \hline
+\end{tabular}
+\end{center}
+
+\clearpage
+\ReiheTitel
+\begin{aufgabe}
+	Recherchiert im Internet die Bedeutung der Vokablen des POP3 und notiert die Funde in der Tabelle.
+\end{aufgabe}
+
+\begin{aufgabe}
+	Benutzt den Telnet-Client, um mit Hilfe des POP3 manuell eine E-Mail abzurufen.
+	
+	\begin{enumerate}
+		\item Kopiert den Ordner \ordner{Babypop3} aus dem Tauschordner. Führt dann einmalig durhc Doppelklick die Datei \datei{babypop3\_config.reg} aus. Startet dann das Programm \programm{babypop3.exe}.
+		\item Öffnet eine Windows-Befehlszeile und baut eine \texttt{telnet} Verbindung zum Server \enquote{127.0.0.1} auf dem Port \enquote{110} auf:
+
+		\begin{center}
+			\verb|C:\WINDOWS> telnet 127.0.0.1 110|
+		\end{center}
+		
+		Meldet der Server eine positive Antwort (\verb|+OK Baby POP3 Server ready|), dann können die POP3-Befehle eingegeben werden.
+		\item Als erstes müsst ihr euch mit einem Nutzernamen und Passwort am Server anmelden. Es gibt fünf Nutzer mit Nutzername/Passwort \texttt{user1}/\texttt{user1} bis \texttt{user5}/\texttt{user5}.
+		\item Benutzt die Tabelle zum möglichen Ablauf eines E-Mail Abrufs als Hilfe und notiert jeweils die Antworten des Servers.
+		\item Variiert die Befehle und versucht weitere Mails abzurufen. Probiert auch fehlerhafte Befehle und Reihenfolgen.
+	\end{enumerate}
+\end{aufgabe}
+
+\begin{aufgabe}
+	Studiert das Format der E-Mails, die vom Server gesendet werden. Für einen einfachen Zugriff könnt ihr im Ordner \ordner{Babypop3/maildrop} die E-Mails im Klartext als Textdatei abrufen.
+	
+	\medskip
+	Welche Bestandteile der E-Mail könnt ihr identifizieren? Wie ist das Format aufgebaut? Versucht eine möglichst exakte Beschreibung zu erstellen.
+\end{aufgabe}
+
+\end{document}
