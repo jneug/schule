@@ -15,7 +15,7 @@
 \usepackage[
 	kuerzel=Ngb,
 	reihe={Analytische Geometrie},
-	version={2019-12-11},
+	version={2019-12-12},
 ]{ngbschule}
 
 \author{J. Neugebauer}
@@ -28,7 +28,7 @@
 \begin{document}
 \ReiheTitel
 
-\begin{rahmen}
+\begin{infobox}
 \begin{wrapfig}
 	\begin{wrapfigure}[3]{r}{0pt}
 		\begin{tikzpicture}[thick]
@@ -42,16 +42,21 @@
 	$\vec{v}\neq\vec{o}$ mit dem eingeschlossenen Winkel $\alpha$ gilt:
 	\[ \vec{u}\ast\vec{v} = \abs{\vec{u}}\cdot\abs{\vec{v}}\cdot\cos{\alpha} \]
 \end{wrapfig}
-\end{rahmen}
+\end{infobox}
 
 \begin{aufgabe}
 	\operator{Berechnen} sie zunächst den Winkel zwischen den Vektoren $\vec{u}$ und $\vec{v}$\footnote{Die Umkehrfunktion des Kosinus ist $\operatorname{cos^{-1}}$ und ist auf dem GTR unter \menu{trig} zu finden. Es gilt dann \[ \cos{\alpha} = x \Leftrightarrow \alpha = \operatorname{cos^{-1}(x)}\]}. 
 	
 	\operator{Konstruieren} sie \emph{danach} die beiden Vektoren in GeoGebra und \operator{überprüfen} sie ihr Ergebnis.
+	
+	\begin{tasks}(2)
+		\task \[ \vec{u} = \vector(2|-1|2) \qquad \vec{v} = \vector(4|0|-3) \]
+		\task \[ \vec{u} = \vector(-3|-2|5) \qquad \vec{v} = \vector(7|1|-4) \]
+	\end{tasks}
 \end{aufgabe}
 
 \begin{center}
-\begin{minipage}{.9\textwidth}\small
+\begin{minipage}{.9\textwidth}\begin{rahmen}\small
 \subsubsection*{Konstruktionen in GeoGebra}
 Erstellen sie in GeoGebra ein neues Dokument und aktivieren sie die \enquote{3D-Grafik} Ansicht.
 
@@ -63,17 +68,17 @@ die Konstruktion \enquote{von Hand} einzugeben. Dazu geben sie in der linken Sei
 	\item[Winkel] Winkel können zwischen ganz verschiedenen Objekten erzeugt werden. Wichtig für uns 
 	sind Winkel zwischen drei Punkten (z.B. \code{Winkel(A, B, (1,2,3))}) und zwischen zwei Vektoren (z.B. \code{Winkel(u, Vektor((4.5,6,8.2))}).
 \end{description}
-\end{minipage}
+\end{rahmen}\end{minipage}
 \end{center}
 
 \begin{aufgabe}
 	\operator{Ergänzen} sie die Formel zur Berechnung des Winkels zwischen zwei Vektoren.
 	\medskip
-	\begin{rahmen}
+	\begin{infobox}
 		Für den Winkel $\alpha$ zwischen zwei Vektoren $\vec{u}\neq\vec{o}$ und 
 			$\vec{v}\neq\vec{o}$ gilt:
-			\[ \cos{\alpha} = \hspace{4cm} \]
-	\end{rahmen}
+			\[ \alpha = \hspace{4cm} \]
+	\end{infobox}
 \end{aufgabe}
 
 \vspace{1cm}
