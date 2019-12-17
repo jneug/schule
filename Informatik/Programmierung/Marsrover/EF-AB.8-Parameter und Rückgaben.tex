@@ -1,0 +1,97 @@
+\documentclass[10pt, a4paper]{scrartcl}
+
+%\usepackage{qrcode}
+
+\usepackage{vorschule}
+\usepackage[
+	typ=ab,
+	fach=Informatik,
+	lerngruppe={EF},
+	nummer=8,
+	module={Symbole,Lizenzen},
+	seitenzahlen=keine,
+	farbig,
+	lizenz=cc-by-nc-sa-4,
+]{schule}
+
+\usepackage[
+	kuerzel=Ngb,
+	reihe={Objektorientierte Programmierung},
+	version={2019-12-16},
+]{ngbschule}
+
+\author{J. Neugebauer}
+\title{Parameter und Rückgaben}
+\date{\Heute}
+
+\setzeAufgabentemplate{ngbnormal}
+
+\chead{\LARGE\symPin}
+
+
+\begin{document}
+\ReiheTitel[Parameter]
+
+Eine besondere Art von Variablen sind \emph{Parametervariablen}. Methoden können keinen, einen oder auch mehrere \emph{Parameter} besitzen. Sie sind lokale Variablen, die nur in der Methode \emph{gültig} sind. Das Besondere ist, dass sie erst beim Aufruf der Methode \emph{initialisiert} (also mit einem Wert belegt) werden.
+
+Du kennst schon einige Methoden mit Parametern:
+\begin{smallitemize}
+	\item \code{void drehe( String richtung )}
+	\item \code{boolean huegelVorhanden( String richtung )}
+\end{smallitemize}
+
+Die \emph{Signatur} der Methoden zeigen an, dass sie beiden eine \emph{Parametervariable} vom Typ \code{String} übergeben bekommen: \code{drehe("rechts");}
+
+Bei jedem \emph{Aufruf} der Methode kann dem \emph{Parameter} ein anderer Wert \emph{übergegeben} werden.
+
+\subsubsection*{Aufgabe 1}
+Überlegt gemeinsam, welchen Vorteil \emph{Parametervariablen} haben. Vor allem, dass man bei jedem Aufruf andere Werte \emph{übergeben} kann.
+
+\subsubsection*{Aufgabe 2}
+Implementiert eine Methode \code{void fahren( int strecke )}, die den Rover bei jedem Aufruf so viele Felder fahren lässt, wie in der \emph{Parametervariablen} übergeben wird.
+
+\subsubsection*{Aufgabe 3}
+Implementiert eine Methode \code{void fahreRechteck( int kante )}, die die Methode \code{fahren} von oben benutzt, um den Rover ein Rechteck mit der angegebenen Kantenlänge fahren zu lassen.
+
+\vspace{2cm}
+\begin{tcolorbox}[colframe=black!60,colback=black!10,width=\textwidth,height=5cm,center,boxrule=1pt]
+\begin{center}
+Hier den Arbeitauftrag der zweiten Phase einkleben.
+\end{center}
+\end{tcolorbox}
+
+\clearpage
+\ReiheTitel[Rückgaben]
+
+Eine besondere Art von Variablen sind \emph{Rückgabevariablen}. Methoden können keine oder eine \emph{Rückgabe} besitzen. Sie sind das \emph{Ergebnis} einer Methode, das nach dem Ende der Methode weitergenutzt werden kann. Sie sind also Werte, die aus der Methode \enquote{zurück gegeben} werden.
+
+Du kennst \emph{Rückgaben} schon von den \emph{Anfragen} des Rovers:
+\begin{smallitemize}
+	\item \code{boolean gesteinVorhanden()}
+	\item \code{boolean markeVorhanden()}
+\end{smallitemize}
+
+Die \emph{Signatur} der Methoden zeigen an, dass sie beide als \emph{Rückgabe} einen Wert vom Typ \code{boolean} \emph{zurück geben}: \code{boolean wahrheit = gesteinVorhanden();}
+
+\emph{Rückgabevariablen} haben keinen eigenen \emph{Bezeichner}.
+
+\subsubsection*{Aufgabe 1}
+Überlegt gemeinsam, welchen Vorteil \emph{Rückgabevariablen} haben.
+
+\subsubsection*{Aufgabe 2}
+Implementiert eine Methode \code{int zaehleMarken()}, die den Rover die Marken auf dem Feld zählen lässt, und die Anzahl als \code{Rückgabe} hat.
+
+\hinweis{Ihr könnt in Greenfoot mehrere Marken auf ein Feld legen.}
+
+\subsubsection*{Aufgabe 3}
+Implementiert eine Methode \code{int zaehleGesteine()}, die den Rover fünf Felder fahren, und auf dem Weg
+alle Gesteine analysieren lässt. Die Anzahl Gesteine soll \code{zurück gegeben} werden.
+
+\vspace{2cm}
+\begin{tcolorbox}[colframe=black!60,colback=black!10,width=\textwidth,height=5cm,center,boxrule=1pt]
+\begin{center}
+Hier den Arbeitauftrag der zweiten Phase einkleben.
+\end{center}
+\end{tcolorbox}
+
+\end{document}
