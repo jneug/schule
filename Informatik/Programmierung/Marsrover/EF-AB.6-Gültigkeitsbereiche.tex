@@ -1,0 +1,82 @@
+\documentclass[10pt, a4paper]{scrartcl}
+
+%\usepackage{qrcode}
+
+\usepackage{vorschule}
+\usepackage[
+	typ=ab,
+	fach=Informatik,
+	lerngruppe={EF},
+	nummer=6,
+	module={Symbole,Lizenzen},
+	seitenzahlen=keine,
+	farbig,
+	lizenz=cc-by-nc-sa-4,
+]{schule}
+
+\usepackage[
+	kuerzel=Ngb,
+	reihe={Objektorientierte Programmierung},
+	version={2019-12-30},
+	ersteAufgabe=2
+]{ngbschule}
+
+\author{J. Neugebauer}
+\title{Gültigkeitsbereiche}
+\date{\Heute}
+
+\setzeAufgabentemplate{ngbnormal}
+
+
+\begin{document}
+
+\ReiheTitel
+
+\begin{aufgabe}
+	Studiere die Algorithmen sorgfältig. Markiere die Gültigkeitsbereiche der Variablen im Quelltext. Einige Variablenzugriffe sind ungültig, da sie außerhalb des Gültigkeitsbereiches liegen. Markiere auch diese.
+\end{aufgabe}
+
+\begin{lstlisting}[language=java]
+public void test1() {
+    boolean wahrheit;
+    if( wahrheit ) {
+        int i = 2;
+    } else {
+        int i = 4;
+    }
+    if( i == 4 ) {
+        wahrheit = true;
+    }
+}
+\end{lstlisting}
+
+\begin{lstlisting}[language=java]
+public void test2() {
+    double intt;
+    while( intt < 8.0 ) {
+        int t = 4;
+        intt = intt + 0.5;
+        t = t + 1;
+    }
+    t = t + 1;
+}
+\end{lstlisting}
+
+\begin{lstlisting}[language=java]
+public void test3() {
+    int i = 4;
+    for( int j = 0; j < 5; j = j + 1 ) {
+        fahre();
+    }
+    if( i < 10 ) {
+        j = j - 1;
+    }
+}
+\end{lstlisting}
+
+\begin{aufgabe}
+	Wähle einen der drei Algorithmen oben aus und gehe seinen Ablauf zeilenweise durch. Notiere zu jedem Schritt die Werte aller zu diesem Zeitpunkt gültigen Variablen in einer Tabelle.
+\end{aufgabe}
+
+
+\end{document}

@@ -17,7 +17,7 @@
 \usepackage[
 	kuerzel=Ngb,
 	reihe={Objektorientierte Programmierung},
-	version={2019-11-27},
+	version={2019-12-30},
 ]{ngbschule}
 
 \author{J. Neugebauer}
@@ -26,37 +26,91 @@
 
 \setzeAufgabentemplate{ngbnormal}
 
+\lstset{
+	frame=,
+	backgroundcolor=
+}
 
 \begin{document}
 
 \ReiheTitel
 
+\begin{savelst}{task4}
+\begin{lstlisting}[language=java]
+double zahl1 = 2.3;
+double zahl2;
+double zahl3 = zahl1 + zahl2;
+\end{lstlisting}
+\end{savelst}
+
+\begin{savelst}{task5}
+\begin{lstlisting}[language=java]
+int i = 0;
+while( i < 10 ) {
+	int j = 2;
+	i = i + 1;
+}
+\end{lstlisting}
+\end{savelst}
+
+\begin{savelst}{task6}
+\begin{lstlisting}[language=java]
+String a = "x";
+String b = "y";
+int x = 0;
+while( x < 4 ) {
+	a = a + b;
+	x = x + 1;
+}
+\end{lstlisting}
+\end{savelst}
+
+\begin{savelst}{task7}
+\begin{lstlisting}[language=java]
+int zahl = 0;
+int var = 5;
+while( var > 0 ) {
+	int j = 0;
+	while( j < 5 ) {
+		var = var - 1;
+		j = j + 1;
+	}
+	zahl = zahl + 1;
+}
+\end{lstlisting}
+\end{savelst}
+
+\begin{savelst}{task8}
+\begin{lstlisting}[language=java]
+double intt;
+while( intt < 8.0 ) {
+	int t = 4;
+	intt = intt + 0.5;
+	t = t + 1;
+}
+int f = 15;
+intt = 15.0;
+\end{lstlisting}
+\end{savelst}
+
+
 \begin{aufgabe}
 	Studiere die Algorithmen auf der linken Seite sorgfältig. Notiere dann in der rechten Spalte die Werte der Variablen nachdem der Algorithmus beendet ist.
 	
+	\medskip
 	\tipp{Gehe den Ablauf des Algorithmus durch und notiere die Veränderungen der Variablen in jedem Schritt in einer Tabelle.}
 	
 	\medskip
-	\begin{tabularx}{\textwidth}{|X|X|} \hline
+	\begin{tabularx}{\textwidth}{|X|p{4cm}|} \hline
 		\rowcolor{gray!50!white} \textbf{Algorithmus} & \textbf{Variablen nach Ablauf} \\ \hline
-		\code{int i;} & \code{i = } \\ \hline
-		\code{int i = 5;} & \code{i = } \\ \hline
-		\code{double zahl;} & \code{zahl = } \\ \hline
-		\code{double zahl1 = 2.3;\newline
-		double zahl2;\newline
-		double zahl3 = zahl1 + zahl2;} & \code{zahl1 = }\newline\code{zahl2 = }\newline\code{zahl3 = } \\ \hline
-		\code{int i = 0;\newline
-while( i < 10 ) \{\newline
-\hspace*{4em}int j = 2;\newline
-\hspace*{4em}i = i + 1;\newline
-\}} & \code{i = }\newline\code{j = } \\ \hline
-		\code{String a = "x";\newline
-String b = "y";\newline
-int x = 0;\newline
-while( x < 4 ) \{\newline
-\hspace*{4em}a = a + b;\newline
-\hspace*{4em}x = x + 1;\newline
-\}} & \code{a = }\newline\code{b = }\newline\code{x = } \\ \hline
+		\tablelst{int i;} & \code{i = } \\ \hline
+		\tablelst{int i = 5;} & \code{i = } \\ \hline
+		\tablelst{double zahl;} & \code{zahl = } \\ \hline
+		\loadlst{task4} & \code{zahl1 = }\newline\code{zahl2 = }\newline\code{zahl3 = } \\ \hline
+		\loadlst{task5} & \code{i = }\newline\code{j = } \\ \hline
+		\loadlst{task6} & \code{a = }\newline\code{b = }\newline\code{x = } \\ \hline
+		\loadlst{task7} & \code{zahl = }\newline\code{var = }\newline\code{j = } \\ \hline
+		\loadlst{task8} & \code{intt = }\newline\code{t = }\newline\code{f = } \\ \hline
 	\end{tabularx}
 \end{aufgabe}
 
