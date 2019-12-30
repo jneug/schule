@@ -36,8 +36,8 @@ Eine besondere Art von Variablen sind \emph{Parametervariablen}. Methoden könne
 
 Du kennst schon einige Methoden mit Parametern:
 \begin{smallitemize}
-	\item \code{void drehe( String richtung )}
-	\item \code{boolean huegelVorhanden( String richtung )}
+	\item \code{public void drehe( String richtung )}
+	\item \code{public boolean huegelVorhanden( String richtung )}
 \end{smallitemize}
 
 Die \emph{Signatur} der Methoden zeigen an, dass sie beiden eine \emph{Parametervariable} vom Typ \code{String} übergeben bekommen: \code{drehe("rechts");}
@@ -48,10 +48,10 @@ Bei jedem \emph{Aufruf} der Methode kann dem \emph{Parameter} ein anderer Wert \
 Überlegt gemeinsam, welchen Vorteil \emph{Parametervariablen} haben. Vor allem, dass man bei jedem Aufruf andere Werte \emph{übergeben} kann.
 
 \subsubsection*{Aufgabe 2}
-Implementiert eine Methode \code{void fahren( int strecke )}, die den Rover bei jedem Aufruf so viele Felder fahren lässt, wie in der \emph{Parametervariablen} übergeben wird.
+Implementiert eine Methode \code{public void fahreStrecke( int strecke )}, die den Rover bei jedem Aufruf so viele Felder fahren lässt, wie in der \emph{Parametervariablen} \code{strecke} übergeben wird.
 
 \subsubsection*{Aufgabe 3}
-Implementiert eine Methode \code{void fahreRechteck( int kante )}, die die Methode \code{fahren} von oben benutzt, um den Rover ein Rechteck mit der angegebenen Kantenlänge fahren zu lassen.
+Implementiert eine Methode \code{public void fahreRechteck( int kante )}, die die Methode \code{fahreStrecke} von oben benutzt, um den Rover ein Rechteck mit der Kantenlänge \code{kante}) fahren zu lassen.
 
 \vspace{2cm}
 \begin{tcolorbox}[colframe=black!60,colback=black!10,width=\textwidth,height=5cm,center,boxrule=1pt]
@@ -67,25 +67,25 @@ Eine besondere Art von Variablen sind \emph{Rückgabevariablen}. Methoden könne
 
 Du kennst \emph{Rückgaben} schon von den \emph{Anfragen} des Rovers:
 \begin{smallitemize}
-	\item \code{boolean gesteinVorhanden()}
-	\item \code{boolean markeVorhanden()}
+	\item \code{public boolean gesteinVorhanden()}
+	\item \code{public boolean markeVorhanden()}
 \end{smallitemize}
 
 Die \emph{Signatur} der Methoden zeigen an, dass sie beide als \emph{Rückgabe} einen Wert vom Typ \code{boolean} \emph{zurück geben}: \code{boolean wahrheit = gesteinVorhanden();}
 
-\emph{Rückgabevariablen} haben keinen eigenen \emph{Bezeichner}.
+Methoden mit einer \emph{Rückgabevariablen} müssen eine \code{return}-Anweisung enthalten, die den Wert kennzeichnet, der \emph{zurück gegeben} werden soll. z.B. \code{return 5;}
 
 \subsubsection*{Aufgabe 1}
 Überlegt gemeinsam, welchen Vorteil \emph{Rückgabevariablen} haben.
 
 \subsubsection*{Aufgabe 2}
-Implementiert eine Methode \code{int zaehleMarken()}, die den Rover die Marken auf dem Feld zählen lässt, und die Anzahl als \code{Rückgabe} hat.
+Der Rover steht auf einem Feld mit einer unbekannten Anzahl Marken. Implementiert eine Methode \code{public int zaehleMarken()}, die den Rover die Marken auf dem Feld zählen lässt, und die Anzahl als \emph{Rückgabe} hat. Der Rover muss sich dafür nicht bewegen.
 
 \hinweis{Ihr könnt in Greenfoot mehrere Marken auf ein Feld legen.}
 
 \subsubsection*{Aufgabe 3}
-Implementiert eine Methode \code{int zaehleGesteine()}, die den Rover fünf Felder fahren, und auf dem Weg
-alle Gesteine analysieren lässt. Die Anzahl Gesteine soll \code{zurück gegeben} werden.
+Implementiert eine Methode \code{public int zaehleGesteine()}, die den Rover fünf Felder fahren, und auf dem Weg
+alle Gesteine analysieren lässt. Die Anzahl gefundener Gesteine soll \emph{zurück gegeben} werden.
 
 \vspace{2cm}
 \begin{tcolorbox}[colframe=black!60,colback=black!10,width=\textwidth,height=5cm,center,boxrule=1pt]
