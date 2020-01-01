@@ -1,0 +1,121 @@
+\documentclass[10pt, a4paper]{scrartcl}
+
+\usepackage{vorschule}
+\usepackage[
+	typ=ab,
+	fach=Informatik,
+	lerngruppe={9Diff},
+	nummer=IV.4,
+	module={Symbole,Lizenzen},
+	seitenzahlen=keine,
+	farbig,
+	lizenz=cc-by-nc-sa-4,
+]{schule}
+
+\usepackage[
+	kuerzel=Ngb,
+	reihe={Kryptografie},
+	version={2020-01-01},
+]{ngbschule}
+
+\author{J. Neugebauer}
+\title{CAESAR-Verschlüsselung mit LibreOffice}
+\date{\Heute}
+
+\setzeAufgabentemplate{ngbnormal}
+
+\def\emptystr{\textquotedbl\textquotedbl}
+
+
+\begin{document}
+\ReiheTitel
+
+\begin{aufgabe}
+	Ihr sollt mit \programm{LibreOffice Calc} ein Rechenblatt (ein \enquote{Programm}) zur Verschlüsselung eines Wortes mit einem frei wählbaren Schlüssel nach dem CAESAR-Verfahren erstellt werden. Am Ende soll das Rechenblatt etwa wie folgt aussehen:
+	
+	\begin{center}
+	\includegraphics[width=.9\textwidth]{9Diff-AB.IV.4-Abb1}
+	\end{center}
+\end{aufgabe}
+
+\subsubsection*{Hinweise}
+Du darfst \textbf{nicht} einfach das Bild oben abtippen, da die Zahlen und das Chiffre-Wort von \programm{Calc} mit Hilfe von \textbf{Formeln} berechnet werden - wie das geht, wird im Folgenden erklärt.
+
+\begin{itemize}
+	\item \textbf{Informationen vom CAESAR-Verfahren}
+	\begin{itemize}
+		\item Zur Vereinfachung soll das Alphabet nur aus Großbuchstaben bestehen (die Römer verwendeten auch nur große Buchstaben).
+		\item Der Schlüsselwert wird als Zahl gespeichert. Sie gibt an, um wie viele Stellen das Alphabet verschoben wird.
+		\item Zur Vereinfachung liegt der Schlüsselwert zwischen 0 und 26 (Anzahl der Buchstaben des Alphabets).
+	\end{itemize}
+	\item \textbf{Planung des Rechenblatts, Aufteilen des Platzes und Festlegen der Bereiche für}
+	\begin{itemize}
+		\item Eingabe:
+		\begin{itemize}
+			\item zu verschlüsselndes Wort (\textbf{für jeden Buchstaben eine Zelle}).
+			\item Schlüsselwert, mit Hinweis auf Wertebereich (\textit{Zusatz: Prüfung der Eingabe}).
+		\end{itemize}
+		\item Verarbeitung:
+		\begin{itemize}
+			\item Umwandlung der Buchstaben in eine Zahl (ihren \textbf{Unicode}).
+			\item Verschiebung des Unicodes um den Schlüsselwert.
+		\end{itemize}
+		\item Ausgabe:
+		\begin{itemize}
+			\item verschlüsseltes Wort (\textbf{für jeden Buchstaben eine eigene Zelle}, gleiche Länge wie Eingabebereich).
+			\item Entwerfen der Formel, um die verschobenen Uni-Codes wieder in Buchstaben zu verwandeln.
+		\end{itemize}
+		\item Gestaltung: Schriftart, Schriftgröße, farbliche Gestaltung, Platzaufteilung
+	\end{itemize}
+\end{itemize}
+
+\clearpage
+
+\begin{infobox}\begin{wrapfig}
+	\begin{wrapfigure}{r}{0pt}\scriptsize
+	\begin{tabular}{|*{16}{c}|}\hline
+		\rowcolor{white}
+		0 & 1 & 2 & 3 & 4 & 5 & 6 & 7 & 8 & 9 & A & B & C & D & E & F \\
+		&&&&&&&&&& (10) & (11) & (12) & (13) & (14) & (15) \\
+		  & ! & \textquotedblleft & \# & \$ & \% & \& & \textquoteleft & ( & ) & * & + & , & - & . & / \\
+		0 & 1 & 2 & 3 & 4 & 5 & 6 & 7 & 8 & 9 & : & ; & < & = & > & ? \\
+		@ & A & B & C & D & E & F & G & H & I & J & K & L & M & N & O \\
+		P & Q & R & S & T & U & V & W & X & Y & Z & [ & \textbackslash & ] & \^{} & \_ \\
+		` & a & b & c & d & e & f & g & h & i & j & k & l & m & n & o \\
+		p & q & r & s & t & u & v & w & x & y & z & \{ & | & \} & \textasciitilde &  \\\hline
+		\end{tabular}
+	\end{wrapfigure}\small
+	\textbf{Unicode} ist ein internationaler Standard, in dem für jedes Schriftzeichen oder Textelement aller bekannten Schriftkulturen ein \emph{digitaler Code} (eine Zahl) festgelegt wird. Ziel ist es, die Verwendung unterschiedlicher \emph{Kodierungen} in verschiedenen Ländern zu vereinheitlichen. Der Unicode wird als sogenannte \emph{Hexadezimalzahl} angegeben (eine Zahl zur Basis 16 mit den Ziffern 0-9 und A-F $\rightarrow$ siehe Tabelle). Beispielsweise hat das Ausrufezeichen \enquote{!} den Unicode $21_{\text{hex}}$, was der Dezimalzahl $33$ entspricht ($2\cdot 16 + 1$). Das Fragezeichen \enquote{?} hat den Unicode $3F_{\text{hex}}$ (dezimal: $3\cdot 16 + 15 = 63$).
+\end{wrapfig}\end{infobox}
+
+\subsubsection{Planung der Formeln}
+In \programm{LibreOffice Calc} beginnt eine Formel immer mit einem Gleichzeichen (\enquote{=}).
+
+\begin{itemize}
+	\item Unwandlung eines Buchstabens in seinen Unicode:
+	\begin{itemize}
+		\item Jedem Buchstaben des Originalalphabets ist durch die Unicode-Tabelle eine Zahl zugeordnet. Mit der \programm{Calc} Funktion kann diese Zahl durch den Befehl \code{UNICODE(zeichen)} bestimmt werden. Zum Beispiel steht in der Zelle \textbf{B4} folgendes: \code{=UNICODE(A4)}.
+		\item Beim Verschieben des Alphabets muss jede Zahl des Unicodes um den Schlüsselwert erhöht werden. Beispiel für Zelle \textbf{B8}: \code{B4+\$B\$6}. Das Dollar-Zeichen \$ führt zu einer so genannten \textbf{absoluten Adresse}, die beim Kopieren der Formel nicht verändert wird (der Schlüsselwert steht ja immer in B6).
+	
+		\item Ein kleines Problem: \\
+		Wenn der Klartext ein Leerzeichen enthält, soll dieses Leerzeichen einfach in das Chiffrewort übernommen werden (Leerzeichen werden nicht verschoben). Dies prüft man in der Formel mit dem \code{WENN}-Befehl. Ist die \emph{Bedingung} wahr, dann wird der \emph{Dann}-Wert eingesetzt, andernfall der \emph{Sonst}-Wert.
+		
+		\code{=WENN(Bedingung; Dann; Sonst)}
+		
+		\textbf{B8} wird also noch einmal geändert zu: \code{=WENN(B4=\emptystr; \emptystr; B4+\$B\$6)}. (\emph{Wenn B4 leer ist, dann setze ein Leerzeichen ein, sonst den verschobenen Unicode.})
+		
+		\item Ein zweites Problem: \\
+		Es kann passieren, dass die Summe aus Unicode und Schlüssel größer als 90 wird (90 ist der Unicode von \enquote{Z}). In diesem Fall muss man wieder beim \enquote{A} einsteigen. Dies kann mit einem zweiten \code{WENN}-Befehl realisiert werden.
+		
+		Zelle \textbf{B9}: \code{=WENN(B8=\emptystr; \emptystr; WENN(B8>90; B8-26; B8))}
+	\end{itemize}
+	
+	\item Erzeugen des Chiffrewortes: \\
+	Aus dem verschobenen Unicode muss wieder ein Buchstabe gemacht werden. Dazu gibt es den Befehl \code{ZEICHEN(zahl)}.
+	
+	Zelle \textbf{B10}: \code{=WENN(B9=\emptystr; \emptystr; ZEICHEN(B9))}
+\end{itemize}
+
+Denk daran, dass du die Formeln aus den Zellen in die anderen Spalten übernehmen kannst, indem du die Zellen markierst und an der rechten unteren Ecke mit gedrückter Maustaste nach rechts ziehst. Die Formeln werden automatisch für die neue Spalte angepasst (außer Zellen, die mit dem Dollarzeichen \enquote{fixiert} wurden).
+
+\end{document}
