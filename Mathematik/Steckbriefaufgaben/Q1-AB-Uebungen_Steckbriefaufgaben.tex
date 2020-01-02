@@ -1,8 +1,11 @@
 \documentclass[11pt, a5paper, landscape, final]{scrartcl}
 
 % put to a5 pages on one a4 sheet
-\usepackage{pgfpages}
-\pgfpagesuselayout{2 on 1}[a4paper]
+%\usepackage{pgfpages}
+%\pgfpagesuselayout{2 on 1}[a4paper]
+\usepackage{pgfmorepages}
+\pgfmorepagesloadextralayouts
+\pgfpagesuselayout{4 on 2, odd then even}[a4paper]
 
 \usepackage{vorschule}
 \usepackage[
@@ -19,7 +22,7 @@
 	kuerzel={Ngb},
 	reihe={Analysis},
 	version={2019-03-31},
-	hinweise=nein
+%	hinweise=nein
 ]{ngbschule}
 
 \author{J. Neugebauer}
@@ -43,29 +46,6 @@
 				\item $f(x) = \frac{3}{4x^2}$
 				\item $f(x) = 4x^{-5} + 2x^3 - \frac{1}{x^3}$
 				\item $f(x) = \frac{1}{3x^8} - 25x^4 - \frac{20}{x^5}$
-			\end{enumerate}
-		\end{multicols}
-	\end{aufgabe}
-	\clearpage
-	
-	%% Aufgabe 2
-	\begin{aufgabe}
-		\operator{Berechnen} sie die Lösungen der Gleichungssysteme \emph{ohne Einsatz des GTR}. \operator{Begründen} sie gegebenenfalls, warum es keine oder unendlich viele Lösungen gibt.
-		\begin{multicols}{2}
-			\begin{enumerate}[label=\alph*)]
-				\item 
-				\[ \left| \begin{alignedat}{4}
-				-x + && y + && z = & 0 \\
-				x - && 3y - && 2z = & 5 \\
-				5x + && y + && 4z = & 3
-				\end{alignedat} \right| \]
-				
-				\item 
-				\[ \left| \begin{alignedat}{4}
-				-2x - && 2y + &&  z = & 10 \\
-				3x + && 12y - &&  7z = & 42 \\
-				-16x - && 16y + && 8z = & 56
-				\end{alignedat} \right| \]
 			\end{enumerate}
 		\end{multicols}
 	\end{aufgabe}
@@ -103,6 +83,29 @@
 			}
 		\end{multicols}
 	\end{center}
+	\clearpage
+		
+	%% Aufgabe 2
+	\begin{aufgabe}
+		\operator{Berechnen} sie die Lösungen der Gleichungssysteme \emph{ohne Einsatz des GTR}. \operator{Begründen} sie gegebenenfalls, warum es keine oder unendlich viele Lösungen gibt.
+		\begin{multicols}{2}
+			\begin{enumerate}[label=\alph*)]
+				\item 
+				\[ \left| \begin{alignedat}{4}
+				-x + && y + && z = & 0 \\
+				x - && 3y - && 2z = & 5 \\
+				5x + && y + && 4z = & 3
+				\end{alignedat} \right| \]
+				
+				\item 
+				\[ \left| \begin{alignedat}{4}
+				-2x - && 2y + &&  z = & 10 \\
+				3x + && 12y - &&  7z = & 42 \\
+				-16x - && 16y + && 8z = & 56
+				\end{alignedat} \right| \]
+			\end{enumerate}
+		\end{multicols}
+	\end{aufgabe}
 	\clearpage
 	
 	%% Hinweise Aufgabe 2
@@ -144,16 +147,6 @@
 	%% Aufgabe 3
 	\begin{aufgabe}
 		\operator{Bestimmen} sie die Gleichung einer ganzrationalen Funktion 3. Grades. Der Graph der Funktion geht durch den Punkt $(3|-28)$, sie hat eine Nullstelle bei $x = 1$ und an der Stelle $x = 0,5$ eine Wendestelle mit der Steigung $1,5$.
-	\end{aufgabe}
-	\clearpage
-
-	%% Aufgabe 4
-	\begin{aufgabe}
-		\operator{Bestimmen} sie die Gleichung der unten abgebildeten ganzrationalen Funktion.
-		
-		\begin{center}
-		\includegraphics{Q1-AB-Uebungen_Graph_Afg3.pdf}
-		\end{center}
 	\end{aufgabe}
 	\clearpage
 	
@@ -202,6 +195,16 @@
 			}
 		\end{multicols}
 	\end{center}
+	\clearpage
+	
+	%% Aufgabe 4
+	\begin{aufgabe}
+		\operator{Bestimmen} sie die Gleichung der unten abgebildeten ganzrationalen Funktion.
+		
+		\begin{center}
+		\includegraphics{Q1-AB-Uebungen_Graph_Afg3.pdf}
+		\end{center}
+	\end{aufgabe}
 	\clearpage
 	
 	%% Hinweise Aufgabe 4
