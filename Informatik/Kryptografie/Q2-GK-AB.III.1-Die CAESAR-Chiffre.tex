@@ -1,0 +1,66 @@
+\documentclass[10pt, a4paper]{scrartcl}
+
+\usepackage{vorschule}
+\usepackage[
+	typ=ab,
+	fach=Informatik,
+	lerngruppe={Q2-GK},
+	nummer=III.1,
+	module={Symbole,Lizenzen},
+	seitenzahlen=keine,
+	farbig,
+	lizenz=cc-by-nc-sa-4,
+]{schule}
+
+\usepackage[
+	kuerzel=Ngb,
+	reihe={Kryptografie},
+	version={2020-01-08},
+]{ngbschule}
+
+\author{J. Neugebauer}
+\title{Die CAESAR-Chiffre}
+\date{\Heute}
+
+\setzeAufgabentemplate{ngbnormal}
+
+
+
+
+\begin{document}
+\ReiheTitel
+
+Bei der CAESAR-Verschlüsselung werden die Buchstaben des Alphabets (zunächst nur Großbuchstaben) um eine feste Anzahl an Stellen verschoben. Bei einer Verschiebung um 3 Stellen wird zum Beispiel aus einem \emph{B} ein \emph{E}, usw. Die Verschiebung kann auch als Buchstabe dargestellt werden. Im obigen Fall ist der Schlüsselbuchstabe \emph{D}, da bei einer Verschiebung um 3 Stellen der Buchstabe \emph{A} zu \emph{D} wird.
+
+\begin{aufgabe}
+	Chiffriere das Wort \code{KLARTEXT} durch das CAESAR-Verfahren mit dem Schlüsselbuchstaben \emph{G}.
+\end{aufgabe}
+
+
+\begin{aufgabe}
+	Die drei Geheimtextnachrichten wurden mit dem CAESAR-Verfahren verschlüsselt. Die verwendeten Schlüssel sind auch angegeben, aber durcheinander geraten.
+	
+	\begin{center}
+	\begin{tikzpicture}
+		\node[draw,fill=black!10] at (0,0) {HMENQLZSHJ};
+		\node[draw,fill=black!10] at (8,0) {CNIQTKVJOWU};
+		\node[draw,fill=black!10] at (4,-1) {IFYJSXYWZPYZW};
+		
+		\node[draw,fill=black!25,diamond] at (1,-1) {C};
+		\node[draw,fill=black!25,diamond] at (4,0) {Z};
+		\node[draw,fill=black!25,diamond] at (6,-.8) {F};
+	\end{tikzpicture}
+	\end{center}
+	
+	Ordne die Schlüssel den Geheimtexten zu und entschlüssele die Botschaften.
+\end{aufgabe}
+
+\begin{aufgabe}
+	Verschlüssele ein Wort oder einen Satz mit dem CAESAR-Verfahren. Tausche die verschlüsselte Botschaft dann mit einem Mitschüler/einer Mitschülerin aus, aber nicht die Schlüssel. Versucht nun jeweils die erhaltene Botschaft zu entschlüsseln.
+\end{aufgabe}
+
+\begin{aufgabe}
+	Verfasst gemeinsam einen Algorithmus (Pseudocode), mit dem das CAESAR-Verfahren geknackt wernden kann (entschlüsseln, ohne das Schlüsselwort zu kennen).
+\end{aufgabe}
+
+\end{document}
