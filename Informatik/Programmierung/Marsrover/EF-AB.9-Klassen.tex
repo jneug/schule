@@ -1,0 +1,94 @@
+\documentclass[10pt, a4paper, landscape, twocolumn]{scrartcl}
+
+%\usepackage{qrcode}
+
+\usepackage{vorschule}
+\usepackage[
+	typ=ab,
+	fach=Informatik,
+	lerngruppe={EF},
+	nummer=9,
+	module={Symbole,Lizenzen},
+	seitenzahlen=keine,
+	farbig,
+	lizenz=cc-by-nc-sa-4,
+]{schule}
+
+\usepackage[
+	kuerzel=Ngb,
+	reihe={Objektorientierte Programmierung},
+	version={2020-01-13},
+]{ngbschule}
+
+\author{J. Neugebauer}
+\title{Klassen}
+\date{\Heute}
+
+\setzeAufgabentemplate{ngbnormal}
+
+
+\begin{document}
+
+\begin{lstlisting}[language=Java,frame=none]
+import java.util.Random;
+
+public class Schueler {
+	
+	public static int zufallszahl( int pMin, int pMax ) {
+		Random r = new Random();
+		return r.nextInt(pMax-pMin)+pMin;
+	}	
+	
+	private String vorname;
+	
+	private String nachname;
+
+	private int notenpunkte;
+	
+	private Schueler sitznachbar;
+	
+	
+	public Schueler( String pVorname, String pNachname ) {
+		vorname = pVorname;
+		nachname = pNachname;
+		
+		notenpunkte = Schueler.zufallszahl(0,15);
+	}
+	
+	public String getName() {
+		return vorname + " " + nachname;
+	}
+	
+	public int getNotenpunkte() {
+		return note;
+	}
+	
+	public Schueler getSitznachbar() {
+		return sitznachbar;
+	}
+	
+	public void setSitznachbar( Schueler pNeuerNachbar ) {
+		sitznachbar = pNeuerNachbar;
+	}
+	
+	public int notenschnittErmitteln() {
+		if( sitznachbar != null ) {
+			return Math.round((sitznachbar.getNotenpunkte() + notenpunkte)/2);
+		} else {
+			return notenpunkte;
+		}
+	}
+	
+	
+	public static void main( String[] args ) {
+		Schueler kim = new Schueler("Kim", "Meyer");
+		Schueler johann = new Schueler("Johann", "Schmidt");
+		kim.setSitznachbar(johann);
+		System.out.println(kim.notenschnittErmitteln());
+		
+	}
+	
+}
+\end{lstlisting}
+
+\end{document}
