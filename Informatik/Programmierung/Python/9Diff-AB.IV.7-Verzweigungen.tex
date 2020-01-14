@@ -1,0 +1,74 @@
+\documentclass[10pt, a4paper]{scrartcl}
+
+\usepackage{vorschule}
+\usepackage[
+	typ=ab,
+	fach=Informatik,
+	lerngruppe={9Diff},
+	nummer=IV.7,
+	module={Symbole,Lizenzen},
+	seitenzahlen=keine,
+	farbig,
+	lizenz=cc-by-nc-sa-4,
+]{schule}
+
+\usepackage[
+	kuerzel=Ngb,
+	reihe={Imperative Programmierung mit Python},
+	version={2020-01-12},
+]{ngbschule}
+
+\author{J. Neugebauer}
+\title{Verzweigungen}
+\date{\Heute}
+
+\setzeAufgabentemplate{ngbnormal}
+
+\begin{document}
+\ReiheTitel
+
+\begin{aufgabe}
+	\emph{Was macht denn die Turtle?}
+	
+	Die Turtle hat anscheinend etwas viel getrunken! 
+	
+	\begin{lstlisting}[language=python]
+from gturtle import *
+from random import randint
+
+makeTurtle("sprites/alien.gif")
+repeat 100:
+    forward(20)
+    zufall = randint(1, 100)
+    if zufall < 25:
+        left(45)
+    elif zufall >= 25 and zufall < 50:
+        # 'elif' steht kurz für 'else-if'
+        right(135)
+    elif zufall >= 50 and zufall < 90:
+        back(50)
+    else:
+        playTone(220, 800)
+	\end{lstlisting}
+	
+	\begin{teilaufgaben}
+		\teilaufgabe Analysiere das Programm und beschreibe seine Arbeitsweise. Notiere unbekannte Befehle und versuche ihre Funktion zu erklären.
+		\teilaufgabe Wie genau werden die Zeilen 8-16 abgearbeitet, wenn die Variable \code{zufall} den Wert \num{73} enthält?
+	\end{teilaufgaben}
+\end{aufgabe}
+	
+	\begin{aufgabe}
+		\begin{teilaufgaben}
+			\teilaufgabe Lies im Buch auf Seite \num{80} die Box \enquote{Neue Konzepte und Befehle}.
+			\teilaufgabe Bearbeite im Buch auf Seite 83 das Beispiel 7 und Aufgabe 8.
+			\teilaufgabe Bearbeite im Buch auf Seite 85 das Beiepiel 9 und Aufgabe 12.
+		\end{teilaufgaben}
+	\end{aufgabe}
+
+	\begin{aufgabe}
+		Du sollst eine Billardkugel programmieren. Kopiere dazu aus dem Tauschordner das Programm \datei{07-billard.py} und öffne es. Analysiere das Programm und lies die Kommentare. Ergänze dann die fehlenden Teile.
+		
+		Nutze als Hilfe die Bilddatei \datei{07-Abb\_Arbeitsfläche.png}. 
+	\end{aufgabe}
+	
+\end{document}
