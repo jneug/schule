@@ -1,0 +1,66 @@
+\documentclass[10pt, a4paper]{scrartcl}
+
+%\usepackage{qrcode}
+
+\usepackage{vorschule}
+\usepackage[
+	typ=ab,
+	fach=Informatik,
+	lerngruppe={EF},
+	nummer=IV.1,
+	module={Symbole,Lizenzen},
+	seitenzahlen=keine,
+	farbig,
+	lizenz=cc-by-nc-sa-4,
+]{schule}
+
+\usepackage[
+	kuerzel=Ngb,
+	reihe={Objektorientierte Modellierung},
+	version={2020-01-20},
+]{ngbschule}
+
+\author{J. Neugebauer}
+\title{Erste Schritte in BlueJ}
+\date{\Heute}
+
+\setzeAufgabentemplate{ngbnormal}
+
+
+\begin{document}
+\ReiheTitel
+
+\begin{aufgabe}
+	Öffne das Projekt \ordner{shapes} aus dem Tauschordner und studiere seinen Aufbau.
+	
+	\begin{teilaufgaben}
+		\teilaufgabe Erzeuge mit BlueJ und den Klassen Kreis, Quadrat und Dreieck interaktiv eine Abbildung, die ein einfaches Haus mit einer Sonne darstellt.
+		\teilaufgabe Versuche dabei dir die einzelnen Schritte bzw. Methodenaufrufe so zu merken, dass du eine erneute Darstellung des gleichen Bildes möglichst direkt erzeugen könntest.
+		\teilaufgabe Falls du genügend Zeit zur Verfügung hast, kannst du die Zeichnung noch um weitere Elemente, wie z.B. Tannenbäume ergänzen.
+	\end{teilaufgaben}
+\end{aufgabe}
+
+\begin{aufgabe}
+	Öffne nun das Projekt \ordner{picture} aus dem Tauschordner und öffne die Klasse \code{Picture} mit einem Doppelklick. Studiere die Klasse und ihren Aufbau.
+	
+	Verändere den Quelltext von Zeichnung so, dass die Sonne nicht mehr gelb, sondern rot ist. Dazu musst du im Quelltext die Zeile suchen, in der die Farbe der Sonne geändert wird.
+\end{aufgabe}
+
+\begin{aufgabe}
+	\begin{teilaufgaben}
+		\teilaufgabe Erweitere den Quelltext von Zeichnung um ein weiteres Objekt, einen Mond. Der Mond soll etwas kleiner sein als die Sonne und links vom Dach erscheinen.
+		\teilaufgabe Die Klasse Zeichnung kennt die Methoden \code{inSchwarzWeissAendern} und \code{inFarbeAendern}. Achte darauf, dass diese Methoden auch den Mond beeinflussen.
+		\teilaufgabe Falls du noch Zeit hast kannst du deine Zeichnung um einen Tannenbaum erweitern, der unterhalb der Sonne neben dem Haus stehen kann.
+	\end{teilaufgaben}
+\end{aufgabe}
+
+\begin{aufgabe}
+	Der Mond aus der letzten Aufgabe soll nach dem Zeichnen langsam untergehen.
+		
+	\begin{teilaufgaben}
+		\teilaufgabe Die Klasse \code{Kreis} stellt die Methoden \code{langsamHorizontalBewegen} und \code{langsamVertikalBewegen} zur Verfügung, die du innerhalb von zeichne benutzen kannst.
+		\teilaufgabe Schreibe eine extra Methode \code{monduntergang}, die von der Methode \code{zeichne} getrennt ist. Man soll also mittels \code{zeichne} das Bild aufbauen und dann mit \code{monduntergang} den Mond untergehen lassen.
+	\end{teilaufgaben}
+\end{aufgabe}
+
+\end{document}

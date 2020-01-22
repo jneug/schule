@@ -1,0 +1,123 @@
+\documentclass[10pt, a4paper]{scrartcl}
+
+\usepackage{vorschule}
+\usepackage[
+	typ=ab,
+	fach=Informatik,
+	lerngruppe={9Diff},
+	nummer=IV.9,
+	module={Symbole,Lizenzen},
+	seitenzahlen=keine,
+	farbig,
+	lizenz=cc-by-nc-sa-4,
+]{schule}
+
+\usepackage[
+	kuerzel=Ngb,
+	reihe={micro:Bit Programmierung mit microPython},
+	version={2020-01-20},
+]{ngbschule}
+
+\author{J. Neugebauer}
+\title{Erste Schritte mit dem micro:Bit}
+\date{\Heute}
+
+\setzeAufgabentemplate{ngbnormal}
+
+\begin{document}
+\ReiheTitel
+
+Der micro:bit ist ein winziger programmierbarer Computer, der mit verschiedenen Eingaben (Knöpfe, Beschleunigungssensor) und Ausgaben (LEDs) ausgestattet ist. Der micro:Bit kann mit verschiedenen Programmiersprachen gesteuert werden. Unter anderem mit einer visuellen Programmiersprache (Scratch) oder Python.
+
+\begin{aufgabe}
+	Starte das Programm \enquote{Mu-Editor} aus dem Ordner \ordner{Informatik}. Wähle oben rechts unter \enquote{Modus} den \enquote{micro:Bit Modus} aus. Verbinde nun den micro:Bit mit dem roten USB-Kabel mit dem Computer.
+\end{aufgabe}
+
+\begin{aufgabe}
+	Übertrage das folgende Programm in den Editor.
+	
+	\begin{lstlisting}[language=Python]
+from microbit import *
+
+while True:
+    if button_a.is_pressed():
+        display.show(Image.HAPPY)
+    elif button_b.is_pressed():
+        break
+    else:
+        display.show(Image.SAD)
+
+display.clear()
+	\end{lstlisting}
+	
+	Klicke dann oben auf den \enquote{Übertragen}-Button. Die orangene Statusleuchte des micro:Bit beginnt während der Übertragung zu flackern. Dann startet das Programm automatisch.
+	
+	\hinweis{Achte beim übertragen auf die korrekten Einrückungen!}
+\end{aufgabe}
+
+\begin{aufgabe}
+	Analysiere das Programm und erkläre, wie es funktioniert.
+	
+	Notiere dir alle neuen Befehle mit einer Erklärung, wie sie funktionieren.
+\end{aufgabe}
+
+\begin{aufgabe}
+	Teste die beiden gezeigten Programme und erkläre ihre Funktionsweise. Notiere dir wieder die neuen Befehle mit einer kurzen Erklärung.
+	\vspace{-1em}\setlength{\columnsep}{.8cm}
+	\begin{multicols}{2}
+	\begin{lstlisting}[language=Python]
+from microbit import *
+from random import randint
+
+while True:
+	x = randint(0, 4)
+	y = randint(0, 4)
+	display.set_pixel(x, y, 6)
+	sleep(200)
+	\end{lstlisting}
+	
+	\columnbreak
+	
+	\begin{lstlisting}[language=Python]
+from microbit import *
+from math import floor as abrunden
+
+i = 0
+while i < 1000:
+    if accelerometer.is_gesture("shake"):
+        i += 1
+    rows = abrunden(i/200)-1
+    leds = "66666" + ":66666"*rows
+    display.show(Image(leds))
+    sleep(5)
+	\end{lstlisting}
+	\end{multicols}
+\end{aufgabe}
+
+\begin{aufgabe}
+	Programmiere das Spiel \enquote{Achtung, Bombe!}. Das Spiel geht so: 
+	
+	\begin{rahmen}
+	Beim Start wird der Timer der \enquote{Bombe} auf einen zufälligen Wert gesetzt. Beim Start beginnt der Timer abzulaufen. Der Startspieler gibt nun die \enquote{Bombe} an den nächsten Spieler weiter. Dieser an seinen Nachfolger, und so weiter. Der Spieler, bei dem die Bombe \enquote{explodiert}, hat verloren.
+	\end{rahmen}
+	
+	Überlege dir, wie du das Spiel mit dem micro:Bit umsetzen möchtest. Das Spiel sollte starten, wenn ein Knopf betätigt wird. Die \enquote{Explosion} sollte passend dargestellt werden. Denke auch an die Beispielprogramme und welche Befehle du für dein Spiel verwenden kannst.
+\end{aufgabe}
+
+\begin{aufgabe}
+	Verbessere dein \enquote{Achtung, Bombe!} Spiel mit weiteren Funktionen:
+	\begin{itemize}
+		\item Füge einen Effekt hinzu, der die tickende Bombe darstellt.
+		\item Die Geschwindigkeit des Timers könnte durch Schütteln erhöht werden.
+		\item Es könnte eine \enquote{letzte Chance} geben. Bei der Explosion kann der letzte Spieler schnell beide Knöpfe drücken und so die Explosion noch einmal aufschieben.
+		\item Überlege dir weitere Verbesserungen.
+	\end{itemize}
+\end{aufgabe}
+
+\begin{infobox}
+Du kannst alle verfügbaren Befehle für den micro:Bit und viele Beispiele in der Dokumentation nachlesen (auf englisch): 
+
+\url{https://link.ngb.schule/microbit}
+\end{infobox}
+
+\end{document}

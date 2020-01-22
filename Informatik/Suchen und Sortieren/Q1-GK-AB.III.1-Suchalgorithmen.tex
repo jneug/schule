@@ -1,0 +1,61 @@
+\documentclass[10pt, a4paper]{scrartcl}
+
+\usepackage{vorschule}
+\usepackage[
+	typ=ab,
+	fach=Informatik,
+	lerngruppe={Q1-GK},
+	nummer=III.1,
+	module={Symbole,Lizenzen},
+	seitenzahlen=keine,
+	farbig,
+	lizenz=cc-by-nc-sa-4,
+]{schule}
+
+\usepackage[
+	kuerzel=Ngb,
+	reihe={Suchen und Sortieren},
+	version={2020-01-21},
+]{ngbschule}
+
+\author{J. Neugebauer}
+\title{Suchalgorithmen}
+\date{\Heute}
+
+\setzeAufgabentemplate{ngbnormal}
+
+
+
+
+\begin{document}
+\ReiheTitel
+
+\begin{aufgabe}
+	Kopiere das Projekt \ordner{01-Suchmaschine\_1} aus dem Tauschordner und öffne es in \programm{BlueJ}.
+	
+	Implementiere die Methode \code{public boolean lineareSuche(int suchzahl, int[] sucharray)}.
+	
+	Die Methode soll im Array \code{sucharray} nach dem Verfahren der linearen Suche nach der Zahl \code{suchzahl} suchen. Ist die Zahl vorhanden wird \code{true} zurück gegeben, sonst \code{false}.
+	
+	Du kannst deine Implementierung mit der Test-Klasse auf Fehler prüfen. Denk auch daran, dass du den \emph{Debugger} zur Fehlersuche nutzen kannst.
+\end{aufgabe}
+
+\begin{aufgabe}
+	Implementiere die Methode \code{public boolean lineareSuche(int suchzahl, List<Integer> suchliste)}.
+	
+	Die Methode soll in der Liste \code{suchliste} nach dem Verfahren der linearen Suche nach der Zahl \code{suchzahl} suchen. Ist die Zahl vorhanden wird \code{true} zurück gegeben, sonst \code{false}.
+\end{aufgabe}
+
+\begin{aufgabe}
+	Implementiere die Methode \code{public boolean binaereSuche(int suchzahl, int[] sucharray)}.
+	
+	Die Methode soll im Array \code{sucharray} nach dem Verfahren der binären Suche nach der Zahl \code{suchzahl} suchen. Ist die Zahl vorhanden wird \code{true} zurück gegeben, sonst \code{false}.
+	
+	Du kannst davon ausgehen, dass das Array \code{sucharray} schon aufsteigend sortiert ist.
+	
+	\tipp{Definiere Variablen für die untere (\code{von}) und obere (\code{bis}) Schranke des Suchbereichs. Zunächst sind sie auf \code{0} und \code{sucharray.length} gesetzt. Das mittlere Element liegt nun bei \code{(int)((von+bis)/2)}.}
+	
+	\tipp{Notiere dir in einer Tabelle, wie sich die Grenzen in einem kleinen Beispiel verändern und überleg dir, unter welcher Bedingung der Algorihtmus jeweils beendet wird.}
+\end{aufgabe}
+
+\end{document}
