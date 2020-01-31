@@ -1,18 +1,21 @@
-\documentclass[11pt, a4paper]{scrartcl}
+\documentclass[10pt, a4paper]{scrartcl}
 
 \usepackage{vorschule}
 \usepackage[
     typ=ab,
     fach=Mathematik,
-    lerngruppe={6b},
-    nummer=15,
+    lerngruppe={Jg.6},
+    nummer=III.4,
     module={Symbole,Papiertypen},
+   	seitenzahlen=keine,
+   	farbig,
+   	lizenz=cc-by-nc-sa-4,
 ]{schule}
 
 \usepackage[
 	kuerzel=Ngb,
 	reihe={Mit Brüchen und Dezimalzahlen rechnen},
-	version={2019-03-14},
+	version={2020-01-29},
 ]{ngbschule}
 
 \author{J. Neugebauer}
@@ -25,11 +28,11 @@
 \begin{document}
 	\ReiheTitel
 	
-	\begin{aufgabe}
+	\begin{aufgabe}\label{aufg:1}
 		Forme die Dezimalzahlen in Brüche um, rechne aus und schreibe das Ergebnis wieder als Dezimalzahl.
 		
 		\begin{enumeratea}
-			\item $0,4\cdot 0,03 = \frac{4}{10}\cdot \frac{3}{100} = $\linievoll
+			\item $0,4\cdot 0,03 = \dfrac{4}{10}\cdot \dfrac{3}{100} = $\linievoll
 			\item $0,04\cdot 0,3 = $\linievoll
 			\item $0,5\cdot 0,005 = $\linievoll
 			\item $1,2\cdot 3,4 = $\linievoll
@@ -38,7 +41,7 @@
 	\end{aufgabe}
 
 	\begin{aufgabe}
-		Betrachte die Rechnungen und Ergebnisse aus Aufgabe 1. Kannst du Regelmäßigkeiten erkennen?\smallskip
+		Betrachte die Rechnungen und Ergebnisse aus \prettyref{aufg:1}. Kannst du Regelmäßigkeiten erkennen?\smallskip
 		
 		Formuliere eine Regel zur \emph{Multiplikation von Dezimalzahlen}, \dashuline{ohne sie in Brüche umzuformen}.\smallskip
 		
@@ -54,10 +57,12 @@
 	\end{aufgabe}
 	
 	\begin{aufgabe}
-		\begin{wrapfigure}{r}{2cm}
-			\includegraphics[width=2cm]{6.15-Abb_Renovieren.jpg}
+		\begin{wrapfig}
+		\begin{wrapfigure}[3]{r}{2cm}
+			\includegraphics[width=2cm]{6-AB.III.4-Abb_Renovieren}
 		\end{wrapfigure}
-		Hannes soll in seinem Kinderzimmer einen neuen Teppich bekommen. Er hat ausgemessen, dass sein Zimmer \unit[$4,5$]{m} breit und \unit[$3,6$]{m} lang ist. Ein Quadratmeter des Teppichs, den er sich ausgesucht hat, kostet \unit[$4,99$]{\euro}.\medskip
+		Hannes soll in seinem Kinderzimmer einen neuen Teppich bekommen. Er hat ausgemessen, dass sein Zimmer \SI{4,5}{\meter} breit und \SI{3,6}{\meter} lang ist. Ein Quadratmeter des Teppichs, den er sich ausgesucht hat, kostet \EUR{4,99}.\medskip
+		\end{wrapfig}
 		
 		Wie viel kostet der neue Teppich insgesamt?\medskip
 		
