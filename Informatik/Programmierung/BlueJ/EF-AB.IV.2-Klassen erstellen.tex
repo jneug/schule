@@ -1,0 +1,63 @@
+\documentclass[10pt, a4paper]{scrartcl}
+
+%\usepackage{qrcode}
+
+\usepackage{vorschule}
+\usepackage[
+	typ=ab,
+	fach=Informatik,
+	lerngruppe={EF},
+	nummer=IV.2,
+	module={Symbole,Lizenzen},
+	seitenzahlen=keine,
+	farbig,
+	lizenz=cc-by-nc-sa-4,
+]{schule}
+
+\usepackage[
+	kuerzel=Ngb,
+	reihe={Objektorientierte Modellierung},
+	version={2020-01-28},
+]{ngbschule}
+
+\author{J. Neugebauer}
+\title{Eigene Klassen erstellen}
+\date{\Heute}
+
+\setzeAufgabentemplate{ngbnormal}
+
+
+\begin{document}
+\ReiheTitel
+
+\begin{aufgabe}
+	Erstell ein neues, leeres \programm{BlueJ}-Projekt mit dem Namen \ordner{Bank}. Erstell dann im Projekt eine neue Klasse \code{Konto}.
+\end{aufgabe}
+
+\begin{aufgabe}
+	Überleg dir, welche Eigenschaften (\emph{Objektvariablen}) und Fähigkeiten (\emph{Methoden}) eine Klasse \code{Konto} sinnvoller Weise haben sollte und \textbf{zeichne} ein \emph{Klassendiagramm}. Achte darauf, dass mindestens die Eigenschaft Kontostand (Datentyp \code{double}), sowie eine weitere Eigenschaft vorhanden sind. Außerdem muss der \emph{Konstruktor} der Klasse und zwei sinnvolle Methoden vorhanden sein. Darüber hinaus kannst du weitere Ergänzen.
+	
+	Implementiere \textbf{danach} dein Klassendiagramm im Projekt.
+\end{aufgabe}
+
+\begin{aufgabe}
+	Auf ein Konto muss man Geld einzahlen und davon wieder abheben können. Aber vorsicht: Wenn das Konto nicht genug \emph{Deckung} aufweist (nicht genug Geld vorhanden ist), dann darf auch nichts abgehoben werden.
+	
+	Implementiere diese Vorgaben, falls noch nicht geschehen.
+\end{aufgabe}
+
+\begin{aufgabe}
+	Viele Banken bieten ihren Kunden einen \emph{Dispositionskredit} an, damit auch Geld von einem Konto abgehoben werden kann, das nicht gedeckt ist. Jedes Konto hat einen eigenen \enquote{Dispo-Rahmen}, wie weit es \emph{überzogen} werden kann.
+	
+	Recherchiere den Begriff \enquote{Dispositionskredit} und was er bedeutet.
+
+	Implementiere dann eine Dispo-Funktion im Projekt mit Hilfe einer (ggf. neuen) Objektvariablen \code{dispo} und passe die \code{abheben}-Methode entsprechend an.
+\end{aufgabe}
+
+\begin{aufgabe}
+	Am Ende eines Monats wird das Konto \emph{abgerechnet}. Das bedeutet, wenn ein negativer Kontostand vorhanden ist (also der Dispo-Kredit in Anspruch genommen wurde) wird ein Zins berechnet und vom Kontostand abgezogen. Sonst bleibt der Kontostand gleich.
+	
+	Implementiere eine Methode \code{abrechnen}, die dies übernimmt. Der \emph{Zinssatz} ist in einer Objektvariablen (Datentyp \code{double}) gespeichert (im Nomalfall ca. \prozent{10,25} p.A.).
+\end{aufgabe}
+
+\end{document}
