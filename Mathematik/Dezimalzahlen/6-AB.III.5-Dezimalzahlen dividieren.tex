@@ -1,0 +1,79 @@
+\documentclass[10pt, a4paper]{scrartcl}
+
+\usepackage{vorschule}
+\usepackage[
+    typ=ab,
+    fach=Mathematik,
+    lerngruppe={Jg.6},
+    nummer=III.5,
+    module={Lizenzen,Symbole,Papiertypen},
+   	seitenzahlen=keine,
+   	farbig,
+   	lizenz=cc-by-nc-sa-4,
+]{schule}
+
+\usepackage[
+	kuerzel=Ngb,
+	reihe={Mit Brüchen und Dezimalzahlen rechnen},
+	version={2020-01-29},
+]{ngbschule}
+
+\author{J. Neugebauer}
+\title{Dezimalzahlen dividieren}
+\date{\Heute}
+
+\setzeAufgabentemplate{ngbnormal}
+
+
+\begin{document}
+	\ReiheTitel
+	
+	\begin{aufgabe}[symbol=\symPartner] 
+		\label{aufg:1}Finde die Rechnungen mit demselben Ergebnis und markiere sie.
+		
+		\begin{center}
+		\begin{tikzpicture}[xscale=2]
+			\node at (0,0.2){$50:20$};
+			\node at (2,0){$5000:2000$};
+			\node at (5,0.8){$2:5$};
+			\node at (1,1.5){$2000:5000$};
+			\node at (3.2,1.6){$200:50$};
+			\node at (5.5,1.8){$0,5:0,2$};
+			\node at (0.5,2.4){$2000:500$};
+			\node at (1.9,2.5){$2000:5000$};
+			\node at (2.8,3){$5:2$};
+			\node at (4,3.2){$0,2:0,05$};
+			\node at (-.5,4){$20:50$};
+			\node at (1.3,3.9){$500:200$};
+			\node at (1.4,4.6){$2:0,5$};
+			\node at (2.5,4.2){$2:0,5$};
+			\node at (4.2,4.7){$200:500$};
+			\node at (5.1,3.9){$0,2:0,5$};
+		\end{tikzpicture}
+		\end{center}
+		
+		\tipp{Forme die Rechnungen in Brüche um.}
+	\end{aufgabe}
+
+	\begin{aufgabe}[symbol=\symPartner]
+		Betrachte die Rechnungen und Ergebnisse aus \prettyref{aufg:1}. Kannst du Regelmäßigkeiten erkennen?\smallskip
+		
+		Formuliere eine Regel, wann das Ergebnis verschiedener \emph{Divisionen von Dezimalzahlen}, gleich ist.\smallskip
+		
+		\feldLin[1cm]{4}
+		
+		\hinweis{Achte auf die Position des Kommas.}
+	\end{aufgabe}
+
+	\begin{aufgabe}[symbol=\symPartner]
+		Notiere vier Divisionen, die dasselbe Ergebnis haben.
+		
+		\feldLin[1cm]{3}
+	\end{aufgabe}
+	
+	\begin{aufgabe}[symbol=\symGruppe]
+		Diskutiert gemeinsam: Wie könnt ihr die Regel oben ausnutzen, um Dezimalzahlen zu dividieren? Formuliert eine Regel.
+				
+		\feldLin[1cm]{3}
+	\end{aufgabe}
+\end{document}
