@@ -1,0 +1,32 @@
+\documentclass[12pt,a5paper,landscape]{scrartcl}
+
+% Seitennummer der ersten Karte, die keine Hilfekarte ist
+\def\firstContentCard{5}
+
+\usepackage{grffile,pgffor,pdfpages,pgfpages}
+\pgfpagesuselayout{8 on 1}[a4paper,border shrink=5mm]
+
+% Name der Lernstation.pdf ermitteln
+% See: https://tex.stackexchange.com/questions/141194/creating-a-handout-with-the-notes-on-a-second-screen
+\newcommand{\jobbasename}{}
+\newcommand{\setjobbasename}{%
+  \def\split##1--##2!!!{\def\jobbasename{##1}}%
+  \expandafter\split\jobname!!!%
+}
+\setjobbasename
+
+
+\begin{document}
+% See: https://tex.stackexchange.com/questions/327658/how-to-rotate-every-second-page-in-a-pdf
+\pdfximage{\jobbasename.pdf}
+\foreach \p in {1,...,\the\pdflastximagepages}{%
+	\ifnum\p<\firstContentCard%
+		%include all help cards
+		\includepdf[pages=\p]{\jobbasename.pdf}%
+	\else%
+		\ifodd\numexpr\p-\firstContentCard+1%
+			\includepdf[pages=\p]{\jobbasename.pdf}%
+  		\fi
+  	\fi
+}
+\end{document}
