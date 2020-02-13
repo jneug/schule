@@ -82,7 +82,16 @@
 	\end{hilfekarte}
 	
 	\begin{hilfekarte}{Multiplikation und Division}{multiplikation-und-division}
-
+		Du multiplizierst zwei Dezimalzahlen, indem du die Zahlen zuerst ohne Komma multiplizierst. Verschiebe dann das Komma im Ergebnis um die Anzahl der Nachkommastellen (NKS) nach links, die beide Faktoren zusammen haben (zum Beispiel um vier Stellen, wenn der erste Faktor eine NKS und der zweite drei hat).
+		\[
+		\underbrace{4,2}_{\text{1 NKS}}\cdot \underbrace{3,1}_{\text{1 NKS}} = \underbrace{13,02}_{\text{2 NKS}} \qquad 
+		\underbrace{0,003}_{\text{3 NKS}}\cdot \underbrace{5}_{\text{0 NKS}} = \underbrace{0,015}_{\text{3 NKS}} \qquad
+		\underbrace{0,06}_{\text{2 NKS}}\cdot \underbrace{0,05}_{\text{2 NKS}} = \underbrace{0,0030}_{\text{4 NKS}}
+		\]
+		
+		Du \emph{dividierst} zwei Dezimalzahlen, indem du das Komma in beiden Zahlen um dieselbe Anzahl stellen nach rechts verschiebt, so dass die zweite Zahl (der Divisor) keine NKS mehr hat. Das Ergebnis bleibt dabei gleich. 
+		Dann kannst du wie gewohnt schriftlich dividieren. Vergiss dabei nicht, das Komma zu setzen.
+		\[ 4,08 : 2,4 = 40,8 : 24 \qquad \longdivision{40.8}{24} \]
 	\end{hilfekarte}
 	
 	
@@ -265,7 +274,14 @@
 	\leereKarte
 	
 	\begin{karte2}{Netzwerkkabel}
-	content
+		\begin{tikzpicture}[scale=1.5]
+		\geoUrsprung
+		\geoKoordinaten{6.89/0/A,6.89/3.54/B,0/3.54/C,0/2.52/D}
+		\draw (O) |- (B) |- (O);
+		\geoAbmessung{right}(A,B){\SI{3,54}{\meter}}
+		\geoAbmessung{above}(B,C){\SI{6,89}{\meter}}
+		\geoAbmessung{left}(C,D){\SI{0,93}{\meter}}
+		\end{tikzpicture}
 	\end{karte2}
 
 \end{document}
