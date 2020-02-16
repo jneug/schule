@@ -119,7 +119,7 @@
 	\end{enumeratea}
 	\end{loesungskarte}
 	
-	\begin{karte1}{Addieren und Subtrahieren}
+	\begin{karte1}{Addieren und Subtrahieren}\hilfeMarke{addition-und-subtraktion}
 		Berechen die Lösungen der Aufgaben.
 		
 		\begin{tasks}(3)
@@ -159,7 +159,25 @@
 		\end{tasks}
 	\end{loesungskarte}
 	
-	\begin{karte1}{Multiplizieren und Dividieren}
+	\begin{karte1}{Multiplizieren und Dividieren}\hilfeMarke{multiplikation-und-division}
+			Berechen die Lösungen der Aufgaben.
+			
+			\begin{tasks}(3)
+				\task $1,59 + 1,7$
+				\task $4,77 + 2,24$
+				\task $2,612 + 1,182$
+				
+				\task $5,51 - 3,00$
+				\task $9,19 - 6,86$
+				\task $6,427 - 5,907$
+				
+				\task $8,84 + 28,2 + 0,611$
+				\task $6,17 - 0,879 - 1,72$
+				\task $7,2918 + 4,1452 + 5,7415$
+				
+				\task $2,5055 + 6,0773 - 2,7586$
+				\task $9,3927 - 4,2577 + 3,5623$
+			\end{tasks}
 	\end{karte1}
 	
 	\begin{loesungskarte}
@@ -253,14 +271,6 @@
 	\end{karte1}
 
 	\leereKarte
-%	\begin{loesungskarte}
-%		\begin{itemize}
-%			\item \textbf{Sparkasse Ranstadt}: \lsgText{\EUR{2931,89}}
-%			\item \textbf{Sparkasse Friedberg}: \lsgText{\EUR{1960,91}}
-%			\item \textbf{Sparkasse Hungen}: \lsgText{\EUR{545,57}}
-%			\item \textbf{Sparkasse Borgstedt}: \lsgText{\EUR{2094,34}}
-%		\end{itemize}
-%	\end{loesungskarte}
 
 	\begin{karte1}{Kassenzettel}
 		\rotatebox{90}{\includegraphics[height=\textwidth]{6.2-LT-Abb_Kassenzettel_1}}
@@ -307,60 +317,125 @@
 	
 	\leereKarte
 	
-	\begin{karte2}{Netzwerkkabel}
-		\begin{tikzpicture}[scale=1.5]
-		\geoUrsprung
-		\geoKoordinaten{6.89/0/A,6.89/3.54/B,0/3.54/C,0/2.52/D}
-		\draw (O) |- (B) |- (O);
-		\geoAbmessung{right}(A,B){\SI{3,54}{\meter}}
-		\geoAbmessung{above}(B,C){\SI{6,89}{\meter}}
-		\geoAbmessung{left}(C,D){\SI{0,93}{\meter}}
-		\end{tikzpicture}
+	\begin{karte2}{Druckerkabel}\hilfeMarke{addieren-und-subtrahieren}
+		Der Computer von Frau Peterson soll mit dem Drucker per Kabel verbunden werden. Damit das Kabel nicht Mitten durch den Raum liegt, muss das Kabel an der Wand entlang angebracht werden.
+		
+		Wie viele Meter Kabel braucht Frau Peterson, wenn sie die kürzeste Strecke nutzt?
+		
+		\hinweis{Notiere Rechnung und Antwortsatz im Heft.}
+		
+		\bigskip
+		\begin{center}
+			\begin{tikzpicture}[x=1cm,y=1cm,scale=1.5,thick]
+			\geoUrsprung;
+			\geoKoordinaten{6.89/0/A,6.89/3.54/B,0/3.54/C,0/2.52/D};
+			\draw[fill=gray!20] (O) |- (B) |- cycle;
+			\geoAbmessung{right}(A,B){\SI{3,54}{\meter}};
+			\geoAbmessung{above}(B,C){\SI{6,89}{\meter}};
+			\geoAbmessung{left}(C,D){\SI{0,93}{\meter}};
+			\node at (.5,2.52) []{\includegraphics[width=1cm]{6.2-LT-Abb_Computer}};
+			\node at (6.39,0.5) {\includegraphics[width=1cm]{6.2-LT-Abb_Drucker}};
+			\end{tikzpicture}
+		\end{center}
 	\end{karte2}
 	
-	\leereKarte
+	\begin{loesungskarte}
+	\begin{sachaufgabe}
+		\frage Wie viele Meter Kabel braucht Frau Peterson?
+		\rechnung 
+		Strecke 1: $3,54 + 6,89 + 0,93 = 11,36$
+		Strecke 2: $6,89 + (3,54-0,93) = 9,50$
+		\antwort Für die kürzeste Strecke braucht Frau Peterson \SI{9,50}{\meter} Kabel.
+	\end{sachaufgabe}
+	\end{loesungskarte}
 
-	\begin{karte3}{Spickzettel}
-		\hinweis{Bearbeite diese Karte erst, wenn du die grünen Karten fertig hast.}
+	\begin{karte3}{Die DIN-Norm}
+		Ein normales BLatt hat das Format \enquote{DIN-A4}. Es hat die Breite \SI{21}{\centi\meter} und die Höhe \SI{27,9}{\centi\meter}. Legt man zwei DIN-A4 Blätter nebeneinander erhält man ein Blatt im Format \enquote{DIN-A3}. Halbiert man ein A4 Blatt, dann erhält man zwei Blätter im Format \enquote{DIN-A5}.
 		
+		\begin{enumeratea}
+			\item Bei der DIN-Norm haben alle Formate (A3, A4, A5, ...) dasselbe \emph{Seitenverhältnis}. Das bedeutet, wenn man die Höhe durch die Breite teilt, kommt immer derselbe Wert heraus. Welcher ist das?
+			\item Welche Breite und Höhe hat ein DIN-A0 Blatt? Welche ein DIN-A8 Blatt?
+			\item Wie groß ist die Fläche eines DIN-A4 Blatts. 
+			\item Überlege ohne zu rehcnen: Wie große ist die Fläche eines DIN-A1 Blattes im Vergleich zu der des DIN-A4 Blatts?
+		\end{enumeratea}
+	\end{karte3}
+	
+	\begin{loesungskarte}
+	\end{loesungskarte}
+	
+	\begin{karte3}[\symPartner]{Erstelle eine Lernstation}
+		\hinweis{Bearbeite diese Karte erst, wenn du die \textcolor{green!55!black}{grünen} Karten fertig hast.}\bigskip
+			
+		\begin{wrapfigure}{r}{0pt}
+			\includegraphics[width=5cm]{6.2-LT-Abb_Kartei}
+		\end{wrapfigure}
+		Überleg dir selber \emph{eine Lernstation} zum Thema \emph{\Titel}.
+		
+		Such dir zum Beispiel aus dem Buch eine Aufgabe, überlege dir mit einer Mitschülerin eine Karte oder erfinde selber eine tolle Aufgabe.
+		
+		Erstelle dann deine Karte auf einem Din-A5 Blatt.
+		
+		Deine Karte braucht auch
+		\begin{smallitemize}
+			\item einen Titel,
+			\item eine Farbe,
+			\item ein Symbol.
+		\end{smallitemize}
+		
+		Vergiss auch nicht, auf der Rückseite \emph{die Lösung} darzustellen.
+		
+		\bigskip
+		(\textit{Lies auf der Rückseite weiter})
+
+		\infotext{Bild \enquote{Datenbank} von Ute Ohlms (bidab.nibis.de)}
+	\end{karte3}
+	
+	
+	\begin{karte3}{Spickzettel}
+		\hinweis{Bearbeite diese Karte erst, wenn du die \textcolor{green!55!black}{grünen} Karten fertig hast.}\bigskip
+			
+		\begin{wrapfig}
+		\begin{wrapfigure}[8]{r}{0pt}
+			\includegraphics[width=6cm]{6.2-LT-Abb_Spicker}
+		\end{wrapfigure}
 		Erstelle dir einen \emph{Spickzettel} für die nächste Arbeit. Nimm dafür ein normales A4 Blatt und \emph{falte es dreimal in der Mitte}. Du hast nun ein Blatt im Format A7.
 		
+		
 		Versuche so viele wichtige Informationen wie möglich auf ein A7 Blatt zu schreiben.
+		\end{wrapfig}
+		
+		\infotext{Bild von Hariadhi unter CC-BY-SA-3.0}
 	\end{karte3}
 	
 	\leereKarte
 	
 	\begin{karte3}[\symPartner]{Checker}
-		\hinweis{Bearbeite diese Karte erst, wenn du die grünen Karten fertig hast.}
+		\hinweis{Bearbeite diese Karte erst, wenn du die \textcolor{green!55!black}{grünen} Karten fertig hast.}\bigskip
 		
 		Erstellt euch einen \emph{Checker} (Selbstlernbogen) für die nächste Arbeit. Geht dazu so vor:
 		
 		\begin{enumerate}
 			\item Überlegt euch, welche Themen für die Arbeit wichtig sind. Das Inhaltsverzeichnis im Buch kann dabei helfen.
 			\item Sucht aus dem Buch und Arbeitsheft Aufgaben zu den Themen, die ihr zum Lernen nutzen könnt.
-			\item Notiert alles in einer Tabelle
-			\begin{tabular}{c|c|c}
-				\textbf{Thema} & \text{Kann ich} & \textbf{Aufgaben} \\ \hline
-				Brüche in Dezimalzahlen umformen & \Large\usym{1F604}\xspace\usym{1F642}\xspace\usym{1F610}\xspace\usym{1F641} & \cdots \hline
-				& & & 
-			\end{tabular}
+			\item Notiert alles in einer Tabelle.
 		\end{enumerate}
+		
+		\begin{center}
+		\begin{tabular}{c|c|c}
+			\textbf{Thema} & \text{Kann ich} & \textbf{Aufgaben} \\ \hline
+			Brüche in Dezimalzahlen umformen & \Large\usym{1F604}\xspace\usym{1F642}\xspace\usym{1F610}\xspace\usym{1F641} & ... \\ \hline
+			& & 
+		\end{tabular}
+		\end{center}
 	\end{karte3}
 	
 	\leereKarte
-
-	\begin{karte3}{Die DIN-Norm}
-		Ein normales BLatt hat das Format \enquote{DIN-A4}. Es hat die Breite \SI{21}{\centi\meter} und die Höhe \SI{27,9}{\centi\meter}. Legt man zwei DIN-A4 Blätter nebeneinander erhält man ein Blatt im Format \enquote{DIN-A3}. Halbiert man ein A4 Blatt, dann erhält man zwei Blätter im Format \enquote{DIN-A5}.
 		
-		\begin{teilaufgaben}
-			\teilaufgabe Bei der DIN-Norm haben alle Formate (A3, A4, A5, \cdots) dasselbe \emph{Seitenverhältnis}. Das bedeutet, wenn man die Höhe durch die Breite teilt, kommt immer derselbe Wert heraus. Welcher ist das?
-			\teilaufgabe Welche Breite und Höhe hat ein DIN-A0 Blatt? Welche ein DIN-A8 Blatt?
-			\teilaufgabe Wie groß ist die Fläche eines DIN-A4 Blatts. 
-			\teilaufgabe Überlege ohne zu rehcnen: Wie große ist die Fläche eines DIN-A1 Blattes im Vergleich zu der des DIN-A4 Blatts?
-		\end{teilaufgaben}
-	\end{karte3}
-	
-	\begin{loesungskarte}
+	\begin{loesungskarte}[Wenn du fertig bist]
+		Wenn du mit deiner eigenen Karte fertig und zufrieden bist, dann such dir am besten einen Mitschüler, der die Karte für dich ausprobiert. Vielleicht findet er ja noch Fehler oder hat Verbesserungsvorschläge.
+		
+		\bigskip
+		Wenn du denkst, dass deine Karte wirklich fertig ist, dann \textbf{gib sie vorne am Pult ab}.
 	\end{loesungskarte}
 	
 \end{document}
