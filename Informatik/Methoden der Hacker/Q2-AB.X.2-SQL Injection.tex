@@ -1,0 +1,76 @@
+\documentclass[10pt, a4paper]{scrartcl}
+
+%\usepackage{qrcode}
+
+\usepackage{vorschule}
+\usepackage[
+	typ=ab,
+	fach=Informatik,
+	lerngruppe={Q2},
+	nummer=X.2,
+	module={Symbole,Lizenzen},
+	seitenzahlen=keine,
+	farbig,
+	lizenz=cc-by-nc-sa-4,
+]{schule}
+
+\usepackage[
+	kuerzel=Ngb,
+	reihe={Die Methoden der Hacker},
+	version={2020-01-28},
+]{ngbschule}
+
+\author{J. Neugebauer}
+\title{SQL-Injections}
+\date{\Heute}
+
+\setzeAufgabentemplate{ngbnormal}
+
+
+\begin{document}
+\ReiheTitel
+
+Kopiere zur Vorbereitung die Dateien \datei{fussballem.db}, \datei{YeOldCheeseShoppe.db} und das Projekt \ordner{SuperSecureServer} aus dem Tauschordner. Du kannst eine der Datenbankdateien durch Doppelklick im Programm\programm{DB Browser for SQLite} öffnen. Hier kannst du dir den INhalt der Datenbank anzeigen lassen und SQL-Anfragen ausführen.
+
+\begin{aufgabe}
+	\begin{teilaufgaben}
+		\teilaufgabe
+		Öffne die Datenbank \datei{fussballem.db} und erkunde das Programm. Sende dann einige \code{SELECT} Anfragen an die Datenbank.
+		
+		\teilaufgabe
+		Nutze den \code{INSERT} Befehl, um neue Daten in die Datenbank einzufügen. Suchen sie dazu im Internet nach Ergebnissen anderer EM-Jahrgänge.
+		
+		\teilaufgabe
+		Nutze den \code{UPDATE} Befehl, um einige Datensätze zu verändern.
+		
+		\teilaufgabe
+		Nutze den \code{DELETE} Befehl, um einige (oder alle) Datensätze zu löschen.
+	\end{teilaufgaben}
+	
+	\hinweis{Unter \url{https://link.ngb.schule/sqlbefehle} finden sie eine Übersicht der SQL-Syntax und Befehle.}
+	
+	\hinweis{Falls du die Datenbank beim Arbeiten löscht oder \enquote{kaputt} machst, kannst du dir die Originalversion erneut aus dem Tauschordner kopieren.}
+\end{aufgabe}
+
+\begin{aufgabe}
+	Öffnen die Seite \url{https://link.ngb.schule/sqlinjection} und lies den Text bis zur Überschrift \enquote{Wie können Webserver helfen?}. Erkläre dir selber, was eine \enquote{SQL-Injection} ist und welche Schwachstelle sie ausnutzt.
+	
+	Die Beispieldatenbank zum Text findest du in der Datei \datei{YeOldCheeseShoppe.db}. Hier kannst du die Abfragen selber nachvollziehen.
+	
+	\hinweis{Den ersten Teil brauchst du nur überfliegen, da die Grundlagen von SQLite beschrieben werden, die nun bekannt sein sollten. INteressant wird es ab der Überschirft \enquote{Verkettung von Zeichenfolgen: Die Wurzel allen Übels?}.}
+\end{aufgabe}
+
+\begin{aufgabe}
+	Öffnen sie das Projekt \ordner{SuperSecureServer} in \programm{BlueJ}.
+	
+	\begin{teilaufgaben}
+		\teilaufgabe
+		Erstellen sie einen neuen \enquote{SuperSecureServer} und probieren sie die Methode \code{login} aus. Die Datenbank mit Nutzerkonten ist im Projektordner unter dem Namen \datei{auth.db} gespeichert.
+		\teilaufgabe
+		Studieren sie die Klasse \code{SuperSecureServer} und analysieren sie sie auf mögliche SQL-Injection Schwachstellen.
+		\teilaufgabe
+		Versuchen sie einen Weg zu finden, sich mit \code{login} anzumelden, ohne Nutzernamen oder Passwort eines Nutzers zu kennen.
+	\end{teilaufgaben}
+\end{aufgabe}
+
+\end{document}
