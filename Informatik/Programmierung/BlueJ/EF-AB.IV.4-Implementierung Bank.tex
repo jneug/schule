@@ -1,0 +1,76 @@
+\documentclass[10pt, a4paper]{scrartcl}
+
+%\usepackage{qrcode}
+
+\usepackage{vorschule}
+\usepackage[
+	typ=ab,
+	fach=Informatik,
+	lerngruppe={EF},
+	nummer=IV.4,
+	module={Symbole,Lizenzen},
+	seitenzahlen=keine,
+	farbig,
+	lizenz=cc-by-nc-sa-4,
+]{schule}
+
+\usepackage[
+	kuerzel=Ngb,
+	reihe={Objektorientierte Modellierung},
+	version={2020-02-20},
+]{ngbschule}
+
+\author{J. Neugebauer}
+\title{Implementierung einer Banksoftware}
+\date{\Heute}
+
+\setzeAufgabentemplate{ngbnormal}
+
+
+\begin{document}
+\ReiheTitel
+
+\hinweis{Auf der Rückseite seht ihr auf der rechten Seite das \emph{Implementierungsklassendiagramm} zum \emph{Entwurfsklassendiagramm} links.}
+
+\begin{aufgabe}[symbol=\symPartner\,\symLaptop]
+	Analysiert die Diagramme und vergleicht sie mit dem Entwurf aus dem Unterricht.
+\end{aufgabe}
+
+\begin{aufgabe}[symbol=\symPartner\,\symLaptop]
+	Implementiert die Klasse \cls{Kunde} entsprechend des \emph{Implementierungsdiagramms}. Geht dazu so vor:
+	
+	\begin{itemize}
+		\item Öffnet \programm{BlueJ} und erstell ein neues Projekt. Speichert das Pojekt in eurem Laufwerk (\ordner{N:\\}).
+		\item Erstellt die Klasse \cls{Kunde} als leere Klasse, indem ihr auf \keys{Neue Klasse} klickt und unten \enquote{Leere Klasse} auswählt.
+		\item Deklariert die Objektvariablen \attr{name}, \attr{geburtstag}, \attr{adresse} und \attr{konto} in der Klasse.
+		\item Implementiert den \emph{Konstruktor} der Klasse, der die Attribute initialisiert.
+		\item Implementiert die \emph{Getter} und \emph{Setter}.
+	\end{itemize}
+\end{aufgabe}
+
+\begin{aufgabe}[symbol=\symPartner\,\symLaptop]
+	Implementiert die Klasse \cls{Konto} entsprechend des \emph{Implementierungsdiagramms}. Geht dazu so vor:
+	
+	\begin{itemize}
+		\item Erstellt die Klasse \cls{Konto} als leere Klasse wie oben.
+		\item Deklariert die Objektvariablen der Klasse (mit Ausnahme der Transaktionen).
+		\item Implementiert den \emph{Konstruktor} der Klasse, der die Attribute initialisiert. Dabei sollen \attr{kontostand}, \attr{dispo} und \attr{zinssatz} zunächst null sein und die vierstellige \attr{pin} soll zufällig generiert werden. (Siehe \cls{Random}.)
+		\item Implementiert die \emph{Getter} und \emph{Setter}.
+		\item Implementiert die Methode \func{einzahlen} und \func{auszahlen}. \func{auszahlen} soll \code{true} zurück gegeben werden, wenn die Auszahlung (unter Berücksichtigung des Dispos) erfolgreich war.
+		\item Implementiert die Methode \func{ueberweisen}. Sie bekommt das Zielkonto als Parameter und ruft die Methode \func{einzahlen} des Zielkontos auf.
+	\end{itemize}
+	
+	Testet die Klasse ausgiebig.
+\end{aufgabe}
+
+\begin{aufgabe}[symbol=\symPartner\,\symLaptop]
+	Implementiert die Klasse \cls{Transaktion} entspechend des \emph{Implementierungsdiagramms}. Geht dazu ungefähr so vor, wie bei den anderen Klassen.
+	
+	Modifiziert die Klasse \cls{Konto} dann so, dass bei jeder Einzahlung, Auszahlung und Überweisung ein neues Transaktion-Objekt mit den passenden Informationen erstellt wird. Das neue Objekt soll in einer Objektvariablen \enquote{letzteTransaktion} gespeichert werden. Ergänzt auch einen entsprechenden \emph{Getter}.
+\end{aufgabe}
+
+\clearpage
+
+
+
+\end{document}
