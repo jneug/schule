@@ -15,7 +15,7 @@
 \usepackage[
 	kuerzel=Ngb,
 	reihe={Kryptografie},
-	version={2020-01-01},
+	version={2020-02-21},
 ]{ngbschule}
 
 \author{J. Neugebauer}
@@ -31,7 +31,7 @@
 \ReiheTitel
 
 \begin{aufgabe}
-	Ihr sollt mit \programm{LibreOffice Calc} ein Rechenblatt (ein \enquote{Programm}) zur Verschlüsselung eines Wortes mit einem frei wählbaren Schlüssel nach dem CAESAR-Verfahren erstellt werden. Am Ende soll das Rechenblatt etwa wie folgt aussehen:
+	Ihr sollt mit \programm{LibreOffice Calc} ein Rechenblatt (ein \enquote{Programm}) zur Verschlüsselung eines Wortes mit einem frei wählbaren Schlüssel nach dem CAESAR-Verfahren erstellen. Am Ende soll das Rechenblatt etwa wie folgt aussehen:
 	
 	\begin{center}
 	\includegraphics[width=.9\textwidth]{9Diff-AB.IV.4-Abb1}
@@ -39,10 +39,10 @@
 \end{aufgabe}
 
 \subsubsection*{Hinweise}
-Du darfst \textbf{nicht} einfach das Bild oben abtippen, da die Zahlen und das Chiffre-Wort von \programm{Calc} mit Hilfe von \textbf{Formeln} berechnet werden - wie das geht, wird im Folgenden erklärt.
+Ihr dürft \textbf{nicht} einfach das Bild oben abtippen, da die Zahlen und das Chiffre-Wort von \programm{Calc} mit Hilfe von \textbf{Formeln} berechnet werden - wie das geht, wird im Folgenden erklärt.
 
 \begin{itemize}
-	\item \textbf{Informationen vom CAESAR-Verfahren}
+	\item \textbf{Informationen zum CAESAR-Verfahren}
 	\begin{itemize}
 		\item Zur Vereinfachung soll das Alphabet nur aus Großbuchstaben bestehen (die Römer verwendeten auch nur große Buchstaben).
 		\item Der Schlüsselwert wird als Zahl gespeichert. Sie gibt an, um wie viele Stellen das Alphabet verschoben wird.
@@ -63,7 +63,7 @@ Du darfst \textbf{nicht} einfach das Bild oben abtippen, da die Zahlen und das C
 		\item Ausgabe:
 		\begin{itemize}
 			\item verschlüsseltes Wort (\textbf{für jeden Buchstaben eine eigene Zelle}, gleiche Länge wie Eingabebereich).
-			\item Entwerfen der Formel, um die verschobenen Uni-Codes wieder in Buchstaben zu verwandeln.
+			\item Entwerfen der Formel, um die verschobenen Unicodes wieder in Buchstaben zu verwandeln.
 		\end{itemize}
 		\item Gestaltung: Schriftart, Schriftgröße, farbliche Gestaltung, Platzaufteilung
 	\end{itemize}
@@ -116,6 +116,6 @@ In \programm{LibreOffice Calc} beginnt eine Formel immer mit einem Gleichzeichen
 	Zelle \textbf{B10}: \code{=WENN(B9=\emptystr; \emptystr; ZEICHEN(B9))}
 \end{itemize}
 
-Denk daran, dass du die Formeln aus den Zellen in die anderen Spalten übernehmen kannst, indem du die Zellen markierst und an der rechten unteren Ecke mit gedrückter Maustaste nach rechts ziehst. Die Formeln werden automatisch für die neue Spalte angepasst (außer Zellen, die mit dem Dollarzeichen \enquote{fixiert} wurden).
+Denkt daran, dass ihr die Formeln aus den Zellen in die anderen Spalten übernehmen könnt, indem ihr die Zellen markiert und an der rechten unteren Ecke mit gedrückter Maustaste nach rechts zieht. Die Formeln werden automatisch für die neue Spalte angepasst (außer Zellen, die mit dem Dollarzeichen \enquote{fixiert} wurden).
 
 \end{document}
