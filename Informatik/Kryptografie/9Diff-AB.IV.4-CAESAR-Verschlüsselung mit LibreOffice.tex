@@ -8,14 +8,14 @@
 	nummer=IV.4,
 	module={Symbole,Lizenzen},
 	seitenzahlen=keine,
-	farbig,
+%	farbig,
 	lizenz=cc-by-nc-sa-4,
 ]{schule}
 
 \usepackage[
 	kuerzel=Ngb,
 	reihe={Kryptografie},
-	version={2020-02-21},
+	version={2020-02-22},
 ]{ngbschule}
 
 \author{J. Neugebauer}
@@ -30,13 +30,12 @@
 \begin{document}
 \ReiheTitel
 
-\begin{aufgabe}
-	Ihr sollt mit \programm{LibreOffice Calc} ein Rechenblatt (ein \enquote{Programm}) zur Verschlüsselung eines Wortes mit einem frei wählbaren Schlüssel nach dem CAESAR-Verfahren erstellen. Am Ende soll das Rechenblatt etwa wie folgt aussehen:
-	
-	\begin{center}
-	\includegraphics[width=.9\textwidth]{9Diff-AB.IV.4-Abb1}
-	\end{center}
-\end{aufgabe}
+\subsection*{Aufgabe}
+Ihr sollt mit \programm{LibreOffice Calc} ein Rechenblatt (ein \enquote{Programm}) zur Verschlüsselung eines Wortes mit einem frei wählbaren Schlüssel nach dem CAESAR-Verfahren erstellen. Am Ende soll das Rechenblatt etwa wie folgt aussehen:
+
+\begin{center}
+\includegraphics[width=.9\textwidth]{9Diff-AB.IV.4-Abb1}
+\end{center}
 
 \subsubsection*{Hinweise}
 Ihr dürft \textbf{nicht} einfach das Bild oben abtippen, da die Zahlen und das Chiffre-Wort von \programm{Calc} mit Hilfe von \textbf{Formeln} berechnet werden - wie das geht, wird im Folgenden erklärt.
@@ -76,13 +75,13 @@ Ihr dürft \textbf{nicht} einfach das Bild oben abtippen, da die Zahlen und das 
 	\begin{tabular}{|*{16}{c}|}\hline
 		\rowcolor{white}
 		0 & 1 & 2 & 3 & 4 & 5 & 6 & 7 & 8 & 9 & A & B & C & D & E & F \\
-		&&&&&&&&&& (10) & (11) & (12) & (13) & (14) & (15) \\
-		  & ! & \textquotedblleft & \# & \$ & \% & \& & \textquoteleft & ( & ) & * & + & , & - & . & / \\
-		0 & 1 & 2 & 3 & 4 & 5 & 6 & 7 & 8 & 9 & : & ; & < & = & > & ? \\
-		@ & A & B & C & D & E & F & G & H & I & J & K & L & M & N & O \\
-		P & Q & R & S & T & U & V & W & X & Y & Z & [ & \textbackslash & ] & \^{} & \_ \\
-		` & a & b & c & d & e & f & g & h & i & j & k & l & m & n & o \\
-		p & q & r & s & t & u & v & w & x & y & z & \{ & | & \} & \textasciitilde &  \\\hline
+		\rowcolor{yellow!30!white} &&&&&&&&&& (10) & (11) & (12) & (13) & (14) & (15) \\
+		\rowcolor{yellow!30!white}  & ! & \textquotedblleft & \# & \$ & \% & \& & \textquoteleft & ( & ) & * & + & , & - & . & / \\
+		\rowcolor{yellow!30!white} 0 & 1 & 2 & 3 & 4 & 5 & 6 & 7 & 8 & 9 & : & ; & < & = & > & ? \\
+		\rowcolor{yellow!30!white} @ & A & B & C & D & E & F & G & H & I & J & K & L & M & N & O \\
+		\rowcolor{yellow!30!white} P & Q & R & S & T & U & V & W & X & Y & Z & [ & \textbackslash & ] & \^{} & \_ \\
+		\rowcolor{yellow!30!white} ` & a & b & c & d & e & f & g & h & i & j & k & l & m & n & o \\
+		\rowcolor{yellow!30!white} p & q & r & s & t & u & v & w & x & y & z & \{ & | & \} & \textasciitilde &  \\\hline
 		\end{tabular}
 	\end{wrapfigure}\small
 	\textbf{Unicode} ist ein internationaler Standard, in dem für jedes Schriftzeichen oder Textelement aller bekannten Schriftkulturen ein \emph{digitaler Code} (eine Zahl) festgelegt wird. Ziel ist es, die Verwendung unterschiedlicher \emph{Kodierungen} in verschiedenen Ländern zu vereinheitlichen. Der Unicode wird als sogenannte \emph{Hexadezimalzahl} angegeben (eine Zahl zur Basis 16 mit den Ziffern 0-9 und A-F $\rightarrow$ siehe Tabelle). Beispielsweise hat das Ausrufezeichen \enquote{!} den Unicode $21_{\text{hex}}$, was der Dezimalzahl $33$ entspricht ($2\cdot 16 + 1$). Das Fragezeichen \enquote{?} hat den Unicode $3F_{\text{hex}}$ (dezimal: $3\cdot 16 + 15 = 63$).
