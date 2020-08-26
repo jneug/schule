@@ -34,11 +34,11 @@ in ein \emph{Relationenschema} transformiert werden. Ein \emph{Relationenschema}
 
 Eine Relation wird in einem festen Format beschrieben:
 \begin{center}\rmfamily
-Name(\underline{Schlüsselattribut}, Attribut 1, Attribut2, ...)
+Name(\underline{Schlüsselattribut}, Attribut 1, Attribut2, ..., \foreignkey Fremdschlüssel)
 \end{center}
 
 
-Die Transformation findet in vier Schritten (nach vier \emph{Regelen}) statt:
+Die Transformation findet in vier Schritten (nach vier \emph{Regeln}) statt:
 \begin{enumerate}
 	\item\begin{multicols}{2}
 		Jede \emph{Entität} mit ihren \emph{Attributen} wird eine Relation.
@@ -57,7 +57,7 @@ Die Transformation findet in vier Schritten (nach vier \emph{Regelen}) statt:
 	\end{multicols} 
 		
 	\item\begin{multicols}{2}
-		 Jede \code{m:n}-Beziehung wird in eine eigenständige Relation überführt. Als Attribute bekommt die neue Relation die \emph{Primärschlüssel} der beiden verknüpften \emph{Entitäten}. Die Menge dieser Schlüsselattribute bildet den Primärschlüssel dieser Relation. Zusätzlich werden die Attribute der Relation aufgenommen.
+		 Jede \code{m:n}-Beziehung wird in eine \emph{eigenständige Relation} überführt. Als Attribute bekommt die neue Relation die Primärschlüssel der beiden verknüpften Entitäten. Die Menge dieser Schlüsselattribute bildet den Primärschlüssel dieser neuen Relation. Zusätzlich werden die Attribute der Relation aufgenommen.
 		
 		\begin{center}
 		\begin{tikzpicture}[node distance=1cm]
