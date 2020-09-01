@@ -1,0 +1,190 @@
+\documentclass[9pt, a4paper]{scrartcl}
+
+\usepackage{pgfpages}
+\pgfpagesuselayout{2 on 1}[a4paper,landscape]
+
+\usepackage{vorschule}
+\usepackage[
+	typ=ab,
+	fach=Informatik,
+	lerngruppe={Q2},
+	nummer=5,
+	module={Symbole,Lizenzen},
+	seitenzahlen=keine,
+	farbig,
+	lizenz=cc-by-nc-sa-4,
+]{schule}
+
+\usepackage[
+	kuerzel=Ngb,
+	reihe={Relationale Datenbanken},
+	version={2020-09-01},
+]{ngbschule}
+
+\author{J. Neugebauer}
+\title{Normalformen}
+\date{\Heute}
+
+\setzeAufgabentemplate{ngbohne}
+
+
+\begin{document}
+\ReiheTitel
+
+Ausgangspunkt ist die folgende Tabelle für die Personalverwaltung einer Firma.
+
+\begin{center}
+\begin{tabular}{|c|c|c|c|}\hline
+	\rowcolor{ngb.tabelle.kopf.hg} Name & AbtNr & Abteilung & Projekte \\\hline
+	Müller & 5 & EDV II & (6, MySQL, 50\%), (3, DV2010, 50\%) \\\hline
+	Schulze & 3 & Rechenzentrum & (3, DV2010, 100\%) \\\hline
+\end{tabular}
+\end{center}
+
+Man erkennt deutlich, dass es schwer ist, Teile der Daten zu löschen, einzufügen oder zu ändern. Daher überführt man solche Tabellen in die sogenannten Normalformen nach Codd.
+
+\begin{rahmen}
+	\subsubsection*{1. Normalform (1NF)}
+	
+	Eine Relation befindet sich in der ersten Normalform, wenn alle Attribute einen 
+	\emph{atomaren Wertebereich} haben.
+	
+	\textbf{Jeder Datensatz muss durch den Primärschlüssel eindeutig identifizierbar sein.}
+\end{rahmen}
+
+Das Attribut \emph{Projekt} ist nicht atomar, mehrere Werte enthält. Außerdem fehlt ein Primärschlüssel. Wir ergänzen \emph{PersNr} und teilen das Mehrfachattribut in seine atomaren Bestandteile auf. Damit der Primärschlüssel weiterhin
+eindeutig ist nehmen wir die Projektnummer in den Schlüssel auf (sonst gäbe es die \emph{PersNr} \enquote{1} zweimal).
+
+\begin{center}
+\begin{tabular}{|c|c|c|c|c|c|c|}\hline
+	\rowcolor{ngb.tabelle.kopf.hg} \underline{PersNr} & Name & AbtNr & Abteilung & \underline{ProjNr} & Projekt & Zeit \\\hline
+	1 & Müller & 5 & EDV II & 6 & MySQL & 50\% \\\hline
+	1 & Müller & 5 & EDV II & 3 & DV2010 & 50\% \\\hline
+	2 & Schulze & 3 & Rechenzentrum & 3 & DV2010 & 100\% \\\hline
+\end{tabular}
+\end{center}
+
+Die Tabelle ist nun in der 1NF. Allerdings wurden bei der Umformung zusätzliche Redundanzen eingefügt.
+
+\begin{rahmen}
+	\subsubsection*{2. Normalform (2NF)}
+	
+	Eine Relation befindet sich in der zweiten Normalform, wenn sie in der 1NF ist und jedes Nichtschlüsselattribut funktional abhängig ist vom Gesamtschlüssel, nicht dagegen von Schlüsselteilen.
+\end{rahmen}
+
+\emph{Funktional abhängig} heißt, dass die Werte des Attributs durch ein anderes eindeutig festgelegt sind. Besteht
+der Primärschlüssel nur aus einem Attribut ist dies immer der Fall. Im Beispiel zeigt sich, dass
+\emph{Name}, \emph{AbtNr}, und \emph{Abteilung} nur durch \emph{PersNr} festgelegt werden, nicht aber 
+von \emph{ProjNr} abhängig sind. Daher werden die drei Attribute mit dem Primärschlüssel \emph{PersNr}
+in eine neue Tabelle ausgelagert. Beim Rest sieht man, dass \emph{Projekt} eindeutig durch \emph{ProjNr} festgelegt wird. Auch hier erstellen wir eine neue Tabelle.
+
+\begin{center}
+\begin{tabular}{|c|c|c|c|}\hline
+	\rowcolor{ngb.tabelle.kopf.hg} \underline{PersNr} & Name & AbtNr & Abteilung \\\hline
+	1 & Müller & 5 & EDV II \\\hline
+	1 & Müller & 5 & EDV II \\\hline
+	2 & Schulze & 3 & Rechenzentrum \\\hline
+\end{tabular}
+\end{center}
+
+\begin{multicols}{2}
+\begin{center}
+\begin{tabular}{|c|c|c|}\hline
+	\rowcolor{ngb.tabelle.kopf.hg} \underline{PersNr} & \underline{ProjNr} & Zeit \\\hline
+	1 & 6 & 50\% \\\hline
+	1 & 3 & 50\% \\\hline
+	2 & 3 & 100\% \\\hline
+\end{tabular}
+\end{center}
+
+\begin{center}
+\begin{tabular}{|c|c|}\hline
+	\rowcolor{ngb.tabelle.kopf.hg} \underline{ProjNr} & Projekt \\\hline
+	6 & MySQL \\\hline
+	3 & DV2010 \\\hline
+\end{tabular}
+\end{center}
+\end{multicols}
+
+\newpage 
+
+\begin{rahmen}
+	\subsubsection*{3. Normalform (3NF)}
+	
+	Eine Relation befindet sich in der dritten Normalform, wenn sie in der 2NF ist und es kein Nichtschlüsselattribut gibt, das \emph{transitiv abhängig} von einem Schlüsselattribut ist.
+	
+	Es darf also keine funnktionalen Abhängigkeiten zwischen Nichtschlüsselattributen geben.
+\end{rahmen}
+
+Das Attribut \emph{Abteilung} ist nur indirekt vom Primärschlüssel \emph{PersNr} abhängig. Vielmehr ist das Attribut \emph{Abteilung} von der \emph{AbtNr} abhängig. Also Aufspaltung in zwei Tabellen:
+
+\begin{multicols}{2}
+\begin{center}
+\begin{tabular}{|c|c|c|}\hline
+	\rowcolor{ngb.tabelle.kopf.hg} \underline{PersNr} & Name & AbtNr \\\hline
+	1 & Müller & 5 \\\hline
+	2 & Schulze & 3 \\\hline
+\end{tabular}
+\end{center}
+
+\begin{center}
+\begin{tabular}{|c|c|}\hline
+	\rowcolor{ngb.tabelle.kopf.hg} \underline{AbtNr} & Abteilung \\\hline
+	5 & EDV II \\\hline
+	3 & Rechenzentrum \\\hline
+\end{tabular}
+\end{center}
+\end{multicols}
+
+
+\subsection*{Zusammenfassung}
+
+Durch die Transformation in die dritte Normalform wurde also aus der Tabelle
+
+\begin{center}
+\begin{tabular}{|c|c|c|c|}\hline
+	\rowcolor{ngb.tabelle.kopf.hg} Name & AbtNr & Abteilung & Projekte \\\hline
+	Müller & 5 & EDV II & (6, MySQL, 50\%), (3, DV2010, 50\%) \\\hline
+	Schulze & 3 & Rechenzentrum & (3, DV2010, 100\%) \\\hline
+\end{tabular}
+\end{center}
+
+diese Aufteilung vorgenommen:
+
+\begin{multicols}{2}
+\begin{center}
+\begin{tabular}{|c|c|c|}\hline
+	\rowcolor{ngb.tabelle.kopf.hg} \underline{PersNr} & Name & AbtNr \\\hline
+	1 & Müller & 5 \\\hline
+	2 & Schulze & 3 \\\hline
+\end{tabular}
+\end{center}
+
+\begin{center}
+\begin{tabular}{|c|c|}\hline
+	\rowcolor{ngb.tabelle.kopf.hg} \underline{AbtNr} & Abteilung \\\hline
+	5 & EDV II \\\hline
+	3 & Rechenzentrum \\\hline
+\end{tabular}
+\end{center}
+
+\begin{center}
+\begin{tabular}{|c|c|c|}\hline
+	\rowcolor{ngb.tabelle.kopf.hg} \underline{PersNr} & \underline{ProjNr} & Zeit \\\hline
+	1 & 6 & 50\% \\\hline
+	1 & 3 & 50\% \\\hline
+	2 & 3 & 100\% \\\hline
+\end{tabular}
+\end{center}
+
+\begin{center}
+\begin{tabular}{|c|c|}\hline
+	\rowcolor{ngb.tabelle.kopf.hg} \underline{ProjNr} & Projekt \\\hline
+	6 & MySQL \\\hline
+	3 & DV2010 \\\hline
+\end{tabular}
+\end{center}
+\end{multicols}
+
+
+\end{document}
