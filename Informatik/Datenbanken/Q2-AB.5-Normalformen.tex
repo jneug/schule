@@ -43,14 +43,14 @@ Ausgangspunkt ist die folgende Tabelle für die Personalverwaltung einer Firma.
 
 Man erkennt deutlich, dass es schwer ist, Teile der Daten zu löschen, einzufügen oder zu ändern. Daher überführt man solche Tabellen in die sogenannten Normalformen nach Codd.
 
-\begin{rahmen}
+\begin{infobox}
 	\subsubsection*{1. Normalform (1NF)}
 	
 	Eine Relation befindet sich in der ersten Normalform, wenn alle Attribute einen 
 	\emph{atomaren Wertebereich} haben.
 	
 	\textbf{Jeder Datensatz muss durch den Primärschlüssel eindeutig identifizierbar sein.}
-\end{rahmen}
+\end{infobox}
 
 Das Attribut \emph{Projekt} ist nicht atomar, mehrere Werte enthält. Außerdem fehlt ein Primärschlüssel. Wir ergänzen \emph{PersNr} und teilen das Mehrfachattribut in seine atomaren Bestandteile auf. Damit der Primärschlüssel weiterhin
 eindeutig ist nehmen wir die Projektnummer in den Schlüssel auf (sonst gäbe es die \emph{PersNr} \enquote{1} zweimal).
@@ -66,11 +66,11 @@ eindeutig ist nehmen wir die Projektnummer in den Schlüssel auf (sonst gäbe es
 
 Die Tabelle ist nun in der 1NF. Allerdings wurden bei der Umformung zusätzliche Redundanzen eingefügt.
 
-\begin{rahmen}
+\begin{infobox}
 	\subsubsection*{2. Normalform (2NF)}
 	
 	Eine Relation befindet sich in der zweiten Normalform, wenn sie in der 1NF ist und jedes Nichtschlüsselattribut funktional abhängig ist vom Gesamtschlüssel, nicht dagegen von Schlüsselteilen.
-\end{rahmen}
+\end{infobox}
 
 \emph{Funktional abhängig} heißt, dass die Werte des Attributs durch ein anderes eindeutig festgelegt sind. Besteht
 der Primärschlüssel nur aus einem Attribut ist dies immer der Fall. Im Beispiel zeigt sich, dass
@@ -108,13 +108,13 @@ in eine neue Tabelle ausgelagert. Beim Rest sieht man, dass \emph{Projekt} einde
 
 \newpage 
 
-\begin{rahmen}
+\begin{infobox}
 	\subsubsection*{3. Normalform (3NF)}
 	
 	Eine Relation befindet sich in der dritten Normalform, wenn sie in der 2NF ist und es kein Nichtschlüsselattribut gibt, das \emph{transitiv abhängig} von einem Schlüsselattribut ist.
 	
 	Es darf also keine funnktionalen Abhängigkeiten zwischen Nichtschlüsselattributen geben.
-\end{rahmen}
+\end{infobox}
 
 Das Attribut \emph{Abteilung} ist nur indirekt vom Primärschlüssel \emph{PersNr} abhängig. Vielmehr ist das Attribut \emph{Abteilung} von der \emph{AbtNr} abhängig. Also Aufspaltung in zwei Tabellen:
 
