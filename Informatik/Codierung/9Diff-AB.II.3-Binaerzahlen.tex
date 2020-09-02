@@ -24,6 +24,8 @@
 
 \setzeAufgabentemplate{ngbnormal}
 
+\usepackage{scratch}
+
 \begin{document}
 \ReiheTitel
 
@@ -51,10 +53,30 @@ Die Berechnung des Zahlwertes einer Binärzahl im Dezimalsystem erfolgt nach der
 \end{aufgabe}
 
 \begin{aufgabe}[symbol=\Large\symLaptop\yspace\symPartner]
-	Erstellt in \programm{Scratch} ein Programm, dass eine Dezimalzahl mit dem Moduloverfahren in eine Binärzahl umrechnen kann. Nutze dazu die folgende Vorlage und ersetze die fehlenden Befehle (durch \code{xxx} markiert) mit den passenden Blöcken aus dem Bereich \enquote{Variablen}.
+	Erstellt in \programm{Scratch} ein Programm, dass eine Dezimalzahl mit dem \emph{Moduloverfahren} in eine Binärzahl umrechnen kann. Nutzt dazu die folgende Vorlage und ersetzt die fehlenden Befehle (durch \code{xxx} markiert) mit den passenden Blöcken aus dem Bereich \enquote{Daten}.
+	
+	(Ihr müsst im Bereich \enquote{Daten} zuerst mit dem Button \enquote{Neue Variable} die Variablen \code{binaer} und \code{dezimal} erstellen.)
+	
 	\begin{center}
-	\includegraphics[width=8cm]{9Diff-AB.II.3-Abb_ScratchDezBin}
+%	\includegraphics[width=.8\textwidth]{9Diff-AB.II.3-Abb_ScratchDezBin}
+\scalebox{.8}{\begin{scratch}
+	\blockinit{Wenn ich angeklickt werde}
+	\blocksensing{frage \txtbox{Gib eine Zahl ein} und warte}
+	\blockvariable{setze \selectmenu{dezimal} auf \ovalsensing{Antwort}}
+	\blockvariable{setze \selectmenu{binaer} auf \txtbox{}}
+	\blockrepeat{wiederhole bis \booloperator{\ovalvariable{xxx} = \txtbox{0}}}{
+		\blockvariable{setze \selectmenu{xxx} auf \ovaloperator{verbinde \ovaloperator{\ovalvariable{xxx} mod \ovalnum{2}}\ovalvariable{xxx}}}
+		\blockvariable{setze \selectmenu{xxx} auf \ovaloperator{\selectmenu{abrunden} von \ovaloperator{\ovalvariable{xxx} / \ovalnum{2}}}}
+	}
+	\blocklook{sage \ovalvariable{binaer}}
+\end{scratch}}
 	\end{center}
+	
+	Testet das Programm mit den Zahlen von oben.
+\end{aufgabe}
+
+\begin{aufgabe}[symbol=\Large\symStern\yspace\symLaptop\yspace\symPartner]
+	Überlege dir, wie ein Scrat\programm{Scratch}ch-Programm aussehen müsste, dass eine Binärzahl in eine Dezimalzahl umformt. Notiert euch das Programm zunächst in Stichpunkten auf einem Zettel. Versucht dann den Plan in \programm{Scratch} umzusetzen.
 \end{aufgabe}
 
 \end{document}
