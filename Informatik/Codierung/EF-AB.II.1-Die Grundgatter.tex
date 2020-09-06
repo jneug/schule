@@ -1,0 +1,145 @@
+\documentclass[10pt, a4paper]{scrartcl}
+
+\usepackage{vorschule}
+\usepackage[
+    typ=ab,
+    fach=Informatik,
+    lerngruppe={EF},
+    nummer={II.1},
+    module={Symbole,Lizenzen},
+    seitenzahlen=keine,
+    farbig,
+    lizenz=cc-by-nc-sa-4,
+]{schule}
+
+\usepackage[
+	kuerzel=Ngb,
+	reihe={Digitale Schaltungen},
+	version={2020-09-4},
+]{ngbschule}
+
+\author{J. Neugebauer}
+\title{Die Grundgatter}
+\date{\Heute}
+
+\setzeAufgabentemplate{ngbnormal}
+
+%\usepackage{qrcode}
+
+\newcommand\addvmargin[1]{%
+\node[fit=(current bounding box),inner ysep=#1,inner xsep=0]{};}
+
+\ctikzset{tripoles/european not symbol=ieee circle}
+
+\setlength{\tabcolsep}{5mm}
+\def\arraystretch{1.25}
+
+\begin{document}
+
+\ReiheTitel
+Die Grundelemente einer digitalen Schaltung sind drei einfache
+logische Schaltungen - auch \emph{Gatter} genannt. Sie stellen 
+die Basiselemente dar, aus denen man alle anderen Schaltungen
+konstruieren kann. Diese drei Grundgatter sind \textbf{UND}, 
+\textbf{ODER} und \textbf{NICHT}.
+
+\subsection*{Die Grundgatter}
+
+\begin{tabularx}{\textwidth}{XXX}
+	\textbf{AND} & \textbf{OR} & \textbf{NOT} \\
+	\begin{circuitikz}[baseline=0pt]
+	\draw (0,0) node[and port](01){}
+		(01.in 1) node[anchor=east]{A}
+		(01.in 2) node[anchor=east]{B}
+		(01.out) node[anchor=west]{Y};
+	\addvmargin{4mm}
+	\end{circuitikz} &
+	\begin{circuitikz}[baseline=0pt]
+	\draw (0,0) node[or port](01){}
+		(01.in 1) node[anchor=east]{A}
+		(01.in 2) node[anchor=east]{B}
+		(01.out) node[anchor=west]{Y};
+	\addvmargin{4mm}
+	\end{circuitikz}&
+	\begin{circuitikz}[baseline=0pt]
+	\draw (0,0) node[not port](01){}
+		(01.in) node[anchor=east]{A}
+		(01.out) node[anchor=west]{Y};
+	\addvmargin{4mm}
+	\end{circuitikz} \\
+	\begin{tabular}{c|c|c}\texttt\small
+		A & B & Y \\\hline
+		0 & 0 & \\
+		0 & 1 & \\
+		1 & 0 & \\
+		1 & 1 & \\
+	\end{tabular}&
+	\begin{tabular}{c|c|c}\texttt\small
+		A & B & Y \\\hline
+		0 & 0 & \\
+		0 & 1 & \\
+		1 & 0 & \\
+		1 & 1 & \\
+	\end{tabular}&
+	\begin{tabular}{c|c}\texttt\small
+		A & Y \\\hline
+		0 & \\
+		1 & \\
+	\end{tabular}\\
+\end{tabularx}
+
+\subsection*{Weitere Gatter}
+
+\begin{tabularx}{\textwidth}{XXX}
+	\textbf{NAND} & \textbf{NOR} & \textbf{XOR} \\
+	\begin{circuitikz}[baseline=0pt]
+	\draw (0,0) node[nand port](01){}
+		(01.in 1) node[anchor=east]{A}
+		(01.in 2) node[anchor=east]{B}
+		(01.out) node[anchor=west]{Y};
+	\addvmargin{4mm}
+	\end{circuitikz} &
+	\begin{circuitikz}[baseline=0pt]
+	\draw (0,0) node[nor port](01){}
+		(01.in 1) node[anchor=east]{A}
+		(01.in 2) node[anchor=east]{B}
+		(01.out) node[anchor=west]{Y};
+	\addvmargin{4mm}
+	\end{circuitikz}&
+	\begin{circuitikz}[baseline=0pt]
+	\draw (0,0) node[xor port](01){}
+		(01.in 1) node[anchor=east]{A}
+		(01.in 2) node[anchor=east]{B}
+		(01.out) node[anchor=west]{Y};
+	\addvmargin{4mm}
+	\end{circuitikz} \\
+	\begin{tabular}{c|c|c}\texttt\small
+		A & B & Y \\\hline
+		0 & 0 & \\
+		0 & 1 & \\
+		1 & 0 & \\
+		1 & 1 & \\
+	\end{tabular}&
+	\begin{tabular}{c|c|c}\texttt\small
+		A & B & Y \\\hline
+		0 & 0 & \\
+		0 & 1 & \\
+		1 & 0 & \\
+		1 & 1 & \\
+	\end{tabular}&
+	\begin{tabular}{c|c|c}\texttt\small
+		A & B & Y \\\hline
+		0 & 0 & \\
+		0 & 1 & \\
+		1 & 0 & \\
+		1 & 1 & \\
+	\end{tabular}
+\end{tabularx}
+
+\vspace{1ex}
+\begin{rahmen}\centering
+Zeichne hier den Schaltplan des \code{XOR}-Gatters ein.
+\vspace{5.5cm}
+\end{rahmen}
+
+\end{document}
