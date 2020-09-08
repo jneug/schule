@@ -5,7 +5,7 @@
     typ=ab,
     fach=Informatik,
     lerngruppe={EF},
-    nummer={II.1},
+    nummer={II.2},
     module={Symbole,Lizenzen},
     seitenzahlen=keine,
     farbig,
@@ -19,7 +19,7 @@
 ]{ngbschule}
 
 \author{J. Neugebauer}
-\title{Die Grundgatter}
+\title{Halb- und Volladdierer}
 \date{\Heute}
 
 \setzeAufgabentemplate{ngbnormal}
@@ -37,109 +37,52 @@
 \begin{document}
 
 \ReiheTitel
-Die Grundelemente einer digitalen Schaltung sind drei einfache
-logische Schaltungen - auch \emph{Gatter} genannt. Sie stellen 
-die Basiselemente dar, aus denen man alle anderen Schaltungen
-konstruieren kann. Diese drei Grundgatter sind \textbf{UND}, 
-\textbf{ODER} und \textbf{NICHT}.
 
-\subsection*{Die Grundgatter}
+\begin{multicols}{2}
+\subsection*{Der Halbaddierer}
 
-\begin{tabularx}{\textwidth}{XXX}
-	\textbf{AND} & \textbf{OR} & \textbf{NOT} \\
-	\begin{circuitikz}[baseline=0pt]
-	\draw (0,0) node[and port](01){}
-		(01.in 1) node[anchor=east]{A}
-		(01.in 2) node[anchor=east]{B}
-		(01.out) node[anchor=west]{Y};
-	\addvmargin{4mm}
-	\end{circuitikz} &
-	\begin{circuitikz}[baseline=0pt]
-	\draw (0,0) node[or port](01){}
-		(01.in 1) node[anchor=east]{A}
-		(01.in 2) node[anchor=east]{B}
-		(01.out) node[anchor=west]{Y};
-	\addvmargin{4mm}
-	\end{circuitikz}&
-	\begin{circuitikz}[baseline=0pt]
-	\draw (0,0) node[not port](01){}
-		(01.in) node[anchor=east]{A}
-		(01.out) node[anchor=west]{Y};
-	\addvmargin{4mm}
-	\end{circuitikz} \\
-	\begin{tabular}{c|c|c}\texttt\small
-		A & B & Y \\\hline
-		0 & 0 & \\
-		0 & 1 & \\
-		1 & 0 & \\
-		1 & 1 & \\
-	\end{tabular}&
-	\begin{tabular}{c|c|c}\texttt\small
-		A & B & Y \\\hline
-		0 & 0 & \\
-		0 & 1 & \\
-		1 & 0 & \\
-		1 & 1 & \\
-	\end{tabular}&
-	\begin{tabular}{c|c}\texttt\small
-		A & Y \\\hline
-		0 & \\
-		1 & \\
-	\end{tabular}\\
-\end{tabularx}
+Der \textbf{Halbaddierer} bestimmt die Summe ($s$) und den Übertrag ($c_o$) einer 1-Bit Addition zweier Binärzahlen (A und B).
 
-\subsection*{Weitere Gatter}
+\begin{center}
+\begin{tabular}{c|c|c|c}\texttt\small
+	A & B & $s$ & $c_o$\\\hline
+	0 & 0 & & \\
+	0 & 1 & & \\
+	1 & 0 & & \\
+	1 & 1 & & \\
+\end{tabular}
+\end{center}
 
-\begin{tabularx}{\textwidth}{XXX}
-	\textbf{NAND} & \textbf{NOR} & \textbf{XOR} \\
-	\begin{circuitikz}[baseline=0pt]
-	\draw (0,0) node[nand port](01){}
-		(01.in 1) node[anchor=east]{A}
-		(01.in 2) node[anchor=east]{B}
-		(01.out) node[anchor=west]{Y};
-	\addvmargin{4mm}
-	\end{circuitikz} &
-	\begin{circuitikz}[baseline=0pt]
-	\draw (0,0) node[nor port](01){}
-		(01.in 1) node[anchor=east]{A}
-		(01.in 2) node[anchor=east]{B}
-		(01.out) node[anchor=west]{Y};
-	\addvmargin{4mm}
-	\end{circuitikz}&
-	\begin{circuitikz}[baseline=0pt]
-	\draw (0,0) node[xor port](01){}
-		(01.in 1) node[anchor=east]{A}
-		(01.in 2) node[anchor=east]{B}
-		(01.out) node[anchor=west]{Y};
-	\addvmargin{4mm}
-	\end{circuitikz} \\
-	\begin{tabular}{c|c|c}\texttt\small
-		A & B & Y \\\hline
-		0 & 0 & \\
-		0 & 1 & \\
-		1 & 0 & \\
-		1 & 1 & \\
-	\end{tabular}&
-	\begin{tabular}{c|c|c}\texttt\small
-		A & B & Y \\\hline
-		0 & 0 & \\
-		0 & 1 & \\
-		1 & 0 & \\
-		1 & 1 & \\
-	\end{tabular}&
-	\begin{tabular}{c|c|c}\texttt\small
-		A & B & Y \\\hline
-		0 & 0 & \\
-		0 & 1 & \\
-		1 & 0 & \\
-		1 & 1 & \\
-	\end{tabular}
-\end{tabularx}
+\vspace*{1cm}
 
-\vspace{1ex}
+\columnbreak
+
+\subsection*{Der Volladdierer}
+
+Der \textbf{Volladdierer} bestimmt die Summe ($s$) und den Übertrag ($c_o$) einer 1-Bit Addition zweier Binärzahlen (A und B) und eines zusätzlichen Übertrages ($c_i$).
+
+\begin{center}
+\begin{tabular}{c|c|c|c|c}\texttt\small
+	A & B & $c_o$ & $s$ & $c_o$\\\hline
+	0 & 0 & 0 & & \\
+	0 & 1 & 0 & & \\
+	1 & 0 & 0 & & \\
+	1 & 1 & 0 & & \\
+	0 & 0 & 1 & & \\
+	0 & 1 & 1 & & \\
+	1 & 0 & 1 & & \\
+	1 & 1 & 1 & & \\
+\end{tabular}
+\end{center}
+\end{multicols}
+
 \begin{rahmen}\centering
-Zeichne hier den Schaltplan des \code{XOR}-Gatters ein.
-\vspace{5.5cm}
+Schaltnetz des Halbaddierers.
+\vspace{5cm}
+\end{rahmen}
+\begin{rahmen}\centering
+Schaltnetz des Volladdierers.
+\vspace{5cm}
 \end{rahmen}
 
 \end{document}
