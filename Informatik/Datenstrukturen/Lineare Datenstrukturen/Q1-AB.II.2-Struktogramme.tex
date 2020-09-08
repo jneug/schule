@@ -1,0 +1,48 @@
+\documentclass[10pt, a4paper]{scrartcl}
+
+\usepackage{vorschule}
+\usepackage[
+	typ=ab,
+	fach=Informatik,
+	lerngruppe={Q1},
+	nummer=II.1,
+	module={Symbole,Lizenzen},
+	seitenzahlen=keine,
+	farbig,
+	lizenz=cc-by-nc-sa-4,
+]{schule}
+
+\usepackage[
+	kuerzel=Ngb,
+	reihe={Lineare dynamische Datenstrukturen},
+	version={2020-09-08},
+]{ngbschule}
+
+\author{J. Neugebauer}
+\title{Struktogramme}
+\date{\Heute}
+
+\setzeAufgabentemplate{ngbnormal}
+
+\begin{document}
+\ReiheTitel
+
+\begin{infobox}
+Aufgabe eines \textbf{Struktogrammes} ist es, den Ablauf eines Computerprogramms auf dem Papier darzustellen. Dazu wurden in den 70er Jahren des vergangenen Jahrhunderts von \person{Isaac Nassi} und \person{Ben Shneidermann} graphische Grundelemente entwickelt, die es ermöglichen sollten, Programmabläufe ohne Sprunganweisungen darzustellen. Die Notwendigkeit ergab sich daraus, dass im Laufe der Zeit Computerprogramme immer komplexer und damit unübersichtlicher geworden waren. Mit der Einführung von Struktogrammen wurde es erforderlich, die Programmlogik wieder gründlich und ohne Sprünge zu planen. Man bezeichnete dies als \textbf{strukturierte Programmierung}.
+
+In der professionellen Softwareentwicklung werden Struktogramme eher selten eingesetzt. Dort werden vorrangig die \emph{Aktivitätsdiagramme} der UML verwendet.
+\end{infobox}
+
+\begin{aufgabe}[subtitle=Operationen der Schlange]
+	Unten siehst du das Struktogramm der Operation \code{dequeue}. Studier den Aufbau und beschreib seine Elemente. Was ist das besondere an dieser Art der Darstellung von Algorithmen? Wo könnten Vor- und Nachteile liegen? Ergänze dann die schon bekannte \code{enqueue}-Operation. (Hilfe findest du im Buch.)
+\end{aufgabe}
+
+\subsection*{enqueue-Operation}
+\begin{rahmen}
+\vspace{5cm}
+\end{rahmen}
+
+\subsection*{dequeue-Operation}
+\nss{queue.dequeue}
+
+\end{document}
