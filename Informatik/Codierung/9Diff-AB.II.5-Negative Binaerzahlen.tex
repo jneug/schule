@@ -1,0 +1,103 @@
+\documentclass[9pt, a4paper]{scrartcl}
+
+\usepackage{vorschule}
+\usepackage[
+	typ=ab,
+	fach=Informatik,
+	lerngruppe={9Diff},
+	nummer={II.5},
+	module={Symbole,Lizenzen},
+	seitenzahlen=keine,
+	farbig,
+	lizenz=cc-by-nc-sa-4,
+]{schule}
+
+\usepackage[
+	kuerzel=Ngb,
+	reihe={Informationen, Daten und Codierung},
+	version={2020-09-09},
+]{ngbschule}
+
+\author{J. Neugebauer}
+\title{Negative Binärzahlen}
+\date{\Heute}
+
+\setzeAufgabentemplate{ngbnormal}
+
+\begin{document}
+\ReiheTitel
+
+\section*{Vorzeichenbit-Darstellung}
+\begin{infobox}
+Bei n-Bit Zahlen in \emph{Vorzeichenbit-Darstellung} (VzD) wird das höchstwertige Bit (das Bit ganz links für die Potenz $2^{n-1}$) für das Vorzeichen reserviert ($0$=positiv, $1$=negativ). Es verbleiben also $n-1$ Bit für die Darstellung des Zahlwertes.
+
+\begin{tabularx}{\textwidth}{XXX}
+	\textbf{4-Bit VzD}: & $(0011)_2 = (3)_{10}$ & $(1011)_2 = (-3)_{10}$ \\
+	\textbf{7-Bit VzD}: & $(1001000)_2 = (-8)_{10}$ & $(0001000)_1 = (8)_{10}$
+\end{tabularx}
+\end{infobox}
+
+\begin{aufgabe}
+	Forme die \textbf{6-Bit VzD Zahlen} ins Dezimalsystem um:
+	
+	\begin{tasks}(2)
+		\task $(010101)_2 = (\luecke{2cm})_{10}$
+		\task $(101010)_2 = (\luecke{2cm})_{10}$
+		\task $(000000)_2 = (\luecke{2cm})_{10}$
+		\task $(100000)_2 = (\luecke{2cm})_{10}$
+	\end{tasks}
+\end{aufgabe}
+
+\begin{aufgabe}
+	In der \textbf{4-Bit VzD} können \luecke{2cm} Zahlen dargestellt werden. Die kleinste mögliche Zahl (in Dezimaldarstellung) ist \luecke{2cm}, die Größte ist \luecke{2cm}.
+\end{aufgabe}
+
+\begin{aufgabe}
+	Berechne die Summe der \textbf{4-Bit VzD Zahlen} und kontrolliere die Rechnung im Dezimalsystem.
+	
+	\begin{tasks}(2)
+		\task $(0001)_2 + (1110)_2$
+		\task $(1001)_2 + (0111)_2$
+		\task $(1011)_2 + (1000)_2$
+		\task $(1011)_2 + (0000)_2$
+	\end{tasks}
+\end{aufgabe}
+
+\section*{Vorzeichenbit-Darstellung}
+\begin{infobox}
+Das \emph{Einerkomplement} einer Binärzahl wird gebildet, indem die Zahl \emph{invertiert} wird (aus 0 wird 1 und aus 1 wird 0). Für das \emph{Zweierkomplement} wird zum Einerkomplement noch 1 addiert.
+
+\begin{tabularx}{\textwidth}{XXXX}
+	 & Binärzahl & Einerkomplement & Zweierkomplement \\
+	\textbf{4-Bit VzD}: & $(0011)_2$ & $(1100)_2$ & $(1101)_2$
+\end{tabularx}
+
+Bei Binärzahlen in \emph{Zweierkomplement-Darstellung} (ZkD) sind negative Zahlen das Zweierkomplement ihrer positiven Gegenzahl.
+\end{infobox}
+
+\begin{aufgabe}
+	Bilde das Zweierkomplement der \textbf{4-Bit Zahlen} (denke an den Überlauf). Notiere darunter auch jeweils die Dezimalzahldarstellung der Zahlen.
+	
+	\begin{tasks}(3)
+		\task $(0001)_2 \longrightarrow (\luecke{2cm})_2$
+		\task $(1010)_2 \longrightarrow (\luecke{2cm})_2$
+		\task $(0000)_2 \longrightarrow (\luecke{2cm})_2$
+	\end{tasks}	
+\end{aufgabe}
+
+\begin{aufgabe}
+	Berechne die Summe der \textbf{4-Bit ZkD Zahlen} und kontrolliere die Rechnung im Dezimalsystem.
+	
+	\begin{tasks}(2)
+		\task $(0001)_2 + (1110)_2$
+		\task $(1001)_2 + (0111)_2$
+		\task $(1011)_2 + (1000)_2$
+		\task $(1011)_2 + (0000)_2$
+	\end{tasks}
+\end{aufgabe}
+
+\begin{aufgabe}
+	Vergleiche die beiden Darstellungen für negative Binärzahlen miteinander. Wo liegen Vorteile, was sind Probleme der Darstellungen?
+\end{aufgabe}
+
+\end{document}
