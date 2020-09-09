@@ -1,0 +1,75 @@
+\documentclass[10pt, a4paper]{scrartcl}
+
+\usepackage{vorschule}
+\usepackage[
+	typ=ab,
+	fach=Informatik,
+	lerngruppe={Q1},
+	nummer=II.3,
+	module={Symbole,Lizenzen},
+	seitenzahlen=keine,
+	farbig,
+	lizenz=cc-by-nc-sa-4,
+]{schule}
+
+\usepackage[
+	kuerzel=Ngb,
+	reihe={Lineare dynamische Datenstrukturen},
+	version={2020-09-09},
+]{ngbschule}
+
+\author{J. Neugebauer}
+\title{Operationen des Stapels}
+\date{\Heute}
+
+\setzeAufgabentemplate{schule-keinenummer}
+
+\begin{document}
+\ReiheTitel
+
+Der generische Stapel besteht aus einer Klasse \code{Stack<ContentType>} und einer Klasse \code{Node<ContentType>}.
+
+\cd{stack}
+
+\begin{aufgabe}
+	Unten sind die \emph{Struktogramme} der Operationen \code{push} und \code{pop} abgebildet. \operator{Analysiere} ihren Aufbau und \operator{erkläre}  das \emph{Verkettungsprinzip} der Datenstruktur \emph{Stapel} anhand eines Beispiels.
+
+\subsection*{enqueue-Operation}
+\nss{stack.pop}
+
+\subsection*{dequeue-Operation}
+\nss{stack.push}
+\end{aufgabe}
+
+\clearpage
+
+\ReiheTitel
+
+Der generische Stapel besteht aus einer Klasse \code{Stack<ContentType>} und einer Klasse \code{Node<ContentType>}.
+
+\cd{stack}
+
+\begin{aufgabe}
+	Unten sind die Operationen \code{push} und \code{pop} als \emph{Pseudocode} abgebildet. \operator{Analysiere} ihren Aufbau und \operator{erkläre}  das \emph{Verkettungsprinzip} der Datenstruktur \emph{Stapel} anhand eines Beispiels.
+
+\subsection*{enqueue-Operation}
+\begin{lstlisting}
+Wenn Stapel nicht leer
+	setze head auf den Nachfolger von head
+Ende Wenn
+\end{lstlisting}
+
+\subsection*{dequeue-Operation}
+\begin{lstlisting}
+Wenn Stapel leer 
+	erstelle einen neuen Knoten mit dem neuen Inhalt
+	setze head auf den neuen Knoten
+Sonst
+	erstelle einen neuen Knoten mit dem neuen Inhalt
+	setze den Nachfolger des neuen Knotens auf head
+	setze head auf den neuen Knoten
+Ende Wenn
+\end{lstlisting}
+\end{aufgabe}
+
+\end{document}
