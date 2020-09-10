@@ -46,18 +46,18 @@ Die folgende Tabelle zeigt noch einmal die Codierung der vier möglichen Nachric
 \end{multicols}
 
 \begin{infobox}
-	Schaut man sich zwei Codewörter an (z.B. \code{010111} und \code{101011}), so stimmen sie in einigen Bits überein und in anderen unerscheiden sie sich. Im Beispiel oben sind die hinteren zwei Bits gleich, der Rest ich verschieden. Die \textbf{Anzahl} der Bits, in denen sich zwei Codewörter \emph{A} und \emph{B} unterscheiden, nennt man \enquote{\emph{Hamming-Distanz zwischen A und B}}. Die beiden Codewörter im Beispiel sind in 4 Bits verschieden, also ist ihrer Hamming-Distanz gleich 4 (man schreibt $d(010111, 101011) = 4$).
+	Schaut man sich zwei Codewörter an (z.B. \code{010111} und \code{101011}), so stimmen sie in einigen Bits überein und in anderen unerscheiden sie sich. Im Beispiel oben sind die hinteren zwei Bits gleich, der Rest ist verschieden. Die \textbf{Anzahl} der Bits, in denen sich zwei Codewörter \emph{A} und \emph{B} unterscheiden, nennt man \enquote{\emph{Hamming-Distanz zwischen A und B}}. Die beiden Codewörter im Beispiel sind in 4 Bits verschieden, also ist ihrer Hamming-Distanz gleich 4 (man schreibt $d(010111, 101011) = 4$).
 	
-	Es könnte nun durch genau 4 Übertragungsfehler passieren, dass aus dem Codewort \code{010111} das Codewort \code{101011} wird, ohen das dies auffällt (das empfangene Wort ist ja wieder ein gültiges Wort). Treten \emph{weniger} als 4 Fehler auf, so entstehen Worte, die nicht gültig sind. Der Empfänger erkennt also, dass die Übertragung fehlerhaft war (Abb. 2 zeigt die beiden gültigen Codeworte (schwarz) und drei ungültige (weiß) dazwischen).
+	Es könnte nun durch genau 4 Übertragungsfehler passieren, dass aus dem Codewort \code{010111} das Codewort \code{101011} wird, ohne das dies auffällt (das empfangene Wort ist ja wieder ein gültiges Wort). Treten \emph{weniger} als 4 Fehler auf, so entstehen Worte, die nicht gültig sind. Der Empfänger erkennt also, dass die Übertragung fehlerhaft war (Abb. 2 zeigt die beiden gültigen Codeworte (schwarz) und drei ungültige (weiß) dazwischen).
 	
 	\begin{wrapfig}
 	\begin{wrapfigure}{r}{7cm}
 	\begin{tikzpicture}[word/.style={circle,fill=black},err/.style={circle,fill=white,draw=black}]
 		\node[word,label=left:{\code{\footnotesize 010111}}] (a) {};
-		\node[err,right of=a,label=above:{\code{\footnotesize 010111}}] (b) {};
-		\node[err,right of=b,label=below:{\code{\footnotesize 010111}}] (c) {};
-		\node[err,right of=c,label=above:{\code{\footnotesize 010111}}] (d) {};
-		\node[word,right of=d,label=right:{\code{\footnotesize 010111}}] (e) {};
+		\node[err,right of=a,label=above:{\code{\footnotesize 110111}}] (b) {};
+		\node[err,right of=b,label=below:{\code{\footnotesize 100111}}] (c) {};
+		\node[err,right of=c,label=above:{\code{\footnotesize 101111}}] (d) {};
+		\node[word,right of=d,label=right:{\code{\footnotesize 101011}}] (e) {};
 		\draw (a) -- (b) -- (c) -- (d) -- (e);
 	\end{tikzpicture}
 	\emph{Abb. 2: Ungültige Worte zwischen \code{010111} und \code{101011}}
