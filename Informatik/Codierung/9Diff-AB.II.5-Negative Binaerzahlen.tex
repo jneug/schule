@@ -49,11 +49,11 @@ Bei n-Bit Zahlen in \emph{Vorzeichenbit-Darstellung} (VzD) wird das höchstwerti
 \end{aufgabe}
 
 \begin{aufgabe}
-	In der \textbf{4-Bit VzD} können \luecke{2cm} Zahlen dargestellt werden. Die kleinste mögliche Zahl (in Dezimaldarstellung) ist \luecke{2cm}, die Größte ist \luecke{2cm}.
+	In der \textbf{4-Bit VzD} können \luecke{2cm} verschiedene Binärzahlen mit \luecke{2cm} verschiedenen Werten dargestellt werden. Die kleinste mögliche Zahl (in Dezimaldarstellung) ist \luecke{2cm}, die Größte ist \luecke{2cm}.
 \end{aufgabe}
 
 \begin{aufgabe}
-	Berechne die Summe der \textbf{4-Bit VzD Zahlen} und kontrolliere die Rechnung im Dezimalsystem.
+	Berechne die Summe der \textbf{4-Bit VzD Zahlen} (denke an den Überlauf) und kontrolliere die Rechnung im Dezimalsystem.
 	
 	\begin{tasks}(2)
 		\task $(0001)_2 + (1110)_2$
@@ -63,16 +63,16 @@ Bei n-Bit Zahlen in \emph{Vorzeichenbit-Darstellung} (VzD) wird das höchstwerti
 	\end{tasks}
 \end{aufgabe}
 
-\section*{Vorzeichenbit-Darstellung}
+\section*{Zweierkomplement-Darstellung}
 \begin{infobox}
 Das \emph{Einerkomplement} einer Binärzahl wird gebildet, indem die Zahl \emph{invertiert} wird (aus 0 wird 1 und aus 1 wird 0). Für das \emph{Zweierkomplement} wird zum Einerkomplement noch 1 addiert.
 
 \begin{tabularx}{\textwidth}{XXXX}
 	 & Binärzahl & Einerkomplement & Zweierkomplement \\
-	\textbf{4-Bit VzD}: & $(0011)_2$ & $(1100)_2$ & $(1101)_2$
+	\textbf{4-Bit ZkD}: & $(0011)_2$ & $(1100)_2$ & $(1101)_2$
 \end{tabularx}
 
-Bei Binärzahlen in \emph{Zweierkomplement-Darstellung} (ZkD) sind negative Zahlen das Zweierkomplement ihrer positiven Gegenzahl.
+Bei Binärzahlen in \emph{Zweierkomplement-Darstellung} (ZkD) sind negative Zahlen das Zweierkomplement ihrer positiven Gegenzahl. Das bedeutet, dass das höchstwertige Bit auch hier anzeigt, ob die Zahl positiv (\code{0}) oder negativ (\code{1}) ist.
 \end{infobox}
 
 \begin{aufgabe}
