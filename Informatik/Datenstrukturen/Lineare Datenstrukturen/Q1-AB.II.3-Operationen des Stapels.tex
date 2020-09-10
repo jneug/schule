@@ -34,11 +34,11 @@ Der generische Stapel besteht aus einer Klasse \code{Stack<ContentType>} und ein
 \begin{aufgabe}
 	Unten sind die \emph{Struktogramme} der Operationen \code{push} und \code{pop} abgebildet. \operator{Analysiere} ihren Aufbau und \operator{erkläre}  das \emph{Verkettungsprinzip} der Datenstruktur \emph{Stapel} anhand eines Beispiels.
 
-\subsection*{enqueue-Operation}
-\nss{stack.pop}
-
-\subsection*{dequeue-Operation}
+\subsection*{push-Operation}
 \nss{stack.push}
+
+\subsection*{pop-Operation}
+\nss{stack.pop}
 \end{aufgabe}
 
 \clearpage
@@ -52,14 +52,7 @@ Der generische Stapel besteht aus einer Klasse \code{Stack<ContentType>} und ein
 \begin{aufgabe}
 	Unten sind die Operationen \code{push} und \code{pop} als \emph{Pseudocode} abgebildet. \operator{Analysiere} ihren Aufbau und \operator{erkläre}  das \emph{Verkettungsprinzip} der Datenstruktur \emph{Stapel} anhand eines Beispiels.
 
-\subsection*{enqueue-Operation}
-\begin{lstlisting}
-Wenn Stapel nicht leer
-	setze head auf den Nachfolger von head
-Ende Wenn
-\end{lstlisting}
-
-\subsection*{dequeue-Operation}
+\subsection*{push-Operation}
 \begin{lstlisting}
 Wenn Stapel leer 
 	erstelle einen neuen Knoten mit dem neuen Inhalt
@@ -68,6 +61,13 @@ Sonst
 	erstelle einen neuen Knoten mit dem neuen Inhalt
 	setze den Nachfolger des neuen Knotens auf head
 	setze head auf den neuen Knoten
+Ende Wenn
+\end{lstlisting}
+
+\subsection*{pop-Operation}
+\begin{lstlisting}
+Wenn Stapel nicht leer
+	setze head auf den Nachfolger von head
 Ende Wenn
 \end{lstlisting}
 \end{aufgabe}
