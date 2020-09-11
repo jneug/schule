@@ -26,10 +26,12 @@
 
 \usepackage{qrcode}
 
+\usetikzlibrary{matrix}
 \tikzstyle{card deck}=[scale=.8,every node/.style={transform shape}]
-\tikzstyle{card}=[draw,fill=white,rectangle,rounded corners=1mm,minimum width=5mm,minimum height=9mm,anchor=south west]
+\tikzstyle{card}=[draw,fill=gray!10,rectangle,rounded corners=1mm,minimum width=4mm,minimum height=7mm,anchor=south west]
+\tikzstyle{white card}=[card,fill=white]
 \tikzstyle{black card}=[card,fill=black]
-\tikzstyle{card bg}=[draw=black,fill=black!30]
+\tikzstyle{card bg}=[fill=black!30]
 
 
 \begin{document}
@@ -40,145 +42,44 @@
 \begin{wrapfigure}{r}{4cm}
 % field 1
 \begin{tikzpicture}[card deck]
-	% row 1
-	\draw node[black card] at (1mm,1mm){}
-		node[black card] at (7mm,1mm){}
-		node[black card] at (13mm,1mm){}
-		node[card] at (19mm,1mm){}
-		node[black card] at (25mm,1mm){}
-		node[card] at (31mm,1mm){}
-		node[card] at (37mm,1mm){};
-	% row 2
-	\draw node[card] at (1mm,11mm){}
-		node[black card] at (7mm,11mm){}
-		node[card] at (13mm,11mm){}
-		node[black card] at (19mm,11mm){}
-		node[card] at (25mm,11mm){}
-		node[card] at (31mm,11mm){}
-		node[card] at (37mm,11mm){};
-	% row 3
-	\draw node[black card] at (1mm,21mm){}
-		node[card] at (7mm,21mm){}
-		node[card] at (13mm,21mm){}
-		node[card] at (19mm,21mm){}
-		node[black card] at (25mm,21mm){}
-		node[card] at (31mm,21mm){}
-		node[black card] at (37mm,21mm){};
-	% row 4
-	\draw node[black card] at (1mm,31mm){}
-		node[black card] at (7mm,31mm){}
-		node[card] at (13mm,31mm){}
-		node[black card] at (19mm,31mm){}
-		node[card] at (25mm,31mm){}
-		node[black card] at (31mm,31mm){}
-		node[card] at (37mm,31mm){};
-	\draw (0,0) |- (43mm,41mm) |- (0,0);
+	\matrix (m) [matrix of nodes,column sep=1mm,row sep=1mm,draw] {
+	|[black card]| & |[black card]| & |[black card]| & |[white card]| & |[black card]| & |[white card]| & |[white card]| \\
+	|[white card]| & |[black card]| & |[white card]| & |[black card]| & |[white card]| & |[white card]| & |[white card]| \\
+	|[black card]| & |[white card]| & |[white card]| & |[white card]| & |[black card]| & |[white card]| & |[black card]| \\
+	|[black card]| & |[black card]| & |[white card]| & |[black card]| & |[white card]| & |[black card]| & |[white card]| \\
+	};
 \end{tikzpicture}
 \emph{Abb.1: Rechteck von Bob}
 \medskip
 
 % field 2
 \begin{tikzpicture}[card deck]
-	\draw[card bg] (0,40.5mm) -- (42.5mm,40.5mm) -- (42.5mm,0) -- (49mm,0) -- (49mm,51mm) -- (0,51mm) -- cycle;
-	% row 1
-	\draw node[black card] at (1mm,1mm){}
-		node[black card] at (7mm,1mm){}
-		node[black card] at (13mm,1mm){}
-		node[card] at (19mm,1mm){}
-		node[black card] at (25mm,1mm){}
-		node[card] at (31mm,1mm){}
-		node[card] at (37mm,1mm){}
-		node[card] at (43mm,1mm){};
-	% row 2
-	\draw node[card] at (1mm,11mm){}
-		node[black card] at (7mm,11mm){}
-		node[card] at (13mm,11mm){}
-		node[black card] at (19mm,11mm){}
-		node[card] at (25mm,11mm){}
-		node[card] at (31mm,11mm){}
-		node[card] at (37mm,11mm){}
-		node[card] at (43mm,11mm){};
-	% row 3
-	\draw node[black card] at (1mm,21mm){}
-		node[card] at (7mm,21mm){}
-		node[card] at (13mm,21mm){}
-		node[card] at (19mm,21mm){}
-		node[black card] at (25mm,21mm){}
-		node[card] at (31mm,21mm){}
-		node[black card] at (37mm,21mm){}
-		node[black card] at (43mm,21mm){};
-	% row 4
-	\draw node[black card] at (1mm,31mm){}
-		node[black card] at (7mm,31mm){}
-		node[card] at (13mm,31mm){}
-		node[black card] at (19mm,31mm){}
-		node[card] at (25mm,31mm){}
-		node[black card] at (31mm,31mm){}
-		node[card] at (37mm,31mm){}
-		node[card] at (43mm,31mm){};
-	% row 5
-	\draw node[black card] at (1mm,41mm){}
-		node[black card] at (7mm,41mm){}
-		node[black card] at (13mm,41mm){}
-		node[card] at (19mm,41mm){}
-		node[card] at (25mm,41mm){}
-		node[black card] at (31mm,41mm){}
-		node[black card] at (37mm,41mm){}
-		node[black card] at (43mm,41mm){};
-	\draw (0,0) |- (49mm,51mm) |- (0,0);
+	\matrix (m) [matrix of nodes,column sep=1mm,row sep=1mm,draw] {
+	|[black card]| & |[black card]| & |[black card]| & |[white card]| & |[white card]| & |[black card]| & |[black card]| & |[black card]| \\
+	|[black card]| & |[black card]| & |[black card]| & |[white card]| & |[black card]| & |[white card]| & |[white card]| & |[white card]| \\
+	|[white card]| & |[black card]| & |[white card]| & |[black card]| & |[white card]| & |[white card]| & |[white card]| & |[white card]| \\
+	|[black card]| & |[white card]| & |[white card]| & |[white card]| & |[black card]| & |[white card]| & |[black card]| & |[black card]| \\
+	|[black card]| & |[black card]| & |[white card]| & |[black card]| & |[white card]| & |[black card]| & |[white card]| & |[white card]| \\
+	};
+	\begin{scope}[on background layer]
+	\fill[card bg] (m.north west) -- (m.north east) -- (m.south east) -- (m-5-8.west|-m.south) -- (m-1-8.south west) -- (m.west|-m-1-1.south) -- cycle;
+    \end{scope}
 \end{tikzpicture}
 \emph{Abb 2: Das erweiterete Rechteck}
 \medskip
 
 % field 3
 \begin{tikzpicture}[card deck]
-	\draw[card bg] (0,40.5mm) -- (42.5mm,40.5mm) -- (42.5mm,0) -- (49mm,0) -- (49mm,51mm) -- (0,51mm) -- cycle;
-	% row 1
-	\draw node[black card] at (1mm,1mm){}
-		node[black card] at (7mm,1mm){}
-		node[black card] at (13mm,1mm){}
-		node[card] at (19mm,1mm){}
-		node[black card] at (25mm,1mm){}
-		node[card] at (31mm,1mm){}
-		node[card] at (37mm,1mm){}
-		node[card] at (43mm,1mm){};
-	% row 2
-	\draw node[card] at (1mm,11mm){}
-		node[black card] at (7mm,11mm){}
-		node[card] at (13mm,11mm){}
-		node[black card] at (19mm,11mm){}
-		node[card] at (25mm,11mm){}
-		node[card] at (31mm,11mm){}
-		node[card] at (37mm,11mm){}
-		node[card] at (43mm,11mm){};
-	% row 3
-	\draw node[black card] at (1mm,21mm){}
-		node[card] at (7mm,21mm){}
-		node[card] at (13mm,21mm){}
-		node[card] at (19mm,21mm){}
-		node[card] at (25mm,21mm){\Large X}
-		node[card] at (31mm,21mm){}
-		node[black card] at (37mm,21mm){}
-		node[black card] at (43mm,21mm){};
-	% row 4
-	\draw node[black card] at (1mm,31mm){}
-		node[black card] at (7mm,31mm){}
-		node[card] at (13mm,31mm){}
-		node[black card] at (19mm,31mm){}
-		node[card] at (25mm,31mm){}
-		node[black card] at (31mm,31mm){}
-		node[card] at (37mm,31mm){}
-		node[card] at (43mm,31mm){};
-	% row 5
-	\draw node[black card] at (1mm,41mm){}
-		node[black card] at (7mm,41mm){}
-		node[black card] at (13mm,41mm){}
-		node[card] at (19mm,41mm){}
-		node[card] at (25mm,41mm){}
-		node[black card] at (31mm,41mm){}
-		node[black card] at (37mm,41mm){}
-		node[black card] at (43mm,41mm){};
-	\draw (0,0) |- (49mm,51mm) |- (0,0);
+	\matrix (m) [matrix of nodes,column sep=1mm,row sep=1mm,draw] {
+	|[black card]| & |[black card]| & |[black card]| & |[white card]| & |[white card]| & |[black card]| & |[black card]| & |[black card]| \\
+	|[black card]| & |[black card]| & |[black card]| & |[white card]| & |[black card]| & |[white card]| & |[white card]| & |[white card]| \\
+	|[white card]| & |[black card]| & |[white card]| & |[black card]| & |[white card]| & |[white card]| & |[white card]| & |[white card]| \\
+	|[black card]| & |[white card]| & |[white card]| & |[white card]| & |[white card]| X & |[white card]| & |[black card]| & |[black card]| \\
+	|[black card]| & |[black card]| & |[white card]| & |[black card]| & |[white card]| & |[black card]| & |[white card]| & |[white card]| \\
+	};
+	\begin{scope}[on background layer]
+	\fill[card bg] (m.north west) -- (m.north east) -- (m.south east) -- (m-5-8.west|-m.south) -- (m-1-8.south west) -- (m.west|-m-1-1.south) -- cycle;
+    \end{scope}
 \end{tikzpicture}
 \emph{Abb 3: Karte X wird umgedreht}
 \end{wrapfigure}
