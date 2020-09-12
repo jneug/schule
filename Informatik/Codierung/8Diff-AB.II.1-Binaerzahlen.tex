@@ -1,0 +1,60 @@
+\documentclass[10pt, a5paper]{scrartcl}
+
+\usepackage{pgfmorepages}
+\pgfmorepagesloadextralayouts
+\pgfpagesuselayout{repeated 2-up}[a4paper,landscape]
+
+\usepackage{vorschule}
+\usepackage[
+	typ=ab,
+	fach=Informatik,
+	lerngruppe={8Diff},
+	nummer={II.1},
+	module={Symbole,Lizenzen},
+	seitenzahlen=keine,
+	farbig,
+	lizenz=cc-by-nc-sa-4,
+]{schule}
+
+\usepackage[
+	kuerzel=Ngb,
+	reihe={Grundlagen der Informatik},
+	version={2020-09-11},
+]{ngbschule}
+
+\author{J. Neugebauer}
+\title{Binärzahlen I}
+\date{\Heute}
+
+\setzeAufgabentemplate{ngbnormal}
+
+\begin{document}
+\ReiheTitel
+
+\emph{Binärzahlen} sind die Grundlage moderner Computersysteme. Im \emph{Binärsystem} gibt es nur zwei Symbole (\code{1} und \code{0}) mit denen alle Zahlen dargestellt werden können. Im Gegensatz dazu benutzen wir normalerweise zehn Symbole (\code{0} bis \code{9}) im \emph{Dezimalsystem}.
+
+Um zu zeigen, dass eine Zahl im \emph{Binärsystem} steht, schreiben wir zum Beispiel $(1011)_2$, für das Dezimalsystem zum Beispiel $(1011)_{10}$.
+
+\begin{aufgabe}[subtitle=Binärzahlen umrechnen]
+	Wandele vom \emph{Binärsystem} ins \emph{Dezimalsystem} um.
+	
+	\begin{teilaufgaben}
+		\teilaufgabe $(1110)_2$ = 
+		\teilaufgabe $(10001)_2$ = 
+		\teilaufgabe $(10111)_2$ = 
+	\end{teilaufgaben}
+\end{aufgabe}
+
+\begin{aufgabe}[subtitle=Vorgänger und Nachfolger]
+	Notiere Vorgänger und Nachfolger im \emph{Binärsystem}.
+	
+	\begin{tabularx}{\textwidth}{|X|X|X|}\hline
+		\rowcolor{ngb.tabelle.kopf.hg} Vorgänger & Zahl & Nachfolger \\\hline
+		\Zeilenabstand & $(10001)_2$ & \\\hline
+		\Zeilenabstand & & $(1111)_2$ \\\hline
+		$(1000)_2$ &\Zeilenabstand & \\\hline
+		\Zeilenabstand & $(101)_2$ & \\\hline
+	\end{tabularx}
+\end{aufgabe}
+
+\end{document}
