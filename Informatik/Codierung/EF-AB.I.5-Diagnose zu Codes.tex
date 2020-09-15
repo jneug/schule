@@ -8,6 +8,7 @@
     nummer={I.5},
     module={Symbole,Lizenzen},
     seitenzahlen=keine,
+	loesungen=seite,
     farbig,
     lizenz=cc-by-nc-sa-4,
 ]{schule}
@@ -60,6 +61,29 @@ Ergänze für die beiden folgenden Nachrichten mit jeweils 8 Bits die fehlenden 
 \end{center}
 \end{multicols}
 \end{aufgabe}
+\begin{loesung}
+\begin{multicols}{2}
+\begin{center}
+\begin{tikzpicture}
+\matrix (m) [matrix of nodes,column sep=1mm,row sep=1mm,anchor=center] {
+	|[black card]| & |[black card]| & |[black card]| & |[white card]| & |[black card]| \\
+	|[black card]| & |[white card]| & |[black card]| & |[black card]| & |[black card]| \\
+	|[white card]| & |[black card]| & |[white card]| & |[black card]| & |[white card]| \\
+};
+\end{tikzpicture}
+\end{center}
+
+\begin{center}
+\begin{tikzpicture}
+\matrix (m) [matrix of nodes,column sep=1mm,row sep=1mm,anchor=center] {
+	|[black card]| & |[black card]| & |[black card]| & |[black card]| & |[white card]| \\
+	|[white card]| & |[black card]| & |[white card]| & |[black card]| & |[white card]| \\
+	|[black card]| & |[white card]| & |[black card]| & |[white card]| & |[white card]| \\
+};
+\end{tikzpicture}
+\end{center}
+\end{multicols}
+\end{loesung}
 
 \begin{aufgabe}
 	Überführe die \enquote{Codeworte} in die binäre Darstellung (schwarz = \code{1} und weiß = \code{0}).
@@ -70,10 +94,28 @@ Ergänze für die beiden folgenden Nachrichten mit jeweils 8 Bits die fehlenden 
 	\luecke{.35\textwidth}
 	\end{multicols}
 \end{aufgabe}
+\begin{loesung}
+	\begin{multicols}{2}\centering
+	\underline{\code{0101 1011 1110 110}}
+	
+	oder
+	
+	\underline{\code{1011 0101 1110 110}}
+	
+	\underline{\code{1010 0101 1111 000}}
+	
+	oder
+	
+	\underline{\code{0101 1010 1111 000}}
+	\end{multicols}
+\end{loesung}
 
 \begin{aufgabe}
 	Bestimme die Hamming-Distanz der beiden Codeworte: \luecke{2cm}
 \end{aufgabe}
+\begin{loesung}
+	Hamming-Distanz: \textbf{10}
+\end{loesung}
 
 \begin{aufgabe}
 	Gib zwei \emph{fehlerhafte} Codeworte an, die aber beide zum linken Codewort oben korrigiert werden können.
@@ -83,23 +125,35 @@ Ergänze für die beiden folgenden Nachrichten mit jeweils 8 Bits die fehlenden 
 	\luecke{.35\textwidth}
 	\end{multicols}
 \end{aufgabe}
+\begin{loesung}
+	Es reicht ein Bitfehler zum Code links. Es dürfen aber maximal vier Bitfehler auftauchen.
+\end{loesung}
 
 \begin{aufgabe}
-	Gib ein \emph{fehlerhafte} Codeworte an, das nicht eindeutig korrigiert werden kann.
+	Gib ein \emph{fehlerhaftes} Codeworte an, das nicht eindeutig korrigiert werden kann.
 	
 	\begin{center}
 	\luecke{.5\textwidth}
 	\end{center}
 \end{aufgabe}
+\begin{loesung}
+	Das Codewort muss genau fünf Bitfehler zu einem der beiden Codes haben.
+\end{loesung}
 
 \begin{aufgabe}
 	Bei Nachrichten mit 8 Bits kann es \luecke{2cm} \emph{gültige} Codeworte geben und \luecke{2cm} \emph{ungültige}.
 	
 	(\emph{Es reicht die Zahlen als Potenz/Rechenterm zu notieren.})
 \end{aufgabe}
+\begin{loesung}
+	Bei Nachrichten mit 8 Bits kann es \underline{$2^8$} \emph{gültige} Codeworte geben und \underline{$2^15 - 2^8$} \emph{ungültige}.
+\end{loesung}
 
 \begin{aufgabe}
 	Muss das Bit in der Ecke ganz oben rechts eigentlich gespeichert und übertragen werden? Begründe deine Entscheidung.
 \end{aufgabe}
+\begin{loesung}
+	Jein! Das Bit kann eindeutig aus den anderen bestimmt werden. Allerdings würde die maximale H-D verringert, wenn man es bei der Übertragung weg lässt. Je mehr Prüfbit übertragen werden, desto leichter fallen Bitfehler auf.
+\end{loesung}
 
 \end{document}
