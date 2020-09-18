@@ -5,7 +5,7 @@
     typ=ab,
     fach=Informatik,
     lerngruppe={Q2},
-    nummer=5,
+    nummer={IV.5},
     module={Symbole,Lizenzen},
     seitenzahlen=keine,
     farbig,
@@ -15,7 +15,7 @@
 \usepackage[
 	kuerzel=Ngb,
 	reihe={Nicht-lineare Datenstrukturen},
-	version={2019-09-10},
+	version={2020-09-16},
 ]{ngbschule}
 
 \author{J. Neugebauer}
@@ -28,21 +28,21 @@
 
 \ReiheTitel
 
-Kopieren sie sich das Projekt \texttt{06-ID3-Algorithmus} aus dem Tauschordner
-und öffnen sie es in BlueJ.
+Kopiere das Projekt \ordner{06-ID3-Algorithmus} aus dem Tauschordner
+und öffne es in \programm{BlueJ}.
 
 \begin{aufgabe}
-	Erstellen sie eine Instanz des \code{Entscheider}s und führen sie die Methode 
-	\code{ladeDatenUndZaehle()} aus. Vergleichen sie die angezeigten Daten mit
+	Erstelle eine Instanz des \code{Entscheider}s und führe die Methode 
+	\code{ladeDatenUndZaehle()} aus. Vergleiche die angezeigten Daten mit
 	der berechneten \emph{Entropie} und dem \emph{Informationsgewinn} der Attribute.
 \end{aufgabe}
 
 \begin{aufgabe}
-	Führen sie die Methode \code{ladeDatenUndErstelleBaum()} auf dem Objekt aus. Der
+	Führe die Methode \code{ladeDatenUndErstelleBaum()} auf dem Objekt aus. Der
 	Entschiedungsbaum wird nun rekursiv aus den Trainingsdaten aufgebaut.
 	
-	Skizzieren sie den entstandenen Baum, indem sie mit dem Inspektor von BlueJ 
-	die Objekte erkunden.
+	Skizziere den entstandenen Baum, indem du mit dem Inspektor von 
+	\programm{BlueJ} die Objekte erkunden.
 	
 	\begin{rahmen}
 		\vspace*{4cm}
@@ -51,16 +51,16 @@ und öffnen sie es in BlueJ.
 \end{aufgabe}
 
 \begin{aufgabe}
-	Die Trainingsdaten werden aus der Datei \enquote{\texttt{titanic50.csv}} im
+	Die Trainingsdaten werden aus der Datei \datei{titanic50.csv} im
 	Projektordner geladen. Der Dateiname wird im \code{Entscheider} in der Klassenvariablen
 	\code{TRAININGSDATEN} festgelegt. Statt 50 Passagierdaten sind auch Datensätze mit
-	300 (\enquote{\texttt{titanic300.csv}}) und 800 (\enquote{\texttt{titanic800.csv}})
+	300 (\datei{titanic300.csv}) und 800 (\datei{titanic800.csv})
 	vorhanden.
 	
-	Erstellen sie den Baum mit einem der anderen Trainingsdatensätze und vergleichen sie
+	Erstelle den Baum mit einem der anderen Trainingsdatensätze und vergleichen
 	das Ergebnis mit dem ersten Baum.
 	
-	\symInfo\ Zum Vergleich können sie die Methode \code{pruefeTestdaten()} verwenden, um einen Satz
+	\symInfo\ Zum Vergleich kannst du die Methode \code{pruefeTestdaten()} verwenden, um einen Satz
 	unbekannter Passagierdaten zu laden und durch den Entscheidungsbaum klassifizieren zu lassen.
 \end{aufgabe}
 
@@ -68,7 +68,8 @@ und öffnen sie es in BlueJ.
 	Mit größeren Datensätzen werden die Bäume feiner ausdifferenziert und lassen sich durch
 	den Inspektor nur umständlich betrachten.
 	
-	Implementieren sie die Methode \code{baumAusgeben( BinaryTree<Knoten> pBaum, int pTiefe )} wie folgt:
+	Implementiere die Methode \code{baumAusgeben( BinaryTree<Knoten> pBaum, int pTiefe )} wie folgt:
+	
 	Die Methode läuft rekursiv durch den Baum. Der Inhalt des Knotens wird ausgegeben, dann wird die Methode
 	rekursiv auf dem linken, dann auf dem rechten Teilbaum aufgerufen. Die Rekursion bricht ab, wenn ein Blatt
 	erreicht ist (linker und rechter Teilbaum gleich \code{null}).
@@ -78,16 +79,16 @@ und öffnen sie es in BlueJ.
 
 \begin{aufgabe}
 	Die maximale Anzahl an Entscheidungen im Baum kann beim instanziieren des \code{Entscheider}s
-	über den Parameter \code{pMaximaleTiefe} festgelegt werden. Testen sie verschiedene Werte für
-	den Parameter und lassen sie sich den entstehenden Baum mit \code{baumAusgeben()} anzeigen.
+	über den Parameter \code{pMaximaleTiefe} festgelegt werden. Teste verschiedene Werte für
+	den Parameter und lass dir den entstehenden Baum mit \code{baumAusgeben()} anzeigen.
 \end{aufgabe}
 
 \begin{aufgabe}
 	Das rekursive Durchlaufen des Baumes, wie in der Methode \code{baumAusgeben()}, nennt man
 	\emph{Traversierung}.
 	
-	Lesen sie im Buch den Abschnitt 5.2 (ab Seite 145) über Binärbäume - insbesondere über die 
-	verschiedenen Arten der Traversierung. Bearbeiten sie dann auf Seite 150 Aufgabe 3 a) und b).
+	Lies im Buch den Abschnitt 5.2 (ab Seite 145) über Binärbäume - insbesondere über die 
+	verschiedenen Arten der Traversierung. Bearbeite dann auf Seite 150 Aufgabe 3 a) und b).
 	( b) in Pseudocode).
 \end{aufgabe}
 

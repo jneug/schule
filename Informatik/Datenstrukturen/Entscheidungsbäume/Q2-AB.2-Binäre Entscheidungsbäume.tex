@@ -5,7 +5,7 @@
     typ=ab,
     fach=Informatik,
     lerngruppe={Q2},
-    nummer=2,
+    nummer={IV.2},
     module={Symbole,Lizenzen},
     seitenzahlen=keine,
     farbig,
@@ -15,7 +15,7 @@
 \usepackage[
 	kuerzel=Ngb,
 	reihe={Nichtlineare Datenstrukturen: Bäume},
-	version={2019-09-12},
+	version={2020-09-16},
 ]{ngbschule}
 
 \author{J. Neugebauer}
@@ -34,9 +34,9 @@
 \end{center}
 
 \begin{aufgabe}
-	Studieren sie die Dokumentation der Klasse \code{BinaryTree<ContentType>} und vergleichen sie sie mit der Verwendung der Klasse im Projekt \enquote{\emph{Entscheidungsbaum}} im Tauschordner (in der Klasse \code{Entscheider}).
+	Studiere die Dokumentation der Klasse \code{BinaryTree<ContentType>} und vergleiche sie mit der Verwendung der Klasse im Projekt \ordner{Entscheidungsbaum} im Tauschordner (in der Klasse \code{Entscheider}).
 	
-	Versuchen sie die folgenden Leitfragen für sich zu beantworten:
+	Versuche die folgenden Leitfragen für dich zu beantworten:
 	\begin{itemize}
 		\item Wieso wird mehr als ein Objekt der Klasse \code{BinaryTree} erstellt?
 		\item In welcher Reihenfolge wird der Baum aufgebaut (werden die Objekte der Knoten instanziiert)?
@@ -44,26 +44,25 @@
 	\end{itemize}
 \end{aufgabe}
 
-
 \begin{aufgabe}
 	Die Knoten enthalten Objekte der Unterklassen von \code{Entschiedung}. Jede Unterklasse entscheidet für einen Datensatz, ob es im Baum links oder rechts weiter geht. Die Blattknoten enthalten keine Entscheidung, sondern die finale Festlegung einer Klasse für den Datensatz (hier \enquote{Ja} oder \enquote{Nein}).
 	
-	Studieren sie die Klasse \code{Entscheidung} und ihre Unterklassen. Implementieren sie dann am Beispiel der Klasse \code{EntscheidungVorhersage1} eine Klasse \code{EntscheidungVorhersage2}, die die Entscheidung
+	\operator{Analysiere} die Klasse \code{Entscheidung} und ihre Unterklassen. \operator{Implementiere} dann am Beispiel der Klasse \code{EntscheidungVorhersage1} eine Klasse \code{EntscheidungVorhersage2}, die die Entscheidung
 	zwischen \enquote{regnerisch} und \enquote{bewölkt} umsetzt (vgl. Abbildung oben).
 	
-	Implementieren sie dann auch die anderen Unterklassen von \code{Entscheidung}.
+	\operator{Implementieren} dann auch die anderen Unterklassen von \code{Entscheidung}.
 \end{aufgabe}
 
 \begin{aufgabe}
-	Implementieren sie anhand des Beispiels im Konstruktor der Klasse \code{Entscheider} den vollständigen Entscheidungsbaum zur Tennis-Frage (vgl. Abbildung oben).
+	\operator{Implementiere} anhand des Beispiels im Konstruktor der Klasse \code{Entscheider} den vollständigen Entscheidungsbaum zur Tennis-Frage (vgl. Abbildung oben).
 	
-	Testen sie ihren Baum mit dem \emph{Objektinspektor} von BlueJ.
+	Teste deinen Baum mit dem \emph{Objektinspektor} von \programm{BlueJ}.
 \end{aufgabe}
 
 \begin{aufgabe}
-	Vervollständigen sie die Methode \code{testeDatensatz} in Entscheider, so dass für einen Datensatz am Ende die korrekte Entscheidung (als \code{String}) zurückgegeben wird.
+	Vervollständige die Methode \code{testeDatensatz} in \code{Entscheider}, so dass für einen Datensatz am Ende die korrekte Entscheidung (als \code{String}) zurückgegeben wird.
 	
-	Testen sie mit verschiedenen Datensätzen.
+	Teste mit verschiedenen Datensätzen.
 \end{aufgabe}
 
 \end{document}
