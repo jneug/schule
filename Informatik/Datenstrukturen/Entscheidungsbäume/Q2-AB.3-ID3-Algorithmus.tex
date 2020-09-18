@@ -5,7 +5,7 @@
     typ=ab,
     fach=Informatik,
     lerngruppe={Q2},
-    nummer=3,
+    nummer={IV.3},
     module={Symbole,Lizenzen},
     seitenzahlen=keine,
     farbig,
@@ -15,7 +15,7 @@
 \usepackage[
 	kuerzel=Ngb,
 	reihe={Nichtlineare Datenstrukturen: Bäume},
-	version={2019-09-12},
+	version={2020-09-16},
 ]{ngbschule}
 
 \author{J. Neugebauer}
@@ -43,10 +43,10 @@
 \end{rahmen}
 \bigskip
 
-Der vorliegende Datensatz ist ein bereinigter Auszug aus der Passierliste der Titanic. Wir wollen nun mittels des \emph{ID3-Algorithmus} den Computer einen \emph{Entscheidungsbaum} generieren lassen, der für einen Passgier entscheidet, ob er überlebt hat, oder nicht.
+Der vorliegende Datensatz ist ein bereinigter Auszug aus der Passierliste der Titanic. Wir wollen nun mittels des \emph{ID3-Algorithmus} den Computer einen \emph{Entscheidungsbaum} generieren lassen, der für einen Passagier entscheidet, ob er überlebt hat, oder nicht.
 
 \begin{aufgabe}
-	Berechnen sie die \emph{Entropie} $E_{gesamt}$ des vollständigen Datensatzes bezüglich des Zielattributes 
+	\operator{Berechne} die \emph{Entropie} $E_{gesamt}$ des vollständigen Datensatzes bezüglich des Zielattributes 
 	\texttt{survived}.
 	
 	\begin{center}
@@ -54,12 +54,12 @@ Der vorliegende Datensatz ist ein bereinigter Auszug aus der Passierliste der Ti
 	\end{center}
 		
 	\begin{infobox}
-		Die \emph{Entropie} berechnet sich durch $E_{gesamt} = -P_{ja}\cdot \log_2{P_{ja}} -P_{nein}\cdot \log_2{P_{nein}}$, wobei $P_{ja/nein}$ den Anteil der Datensätze mit der Ausprägung \enquote{überlebt = ja} bzw. \enquote{überlebt = nein} darstellt.
+		Die \emph{Entropie} berechnet sich durch $E_{gesamt} = -P_{ja}\cdot \log_2{(P_{ja})} -P_{nein}\cdot \log_2{(P_{nein}(}$, wobei $P_{ja/nein}$ den Anteil der Datensätze mit der Ausprägung \enquote{überlebt = ja} bzw. \enquote{überlebt = nein} darstellt.
 	\end{infobox}
 \end{aufgabe}
 
 \begin{aufgabe}
-	Berechnen sie die \emph{Entropie} für alle Ausprägungen (Werte) des Attributes \linie[4cm] bezüglich des Zielattributes \texttt{survived}.
+	\operator{Berechne} die \emph{Entropie} für alle Ausprägungen (Werte) des Attributes \linie[4cm] bezüglich des Zielattributes \texttt{survived}.
 	
 	\begin{center}
 		$E_{\hspace{2cm}} = $\linie[12cm]\\[.4cm]
@@ -68,12 +68,12 @@ Der vorliegende Datensatz ist ein bereinigter Auszug aus der Passierliste der Ti
 	\end{center}
 	
 	\begin{infobox}
-		Die \emph{Entropie} $E_{Attributswert}$ berechnet sich wie oben, allerdings werden nur Zeilen berücksichtigt, bei denen das betreffende Attribut den betreffenden Wert hat (z.B. alle Zeilen bei denen \texttt{sex} gleich \enquote{male} ist).
+		Die \emph{Entropie} $E_{Attributswert}$ berechnet sich wie oben, allerdings werden nur Zeilen berücksichtigt, bei denen das betreffende Attribut den betreffenden Wert hat (z.B. alle Zeilen bei denen \enquote{sex = male} gilt).
 	\end{infobox}
 \end{aufgabe}
 
 \begin{aufgabe}
-	Berechnen sie den \emph{Informationsgewinn} für ihr Attribut.
+	\operator{Berechne} den \emph{Informationsgewinn} für dein Attribut.
 	
 	\begin{center}
 		$IG_{\hspace{2cm}} = $\linie[12cm]
