@@ -32,7 +32,7 @@ Kopiere das Projekt \ordner{07-ID3-Algorithmus} aus dem Tauschordner
 und öffne es in \programm{BlueJ}.
 
 \begin{aufgabe}
-	Erstelle eine Instanz des \code{DescisionTreeBuilder}s und führe die Methode \code{calculateEntropie()} aus. Vergleiche die angezeigten Daten mit der berechneten \emph{Entropie} und dem \emph{Informationsgewinn} der Attribute.
+	Erstelle eine Instanz des \code{DescisionTreeBuilder}s und führe die Methode \code{calculateEntropy()} aus. Vergleiche die angezeigten Daten mit der berechneten \emph{Entropie} und dem \emph{Informationsgewinn} der Attribute.
 \end{aufgabe}
 
 \begin{aufgabe}
@@ -60,7 +60,7 @@ und öffne es in \programm{BlueJ}.
 \begin{aufgabe}
 	Mit größeren Datensätzen werden die Bäume feiner ausdifferenziert und lassen sich durch den Inspektor nur umständlich betrachten.
 	
-	Implementiere die Methode \code{private void printTree( BinaryTree<DecisionNode> pBaum, int pTiefe )} (Zwilw 84) wie folgt:
+	Implementiere die Methode \code{private void printTree( BinaryTree<DecisionNode> pTree, int pDepth )} (Zeile 84) wie folgt:
 	
 	Die Methode läuft rekursiv durch den Baum. Der Inhalt des Knotens wird ausgegeben. Dann wird die Methode rekursiv erst auf dem linken, dann auf dem rechten Teilbaum aufgerufen. Die Rekursion bricht ab, wenn ein Blattknoten erreicht ist (linker und rechter Teilbaum gleich \code{null}).
 	
