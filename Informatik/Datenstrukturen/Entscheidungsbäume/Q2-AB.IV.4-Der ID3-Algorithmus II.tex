@@ -1,0 +1,81 @@
+\documentclass[10pt, a4paper]{scrartcl}
+
+\usepackage{vorschule}
+\usepackage[
+    typ=ab,
+    fach=Informatik,
+    lerngruppe={Q2},
+    nummer={IV.4},
+    module={Symbole,Lizenzen},
+    seitenzahlen=keine,
+    farbig,
+    lizenz=cc-by-nc-sa-4,
+]{schule}
+
+\usepackage[
+	kuerzel=Ngb,
+	reihe={Nicht-lineare Datenstrukturen},
+	version={2020-09-16},
+]{ngbschule}
+
+\author{J. Neugebauer}
+\title{Der ID3-Algorithmus II}
+\date{\Heute}
+
+\setzeAufgabentemplate{ngbnormal}
+
+\begin{document}
+
+\ReiheTitel
+
+Kopiere das Projekt \ordner{07-ID3-Algorithmus} aus dem Tauschordner
+und öffne es in \programm{BlueJ}.
+
+\begin{aufgabe}
+	Erstelle eine Instanz des \code{DescisionTreeBuilder}s und führe die Methode \code{calculateEntropie()} aus. Vergleiche die angezeigten Daten mit der berechneten \emph{Entropie} und dem \emph{Informationsgewinn} der Attribute.
+\end{aufgabe}
+
+\begin{aufgabe}
+	Führe die Methode \code{buildTree()} auf dem Objekt aus. Der
+	Entschiedungsbaum wird nun rekursiv aus den Trainingsdaten aufgebaut.
+	
+	Skizziere den entstandenen Baum, indem du mit dem Inspektor von 
+	\programm{BlueJ} die Objekte erkundest.
+	
+	\begin{rahmen}
+		\vspace*{4cm}
+	\end{rahmen}
+	\medskip
+\end{aufgabe}
+
+\begin{aufgabe}
+	Die Trainingsdaten werden aus der Datei \datei{titanic50.csv} im Projektordner geladen. Der Dateiname wird im \code{DescisionTreeBuilder} in der Klassenvariablen \code{TRAININGDATA} festgelegt. Statt 50 Passagierdaten sind auch Datensätze mit 300 (\datei{titanic300.csv}) und 800 (\datei{titanic800.csv}) vorhanden.
+	
+	Erstelle den Baum mit einem der anderen Trainingsdatensätze und vergleichen
+	das Ergebnis mit dem ersten Baum.
+	
+	\hinweis{Zum Vergleich kannst du die Methode \code{classifyTestdata()} verwenden, um einen Satz unbekannter Passagierdaten zu laden und durch den Entscheidungsbaum klassifizieren zu lassen.}
+\end{aufgabe}
+
+\begin{aufgabe}
+	Mit größeren Datensätzen werden die Bäume feiner ausdifferenziert und lassen sich durch den Inspektor nur umständlich betrachten.
+	
+	Implementiere die Methode \code{private void printTree( BinaryTree<DecisionNode> pBaum, int pTiefe )} (Zwilw 84) wie folgt:
+	
+	Die Methode läuft rekursiv durch den Baum. Der Inhalt des Knotens wird ausgegeben. Dann wird die Methode rekursiv erst auf dem linken, dann auf dem rechten Teilbaum aufgerufen. Die Rekursion bricht ab, wenn ein Blattknoten erreicht ist (linker und rechter Teilbaum gleich \code{null}).
+	
+	Gestartet wird die Ausgabe mit der Methode \code{printTree()}.
+\end{aufgabe}
+
+\begin{aufgabe}
+	Die maximale Anzahl an Entscheidungen im Baum kann beim instanziieren des \code{DescisionTreeBuilder}s über den Parameter \code{pMaxDepth} festgelegt werden. Teste verschiedene Werte für den Parameter und lass dir den entstehenden Baum mit \code{printTree()} anzeigen.
+\end{aufgabe}
+
+\begin{aufgabe}
+	Das rekursive Durchlaufen des Baumes, wie in der Methode \code{printTree()}, nennt man \emph{Traversierung}.
+	
+	Lies im Buch den Abschnitt 5.2 (ab Seite 145) über Binärbäume - insbesondere über die verschiedenen Arten der \emph{Traversierung}. Bearbeite dann auf Seite 150 Aufgabe 3 a) und b). ( b) in Pseudocode).
+\end{aufgabe}
+
+
+\end{document}
