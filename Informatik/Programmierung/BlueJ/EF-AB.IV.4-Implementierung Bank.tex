@@ -26,7 +26,6 @@
 
 \setzeAufgabentemplate{ngbnormal}
 
-
 \begin{document}
 \ReiheTitel
 
@@ -71,6 +70,109 @@
 
 \clearpage
 
+\begin{tikzpicture}[scale=0.8,every node/.style={scale=0.8}]\small
+%% Entwurfsdiagramm
+	\begin{klasse}[text width=4cm]{Bank}{0,0}
+		\attribut{name: Text}
+		\attribut{blz: Zahl}
+		\methode{neuerKunde}
+		\methode{kontoAbrechnen}
+	\end{klasse}
+	
+	\begin{klasse}[text width=4cm]{Kunde}{0,-3}
+		\attribut{name: Text}
+		\attribut{geburtstag: Text}
+		\attribut{adresse: Text}
+	\end{klasse}
+	
+	\begin{klasse}[text width=4cm]{Konto}{0,-6}
+		\attribut{kontonummer: Zahl}
+		\attribut{kontostand: Zahl}
+		\attribut{dispo: Zahl}
+		\attribut{zinssatz: Zahl}
+		\attribut{pin: Zahl}
+		\methode{einzahlen}
+		\methode{auszahlen}
+		\methode{ueberweisen}
+	\end{klasse}
+		
+	\begin{klasse}[text width=4cm]{Transaktion}{0,-11}
+		\attribut{art: Text}
+		\attribut{betrag: Text}
+	\end{klasse}
 
+	\draw[umlcd style,->] ($(Bank.west) + (0,0)$) -- ($(Bank.west) + (-.5,0)$) --node[midway,left]{-kunden} ($(Kunde.west) + (-.5,.5)$) --node[below]{0..*} ($(Kunde.west) + (0,.5)$);
+	
+	\draw[umlcd style,->] ($(Konto.east) + (0,-1)$) -- ($(Konto.east) + (.5,-1)$) --node[midway,right]{-transaktionen} ($(Transaktion.east) + (.5,.5)$) --node[below]{0..*} ($(Transaktion.east) + (0,.5)$);
+	
+	\draw[umlcd style,->] ($(Bank.east) + (0,0)$) -- ($(Bank.east) + (.5,0)$) --node[midway,right]{-konten} ($(Konto.east) + (.5,.5)$) --node[below]{0..*} ($(Konto.east) + (0,.5)$);
+	
+	\draw[umlcd style,->] ($(Kunde.west) + (0,-.5)$) -- ($(Kunde.west) + (-.5,-.5)$) --node[midway,left]{-konto} ($(Konto.west) + (-.5,.5)$) --node[below]{1} ($(Konto.west) + (0,.5)$);
+	
+	\draw[umlcd style,->] ($(Transaktion.west) + (0,0)$) -- ($(Transaktion.west) + (-.5,0)$) --node[midway,left]{-zielkonto} ($(Konto.west) + (-.5,-1.2)$) --node[above]{1} ($(Konto.west) + (0,-1.2)$);
+
+%% Implementierungsdiagramm
+	\begin{klasse}[text width=6cm]{Bank}{10,0}
+		\attribut{-name: String}
+		\attribut{-blz: int}
+		
+		\methode{+Bank(pName: String, pBlz: int)}
+		\methode{+neuerKunde(pName: String,\\\hspace{1em}pGeburtstag: String, pAdresse: String)}
+		\methode{+kontoAbrechnen()}
+	\end{klasse}
+	
+	\begin{klasse}[text width=6cm]{Kunde}{10,-4}
+		\attribut{-name: String}
+		\attribut{-geburtstag: String}
+		\attribut{-adresse: String}
+		
+		\methode{+Kunde(pName: String, pGeburtstag: String,\\\hspace{1em}pAdresse: String, pKonto: Konto)}
+		\methode{+getName(): String}
+		\methode{+getGeburtstag(): String}
+		\methode{+getAdresse(): String}
+		\methode{+getKonto(): Konto}
+	\end{klasse}
+	
+	\begin{klasse}[text width=6cm]{Konto}{10,-10}
+		\attribut{-kontonummer: int}
+		\attribut{-kontostand: double}
+		\attribut{-dispo: double}
+		\attribut{-zinssatz: double}
+		\attribut{-pin: int}
+		
+		\methode{+Konto(pKontonummer: int)}
+		\methode{+einzahlen(pBetrag: double)}
+		\methode{+auszahlen(pBetrag: double): boolean}
+		\methode{+ueberweisen(pBetrag: double,\\\hspace{1em}pZielkonto: Konto): boolean}
+		\methode{+pruefePin(pEingabe: int): boolean}
+		\methode{+getKontonummer(): int}
+		\methode{+getKontostand(): double}
+		\methode{+getDispo(): double}
+		\methode{+setDispo(pDispo: double)}
+		\methode{+getZinssatz(): double}
+		\methode{+setZinssatz(pZinssatz: double)}
+	\end{klasse}
+		
+	\begin{klasse}[text width=6cm]{Transaktion}{10,-19.5}
+		\attribut{-art: String}
+		\attribut{-betrag: double}
+		
+		\methode{+Transaktion(pArt: String,\\pBetrag: double)}
+		\methode{+Transaktion(pBetrag: double,\\pZielkonto: Konto)}
+		\methode{+getArt(): String}
+		\methode{+getBetrag(): double}
+		\methode{+getZielkonto(): Konto}
+	\end{klasse}
+	
+	\draw[umlcd style,->] ($(Bank.west) + (0,0)$) -- ($(Bank.west) + (-.5,0)$) --node[midway,left]{-kunden} ($(Kunde.west) + (-.5,.5)$) --node[below]{0..*} ($(Kunde.west) + (0,.5)$);
+		
+	\draw[umlcd style,->] ($(Konto.east) + (0,-1)$) -- ($(Konto.east) + (.5,-1)$) --node[midway,right]{-transaktionen} ($(Transaktion.east) + (.5,.5)$) --node[below]{0..*} ($(Transaktion.east) + (0,.5)$);
+	
+	\draw[umlcd style,->] ($(Bank.east) + (0,0)$) -- ($(Bank.east) + (.5,0)$) --node[midway,right]{-konten} ($(Konto.east) + (.5,.5)$) --node[below]{0..*} ($(Konto.east) + (0,.5)$);
+	
+	\draw[umlcd style,->] ($(Kunde.west) + (0,-.5)$) -- ($(Kunde.west) + (-.5,-.5)$) --node[midway,left]{-konto} ($(Konto.west) + (-.5,.5)$) --node[below]{1} ($(Konto.west) + (0,.5)$);
+	
+	\draw[umlcd style,->] ($(Transaktion.west) + (0,0)$) -- ($(Transaktion.west) + (-.5,0)$) --node[midway,left]{-zielkonto} ($(Konto.west) + (-.5,-1.2)$) --node[above]{1} ($(Konto.west) + (0,-1.2)$);
+\end{tikzpicture}
 
 \end{document}
