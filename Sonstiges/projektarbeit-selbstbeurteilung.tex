@@ -1,0 +1,67 @@
+\documentclass[10pt, a4paper]{scrartcl}
+
+%\usepackage{qrcode}
+
+\usepackage{vorschule}
+\usepackage[
+	typ=ab,
+	module={Symbole,Lizenzen},
+	seitenzahlen=keine,
+	ohneLochung,
+	farbig,
+	lizenz=cc-by-nc-sa-4,
+]{schule}
+
+\usepackage[
+	version={2020-09-29},
+]{ngbschule}
+
+\author{J. Neugebauer}
+\title{Selbstbeurteilungsbogen zur Projektarbeit}
+\date{\Heute}
+
+\def\maxPunkt{11}
+\setlength{\zeilenhoehe}{.8cm}
+
+\begin{document}\thispagestyle{empty}
+\TITEL
+
+Bezeichnung des Projekts: \luecke{6cm}
+
+\subsection*{Hauptverantwortliche}
+
+Tragt hier ein, welche Gruppenmitglieder für welchen Teil des Projekts hauptverantwortlich waren. Ihr könnt einen oder auch mehrere Namen pro Kategorie eintragen. Wenn alle Mitglieder den gleichen Anteil hatten, dann lasst die Zeile leer oder schreibt \enquote{Alle} hinein.
+
+\begin{tabular}{ll}
+	\textsc{Objektdiagramme}\Zeilenabstand & \luecke{6cm} \\
+	\textsc{Entwurfsdiagramme}\Zeilenabstand & \luecke{6cm} \\
+	\textsc{Implementierungsdiagramme}\Zeilenabstand & \luecke{6cm} \\
+	\textsc{Sequenzdiagramme}\Zeilenabstand & \luecke{6cm} \\
+	\textsc{Programmierung}\Zeilenabstand & \luecke{6cm} \\
+	\textsc{Dokumentation}\Zeilenabstand & \luecke{6cm} \\
+\end{tabular}
+
+\subsection*{Arbeitsanteile}
+
+Schätzt hier \emph{gemeinsam} den Anteil der einzelnen Gruppenmitglieder am Gesamtprojekt ein. Ihr könnt insgeamt \textbf{\maxPunkt~Punkte} unter euch aufteilen. Je höher die Zahl einer Person, desto mehr hat sie sich eurer Einschätzung nach in das Projekt eingebracht. Die Summe der Zahlen \textbf{muss \maxPunkt\ ergeben}! \emph{Halbe Punkte sind nicht erlaubt.}
+
+\begin{tabularx}{\textwidth}{p{4cm}|X}
+	Name & Anteil \\\hline\hline
+	\Zeilenabstand & \\ \hline
+	\Zeilenabstand & \\ \hline
+	\Zeilenabstand & \\ \hline
+	\Zeilenabstand & \\ \hline
+	\Zeilenabstand &
+\end{tabularx}
+
+\subsection*{Feedback zum Projekt}
+Die Antworten auf das folgende Feedback \textbf{gehen nicht in die Bewertung ein}, sondern sollen zukünftige Projekte verbessern.
+
+\begin{tabularx}{\textwidth}{p{6cm}X}
+	Die Gruppengröße war\dots & $\square$ genau richtig \hspace{1cm} $\square$ zu groß \hspace{1cm} $\square$ zu klein \\
+	Der Bearbeitungszeitraum war\dots & $\square$ ausreichend \hspace{1cm} $\square$ zu kurz \hspace{1cm} $\square$ zu lang \\
+	Die Bewertungskriterien waren\dots & $\square$ klar \hspace{1cm} $\square$ unklar \\
+	Der Lernertrag im Projekt war\dots & $\square$ hoch \hspace{1cm} $\square$ gering \\
+	Das Projekt hat uns\dots & $\square$ Spass gemacht \hspace{1cm} $\square$ wenig Spass gemacht \\
+\end{tabularx}
+\end{document}
