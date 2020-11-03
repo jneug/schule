@@ -1,0 +1,102 @@
+\documentclass[10pt, a4paper]{scrartcl}
+
+\usepackage{vorschule}
+\usepackage[
+	typ=ab,
+	fach=Mathematik,
+	lerngruppe={Jg.7},
+	nummer={II.4},
+	module={Symbole,Lizenzen,Papiertypen},
+	seitenzahlen=keine,
+	%farbig,
+	lizenz=cc-by-nc-sa-4,
+]{schule}
+
+\usepackage[
+	kuerzel=Ngb,
+	reihe={Zuordnungen},
+	version={2020-10-06},
+]{ngbschule}
+
+\author{J. Neugebauer}
+\title{Zuordnungen II}
+\date{\Heute}
+
+\setzeAufgabentemplate{ngbkompakt}
+
+
+\begin{document}
+
+\begin{rahmen}
+	Auf einer Baustelle arbeiten drei Schaufelbagger, um eine Grube auszuheben. Gemeinsam brauchen sie acht Stunden für die Arbeit. Pro Bagger kostet die Firma eine Arbeitsstunde \EUR{128}. Um die Arbeit zu beschleunigen überlegt die Firma nun, zwei weitere Bagger zu beauftragen. 
+
+	Wie lange brauchen fünf Bagger für die Grube? Wie viel muss die Firma für fünf Bagger pro Stunde bezahlen?
+\end{rahmen}
+
+\begin{aufgabe}[symbol=\symPartner]
+	In der Aufgabe lassen sich zwei Zuordnungen finden: \emph{Anzahl Bagger $\rightarrow$ Zeit in \si{\hour}} und \emph{Anzahl Bagger $\rightarrow$ Kosten in \si{Euro\per\hour}}.
+	
+	Findet jeweils eine \emph{Formel}, füllt die \emph{Wertetabelle} aus und zeichnet den \emph{Graphen}. (Wenn der Platz nicht reicht, dann zeichnet im Heft.)
+
+	Unten findet ihr einen Hinweis zur zweiten Zuordnung, falls ihr nicht weiter kommt.
+\end{aufgabe}
+
+\begin{multicols}{2}
+\begin{center}
+\emph{Anzahl Bagger $\rightarrow$ Kosten in \si{Euro\per\hour}}
+\begin{tabularx}{.9\columnwidth}{c|*{5}{|>{\centering\bfseries\arraybackslash}X}}
+	$x$ & 1 & 2 & 3 & 4 & 5 \\\hline
+	$y$\Zeilenabstand & & & & &
+\end{tabularx}
+\end{center}
+
+\feldMil{5}
+
+\begin{center}
+\emph{Anzahl Bagger $\rightarrow$ Zeit in \si{\hour}}
+\begin{tabularx}{.9\columnwidth}{c|*{5}{|>{\centering\bfseries\arraybackslash}X}}
+	$x$ & 1 & 2 & 3 & 4 & 5 \\\hline
+	$y$\Zeilenabstand & & & & &
+\end{tabularx}
+\end{center}
+
+\feldMil{5}
+\end{multicols}
+\vspace*{-2em}
+\begin{aufgabe}[symbol=\symGruppe]
+	Beantwortet anhand der Wertetabellen die Fragen der Firma.
+	
+	Wieviel müsste die Firma für \num{100}, \num{1000} oder \num{10000} Bagger pro Stunde zahlen? Wie viel Zeit brauchen so viele Bagger für die Grube? Machen diese Zahlen im \emph{Sachzusammenhang} Sinn?
+	
+	Überlegt zuerst zu zweit und diskutiert dann gemeinsam.
+\end{aufgabe}
+
+\begin{aufgabe}[symbol=\symGruppe]
+	Eine der Zuordnungen ist \emph{proportional}, die andere nicht. Überlegt, wie man am Graphen erkennen kann, welche Zuordnung proportional ist.
+\end{aufgabe}
+
+\begin{aufgabe}[symbol=\symEinzel]
+	Die andere Art von Zuordnung nennt man \textbf{antiproportional}. Vielleicht ahnst du schon, wieso.
+	
+	Lies im Buch Seite 63 und 64. Fülle dann den Lückentext aus. 
+	
+	\begin{rahmen}
+	Eine Zuordnung heißt \textbf{antiproportionale}, wenn dem $n$-fachen des \luecke{.5cm}-Wertes das $\dfrac{1}{n}$-fache des \luecke{.5cm}-Wertes zugeordnet wird. (Zum Beispiel dem \enquote{Doppelten} die \enquote{Hälfte} oder dem \enquote{Vierfachen} ein \enquote{\luecke{2cm}}).
+	
+	Die Formel einer solchen Zuordnung ist $y=$\luecke{2cm}. Der Wert $p$ heißt \luecke{3cm}konstante der Zuordnung. Sie kann aus der \emph{Wertetabelle} berechnet werden durch $p=$\luecke{2cm}.
+	\end{rahmen}
+\end{aufgabe}
+
+\begin{aufgabe}[symbol=\symPartner]
+	Vergleicht eure Lückentexte und korrigert gegebenfalls.
+	
+	Bearbeitet dann im Buch: \bfseries S.65, Aufg.1 bis 4 und S.66, Aufg.5.
+\end{aufgabe}
+
+\vfill
+
+\begin{center}
+\raisebox{\depth}{\rotatebox[origin=c]{180}{\footnotesize\color{black!50}Hinweis zu Aufgabe 1: 1 Bagger braucht dreimal so lange, wie drei Bagger. Fünf Bagger brauchen ein Fünftel so lange, wie ein Bagger.}}
+\end{center}
+
+\end{document}
