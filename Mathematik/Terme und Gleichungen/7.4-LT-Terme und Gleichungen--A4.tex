@@ -1,0 +1,20 @@
+\documentclass[12pt,a5paper,landscape]{scrartcl}
+
+\usepackage{grffile,pdfpages,pgfmorepages}
+\pgfmorepagesloadextralayouts
+\pgfpagesuselayout{4 on 2, odd then even}[a4paper]
+
+
+% Name der Lernstation.pdf ermitteln
+% See: https://tex.stackexchange.com/questions/141194/creating-a-handout-with-the-notes-on-a-second-screen
+\newcommand{\jobbasename}{}
+\newcommand{\setjobbasename}{%
+  \def\split##1--##2!!!{\def\jobbasename{##1}}%
+  \expandafter\split\jobname!!!%
+}
+\setjobbasename
+
+
+\begin{document}
+	\includepdf[pages=-]{\jobbasename.pdf}%
+\end{document}
