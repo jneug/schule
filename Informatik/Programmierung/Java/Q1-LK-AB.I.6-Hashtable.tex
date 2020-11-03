@@ -1,0 +1,144 @@
+\documentclass[10pt, a4paper]{scrartcl}
+
+\usepackage{vorschule}
+\usepackage[
+    typ=ab,
+    fach=Informatik,
+    lerngruppe={Q1-LK},
+    nummer={I.6},
+    module={Symbole,Lizenzen},
+    seitenzahlen=keine,
+    farbig,
+    lizenz=cc-by-nc-sa-4,
+]{schule}
+
+\usepackage[
+	kuerzel=Ngb,
+	reihe={Lineare Datenstrukturen},
+	version={2020-10-28},
+]{ngbschule}
+
+\author{J. Neugebauer}
+\title{Hashtabellen}
+\date{\Heute}
+
+\setzeAufgabentemplate{ngbkompakt}
+
+\begin{document}
+\ReiheTitel
+
+In einer \emph{Hashtabelle} werden \emph{Inhaltobjekte} einem \emph{Schlüsselobjekt} zugeordnet. Die Inhaltsobjekte können dann über das Schlüsselobjekt wieder abgerufen werden.
+
+Beispielsweise sind bei IKEA alle Möbelstücke mit einem Namen und einer (eindeutigen) Artikelnummer versehen. Im Warenlager könnten die Artikel (Inhaltsobjekte) mit ihrer Artikelnummer als Schlüssel gespeichert werden. Wird in der Klasse die Nummer gescannt, kann so schnell auf die Daten des Artikels zugegriffen werden.
+
+Die \emph{generische} Hashtabelle hat die Operationen \code{put} (Objekt einfügen), \code{get} (Objekt abrufen) und \code{remove} (Objekt löschen).
+
+\begin{center}
+\begin{tikzpicture}\small
+	\begin{klasse}[text width=8cm]{Hashtable<KeyType, ContentType>}{0,0}
+		\attribut{-content: ContentType[]}
+		\methode{+Hashtable(pSize: int)}
+		\methode{+put(pKey: KeyType): boolean}
+		\methode{+get(pKey: KeyType): ContentType}
+		\methode{+delete(pKey: KeyType)}
+		\methode{+hasKey(pKey: KeyType): boolean}
+	\end{klasse}
+\end{tikzpicture}
+\end{center}
+
+\begin{aufgabe}
+Das Verhalten einer Hashtabelle kann mit einer einfach verketteten Liste erreicht werden. Forumliere eine Idee, wie die Operationen \code{put}, \code{get} und \code{delete} umgesetzt werden könnten. Welche Laufzeiten haben die Operationen in diesem Fall?
+\end{aufgabe}
+
+Eine effizientere Methode, die Hashtabelle zu implementieren, basiert auf Arrays:
+\begin{enumerate}
+	\item Erstelle ein Array mit einer festen Größe als Speicher.
+	\item Bestimme einen Index für ein neues Inhaltsobjekt, indem der Hashwert des Schlüsselobjekts modulo der Größe des Arrays gerechnet wird.
+	\item Speichere das neue Inhaltsobjekt im Array am berechneten Index.
+\end{enumerate}
+
+Das Entscheidende hier ist der zweite Schritt: Den Index im Array bestimmen. Ist das Schlüsselobjekt eine Zahl, dann kann direkt die Modulo-Operation (Bestimmung des Rests bei der Division mit Rest) angewandt werden. Handelt es sich um ein anderes Objekt, dann kann in Java mit der Methode \code{hashCode} eine \textbf{eindeutige Zahl für das Objekt} abgerufen werden.
+
+\begin{center}
+\code{int hash = pSchluessel.hashCode();}
+\end{center}
+
+\begin{aufgabe}
+	Eine Hashtabelle benutzt ein Array der Größe 31. In welchen Indizes würden folgende Artikel gespeichert, wenn die Artikelnummer als Schlüssel benutzt wird?
+	
+	\begin{tabularx}{\textwidth}{X|X|X}
+		\textbf{Artikelnummer} & \textbf{Name} & \textbf{Index} \\\hline\hline
+		158 & IVAR & \\\hline
+		223 & SKADIS & \\\hline
+		5 & ODGER &
+	\end{tabularx}
+\end{aufgabe}
+
+\begin{aufgabe}
+	Implementiere eine arraybasierte Hashtabelle nach dem Klassendiagramm oben.
+	
+	\begin{infobox}\small
+Das Erstellen eines Arrays mit einem generischen Inhaltstyp ist in Java nicht ohne weiteres möglich. Daher muss zunächst ein unspezifisches Array vom Typ \code{Object} erstellt werden, das dann in den Typ \code{ContentType[]} umgewandelt wird.
+	\begin{center}
+	\code{content = (ContentType[]) new Object[pGroesse];}
+	\end{center}
+\end{infobox}
+\end{aufgabe}
+
+\begin{aufgabe}
+	Implementiere das \cls{Warenlager} nach folgendem Klassendiagramm.
+	
+	\begin{center}
+	\begin{tikzpicture}\small
+		\begin{klasse}[text width=5cm]{Warenlager}{0,0}
+		\methode{+Warenlager()}
+		\end{klasse}
+		
+		\begin{klasse}[text width=5cm]{Article}{5.5,0}
+		\attribut{-artno: int}
+		\attribut{-name: String}
+		\attribut{-price: double}
+		\methode{+Article(pArtno: int, pName: String, pPrice: double)}
+		\methode{+getArtno(): int}
+		\methode{+getName(): String}
+		\methode{+getPrice(): double}
+		\methode{+setPrice(pNewPrice: double)}
+		\end{klasse}
+		
+		\begin{klasse}[text width=3cm]{Hashtable}{0,-6}
+		
+		\end{klasse}
+		
+%		\begin{klasse}[text width=3cm]{Hashtable}{3.5,-6}
+		
+%		\end{klasse}
+
+		\benutzt{Warenlager}{-articlesByNumber}{}{Hashtable}
+	\end{tikzpicture}
+	\end{center}
+\end{aufgabe}
+
+\subsection*{Kollisionen}
+\begin{aufgabe}
+	Erstelle eine Hashttabelle der Größe 10 und füge folgende Artikel in die Tabelle ein. Inspiziere nach jedem Artikel den Inhalt des Arrays. Erkläre, was passiert.
+	
+	\begin{tabularx}{\textwidth}{X|X|X}
+	\textbf{Artikelnummer} & \textbf{Name} & \textbf{Index} \\\hline\hline
+	714 & NORDEN & \EUR{174,49} \\\hline
+	255 & NORRAKER & \EUR{145,24} \\\hline
+	334 & INGATORP & \EUR{252,47} \\\hline
+	217 & TUFJORD & \EUR{535,16} \\\hline
+	115 & UTAKER & \EUR{125,75} \\\hline
+	\end{tabularx}
+\end{aufgabe}
+
+\begin{aufgabe}
+	Informiere dich über Kollisionsvermeidung durch Verkettung | lineares Sondieren | quadratisches Sondieren\footnote{Streiche die Strategien, die du nicht behandelst.}.
+\end{aufgabe}
+
+\begin{aufgabe}
+	Implementiere eine Strategie zur Kollisionsvermeidung in deiner Hashtabelle.
+\end{aufgabe}
+
+
+\end{document}
