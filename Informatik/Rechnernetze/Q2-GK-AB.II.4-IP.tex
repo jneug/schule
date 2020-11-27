@@ -1,0 +1,95 @@
+ \documentclass[10pt, a4paper]{scrartcl}
+
+\usepackage{vorschule}
+\usepackage[
+	typ=ab,
+	fach=Informatik,
+	lerngruppe={Q2},
+	nummer=II.4,
+	module={Symbole,Lizenzen},
+	seitenzahlen=keine,
+	farbig,
+	lizenz=cc-by-nc-sa-4,
+]{schule}
+
+\usepackage[
+	kuerzel=Ngb,
+	reihe={Rechnernetze},
+	version={2020-11-27},
+]{ngbschule}
+
+\author{J. Neugebauer}
+\title{Routing: IP-Adressen}
+\date{\Heute}
+
+\setzeAufgabentemplate{ngbkompakt}
+
+\begin{document}
+\ReiheTitel
+
+\emph{IP-Adressen} nach der noch  IP-Version 4 (IPv4) bestehen aus 32 Bit, aufgeteilt in 4 Blöcke mit je 8 Bit. Damit sind IP-Adressen von \code{0.0.0.0} bis \code{255.255.255.255} möglich. IPv4 wird immer mehr durch die IP-Version 6 (IPv6) ersetzt, die eine Adressgröße von 128 Bit vorsieht, aufgeteilt in 8 Blöcke zu jeweils 16 Bit (\code{0000:0000:0000:0000:0000:0000:0000:0000} bis \code{ffff:ffff:ffff:ffff:ffff:ffff:ffff:ffff}).
+
+Zum besseren Verständnis des (IPv4) Routing-Prozesses ist eine Darstellung der Dezimalzahlen im Binärsystem hilfreich.
+
+\begin{aufgabe}
+	Wiederhole die Umrechung zwischen dem Binärsystem und dem Dezimalsystem. Wandle anschließend in das jeweils andere Stellenwertsystem um.
+	
+	\begin{tasks}(4)
+		\task $1101 1110_2$
+		\task $0011 1111_2$
+		\task $1111 1101_2$
+		\task $0101 1010_2$
+		
+		\task $96_{10}$
+		\task $254_{10}$
+		\task $17_{10}$
+		\task $127_{10}$
+	\end{tasks}
+\end{aufgabe}
+
+Eine Subnetzmaske ist in IPv4 ebenfalls eine 32-Bit-Zahl, welche eine IP-Adresse in \emph{Netzwerkteil} und \emph{Geräteteil} trennt. Durch UND-Verknüpfung der IP mit der Subnetzmaske erhält man den Netzwerkteil. Durch UND-Verknüpfung mit der invertierten Subnetzmaske erhält man den Geräteteil.
+
+Die kleinste Adresse des Netzwerks beschreibt das Netzwerk selbst, die größte Adresse ist für den \emph{Broadcast} reserviert. Beispiel:
+
+\begin{tabular}{llcl}
+	IP-Adresse: & \code{192.145.96.201} & = & $\code{11000000.10010001.01100000.11001001}$ \\
+	Subnetzmaske: & \code{255.255.255.240} & = & $\code{11111111.11111111.11111111.11110000}$ \\[3mm]
+
+	\multicolumn{4}{l}{UND-Verknüpfung ergibt den} \\
+	Netzwerkteil: & \code{192.145.96.192} & = & $\code{\underline{\textbf{11000000.10010001.01100000.1100}}0000}$ \\[3mm]
+	
+	\multicolumn{4}{l}{UND-Verknüpfung mit der invertierten Maske ergibt den} \\
+	Geräteteil: & \code{0.0.0.9} & = & $\code{00000000.00000000.00000000.0000\underline{\textbf{1001}}}$ \\[3mm]
+	
+	\multicolumn{4}{l}{Die größte Adresse im Netzwerk ist für den Broadcast definiert:} \\
+	Broadcast: & \code{192.145.96.207} & = & $\code{11000000.10010001.01100000.1100\underline{\textbf{1111}}}$ \\[3mm]
+	
+	\multicolumn{4}{l}{Nutzbarer Adressbereich im Netzwerk:} \\
+	Default-Gateway: & \code{192.145.96.193} & = & $\code{11000000.10010001.01100000.1100\underline{\textbf{0001}}}$ \\
+	bis: & \code{192.145.96.206} & = & $\code{11000000.10010001.01100000.1100\underline{\textbf{1110}}}$ \\
+\end{tabular}
+
+Der Netzwerkteil ist gleichzeitig die \emph{Netzwerkadresse}.
+
+\begin{aufgabe}
+	Übertrage und vervollständige die Tabelle:
+	
+	\small
+	\begin{tabularx}{\textwidth}{|l|l|*{5}{X|}} \hline
+		\rowcolor{ngb.tabelle.kopf.hg} IP & Subnetz\-maske & Netzwerk\-adresse & Geräteteil & Broadcast & Default-Gateway & max IP im Netzwerk \\\hline
+		\code{192.168.213.15} & \code{255.255.255.192} &&&&&  \\\hline
+		\code{172.16.5.254} & \code{255.255.255.0} &&&&&  \\\hline
+		\code{172.254.13.8} & \code{255.255.248.0} &&&&&  \\\hline
+		\code{10.38.133.5} & \code{255.255.0.0} &&&&&  \\\hline
+		\code{10.0.0.15} & \code{255.0.0.0} &&&&&  \\\hline
+	\end{tabularx}
+\end{aufgabe}
+
+\begin{aufgabe}
+	Eine Nachricht wird im Netzwerk mit der Subnetzmaske 255.255.248.0 von einem Rechner mit der IP 192.168.203.15 an einen Rechner mit der IP 192.168.200.65 geschickt. Bleibt die Nachricht im Netzwerk oder muss sie über das Internet verschickt werden?
+\end{aufgabe}
+
+\begin{aufgabe}
+	Recherchiere im Internet nach IP-Netzklassen und suche die IP-Adressen für private Klasse A- ,B- und C-Netzwerke.
+\end{aufgabe}
+\end{document}
