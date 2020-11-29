@@ -1,0 +1,97 @@
+\documentclass[10pt, a4paper]{scrartcl}
+
+\usepackage{vorschule}
+\usepackage[
+	typ=ab,
+	fach=Informatik,
+	lerngruppe={Q2},
+	nummer=III.6,
+	module={Symbole,Lizenzen,Papiertypen},
+	seitenzahlen=keine,
+	farbig,
+	lizenz=cc-by-nc-sa-4,
+]{schule}
+
+\usepackage[
+	kuerzel=Ngb,
+	reihe={Nichtlineare Datenstrukturen},
+	version={2020-11-29},
+]{ngbschule}
+
+\author{J. Neugebauer}
+\title{Binäre Suchbäume}
+\date{\Heute}
+
+\setzeAufgabentemplate{ngbnormal}
+
+\usepackage{forest}
+
+
+\begin{document}
+\ReiheTitel
+
+\begin{aufgabe}[symbol=\symEinzel\,\symFueller]
+	\begin{center}
+	\begin{forest}
+		for tree={circle,draw,minimum width=8mm}
+		[15
+		  [8
+		    [3
+		      [1]
+		      [4]
+		    ]
+		    [11
+		      [,phantom]
+		      [14]
+		    ]
+		  ]
+		  [21
+		    [16
+		      [,phantom]
+		      [18]
+		    ]
+		    [29
+		      [25]
+		      [32]
+		    ]
+		  ]
+		]
+	\end{forest}
+	\end{center}
+	
+	\begin{teilaufgaben}
+		\teilaufgabe Gib die Inorder-Ausgabe für den gezeigten Baum an.
+		\teilaufgabe Erstelle zwei (möglichst ausbalancierte) Binärbäume mit derselben Inorder-Ausgabe an (die sich jeweils paarweise unterscheiden).
+		\teilaufgabe Welche Eigenschaften haben die drei Binärbäume? Notiere Stichpunkte.
+	\end{teilaufgaben}
+\end{aufgabe}
+
+\begin{aufgabe}[symbol=\symPartner\,\symFueller]
+	Bäume dieser Art nennt man \emph{Binäre Suchbäume}.
+	
+	\begin{teilaufgaben}
+		\teilaufgabe Vergleicht eure Notizen zur ersten Aufgabe und versucht Bäume dieser Art möglichst genau zu beschreiben.
+		\teilaufgabe Formuliert gemeinsam einen präzisen Merksatz:
+	\end{teilaufgaben}
+
+	\begin{infobox}
+		Ein \textbf{binärer Suchbaum} ist ein binärer Baum, bei dem 
+		
+		\feldLin[8mm]{4}
+	\end{infobox}
+\end{aufgabe}
+
+\begin{aufgabe}[symbol=\symPartner\,\symFueller]
+	Sollen neue Elemente in einen binären Suchbaum eingefügt werden, muss darauf geachtet werden, dass die Eigenschaften des Suchbaums erhalten bleiben.
+	
+	\begin{teilaufgaben}
+		\teilaufgabe Fügt die Elemente \num{10}, \num{9}, \num{2}, \num{40} und \num{38} in den Baum oben ein.
+		\teilaufgabe Notiert einen Pseudocode für einen \emph{rekursiven Algorithmus} für die einfügen Operation.
+	\end{teilaufgaben}
+\end{aufgabe}
+
+\begin{aufgabe}[symbol=\symPartner\,\symLaptop]
+	Ladet das Projekt \ordner{10-Muppets} in \programm{BlueJ} und erkundet den Aufbau. Beschreibt die Beziehungen der Klassen zueinander, insbesondere die Bedeutung von \code{ComparableContent<Muppet>}.
+\end{aufgabe}
+
+\end{document}
