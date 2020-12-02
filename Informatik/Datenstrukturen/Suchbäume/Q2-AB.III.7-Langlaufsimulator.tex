@@ -15,7 +15,7 @@
 \usepackage[
 	kuerzel=Ngb,
 	reihe={Nichtlineare Datenstrukturen},
-	version={2020-12-01},
+	version={2020-12-02},
 ]{ngbschule}
 
 \author{J. Neugebauer}
@@ -55,11 +55,11 @@ Die Zeiten werden als Zeitstempel gespeichert. Ein Zeitstempel ist eine Zahl, di
 	\methodenDokumentation{}{public void setStartTime(long pTime)}{
 		Setzt die Startzeit des Läufers auf den angegebenen Zeitstempel. 
 	}
-	\methodenDokumentation{}{public void setFinalTime(long pTime)}{
+	\methodenDokumentation{}{public void setEndTime(long pTime)}{
 		Setzt die Endzeit des Läufers auf den angegebenen Zeitstempel.
 	}
-	\methodenDokumentation{}{public double getEndTime()}{
-		Berechnet die Zeit des Läufers als Differenz aus der Start- und Endzeit auf Sekunden gerundet.
+	\methodenDokumentation{}{public double getFinalTime()}{
+		Berechnet die Zeit des Läufers als Differenz aus den Zeitstempeln der Start- und Endzeit auf Sekunden gerundet.
 	}
 	\methodenDokumentation{}{public boolean isGreater(Athlete pOther)}{
 		Gibt \code{true} zurück, wenn die Zeit des Läufers größer (also langsamer) als die des Läufers \code{pOther} ist.
