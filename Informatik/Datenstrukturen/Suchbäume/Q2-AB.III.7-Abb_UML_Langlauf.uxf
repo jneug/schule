@@ -1,0 +1,182 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<diagram program="umlet" version="14.3.0">
+  <zoom_level>10</zoom_level>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>740</x>
+      <y>30</y>
+      <w>200</w>
+      <h>80</h>
+    </coordinates>
+    <panel_attributes>template=ContentType: Athlete
+*List*
+--
+
+--</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>60</x>
+      <y>160</y>
+      <w>300</w>
+      <h>250</h>
+    </coordinates>
+    <panel_attributes>*Athlete*
+--
+-name: String
+-startTime: long
+-endTime: long
+--
++Laeufer(pName: String)
++getName(): String
++getStartTime(): long
++getEndTime(): long
++getFinalTime(): double
++setStartTime(pTime: long)
++setEndTime(pTime: long)
++isGreater(pOther: Athlete): boolean
++isEqual(pOther: Athlete): boolean
++isLess(pOther: Athlete): boolean</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>80</x>
+      <y>10</y>
+      <w>270</w>
+      <h>80</h>
+    </coordinates>
+    <panel_attributes>&lt;&lt;interface&gt;&gt;
+template=ContentType: Athlete
+*ComparableContent*
+--</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>710</x>
+      <y>140</y>
+      <w>230</w>
+      <h>80</h>
+    </coordinates>
+    <panel_attributes>template=ContentType: Athlete
+*BinarySearchTree*
+--
+
+--</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>420</x>
+      <y>40</y>
+      <w>230</w>
+      <h>140</h>
+    </coordinates>
+    <panel_attributes>*Competition*
+--
+
+--
++Competition()
++newAthlete(pName: String)
++simulateRace()
++printLeaderboard()
++top3(): Athlete[]</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>420</x>
+      <y>270</y>
+      <w>230</w>
+      <h>140</h>
+    </coordinates>
+    <panel_attributes>*Racesimulator*
+--
+
+--
++Racesimulator()
++simulate(pAthlete: Athlete)</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>740</x>
+      <y>270</y>
+      <w>100</w>
+      <h>60</h>
+    </coordinates>
+    <panel_attributes>*Random*
+--
+
+--</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>640</x>
+      <y>290</y>
+      <w>120</w>
+      <h>40</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;-
+-random</panel_attributes>
+    <additional_attributes>100.0;20.0;10.0;20.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>390</x>
+      <y>150</y>
+      <w>60</w>
+      <h>160</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;-
+-sim</panel_attributes>
+    <additional_attributes>30.0;140.0;10.0;140.0;10.0;10.0;30.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>640</x>
+      <y>60</y>
+      <w>120</w>
+      <h>40</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;-
+-athlets</panel_attributes>
+    <additional_attributes>100.0;20.0;10.0;20.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>590</x>
+      <y>170</y>
+      <w>140</w>
+      <h>60</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;-
+-leaderboard</panel_attributes>
+    <additional_attributes>120.0;40.0;10.0;40.0;10.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>160</x>
+      <y>80</y>
+      <w>30</w>
+      <h>100</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;-</panel_attributes>
+    <additional_attributes>10.0;10.0;10.0;80.0</additional_attributes>
+  </element>
+</diagram>
