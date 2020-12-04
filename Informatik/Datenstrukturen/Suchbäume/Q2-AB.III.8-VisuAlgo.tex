@@ -1,0 +1,50 @@
+\documentclass[10pt, a4paper]{scrartcl}
+
+\usepackage{vorschule}
+\usepackage[
+	typ=ab,
+	fach=Informatik,
+	lerngruppe={Q2},
+	nummer=III.8,
+	module={Symbole,Lizenzen,Papiertypen},
+	seitenzahlen=keine,
+	farbig,
+	lizenz=cc-by-nc-sa-4,
+]{schule}
+
+\usepackage[
+	kuerzel=Ngb,
+	reihe={Nichtlineare Datenstrukturen},
+	version={2020-12-03},
+]{ngbschule}
+
+\author{J. Neugebauer}
+\title{Einfügen in und löschen aus BinäreSuchbäume}
+\date{\Heute}
+
+\setzeAufgabentemplate{ngbnormal}
+
+\usepackage{forest}
+
+\begin{document}
+\ReiheTitel
+
+Öffne die Seite \url{https://visualgo.net/de/bst} im Browser. 
+
+\begin{aufgabe}[subtitle=Einfügen,symbol=\symPartner\,\symLaptop]
+\begin{teilaufgaben}
+	\teilaufgabe Wähle unten links im Menü \menu{Erstellen > Balanced Example}. Es wird ein binärer Suchbaum mit der Wurzel \num{41} geladen.
+	\teilaufgabe Wähle unten links im Menü einfügen und füge die Zahlen \num{1} und \num{77} ein. Beobachte den dargestellten Prozess des Einfügens.
+	\teilaufgabe Füge folgende Zahlen in der gezeigten Reihenfolge in den Baum ein. (Du kannst mehrere Zahlen einfügen, indem Du sie mit einem Komma getrennt eingibst.)
+	
+		\num{25}, \num{27}, \num{26}, \num{28}, \num{23}, \num{22}, \num{24}, \num{21}
+\end{teilaufgaben}
+\end{aufgabe}
+
+\begin{aufgabe}[subtitle=Löschen,symbol=\symPartner\,\symLaptop]
+\begin{teilaufgaben}
+	\teilaufgabe Lösche aus dem Baum aus Aufgabe 1, die Zahl \num{50}, indem Du unten links auf \menu{Entfernen} klickst.
+\end{teilaufgaben}
+\end{aufgabe}
+
+\end{document}
