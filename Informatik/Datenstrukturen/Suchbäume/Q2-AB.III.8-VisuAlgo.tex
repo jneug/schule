@@ -19,7 +19,7 @@
 ]{ngbschule}
 
 \author{J. Neugebauer}
-\title{Einfügen in und löschen aus BinäreSuchbäume}
+\title{Binäre Suchbäume}
 \date{\Heute}
 
 \setzeAufgabentemplate{ngbnormal}
@@ -29,22 +29,58 @@
 \begin{document}
 \ReiheTitel
 
-Öffne die Seite \url{https://visualgo.net/de/bst} im Browser. 
+\begin{wrapfig}
+	\begin{wrapfigure}[4]{r}{0pt}
+		\qrcode[height=1.5cm]{https://visualgo.net/de/bst}
+	\end{wrapfigure}
+	Öffnet die Seite \url{https://visualgo.net/de/bst} im Browser und schließt das Infofenster durch betätigen der \keys{Esc} Taste.
+\end{wrapfig}
 
 \begin{aufgabe}[subtitle=Einfügen,symbol=\symPartner\,\symLaptop]
 \begin{teilaufgaben}
-	\teilaufgabe Wähle unten links im Menü \menu{Erstellen > Balanced Example}. Es wird ein binärer Suchbaum mit der Wurzel \num{41} geladen.
-	\teilaufgabe Wähle unten links im Menü einfügen und füge die Zahlen \num{1} und \num{77} ein. Beobachte den dargestellten Prozess des Einfügens.
-	\teilaufgabe Füge folgende Zahlen in der gezeigten Reihenfolge in den Baum ein. (Du kannst mehrere Zahlen einfügen, indem Du sie mit einem Komma getrennt eingibst.)
+	\teilaufgabe Wählt unten links im Menü \menu{Erstellen > Balanced Example}. Es wird ein binärer Suchbaum mit der Wurzel \num{41} erstellt.
 	
+	\teilaufgabe Wählt unten links im Menü einfügen und fügt die Zahlen \num{1} und \num{77} ein. Beobachtet den dargestellten Prozess des Einfügens.
+	
+	\teilaufgabe Fügt folgende Zahlen in der gezeigten Reihenfolge in den Baum ein. (Ihr könnt mehrere Zahlen einfügen, indem Ihr sie mit einem Komma getrennt eingebt.)
+	
+	\begin{center}
 		\num{25}, \num{27}, \num{26}, \num{28}, \num{23}, \num{22}, \num{24}, \num{21}
+	\end{center}
+
+	\hinweis{Ihr könnt die Geschwindigkeit der Simulation unten links verändern.}
 \end{teilaufgaben}
 \end{aufgabe}
 
 \begin{aufgabe}[subtitle=Löschen,symbol=\symPartner\,\symLaptop]
-\begin{teilaufgaben}
-	\teilaufgabe Lösche aus dem Baum aus Aufgabe 1, die Zahl \num{50}, indem Du unten links auf \menu{Entfernen} klickst.
-\end{teilaufgaben}
+	Beim Löschen muss darauf geachtet werden, dass die Eigenschaften eines Suchbaumes weiterhin erhalten bleiben. Dabei müssen drei unterschiedlich komplexe Situationen unterschieden werden:
+	
+	Der zu löschende Knoten hat \dots
+	\begin{enumerate}
+		\item[\dots] keine Teilbäume,
+		\item[\dots] genau einen Teilbaum,
+		\item[\dots] genau zwei Teilbäume.
+	\end{enumerate}
+
+	Führt folgende Aktionen aus und beobachtet genau, was passiert. Überlegt vorher, welcher Fall jeweils vorliegt.
+	
+	\begin{teilaufgaben}
+		\teilaufgabe Löscht aus dem Baum aus Aufgabe 1, die Elemente \num{50} und \num{1}, indem Ihr unten links auf \menu{Entfernen} klickt.
+		\teilaufgabe Entfernt die Elemente \num{22} und \num{65}.
+		\teilaufgabe Entfernt die Elemente \num{23}, \num{41} und \num{20}. (Weitere Beispiele sind \num{21}, \num{27} und \num{29}.)
+	\end{teilaufgaben}
+\end{aufgabe}
+
+\begin{aufgabe}[subtitle=Löschen II,symbol=\symPartner\,\symBuch]
+	Formuliert eine Strategie für das Löschen eines Elements aus dem Suchbaum und formuliert einen Pseudocode.
+	
+	\tipp{Überlegt gemeinsam. Falls ihr Hilfe benötigt, lest im Buch Seite 156f nach.}
+\end{aufgabe}
+
+\begin{aufgabe}[subtitle=AVL-Bäume,symbol=\symStern\,\symPartner\,\symLaptop]
+	Informiert euch im Internet über \emph{AVL-Bäume} und beschreibt den Unterschied zu \enquote{normalen} Suchbäumen. 
+	
+	In \emph{VisuAlgo} könnt ihr oben von \enquote{Binärer Suchbaum} auf \enquote{AVL-Baum} umschalten und den Ablauf der Operationen in dieser Art von Suchbäumen beobachten.
 \end{aufgabe}
 
 \end{document}
