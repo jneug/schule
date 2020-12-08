@@ -1,0 +1,115 @@
+\documentclass[10pt, a4paper]{scrartcl}
+
+\usepackage{vorschule}
+\usepackage[
+	typ=ab,
+	fach=Informatik,
+	lerngruppe={Q2},
+	nummer=II.7,
+	module={Symbole,Lizenzen},
+	seitenzahlen=keine,
+	farbig,
+	lizenz=cc-by-nc-sa-4,
+]{schule}
+
+\usepackage[
+	kuerzel=Ngb,
+	reihe={Rechnernetze},
+	version={2020-12-08},
+]{ngbschule}
+
+\author{J. Neugebauer}
+\title{POP3 in Python}
+\date{\Heute}
+
+\setzeAufgabentemplate{ngbkompakt}
+
+
+\begin{document}
+\ReiheTitel
+
+\begin{infobox}
+	\subsubsection*{Grundlegende Syntax von Python}
+	\emph{Python} ist eine Skriptsprache, die vor der Ausführung nicht zuerst übersetzt werden muss. Blöcke werden in ihr durch Einrückungen gekennzeichnet. Methodenköpfe, Schleifen und Bedingte Anweisungen werden mit einem Doppelpunkt abgeschlossen.
+	
+	\medskip
+	\begin{minipage}{.5\textwidth}
+\textbf{Java:}
+
+\begin{lstlisting}[language=Java,numbers=none,tabsize=2]
+if( a > 5 ) {
+	while( a > 0 ) {
+		System.out.println(a);
+		a += 1;
+	}
+}
+
+public void hallo( String pName ) {
+	System.out
+		.printf("Hallo %s", pName);
+}
+\end{lstlisting}
+	\end{minipage}\hfill\begin{minipage}{.45\textwidth}
+\textbf{Python:}
+
+\begin{lstlisting}[language=Python,numbers=none,tabsize=2,showlines=true]
+if a > 5:
+	while a > 0:
+		print(a)
+		a += 1
+
+
+
+def hallo( pName ):
+	print('Hallo {}'.format(pName))
+	
+
+\end{lstlisting}
+	\end{minipage}
+
+	Funktionen werden in Python mit dem \code{def} Schlüsselwort erstellt:
+	
+	\verb|def meine_methode( pEingabe ):|
+	
+	\subsubsection*{Einige wichtige Python-Befehle}\small
+	\begin{tabularx}{\textwidth}{|l|X|}\hline
+		\code{print('Hallo Welt')} & Gibt \enquote{Hallo Welt} auf der Konsole aus. \\\hline
+		\code{'string'.startswith('prefix')} & prüft, ob der String \enquote{string} mit \enquote{prefix} beginnt. \\ \hline
+		\code{'Hallo \{\}'format('Welt')} & Ergibt den String \enquote{Hallo Welt}. \\\hline
+		\code{'\{\} ist \{\}'format(6, 'sechs')} & Ergibt den String \enquote{6 ist sechs}. \\\hline
+		\code{'Hallo Welt'[2:-2]} & Ergibt den String \enquote{llo We}. Die erste oder zweite Zahl kann auch weggelassen werden oder jeweils positiv oder negativ sein.\\\hline
+	\end{tabularx}
+\end{infobox}
+
+\begin{aufgabe}[symbol=\symPartner\,\symLaptop]
+	Kopiere die Datei \datei{connection.py} und die Skript-Vorlage \datei{pop3-client.py} aus dem Tauschordner in einen Ordner deiner Wahl. Starte dann das Programm \programm{MU-Editor} und öffne das Skript \datei{pop3-client.py}.
+	
+	Analysiere die gegebene Programmvorlage und vergleiche sie mit Deinem Wissen über Java-Programme.
+\end{aufgabe}
+
+
+\begin{aufgabe}[symbol=\symPartner\,\symLaptop]
+	Kopiert und startet den \programm{BabyPOP3} Server. (Denkt daran erst \datei{babypop3\_config.reg} auszuführen.) Führt dann das Python-Skript im \programm{Mu-Editor} aus.
+\end{aufgabe}
+
+\begin{aufgabe}[symbol=\symPartner\,\symLaptop]
+	Das Programm benutzt die Klasse \code{Connection}, um eine TCP-Verbindung herzustellen. Die Klasse bekommt im Konstruktor die IP und den Port des Server übergeben und verbindet dann automatisch.
+	
+	Sie besitzt drei Methoden:
+	
+	\begin{tabularx}{\textwidth}{|l|X|}\hline
+		\code{receive()} & Wartet auf eine Zeile Text und gibt diese nach Erhalt als String zurück. \\\hline
+		\code{send(str)} & Sendet einen String an den Server. \\ \hline
+		\code{close()} & Schließt die Verbindung zum Server. \\\hline
+	\end{tabularx}
+\end{aufgabe}
+
+\begin{aufgabe}[symbol=\symPartner\,\symLaptop]
+	Implementiert den vollständigen Abruf einer Mail vom Server.
+\end{aufgabe}
+
+\begin{aufgabe}[symbol=\symStern\,\symPartner\,\symLaptop]
+	Implemenitert die Funktion \code{deleteNextMail}.
+\end{aufgabe}
+
+\end{document}
