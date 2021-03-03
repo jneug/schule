@@ -1,0 +1,105 @@
+\documentclass[10pt, a4paper]{scrartcl}
+
+\usepackage{vorschule}
+\usepackage[
+	typ=ab,
+	fach=Informatik,
+	lerngruppe={Q1-LK} ,
+	nummer=3,
+	module={Symbole,Lizenzen},
+	seitenzahlen=keine,
+	farbig,
+	lizenz=cc-by-nc-sa-4,
+]{schule}
+
+\usepackage[
+	kuerzel=Ngb,
+	reihe={Automaten und formale Sprachen} ,
+	version={2021-03-03} ,
+]{ngbschule}
+
+\author{J. Neugebauer}
+\title{Epsilon-Übergänge}
+\date{\Heute}
+
+\setzeAufgabentemplate{ngbnormal}
+
+\usepackage{FLaAL}
+\usepackage{subcaption}
+
+
+\begin{document}
+\ReiheTitel
+
+Nichtdeterministische endliche Automaten (NEA) sind häufig viel übersichtlicher als ihr deterministisches Gegenstück. In manchen Fällen hilft es zusätzlich, Übergänge zu benutzen, die \emph{ohne Eingabe} ausgeführt werden. Solche Übergänge nennt man \textbf{Epsilon-Übergänge} ($\epsilon$ steht für das leere Wort).
+
+\begin{aufgabe}
+	Der gezeigte Automat $A$ über dem Alphabet $\Sigma = \{0,1,2,3\}$ akzeptiert die Sprach $L(A) = 0^\ast1^\ast2^\ast3^\ast$. Konstruiere den gezeigten NEA in FLACI und teste ihn.
+	
+	\begin{figure}[h]
+	    \centering
+	    \begin{transitiongraph}[fa]
+	        \state[s]{q0}{0}{0}
+	        \state{q1}{40}{0}
+	        \state{q2}{80}{0}
+	        \state[f]{q3}{120}{0}
+	        \transition{q0}{q0}{0}
+	        \transition{q0}{q1}{}
+	        \transition{q1}{q1}{1}
+	        \transition{q1}{q2}{}
+	        \transition{q2}{q2}{2}
+	        \transition{q2}{q3}{}
+	        \transition{q3}{q3}{3}
+	    \end{transitiongraph}
+	    \caption{Übergangsgraph des Automaten $A$.}
+	    \label{abb:grah_1}
+	\end{figure}
+\end{aufgabe}
+
+\begin{aufgabe}
+	Versuche zu erklären, warum der Graph aus \prettyref{abb:grah_1} durch die Epsilon-Übergänge übersichtlicher wird. Wie würde ein Graph für einen äquivalenter NEA \emph{ohne Epsilon-Übergänge} aussehen?
+	
+	\hinweis{Zu jedem NEA \emph{mit Epsilon-Übergängen} gibt es einen äquivalenten (der dieselbe Sprache akzeptiert) \emph{ohne Epsilon-Übergänge}.}
+\end{aufgabe}
+
+\begin{aufgabe}
+	Um die Potenzmengenkonstruktion durchführen zu können, kannst du zuerst einen NEA ohne Epsilon-Übergänge konstruieren und diesen Umformen.
+	
+	Du kannst den NEA aber auch direkt umformen. Dabei werden Epsilon-Übergänge berücksichtigt, indem die Zustände am Ende der Übergänge immer mit in die Menge der Folgezustände aufgenommen werden.
+	
+	\begin{figure}[h]
+		\centering
+		\begin{subfigure}{.5\textwidth}
+		\centering
+		  \begin{transitiongraph}[fa]
+		    \state[s]{q0}{0}{0}
+		    \state[f]{q1}{20}{0}
+		    \transition{q0}{q0}{0}
+		    \transition{q0}{q1}{}
+		    \transition{q1}{q1}{1}
+	  	 \end{transitiongraph}
+	  	 \caption{Ein NEA mit Epsilon-Übergang.}
+	  	 \label{abb:grah_2}
+		\end{subfigure}%
+		\begin{subfigure}{.5\textwidth}
+		\centering
+		  \begin{transitiongraph}[fa]
+		    \state[sf]{q0-q1}{0}{0}
+		    \state[f]{q1}{20}{0}
+		    \state{Err}{40}{0}
+		    \transition{q0-q1}{q0-q1}{0}
+		    \transition{q0-q1}{q1}{1}
+		    \transition{q1}{q1}{1}
+		    \transition{q1}{Err}{0}
+		    \transition{Err}{Err}{0,1}
+	  	 \end{transitiongraph}
+	  	 \caption{Ergebnis als DEA.}
+	  	 \label{abb:grah_3}
+		\end{subfigure}
+		\caption{Potenzmengenkonstruktion mit Epsilon-Übergang.}
+	\end{figure}
+	
+	Konstruiere für den NEA $A$ von oben einen äquivalenten DEA.
+\end{aufgabe}
+
+\end{document}
