@@ -65,9 +65,11 @@ Eine Zahl besteht aus beliebigen Kombinationen der Ziffern 0 bis 9. Optional kan
 	Eine Vorlage findest Du unter \url{https://link.ngb.schule/flaci-rechenterme}.
 \end{aufgabe}
 
+\linie[\textwidth]
+
 Der Automat $A$ kann Rechenterme laut der obigen Definition auf Gültigkeit prüfen. Aber wie können wir gültige Terme konstruieren?
 
-Eine Sprache, die von einem DEA (oder auch NEA) akzeptiert wird, nennt man eine \emph{reguläre Sprache}. Eine Menge von Regeln zur Produktion von Termen (\emph{Produktionen}) nennt man eine \emph{reguläre Grammatik}.
+Eine Sprache $L$, die von einem DEA (oder auch NEA) akzeptiert wird, nennt man eine \emph{reguläre Sprache}. Eine Menge von Regeln zur Produktion von Wörtern aus $L$ nennt man eine \emph{reguläre Grammatik}.
 
 \begin{infobox}
 Eine reguläre Grammatik zu einer Sprache $L$ ist ein 4-Tupel $G_L = (N, T, S, P)$ mit
@@ -75,7 +77,7 @@ Eine reguläre Grammatik zu einer Sprache $L$ ist ein 4-Tupel $G_L = (N, T, S, P
 	\item $N$ ist die Menge der \emph{Nichtterminalsymbole},
 	\item $T$ ist die Menge der \emph{Terminalsymbole},
 	\item $S$ ist das Startsymbol,
-	\item $P$ ist die Menge der P\emph{Produktionen}.
+	\item $P$ ist die Menge der \emph{Produktionen}.
 \end{itemize}
 \end{infobox}
 
@@ -84,7 +86,7 @@ Eine reguläre Grammatik zu einer Sprache $L$ ist ein 4-Tupel $G_L = (N, T, S, P
 {\small Beispiel für eine Produktion: $A \rightarrow 0A | 1B | 2B | \epsilon$ bedeutet, dass das Nictterminal $A$ entweder mit $0A$, $1B$, $2B$ oder dem leeren Wort ersetzt werden kann. Das Nichtterminal $A$ in $0A$ kann wieder durch $0A$ ersetzt werden, und so weiter.}
 
 \begin{aufgabe}
-Wie müsste eine reguläre Grammatik zur Produktion von Rechentermen aussehen?
+Wie müsste eine reguläre Grammatik zur Produktion von Rechentermen (der Sprache $L(A)$) aussehen?
 \end{aufgabe}
 
 
