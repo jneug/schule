@@ -83,44 +83,45 @@ Zur Darstellung des Übergangsgraphen erweitern wir die Darstellung eine endlich
 	\label{abb:nka_klammern}
 \end{figure}
 
-Ein Übergang hat nun die Form $(X, Y): Z^{*}$, wobei $X\in K$, $Y\in \Sigma$ und $Z\in K$ sind. Zu beachten ist, dass die Folge von Kellersymbolen $Z^{*}$ von links nach rechts auf den Keller gelegt werden. Für $Z = \varepsilon$ wird nichts auf den Keller gelegt. Da immer das oberste Kellersymbol gelesen wird, wird also ein Buchstabe vom Keller entfernt!
+Ein Übergang hat nun die Form $(X, Y): Z^{*}$, wobei $X\in K$, $Y\in \Sigma$ und $Z\in K$ sind. Zu beachten ist, dass die Folge von Kellersymbolen $Z^{*}$ \emph{von rechts nach links} auf den Keller gelegt werden. Für $Z = \varepsilon$ wird nichts auf den Keller gelegt. Da immer das oberste Kellersymbol gelesen wird, wird also ein Buchstabe vom Keller entfernt!
 
 \newpage
 
 \begin{aufgabe}
-\label{aufg:nka_klammern}
+\label{aufg:nka-klammern}
 Baue den Kellerautomaten zur Klammersprache in \prettyref{abb:nka_klammern} in FLACI nach und teste ihn.
 \end{aufgabe}
 
 \begin{aufgabe}
-\label{aufg:nka_klammern2}
-in der Regel ist nicht nur die Verschachtelung von Klammerpaaren ineinander erlaubt, sondern auch mehrere Klammerpaare hintereinander.
+\label{aufg:nka-klammern2}
+In der Regel ist nicht nur die Verschachtelung von Klammerpaaren ineinander erlaubt, sondern auch mehrere verschachtelte Klammerpaare hintereinander.
 
-Erweitere den Klammerautomaten zur Sprache
-\[ L_{K2} = (a^{n_i}b^{n_i})^{m}, n_i\geq 1, m\geq 0, i = 1,...,m \]
+\begin{teilaufgaben}
+	\teilaufgabe
+	Erweitere den Klammerautomaten aus \prettyref{aufg:nka-klammern} zur Sprache
+	\[ L_{K2} = (L_K)^{*} = (a^{n_i}b^{n_i})^{m}, n_i\geq 1, m\geq 0, i = 1,...,m \]
+	Gültige Worte sind zum Beispiel: $aaabbbaabb$, $ababab$, $aabbaabb$.
 
-Gültige Worte sind zum Beispiel: 
-\begin{tasks}(3)
-	\task aaabbbaabb
-	\task ababab
-	\task aabbaabb
-\end{tasks}
+	\teilaufgabe
+	Erweitere den NKA $L_{K2}$ zur Sprache $L_{K3}$, die beliebige gültige Klammerausdrücke erkennt. Im Gegensatz zu $L_{K2}$ sind dann auch Worte wie $aababb$ oder $aaabaababbabbb$ gültig. (Es dürfen also neue Klammerpaare beginnen, bevor alle Klammern geschlossen wurden.)
+\end{teilaufgaben}
 \end{aufgabe}
 
 \begin{aufgabe}
-\label{aufg:nka_gleichlang}
-Entwickele in FLACI einen NKA für die Sprachen $L_3$ und $L_4$:
+\label{aufg:nka-gleichlang}
+Entwickle in FLACI einen NKA für die Sprachen $L_4$ bis $L_6$:
 
-\[ L_3 = \{ w_1 a w_2 | w_1\text{ und }w_2\text{ sind gleichlange Worte über }\{1,0\} \} \]
-\[ L_3 = a^nb^m, 0 \leq a <b \]
-
-Gib die formalen Definitionen der Automaten als 7-Tupel an.
+\begin{itemize}
+	\item[$L_4$]$ = \{ w_1 a w_2 | w_1\text{ und }w_2\text{ sind gleichlange Worte über }\{1,0\} \}$
+	\item[$L_5$]$ = a^nb^m, 0 \leq a < b$
+	\item[$L_6$]$ = a^n(a|b)^n, n \geq 1$
+\end{itemize}
 \end{aufgabe}
 
 \begin{aufgabe}
-\label{aufg:grammatiken_gleichlang}
+\label{aufg:grammatiken-gleichlang}
 
-Erstelle zu den Sprachen $L_3$ und $L_4$ aus \prettyref{aufg:nka_gleichlang} jeweils eine kontextfreie Grammatik, die die Sprachen erzeugt.
+Erstelle zu den Sprachen $L_3$ und $L_4$ aus \prettyref{aufg:nka-gleichlang} jeweils eine kontextfreie Grammatik, die die Sprachen erzeugt.
 \end{aufgabe}
 
 \end{document}
