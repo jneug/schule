@@ -26,7 +26,6 @@
 
 \usepackage{FLaAL}
 \usepackage{qrcode}
-\usepackage{subcaption}
 
 \renewcommand{\qrhinweis}[1]{%
 	\begin{wrapfigure}[4]{r}{0pt}
@@ -77,16 +76,43 @@ Erstelle Grammatiken und endliche Automaten zu folgenden Sprachen:
 \begin{teilaufgaben}
 	\teilaufgabe $L_1 = a^nb^m, \quad n\geq 0, m \geq 2$
 	\teilaufgabe $L_2 = a^nb^n, \quad 1\leq n \leq 2$
-	\teilaufgabe $L_2 = a^nb^n, \quad n \geq 1$
+	\teilaufgabe $L_3 = a^nb^n, \quad n \geq 1$
 \end{teilaufgaben}
 \end{aufgabe}
 
-\begin{aufgabe}
-\label{aufg:dea-erweitern}
-Die Sprache $L_3$ aus \prettyref{aufg:grammatiken-erstellen} wird nicht von einem deterministischen endlichen Automaten akzeptieren.
+\begin{aufgabe}[symbol=\symPartner]
+\label{aufg:grammatik-erweitern}
+Tatsächlich gibt es keine reguläre Grammatik, die die Sprache $L_3$ aus \prettyref{aufg:grammatiken-erstellen} erzeugt.
 
-\qrhinweis{Ein DEA kann nicht zaehlen!}
-Beschreibt möglichst präzise das Problem, warum ein DEA nicht ausreicht und diskutiert Lösungsansätze. Wie müsste das Modell eines DEA erweitert werden, um die Sprache zu akzeptieren?
+Beschreibt möglichst präzise das Problem, warum eine reguläre Grammatik nicht ausreicht und diskutiert Lösungsansätze. Wie könnte eine Grammatik zu $L_3$ aussehen, wenn die Produktionen keinen Einschränkungen unterliegen?
 \end{aufgabe}
+
+\hrulefill
+
+\begin{wrapfig}
+\begin{wrapfigure}[12]{r}{0pt}
+\begin{tikzpicture}
+	\draw[fill=white] (0,.75) ellipse (2cm and 2cm);
+	\draw[fill=black!11] (0,.5) ellipse (1.8cm and 1.5cm);
+	\draw[fill=black!22] (0,.25) ellipse (1.5cm and 1cm);
+	\draw[fill=black!33] (0,0) ellipse (1cm and .5cm);
+	
+	\node at (0,0) {Typ 3};
+	\node at (0,.85) {Typ 2};
+	\node at (0,1.6) {Typ 1};
+	\node at (0,2.4) {Typ 0};
+\end{tikzpicture}
+\caption*{Darstellung der Chomsky-Hierarchie}
+\label{abb:chomsky}
+\end{wrapfigure}
+Die Sprache $L_3$ ist ein Beispiel für eine nicht-reguläre Sprache. Formale Sprachen lassen sich in eine Hierarchie mit vier Ebenen einsortieren. Jede Ebene ist Teil der darüber liegenden (eine Typ 2 Sprache ist auch eine Typ 3 Sprache).
+
+\begin{smallitemize}
+	\item[Typ 0] \emph{Rekursiv aufzählbare Sprachen}: Sprachen ohne Einschränkungen. Sie sind äquivalent zu \emph{Turingmaschinen}.
+	\item[Typ 1] \emph{Kontextsensitive Sprachen}: Sprachen, deren Produktionen vom \enquote{Kontext} abhängen können, in dem sich ein Nichtterminal befindet.
+	\item[Typ 2] \emph{Kontextfreie Sprachen}: Sprachen, deren Produktionen keine Einschränkungen haben, aber vom \enquote{Kontext} unabhängig sind.
+	\item[Typ 3] \emph{Reguläre Sprachen}: Sprachen, die zusätzlichen Einschränkungen unterliegen.
+\end{smallitemize}
+\end{wrapfig}
 
 \end{document}
