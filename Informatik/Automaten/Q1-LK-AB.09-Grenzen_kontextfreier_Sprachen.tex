@@ -1,0 +1,111 @@
+\documentclass[9pt, a4paper]{scrartcl}
+
+\usepackage{vorschule}
+\usepackage[
+	typ=ab,
+	fach=Informatik,
+	lerngruppe={Q1-LK} ,
+	nummer=9,
+	module={Symbole,Lizenzen},
+	seitenzahlen=keine,
+	farbig,
+	lizenz=cc-by-nc-sa-4,
+]{schule}
+
+\usepackage[
+	kuerzel=Ngb,
+	reihe={Automaten und formale Sprachen},
+	version={2021-03-12} ,
+]{ngbschule}
+
+\author{J. Neugebauer}
+\title{Grenzen kontextfreier Sprachen}
+\date{\Heute}
+
+\setzeAufgabentemplate{ngbnormal}
+
+\usepackage{FLaAL}
+\usepackage{forest}
+\usepackage{qrcode}
+
+\renewcommand{\qrhinweis}[1]{%
+	\begin{wrapfigure}[6]{r}{0pt}
+		\qrcode[height=1cm]{#1}
+	\end{wrapfigure}%
+}
+
+\begin{document}
+\ReiheTitel
+
+\emph{Kontextfreie Sprachen} spielen eine wichtige Rolle bei der Übersetzung höherer Programmiersprachen in Maschinencode. In einem ersten Schritt wird ein Quelltext auf \emph{syntaktische Korrektheit} geprüft, also ob die Art und Abfolge der Zeichen in der Programmiersprache gültig ist. Wir haben gesehen, dass erst kontextfreie Sprachen die Prüfung von Klammerstrukturen erlauben. Daher sind reguläre Sprachen für die Syntaxprüfung nicht ausreichend.
+
+\begin{aufgabe}
+\label{aufg:grammatik-ifthenelse}
+Gegeben ist die Grammatik $G_{if} = (\{S, I, T, E\}, \{\text{if}, \text{then}, \text{else}, \text{a}, \text{b}\}, S, P_{if})$ mit den Produktionen
+\begin{align*}
+P_{if} = \{ S &\rightarrow I\, T\, E \\
+            I &\rightarrow \text{if b} \\
+            T &\rightarrow \text{then}\,\text{a} \,|\, \text{then}\, S \\
+            E &\rightarrow \text{else}\,\text{a} \,|\, \text{else}\, S \,|\, \varepsilon \}
+\end{align*}
+
+\begin{teilaufgaben}
+	\teilaufgabe Welche Sprache wird von der Grammatik erzeugt? Wofür stehen die Terminale $b$ und $a$? Begründe, dass es sich nicht um eine reguläre Grammatik handeln kann.
+	\teilaufgabe Reguläre Sprachen sind immer auch kontextfreie Sprachen, aber nicht alle kontextfreien Sprachen sind auch regulär. Prüfe, ob diese kontextfreie Sprache regulär ist, oder nicht.
+	
+	\hinweis{Eine Sprache ist regulär, wenn sie durch eine reguläre Grammatik erzeugt wird, oder sie von einem DEA/NEA akzeptiert wird.}
+\end{teilaufgaben}
+\end{aufgabe}
+
+\begin{aufgabe}
+\label{aufg:flaci-ifthenelse}
+\begin{wrapfig}
+\begin{wrapfigure}[8]{r}{0pt}
+	\begin{forest}
+	[S,draw,circle
+		[I,draw,circle
+			[if,draw]
+			[b,draw]
+		]
+		[T,draw,circle
+			[then,draw]
+			[a,draw]
+		]
+		[E,draw,circle
+			[else,draw]
+			[a,draw]
+		]
+	]
+	\end{forest}
+	\caption{Ableitungsbaum für das Wort \code{ifbthenaelsea}.}
+	\label{abb:ableitungsbaum}
+\end{wrapfigure}
+FLACI kann auch Grammatiken simulieren. Unter 
+
+\url{https://link.ngb.schule/flaci-ifthenelse}
+
+findest Du die Grammatik $G_{if}$. Oben hinter \enquote{Ableiten} kannst Du mit dem Zauberstab-Symbol Wörter der Sprache erzeugen lassen. Klickst Du anschließend auf den Pfeil rechts daneben, erzeugt FLACI den \enquote{Ableitungsbaum} für das Wort.
+
+\begin{teilaufgaben}
+	\teilaufgabe Erzeuge einige Worte und deren Ableitungsbäume in FLACI.
+	\teilaufgabe Zeichne selber den Ableitungsbaum für das Wort \code{ifbthenifbthenaelsea} auf. Lass den Baum \emph{danach} in FLACI erzeugen. Vergleiche die Bäume miteinander. Gibt es noch einen anderen Baum?
+	\teilaufgabe Welches Problem ergibt sich für die Syntaxprüfung, wenn es mehrere Ableitungsbäume gibt? Notiere Stichpunkte.
+\end{teilaufgaben}
+\end{wrapfig}
+\end{aufgabe}
+
+\begin{aufgabe}
+\label{aufg:eindeutigkeit}
+Die if-then-else Sprache ist nicht eindeutig, aber Eindeutigkeit ist für eine syntaktische Überprüfung notwendig. Überlege, wie die Sprache eindeutig gemacht werden kann.
+
+\hinweis{
+Denk an die Klammersprache von Arbeitsblatt 8.}
+\end{aufgabe}
+
+\begin{aufgabe}
+\label{aufg:grenzen-ktfs}
+\qrhinweis{https://tipp.ngb.schule/4qex-2ts8-s5p3}
+In der Chomsky-Hierarchie sind kontextfreie Sprachen vom Typ 2. Auch sie haben Grenzen. Findest Du eine Sprache, die \emph{nicht kontextfrei} ist?
+\end{aufgabe}
+
+\end{document}

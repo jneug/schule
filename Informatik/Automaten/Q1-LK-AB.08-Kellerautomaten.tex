@@ -25,8 +25,11 @@
 \setzeAufgabentemplate{ngbnormal}
 
 \usepackage{FLaAL}
-
 \usepackage{qrcode}
+\usepackage{subcaption}
+
+\DeclareCaptionSubType*[alph]{figure}
+\captionsetup[subfigure]{labelformat=simple,labelsep=colon}
 
 \renewcommand{\qrhinweis}[1]{%
 	\begin{wrapfigure}[4]{r}{0pt}
@@ -57,7 +60,25 @@ Ein \emph{nichtdeterministischer Kellerautomat} (NKA) wird als 7-Tupel $A = (Q, 
 \begin{wrapfig}
 \begin{wrapfigure}[12]{r}{0pt}
 	\centering
-	\includegraphics[width=6cm]{Q1-LK-AB.08-Kellerautomaten.jpeg}
+	%\includegraphics[width=6cm]{Q1-LK-AB.08-Kellerautomaten.jpeg}
+	\begin{tikzpicture}[scale=.9]
+		\draw (0,0) |- +(2.4,1.4) |- cycle;
+		\foreach \i in {1,...,6} {
+			\draw (\i*.8,2) |- +(.8,.8) |- cycle;
+			\node[font=\small] at ({.4+\i*.8},2.4) {\ifthenelse{\i<4}{a}{b}};%
+		}
+		\foreach \i in {1,...,3} {%
+			\draw (3.4,{-1.4+\i*.6}) |- +(1,.6) |- cycle;
+			\node[font=\small] at (3.9,{-1.1+\i*.6}) {\ifthenelse{\i=1}{\#}{A}};%
+		}
+		\draw[->] (2.4,.7) -- (3.4,.7);
+		\draw[->] (1.2,1.4) -- (1.2,2);
+		
+		\node[font=\small] at (1.2,1) {Steuereinheit};
+		\node[font=\small] at (1.2,.4) {Zustand: $q_1$};
+		\node[font=\small,anchor=west,text width=1cm] at (4.4,-0.5) {Keller\-speicher};
+		\node[font=\small,anchor=east] at (.7,2.4) {Eingabe};
+	\end{tikzpicture}
 	\caption{Schematische Darstellung eines Kellerautomaten}
 	\label{abb:schema_nka}
 \end{wrapfigure}
@@ -108,20 +129,62 @@ In der Regel ist nicht nur die Verschachtelung von Klammerpaaren ineinander erla
 \end{aufgabe}
 
 \begin{aufgabe}
-\label{aufg:nka-gleichlang}
+\label{aufg:nka-uebungen}
 Entwickle in FLACI einen NKA für die Sprachen $L_4$ bis $L_6$:
 
 \begin{itemize}
-	\item[$L_4$]$ = \{ w_1 a w_2 | w_1\text{ und }w_2\text{ sind gleichlange Worte über }\{1,0\} \}$
-	\item[$L_5$]$ = a^nb^m, 0 \leq a < b$
-	\item[$L_6$]$ = a^n(a|b)^n, n \geq 1$
+	\item[$L_4$]$ = a^n(a|b|c)^n, n \geq 1$
+	\item[$L_5$]$ = \{ w_1 a w_2 | w_1\text{ und }w_2\text{ sind gleichlange Worte über }\{1,0\} \}$
+	\item[$L_6$]$ = a^nb^m, 0 \leq a < b$
 \end{itemize}
+
+Gib auch jeweils die formale Definition der Automaten als 7-Tupel an.
 \end{aufgabe}
 
 \begin{aufgabe}
-\label{aufg:grammatiken-gleichlang}
+\label{aufg:grammatik-uebungen}
 
-Erstelle zu den Sprachen $L_3$ und $L_4$ aus \prettyref{aufg:nka-gleichlang} jeweils eine kontextfreie Grammatik, die die Sprachen erzeugt.
+Erstelle zu den Sprachen $L_4$, $L_5$ und $L_6$ aus \prettyref{aufg:nka-uebungen} jeweils eine kontextfreie Grammatik, die die Sprache erzeugt.
+\end{aufgabe}
+
+\begin{aufgabe}
+\label{aufg:grammatik-rechenterme}
+$G_{RE} = (N,T,S,P)$ ist die rechtsreguläre Grammatik für Rechenterme vom Arbeitsblatt 5, mit den in \prettyref{abb:grammatik-rechenterme} gezeigten Produktionen (zur Vereinfachung wird die Kurzschreibweise $0..3 B$ für $0B|1B|2B|3B$ genutzt).
+
+Erweitere $G_{RE}$ zu einer kontextfreien Grammatik, die auch Terme mit korrekten Klammerausdrücken erlaubt.
+\end{aufgabe}
+
+\begin{figure}[h]
+	\begin{subfigure}{.5\textwidth}
+		\begin{align*}
+		S &\rightarrow 0 A \,|\, 1..9 B \,|\, \varepsilon \\
+		A &\rightarrow . C\,|\, +E \,|\, - E \,|\, \cdot E \,|\, : E \,|\, \varepsilon \\
+		B &\rightarrow . C \,|\, 0..9 B \,|\, +E \,|\, - E \,|\, \cdot E \,|\, : E \,|\, \varepsilon \\
+		C &\rightarrow 0..9 D \\
+		D &\rightarrow 0..9 D \,|\, +E \,|\, - E \,|\, \cdot E \,|\, : E \,|\, \varepsilon \\
+		E &\rightarrow 0 A \,|\, 1..9 B
+		\end{align*}
+		\caption{Produktionen von $G_{RE}$.}
+		\label{abb:grammatik-rechenterme}
+	\end{subfigure}%
+	\begin{subfigure}{.5\textwidth}
+		\begin{transitiongraph}[pa]
+			\state[s]{q0}{0}{0}
+			\state{q1}{25}{0}
+			\state[f]{q2}{50}{0}
+			\transition{q0}{q0}{\#,a,A\#;\#,b,B\#;A,a,AA;A,b,BA;B,a,AB;B,b,BB}
+			\transition{q0}{q1}{A,a,;B,b,}
+			\transition{q1}{q2}{\#,,\#}
+			\transition{q1}{q1}{A,a,;B,b,}
+		\end{transitiongraph}
+		\caption{Übergangsgraph eines NKA.}
+		\label{abb:nka-palindrom}
+	\end{subfigure}
+\end{figure}
+
+\begin{aufgabe}
+\label{aufg:nka-palindrom}
+Welche Sprache beschreibt der Kellerautomat zum in \prettyref{abb:nka-palindrom} gezeigten Übergangsgraphen?
 \end{aufgabe}
 
 \end{document}
