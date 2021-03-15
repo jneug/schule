@@ -1,0 +1,92 @@
+\documentclass[10pt, a4paper]{scrartcl}
+
+\usepackage{vorschule}
+\usepackage[
+	typ=ab,
+	fach=Informatik,
+	lerngruppe={Q1-LK} ,
+	nummer=7,
+	module={Symbole,Lizenzen},
+	seitenzahlen=keine,
+	farbig,
+	lizenz=cc-by-nc-sa-4,
+]{schule}
+
+\usepackage[
+	kuerzel=Ngb,
+	reihe={Automaten und formale Sprachen} ,
+	version={2021-03-12} ,
+]{ngbschule}
+
+\author{J. Neugebauer}
+\title{Kontextfreie Sprachen}
+\date{\Heute}
+
+\setzeAufgabentemplate{ngbnormal}
+
+\usepackage{FLaAL}
+\usepackage{qrcode}
+\usepackage{subcaption}
+
+\renewcommand{\qrhinweis}[1]{%
+	\begin{wrapfigure}[4]{r}{0pt}
+		\qrcode[height=1cm]{#1}
+	\end{wrapfigure}%
+}
+
+\begin{document}
+\ReiheTitel
+
+\begin{infobox}
+\subsection*{Notation von Sprachen}
+Sprachen sind Mengen von Wörtern. Um eine Sprache zu beschreiben gibt es verschiedene Notationen:
+\begin{smallitemize}
+	\item Umgangssprachlich: \enquote{Alle Wörter, die mit beliebig vielen \code{a} anfangen, gefolgt von genauso vielen \code{b}.}
+	\item Als spezifische Menge von Wörter: $L = \{ 000, 001, 010, 011, 100, 101, 110, 111 \}$
+	\item Als allgemeine Menge von Wörtern: $L = \{ w | \text{w ist ein Palindrom} \}$
+	\item Als regulärer Ausdruck: $L = a^{*}(c|b)a^{*}$
+	\item Als erweiterter regulärer Ausdruck: $L = a^nb^m, \quad n,m \geq 1$
+\end{smallitemize}
+\end{infobox}
+
+Eine Sprache ist \emph{regulär}, wenn sie durch einen (deterministischen) endlichen Automaten akzeptiert, bzw. durch eine (rechts)reguläre Grammatik erzeugt wird. Beispielsweise $L=a^nb^m, n,m \geq 1$:
+\begin{figure}[h]
+	\begin{subfigure}{.5\textwidth}
+		\begin{transitiongraph}[fa]
+			\state[s]{q0}{0}{0}
+			\state{q1}{25}{0}
+			\state[f]{q2}{50}{0}
+			\transition{q0}{q1}{a}
+			\transition{q1}{q1}{a}
+			\transition{q1}{q2}{b}
+			\transition{q2}{q2}{b}
+		\end{transitiongraph}
+	\end{subfigure}%
+	\begin{subfigure}{.5\textwidth}
+		\begin{align*}
+		S &\rightarrow a A \\
+		A &\rightarrow a A \,|\, b B \\
+		B &\rightarrow b B \,|\, \varepsilon
+		\end{align*}
+	\end{subfigure}
+\end{figure}
+
+\begin{aufgabe}
+\label{aufg:grammatiken-erstellen}
+Erstelle Grammatiken und endliche Automaten zu folgenden Sprachen:
+\begin{teilaufgaben}
+	\teilaufgabe $L_1 = a^nb^m, \quad n\geq 0, m \geq 2$
+	\teilaufgabe $L_2 = a^nb^n, \quad 1\leq n \leq 2$
+	\teilaufgabe $L_2 = a^nb^n, \quad n \geq 1$
+\end{teilaufgaben}
+\end{aufgabe}
+
+\begin{aufgabe}
+\label{aufg:dea-erweitern}
+Die Sprache $L_3$ aus \prettyref{aufg:grammatiken-erstellen} wird nicht von einem deterministischen endlichen Automaten akzeptieren.
+
+\qrhinweis{Ein DEA kann nicht zaehlen!}
+Beschreibt möglichst präzise das Problem, warum ein DEA nicht ausreicht und diskutiert Lösungsansätze. Wie müsste das Modell eines DEA erweitert werden, um die Sprache zu akzeptieren?
+\end{aufgabe}
+
+\end{document}
