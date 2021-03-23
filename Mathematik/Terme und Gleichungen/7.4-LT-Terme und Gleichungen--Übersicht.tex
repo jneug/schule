@@ -3,7 +3,7 @@
 % Seitennummer der ersten Karte, die keine Hilfekarte ist
 \def\firstContentCard{11}
 
-\usepackage{grffile,pgffor,pdfpages,pgfpages}
+\usepackage{grffile,pgffor,pdfpages,pgfpages,xstring}
 \pgfpagesuselayout{8 on 1}[a4paper,border shrink=5mm]
 
 % Name der Lernstation.pdf ermitteln
@@ -12,10 +12,12 @@
 \newcommand{\setjobbasename}{%
   \def\split##1--##2!!!{\def\jobbasename{##1}}%
   \expandafter\split\jobname!!!%
+  \IfBeginWith{\jobbasename}{"}{%
+  	\def\quoter"##1!!!{\def\jobbasename{##1}}%
+  	\expandafter\quoter\jobbasename!!!%
+  }{}%
 }
 \setjobbasename
-
-\def\jobbasename{7.4-LT-Terme und Gleichungen}
 
 
 \begin{document}
