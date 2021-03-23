@@ -36,14 +36,32 @@
 	
 	\vspace{1cm}
 	Eine \textbf{Variable} ist ein Platzhalter für einen Wert, der erstmal unbekannt oder nicht festgelegt ist.
+	
+	\vspace{2cm} \small
+	Als Kurzschreibweise für eine Multiplikation einer Zahl mit einer Variablen benutzen wir $4\cdot x = 4x$.
 \end{hilfekarte}
 
 \begin{loesungskarte}[Terme, Gleichungen und Variablen]
 	Beispiele für Terme:
 	\begin{multicols}{2}
 		\textbf{sinnvolle Ausdrücke (Terme)}
+		\begin{gather*}
+		4 \\
+		x \\
+		4+3-5.1\cdot (7.2+5) \\
+		4-a+2\cdot b \cdot c \\
+		5 - \left( \frac{1}{2} - \frac{x}{3} \right)  \cdot ( 4.254 )
+		\end{gather*}
 		
 		\textbf{unsinnige Ausdrücke (keine Terme)}
+		\begin{gather*}
+		+ \\
+		4\cdot \\
+		5+:x \\
+		(4+3-(5.1\cdot (7.2+5 \\
+		7..5 \$ 6 \\
+		\cdot \left( \frac{\quad}{2} - \frac{x}{\quad} \right)  \cdot ( 4.254 )
+		\end{gather*}
 	\end{multicols}
 \end{loesungskarte}
 
@@ -60,6 +78,8 @@
 	In einer \emph{Gleichung} steht eine Variable für einen bestimmten Wert, der gefunden werden muss. So, dass die Gleichung wahr ist. z.B.
 	
 	\[ 5\cdot x + 4 = 34 \Rightarrow x = 4 \text{, da } 5\cdot 4 + 4 = 34\text{ wahr ist} \]
+
+	Als Kurzschreibweise für eine Multiplikation einer Zahl mit einer Variablen benutzen wir $4\cdot x = 4x$.
 \end{hilfekarte}
 
 \leereKarte
@@ -67,21 +87,38 @@
 \begin{hilfekarte}{Termumformungen}{termumf}
 	Um Dir das Rechnen leichter zu machen können Terme durch zusammenfassen vereinfacht werden. Gültige Umformungen sind:
 	
-	\begin{itemize}
+	\begin{smallitemize}
 		\item Summanden ohne Variablen können zusammengefasst werden. $2 + 4 + 5$ wird zu $11$
 		\item Summanden mit derselben Variablen können zusammengefasst werden. $12a - 4a + a$ wird zu $9a$
 		\item Faktoren ohne Variable können mit einer Variablen multipliziert werden: $4\cdot 5\cdot 2x$ wird zu $40x$
-	\end{itemize}
+	\end{smallitemize}
 	
 	Auch mit Hilfe der Rechengesetze kannst Du die Terme umformen:
-	\begin{itemize}
-		\item Kommutativgesetz: $4a + b + 3a = 4a + 3a + b = 7a + b$
-		\item Assoziativgesetz: $5b - 2a + a = 5b + (-2a + a) = 5b - a$
-		\item Distributivgesetz: $2\cdot (a + 5) = 2\cdot a + 2\cdot 5)$
-	\end{itemize}
+	\begin{smallitemize}
+		\item \emph{Kommutativgesetz}: $4a + b + 3a = 4a + 3a + b = 7a + b$
+		\item \emph{Assoziativgesetz}: $5b - 2a + a = 5b + (-2a + a) = 5b - a$
+		\item \emph{Distributivgesetz}: $2\cdot (a + 5) = 2\cdot a + 2\cdot 5)$
+		\item \emph{Minusklammern auflösen}: $8 -(a - 5 + 3b) = 8 - a + 5 - 3b)$
+	\end{smallitemize}
 \end{hilfekarte}
 
-\leereKarte
+\begin{loesungskarte}[Termumformungen]
+	Beispiele:
+	\begin{multicols}{2}
+	\begin{align*}
+		&\quad 5x + 7x - 2\cdot 3x + 2y \\
+			&= 12x - 6x + 2y \\
+			&= 6x + 2y
+	\end{align*}
+
+	\begin{align*}
+		&\quad 6,2 \cdot (4x + 3.1y) - 5,6x \\
+			&= 6,2\cdot 4x + 6,2\cdot 3,1y - 5,6x \\
+			&= 24,8x + 19,22y - 5,6x \\
+			&= 19,2x + 19,22y
+			\end{align*}
+	\end{multicols}
+\end{loesungskarte}
 
 \begin{hilfekarte}{Äquivalenzumformungen}{aequivumf}
 	Führst Du auf beiden Seiten einer Gleichung dieselbe Umformung durch, dann bleibt die Gleichung weiterhin gültig.
@@ -142,6 +179,28 @@ Ein Beispiel findest Du auf der Rückseite.
 		\gl{x}{12}
 	\end{alignat*}
 \end{multicols}
+
+\begin{hilfekarte}{Ungleichungen}
+	Bei einer Ungleichung steht statt dem \emph{Gleichzeichen} ein \emph{Ungleichungszeichen} zwischen den beiden Termen. Ungleichungszeichen sind:
+	\begin{itemize}
+		\item[$>$] \emph{größer als}
+		\item[$<$] \emph{kleiner als}
+		\item[$\gt$] \emph{größer als oder gleich}
+		\item[$\lt$] \emph{kleiner als oder gleich}
+	\end{itemize}
+	
+	Wie eine Gleichung kann eine Ungleichung wahr oder falsch (Gültig oder ungültig) sein:
+	\begin{itemize}
+		\item Gültig: $4 < 5$
+		\item Ungültig: $4 \gt 5$
+	\end{itemize}
+	
+	Ungleichungen mit einer Variablen können (fast) wie Gleichungen umgeformt werden. Die Lösung sind aber meist mehrere Zahlen:
+	\begin{itemize}
+		\item $x < 5$ Lösung: Alle Zahlen die kleiner als $5$ sind (aber nicht die $5$ selber).
+		\item $x \gt 4.3$ Lösung: Alle Zahlen die größer oder gleich $4.3$ sind (also auch $4.3$ selber).
+	\end{itemize}
+\end{hilfekarte}
 
 \textbf{Probe und Rückschau:} \\
 $4\cdot 12 + 3\cdot 12 = 48 + 36 = 84$ \checkmark\\[5mm]
