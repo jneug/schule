@@ -1,6 +1,6 @@
 \documentclass[12pt,a5paper,landscape]{scrartcl}
 
-\usepackage{grffile,pdfpages,pgfmorepages}
+\usepackage{grffile,pdfpages,pgfmorepages,xstring}
 \pgfmorepagesloadextralayouts
 \pgfpagesuselayout{4 on 2, odd then even}[a4paper]
 
@@ -11,12 +11,14 @@
 \newcommand{\setjobbasename}{%
   \def\split##1--##2!!!{\def\jobbasename{##1}}%
   \expandafter\split\jobname!!!%
+  % Remove leading quote if present
+  \IfBeginWith{\jobbasename}{"}{%
+  	\def\quoter"##1!!!{\def\jobbasename{##1}}%
+  	\expandafter\quoter\jobbasename!!!%
+  }{}%
 }
 \setjobbasename
 
-\def\jobbasename{7.4-LT-Terme und Gleichungen}
-
 \begin{document}
-	%\includepdf[pages=-]{\jobbasename.pdf}%
-	\includepdf[pages=-]{7.4-LT-Terme und Gleichungen.pdf}%
+	\includepdf[pages=-]{\jobbasename.pdf}
 \end{document}

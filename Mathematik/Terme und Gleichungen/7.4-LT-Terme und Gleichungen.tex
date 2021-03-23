@@ -180,31 +180,55 @@ Ein Beispiel findest Du auf der Rückseite.
 	\end{alignat*}
 \end{multicols}
 
-\begin{hilfekarte}{Ungleichungen}
-	Bei einer Ungleichung steht statt dem \emph{Gleichzeichen} ein \emph{Ungleichungszeichen} zwischen den beiden Termen. Ungleichungszeichen sind:
-	\begin{itemize}
-		\item[$>$] \emph{größer als}
-		\item[$<$] \emph{kleiner als}
-		\item[$\gt$] \emph{größer als oder gleich}
-		\item[$\lt$] \emph{kleiner als oder gleich}
-	\end{itemize}
-	
-	Wie eine Gleichung kann eine Ungleichung wahr oder falsch (Gültig oder ungültig) sein:
-	\begin{itemize}
-		\item Gültig: $4 < 5$
-		\item Ungültig: $4 \gt 5$
-	\end{itemize}
-	
-	Ungleichungen mit einer Variablen können (fast) wie Gleichungen umgeformt werden. Die Lösung sind aber meist mehrere Zahlen:
-	\begin{itemize}
-		\item $x < 5$ Lösung: Alle Zahlen die kleiner als $5$ sind (aber nicht die $5$ selber).
-		\item $x \gt 4.3$ Lösung: Alle Zahlen die größer oder gleich $4.3$ sind (also auch $4.3$ selber).
-	\end{itemize}
-\end{hilfekarte}
-
 \textbf{Probe und Rückschau:} \\
 $4\cdot 12 + 3\cdot 12 = 48 + 36 = 84$ \checkmark\\[5mm]
 Das Ergebnis scheint realistisch. (Der Potts Park in Minden kostet zum Beispiel \EUR{23,50} für einen Erwachsenen.)
+\end{loesungskarte}
+
+\begin{hilfekarte}{Ungleichungen}
+	Bei einer Ungleichung steht statt dem \emph{Gleichzeichen} ein \emph{Ungleichungszeichen} zwischen den beiden Termen. Ungleichungszeichen sind:
+	\begin{multicols}{2}\begin{itemize}
+		\item[$>$] \emph{größer als}
+		\item[$<$] \emph{kleiner als}
+		\item[$\geq$] \emph{größer als oder gleich}
+		\item[$\leq$] \emph{kleiner als oder gleich}
+	\end{itemize}\end{multicols}
+	
+	Wie eine Gleichung kann eine Ungleichung wahr oder falsch (Gültig oder ungültig) sein:
+	\begin{multicols}{2}\begin{itemize}\centering
+		\item[Gültig:] $4 < 5$
+		\item[Ungültig:] $4 \geq 5$
+	\end{itemize}\end{multicols}
+	
+	Ungleichungen mit einer Variablen können (fast) wie Gleichungen umgeformt werden. Die Lösung sind aber meist mehrere Zahlen:
+	\begin{itemize}[leftmargin=2cm]
+		\item[$x < 5$] Lösung: Alle Zahlen die kleiner als $5$ sind (aber nicht die $5$ selber).
+		\item[$x \geq 4.3$] Lösung: Alle Zahlen die größer oder gleich $4.3$ sind (also auch $4.3$ selber).
+	\end{itemize}
+\end{hilfekarte}
+
+\begin{loesungskarte}[Ungleichungen]
+	Beispiele:
+	\begin{multicols}{2}
+	\begin{alignat*}{3}
+		\gl[]{x + 2}[<]{5} \tu[-2] \\
+		\gl{x}[<]{5 - 2} \tu(vereinfachen) \\
+		\gl{x}[<]{3}
+	\end{alignat*}
+	
+	\begin{alignat*}{3}
+		\gl[]{0.5\cdot x}[\geq]{8,4} \tu[\cdot 2] \\
+		\gl{x}[\geq]{8,4\cdot 2} \tu(vereinfachen) \\
+		\gl{x}[\geq]{16,8}
+	\end{alignat*}
+	\end{multicols}
+	
+	\achtung{Einige Umformungen sind für Ungleichungen nicht einfach so gültig:}
+	\begin{alignat*}{3}
+		\gl[]{9}[\geq]{-1\cdot 2} \tu[\cdot (-1)] \\
+		\gl{-1\cdot 9}[\geq]{2} \tu(\textcolor{red}{Falsch!}) \\
+		\gl{-1\cdot 9}[\leq]{2} \tu(\textcolor{green!50!black}{Richtig!}) \\
+	\end{alignat*}
 \end{loesungskarte}
 
 \begin{karte1}{Terme vereinfachen}
@@ -504,6 +528,44 @@ Das Ergebnis scheint realistisch. (Der Potts Park in Minden kostet zum Beispiel 
 	\end{alignat*}
 	
 	Probe: $(200-100)\cdot 0,02 = 100\cdot 0,02 = 2$
+\end{loesungskarte}
+
+\begin{karte3}{Von Duisburg nach Berlin}
+\hilfeMarke{sach}
+\begin{center}
+	\includegraphics[width=8cm]{7.4-LT-Abb_Route}
+\end{center}
+Zwei Wagen (Ferrari und BMW) starten gleichzeitig in Duisburg und Berlin und fahren einander entgegen. Der Ferrari fährt im Schnitt \SI{160}{\kilo\meter\per\hour} der BMW \SI{140}{\kilo\meter\per\hour}. Die Entfernung Duisburg – Berlin beträgt \SI{600}{\kilo\meter}.
+\begin{itemize}
+	\item Nach welcher Zeit begegnen sie sich?
+	\item Wie weit ist der Treffpunkt von Duisburg entfernt?
+\end{itemize}
+\end{karte3}
+
+\begin{loesungskarte}\small
+\begin{multicols}{2}
+	Geschwindigkeit Ferrari: \SI{160}{\kilo\meter\per\hour} \\
+	Geschwindigkeit BMW: \SI{140}{\kilo\meter\per\hour} \\
+	Entfernung: \SI{600}{\kilo\meter} \\
+	Zeit bis zum Treffen (in Stunden): $t$
+	
+	\columnbreak
+	
+	Zurückgelegte Strecke Ferrari: $s_F = t\cdot 160$ \\
+	Zurückgelegte Strecke BMW: $s_B = t\cdot 140$ \\
+	Summe der zurückgelegten Strecken: \\ $s_F + s_B = 600$ 
+\end{multicols}Gleichung lösen:\vspace{-2.8em}
+\begin{alignat*}{3}
+	\gl[]{t\cdot 160 + t\cdot 140}{600} \tu(vereinfachen) \\
+	\gl{t\cdot (160 + 140)}{600} \tu(vereinfachen) \\
+	\gl{(t\cdot 300}{600} \tu(:300) \\
+	\gl{t}{\dfrac{600}{300}} \\
+	\gl{t}{2}
+\end{alignat*}
+
+Ausrechnen der Strecken: $s_F = 2\cdot 160 = 320$, $s_R = 2\cdot 140 = 280$
+
+\textbf{Antwort:} Die Autos treffen sich nach \SI{2}{\hour}. Der Treffpunkt ist \SI{160}{\kilo\meter} von Duisburg entfernt. (Und \SI{280}{\kilo\meter} von Berlin.)
 \end{loesungskarte}
 
 \end{document}
