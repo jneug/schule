@@ -31,9 +31,9 @@
 
 \begin{infobox}
 	\textbf{Die Landau-Notation (O-Notation)}
-	
+
 	in der Landau-Notation gibt es verschiedene Symbole. Für uns ist die \enquote{Groß-O-Notation} wichtig. Die Notation $O(n)$ bedeutet, dass die Laufzeit eines Algorithmus nicht schneller wächst, als die größe seiner Eingabe $n$. Auf einen Suchalgorithmus bezogen bedeutet dies: Wenn ich doppelt so viele Zahlen sortiere, dann braucht der Algorithmus ungefähr doppelt so lange.
-	
+
 	\smallskip
 	Wichtige Laufzeiten sind:
 	\begin{tasks}[style=itemize](2)
@@ -58,17 +58,17 @@ Wir vergleichen das Sortieren von Arrays verschiedener Größen.
 
 \begin{aufgabe}
 	Implementiert eine Methode \func{public void messen( int n )}, die ein Array mit $n$ Zufallszahlen erstellt und mit einer der Sortiermethoden sortiert. Die Zeit für das Sortieren soll mit der Stoppuhr gemessen werden (aber nicht das erstellen des Zufallsarrays). Die gemessene Zeit soll auf der Konsole ausgegeben werden. Nutze dafür den Befehl
-	
+
 	\code{System.out.println(n+"$\backslash$t"+zeit);}
-	
+
 	wobei \code{n} die Anzahl der sortierten Elemente ist und \code{zeit} die gemessene Zeit. \code{$\backslash$t} erzeugt einen Tabulator zwischen den Zahlen.
-	
+
 	Das zufällige Zahlenarray kann durch \code{Zahlengenerator.zufallsArray(n)} erzeugt werden.
 \end{aufgabe}
 
 \begin{aufgabe}
 	Legt ein neues Tabellenblatt in \programm{LibreOffice Calc} an und notiert in der ersten Zeile die Überschriften \emph{n} und \emph{Nanosekunden}. Hier kopiert ihr die Ergebnisse der Messungen während des Versuchs hinein. Durch den Tabulator in der Ausgabe übernimmt \programm{LibreOffice} die Werte direkt in die beiden Zellen.
-	
+
 	Führt Messungen für verschiedene Eingabegrößen durch, zum Beispiel $100, 200, 300, ..., 1000, 2000, ..., 10000, ...$ und kopiert die Laufzeiten in das Tabellenblatt.
 \end{aufgabe}
 

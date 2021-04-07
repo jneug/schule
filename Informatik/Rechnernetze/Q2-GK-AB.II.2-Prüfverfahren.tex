@@ -29,7 +29,7 @@
 
 Mit den Erfahrungen aus \emph{New Town} und \emph{Gold City} ziehen die beiden Städte \emph{Silver Lake} und \emph{Salt Lake} ebenfalls eine Leitung, die auf der Bitübertragung aufsetzt. Über eine Leitung wird eine Reihe von \code{0} und \code{1} übertragen.
 
-\begin{multicols}{2}\centering	
+\begin{multicols}{2}\centering
 	\includegraphics[width=.9\columnwidth]{Q2-GK-AB.II.2-Abb_Silver Lake.png}
 
 	\includegraphics[width=.9\columnwidth]{Q2-GK-AB.II.2-Abb_Saltlake.png}
@@ -41,7 +41,7 @@ Mit den Erfahrungen aus \emph{New Town} und \emph{Gold City} ziehen die beiden S
 
 \begin{aufgabe}
 	Einer von euch startet das Programm \programm{SilverLake}, der andere von euch startet an irgendeinem anderen Rechner das Programm \programm{SaltLake} aus dem Tauschverzeichnis. Kommuniziert miteinander. Teilt dem anderen zum Beispiel mit, was euer momentaner Lieblingsfilm ist oder auf welches Gericht ihr im Moment Appetit hättet.
-	
+
 	Setzt euch nach etwa 10 Minuten \enquote{Unterhaltung} wieder zusammen.
 \end{aufgabe}
 
@@ -53,13 +53,13 @@ Fehler bei der Datenübertragung können mit unterschiedlichen Prüfverfahren er
 \begin{itemize}
 	\item \emph{Paritätsbit}: Dem eigentlichen Datenblock wird ein sogenanntes \emph{Paritätsbit} angehängt. Sind im Datenblock eine gerade Anzahl von Einsen vorhanden, so wird eine Null angehängt, andernfalls eine Eins.
 	\item \emph{Prüfsumme}: Zuerst wird die Quersumme des Datenblocks berechnet. Von dieser Summe wird dann der Rest modulo $n$ berechnet und dem eigentlichen Datenblock angehängt.
-		
+
 		Hinweis: Bei $n = 2$ entspricht dies dem Paritätsbit-Verfahren. Warum?
 	\item \emph{gewichtete Prüfsumme}: Die einzelnen Bits des Datenblocks werden mit einer individuellen Gewichtung (z. B. mit der Wichtungsfolge $1,2,3,4,\dots,m$) in die Quersumme eingerechnet. Auch hier wird der Rest modulo $n$ an den Datenblock angehängt.
 \end{itemize}
 
 \begin{aufgabe}
-Wende die drei Prüfverfahren jeweils auf die Zahlenfolgen an: 
+Wende die drei Prüfverfahren jeweils auf die Zahlenfolgen an:
 \begin{tasks}(4)
 	\task \code{11001}
 	\task \code{11000}
@@ -76,7 +76,7 @@ Häufige Fehlerquellen sind: Kippen eines Bits und Vertauschen zweier Bits. Zeig
 
 \begin{aufgabe}
 	Welche der Sendungen sind wahrscheinlich fehlerfrei?
-	
+
 	\begin{tabularx}{\textwidth}{lXXXXX}
 	Prüfbit: & a) \code{11001 1} & b) \code{10111 1} & c) \code{00000 0} & d) \code{11111 1} & e) \code{00101 1} \\
 	Quersumme ($n=4$): & a) \code{11001 11} & b) \code{10111 01} & c) \code{00000 00} & d) \code{11111 01} & e) \code{00101 10} \\
