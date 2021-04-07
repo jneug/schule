@@ -6,11 +6,11 @@
 
 \usepackage{grffile,pdfpages}
 
-% Name der Lernstation.pdf ermitteln
 % See: https://tex.stackexchange.com/questions/141194/creating-a-handout-with-the-notes-on-a-second-screen
 \newcommand{\jobbasename}{}
+\newcommand{\jobsuffix}{}
 \newcommand{\setjobbasename}{%
-  \def\split##1--##2!!!{\def\jobbasename{##1}}%
+  \def\split"##1--##2"!!!{\def\jobbasename{##1}\def\jobsuffix{##2}}%
   \expandafter\split\jobname!!!%
 }
 \setjobbasename

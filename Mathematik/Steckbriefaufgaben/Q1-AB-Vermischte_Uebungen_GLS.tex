@@ -25,7 +25,7 @@
 
 \begin{document}
 	\ReiheTitel
-	
+
 	\begin{aufgabe}[subtitle=Bilden sie die Ableitung der Funktion]
 		\begin{tasks}(2)
 			\task $f(x) = \frac{1}{x}$
@@ -35,7 +35,7 @@
 			\task $f(x) = \frac{-3}{x^5} - 4x^3 + 3$
 			\task $f(x) = 9x^6 - 7x^{-3} + \frac{2}{x^2} - 18$
 		\end{tasks}
-	
+
 		\begin{loesung}
 			\begin{tasks}(2)
 				\task $f'(x) = -\frac{1}{x^2} = -1x^{-2}$
@@ -63,25 +63,25 @@
 	\begin{aufgabe}[subtitle=Bringen sie das Gleichungssystem in Dreiecksgestalt]
 		\begin{tasks}(2)
 			\task
-			\[ \left|\begin{alignat}{4} 
+			\[ \begin{gmatrix}[v]
 			x + && y - && z && = 3 \\
 			x + && 2y - && 2z && = 2 \\
 			2x - && y + && 2z && = 15
-			\end{alignat}\right| \]
-			
+			\end{gmatrix} \]
+
 			\task
-			\[ \left|\begin{alignat}{4} 
-			-2x + && y + && z = && -1 \\ 
+			\[ \begin{gmatrix}[v]
+			-2x + && y + && z = && -1 \\
 			6x - && 2y - && 2z = && 6 \\
 			3x - && 2y + && 2z = && 4
-			\end{alignat}\right| \]
+			\end{gmatrix} \]
 		\end{tasks}
-	
+
 		\begin{loesung}
 			\begin{enumeratea}
 				\item Mit der erweiterten Koeffizientenmatrix:
 				\[ \begin{gmatrix}[p]
-				1 & 1 & -1 & 3 \\ 
+				1 & 1 & -1 & 3 \\
 				1 & 2 & -2 & 2 \\
 				2 & -1 & 2 & 15
 				\rowops
@@ -91,7 +91,7 @@
 					\add{0}{2}
 				\end{gmatrix} \]
 				\[ \begin{gmatrix}[p]
-				1 & 1 & -1 & 3 \\ 
+				1 & 1 & -1 & 3 \\
 				0 & 1 & -1 & -1 \\
 				0 & -3 & 4 & 9
 				\rowops
@@ -99,11 +99,11 @@
 					\add{1}{2}
 				\end{gmatrix} \]
 				\[ \begin{gmatrix}[p]
-				1 & 1 & -1 & 3 \\ 
+				1 & 1 & -1 & 3 \\
 				0 & 1 & -1 & -1 \\
 				0 & 0 & 1 & 6
 				\end{gmatrix} \]
-				
+
 				Einsetzen von unten nach oben ergibt:
 				\begin{align*}
 				z &= 6 \\
@@ -112,10 +112,10 @@
 				x + y - z = x + 5 - 6 &= 3 \\
 					&\Leftrightarrow x = 4
 				\end{align*}
-				
+
 				\item Mit der erweiterten Koeffizientenmatrix:
 				\[ \begin{gmatrix}[p]
-				-2 & 1 & 1 & -1 \\ 
+				-2 & 1 & 1 & -1 \\
 				6 & -2 & -2 & 6 \\
 				3 & -2 & 2 & 4
 				\rowops
@@ -125,7 +125,7 @@
 				\add{0}{2}
 				\end{gmatrix} \]
 				\[ \begin{gmatrix}[p]
-				-2 & 1 & 1 & -1 \\ 
+				-2 & 1 & 1 & -1 \\
 				0 & 1 & 1 & 3 \\
 				0 & -0,5 & 3,5 & 2,5
 				\rowops
@@ -133,11 +133,11 @@
 				\add{1}{2}
 				\end{gmatrix} \]
 				\[ \begin{gmatrix}[p]
-				-2 & 1 & 1 & -1 \\ 
+				-2 & 1 & 1 & -1 \\
 				0 & 1 & 1 & 3 \\
 				0 & 0 & 4 & 4
 				\end{gmatrix} \]
-				
+
 				Einsetzen von unten nach oben ergibt:
 				\begin{align*}
 				4z &= 4 \\

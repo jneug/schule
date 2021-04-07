@@ -1,4 +1,4 @@
-\documentclass[9pt, a4paper, landscape, twocolumn]{scrartcl}
+\documentclass[fontsize=9pt, a4paper, landscape, twocolumn]{scrartcl}
 
 \usepackage{vorschule}
 \usepackage[
@@ -35,7 +35,7 @@
         \item[$0<b<1$] Abnahmefaktor ($\ln{b}<0$)
     \end{description}
     \end{multicols}
-    
+
     \section*{Eigenschaften der $e$-Funktion}
     Für $f(x)=e^{k\cdot x},\ k \geq 1$ gilt:
     \begin{multicols}{2}
@@ -46,9 +46,9 @@
             \tkzFct[color=NavyBlue,line width=1.2]{2.71828 ** \x}
             \geoText(2.3,4.4){$e^x$}
         \end{tikzpicture}
-        
+
         \columnbreak
-            
+
         \begin{itemize}\itemsep 0pt
             \item $f(0)=1$
             \item $f(x)>0$ für alle $x\in \R$
@@ -57,7 +57,7 @@
             \item $f(x)\to 0$ für $x\to -\infty$
         \end{itemize}
     \end{multicols}
-    
+
     Für $f(x)=e^{k\cdot x},\ k \leq -1$ gilt:
     \begin{multicols}{2}
         \begin{tikzpicture}[scale=0.4]
@@ -67,9 +67,9 @@
             \tkzFct[color=NavyBlue,line width=1.2]{2.71828 ** (-1 * \x)}
             \geoText(4.2,.8){$e^{-x}$}
         \end{tikzpicture}
-        
+
         \columnbreak
-        
+
         \begin{itemize}\itemsep 0pt
             \item $f(0)=1$
             \item $f(x)>0$ für alle $x\in \R$
@@ -78,23 +78,23 @@
             \item $f(x)\to -\infty$ für $x\to -\infty$
         \end{itemize}
     \end{multicols}
-    
+
     \section*{Kombinationen der $e$-Funktion}\vspace{-2ex}
     \begin{tabularx}{\columnwidth}{Xc}
     	$f(x) = k\cdot e^x$
-    	
-    	\begin{itemize}
+
+    	\begin{itemize}\itemsep 0pt
     		\item $f(0)=k$
-    	\end{itemize}\itemsep 0pt
+    	\end{itemize}
     		&\begin{tikzpicture}[scale=0.4,baseline=(current bounding box.north)]
     		\geoInit[xmin=-4,xmax=4,ymin=-.5,ymax=4]
     		\tkzDrawXY[label={},]
     		\tkzFct[color=NavyBlue,line width=1.2]{2 * 2.71828 ** \x}
     		\geoText(2.3,3.4){$2\cdot e^x$}
     		\end{tikzpicture} \\
-    		
-    	$f(x) = x^k\cdot e^x$, $k$ gerade 
-    	
+
+    	$f(x) = x^k\cdot e^x$, $k$ gerade
+
     	\begin{itemize}\itemsep 0pt
     		\item Hochpunkt bei $x = -k$
     		\item Tiefpunkt bei \pkt(0|0) für $k=2$
@@ -103,12 +103,12 @@
     		&\begin{tikzpicture}[scale=0.4,baseline=(current bounding box.north)]
     		\geoInit[xmin=-6,xmax=2,ymin=-.5,ymax=4]
     		\tkzDrawXY[label={},]
-    		\tkzFct[color=NavyBlue,line width=1.2]{(\x ** 2) * (2.71828 ** \x)}
+    		\tkzFct[color=NavyBlue,line width=1.2,domain=-6:2]{(\x ** 2) * (2.71828 ** \x)}
     		\geoText(-1.5,1.4){$x^2\cdot e^x$}
     		\end{tikzpicture} \\
-    		
-   		$f(x) = x^k\cdot e^x$, $k$ ungerade 
-   		
+
+   		$f(x) = x^k\cdot e^x$, $k$ ungerade
+
    		\begin{itemize}\itemsep 0pt
    			\item $f(0) = 0$
    			\item Tiefpunkt bei $x = -k$
@@ -116,13 +116,13 @@
    		\end{itemize}
     		&\begin{tikzpicture}[scale=0.4,baseline=(current bounding box.north)]
     		\geoInit[xmin=-6,xmax=2,ymin=-1.5,ymax=4]
-    		\tkzDrawXY[label={},]    		
-    		\tkzFct[color=NavyBlue,line width=1.2]{(\x ** 3) * (2.71828 ** \x)}
+    		\tkzDrawXY[label={},]
+    		\tkzFct[color=NavyBlue,line width=1.2,domain=-6:2]{(\x ** 3) * (2.71828 ** \x)}
     		\geoText(-1.5,1){$x^3\cdot e^x$}
     		\end{tikzpicture} \\
-    		
+
         $f(x) = k\cdot e^x + k\cdot e^{-x}$
-        
+
         \begin{itemize}\itemsep 0pt
         	\item $f(0) = 2k$
         	\item Tief- ($k>0$)/Hochpunkt ($k<0$) bei \pkt(0|2k)
@@ -130,13 +130,13 @@
         \end{itemize}
 		    &\begin{tikzpicture}[scale=0.4,baseline=(current bounding box.north)]
 			\geoInit[xmin=-2,xmax=2,ymin=0,ymax=6]
-			\tkzDrawXY[label={},]    		
+			\tkzDrawXY[label={},]
 			\tkzFct[color=NavyBlue,line width=1.2]{2.71828 ** \x + 2.71828 ** (-1 * \x)}
 			\geoText(-2,1){$e^x + e^{-x}$}
 			\end{tikzpicture}\\
-			
+
         $f(x) = e^{k\cdot x} - e^{k\cdot -x}$
-        
+
         \begin{itemize}\itemsep 0pt
         	\item $f(0) = 0$
         	\item Punktsymmetrisch $-f(x) = f(-x)$
@@ -144,7 +144,7 @@
         \end{itemize}
 		    &\begin{tikzpicture}[scale=0.4,baseline=(current bounding box.north)]
 			\geoInit[xmin=-3,xmax=3,xstep=1,ymin=-12,ymax=12,ystep=4]
-			\tkzDrawXY[label={},]    		
+			\tkzDrawXY[label={},]
 			\tkzFct[color=NavyBlue,line width=1.2]{2.71828 ** \x - 2.71828 ** (-1 * \x)}
 			\geoText(-2,3.4){$e^{x} - e^{-x}$}
 			\end{tikzpicture} \\
@@ -164,9 +164,9 @@
 		\item Nullstellen:
 		\[ f(x) = 0 \Leftrightarrow g_n(x) = 0,\qquad \text{da }h(x)> 0\text{ für alle } x\]
 		\item Verlauf im Unendlichen:
-		
+
 		Die $e$-Funktion wächst stärker als jede ganzrationale Funktion! Das Verhalten für $x\to \infty$ bzw, $x\to -\infty$ wird also von $h(x)$ bestimmt:
-		
+
 		\begin{itemize}
 			\item $f(x)\to \infty \Leftrightarrow h(x)\to \infty$
 			\item $f(x)\to -\infty \Leftrightarrow h(x)\to -\infty$
