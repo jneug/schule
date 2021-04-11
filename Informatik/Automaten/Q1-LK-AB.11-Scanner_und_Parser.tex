@@ -1,0 +1,109 @@
+\documentclass[10pt, a4paper]{scrartcl}
+
+\usepackage{vorschule}
+\usepackage[
+	typ=ab,
+	fach=Informatik,
+	lerngruppe={Q1-LK} ,
+	nummer=11,
+	module={Symbole,Lizenzen},
+	seitenzahlen=keine,
+	farbig,
+	lizenz=cc-by-nc-sa-4,
+]{schule}
+
+\usepackage[
+	kuerzel=Ngb,
+	reihe={Automaten und formale Sprachen} ,
+	version={2021-04-10} ,
+]{ngbschule}
+
+\author{J. Neugebauer}
+\title{Scanner und Parser}
+\date{\Heute}
+
+\setzeAufgabentemplate{ngbnormal}
+
+\usepackage{FLaAL}
+
+\begin{document}
+\ReiheTitel
+
+\begin{aufgabe}[subtitle=Funktionsweise eines Compilers]
+	\label{aufg:compiler}
+	Klone das Projekt \ordner{rechenmaschine} und öffne es in \programm{BlueJ}.
+	Das Programm ist eine (vereinfachte) Umsetzung eines Compilers (und Interpreters) für
+	\emph{Plusterme}. (Auf \prettyref{ab:10} findest du den DEA zur Sprache.)
+
+	Analysiere das Programm und wie der Übersetzungsvorgang eines Compilers
+	implementiert wurde. Beachte auch die Verwendung der \code{switch}-Anweisung. (Recherchiere
+	ihren Aufbau, falls sie dir neu ist.)
+
+	Welche Aufgabe hat in diesem Beispiel die \code{scan}-Methode, welche die \code{parse}-Methode?
+	Könnte man beide zur Vereinfachung auch zusammenfassen?
+
+	\tipp{Teste das Programm mit verschiedenen Eingaben und studiere vor allem die Fehlermeldungen
+	bei ungültigen Plustermen.}
+\end{aufgabe}
+
+\begin{aufgabe}[subtitle=Minusterme]
+	\label{aufg:subtraktion}
+	Ändere das Programm so ab, dass statt \emph{Plustermen} nun \emph{Minusterme} erkannt und
+	berechnet werden.
+
+	Erweitere das Programm dann so, dass als Rechenoperation nun Addition \emph{und}
+	Subtraktion erlaubt sind.
+\end{aufgabe}
+
+\begin{aufgabe}[subtitle=Rechenterme]
+	\label{aufg:subtraktion}
+	Auf \prettyref{ab:5} wurde die Sprache der gültigen Rechenterme (ohne Klammerung) definiert.
+
+	\begin{figure}[h]
+		\centering
+		\begin{transitiongraph}[fa]
+			\state[sf]{q0}{0}{0}
+			\state[f]{q1}{30}{30}
+			\state[f]{q2}{30}{-30}
+			\state{q3}{30}{0}
+			\state[f]{q4}{50}{0}
+			\state{q5}{110}{0}
+
+			\transition[label=left]{q0}{q1}{0}
+			\transition[label=left]{q0}{q2}{1..9}
+			\transition[label=left]{q1}{q3}{$\cdot$}
+			\transition[label=top]{q1}{q5}{+;-;:;$\cdot$}
+			\transition[line=bot,label=bot]{q2}{q2}{0..9}
+			\transition[label=top]{q2}{q5}{+;-;:;$\cdot$}
+			\transition[label=left]{q2}{q3}{.}
+			\transition[label=top]{q3}{q4}{0..9}
+			\transition[line=left,label=bot]{q5}{q2}{1..9}
+			\transition[line=right,label=top]{q5}{q1}{0}
+			\transition{q4}{q4}{0..9}
+			\transition{q4}{q5}{+;-;:;$\cdot$}
+		\end{transitiongraph}
+		\caption{[NEA] Rechenausdruck}
+		\label{graph:[NEA]_Rechenausdruck}
+	\end{figure}
+
+	Passe das Programm schrittweise an (Scanner, Parser, Interpreter), so dass gültige Rechenterme
+	übersetzt und korrekt ausgerechnet werden. Achte auch auf aussagekräftige Fehlermeldungen bei der
+	Übersetzung.
+
+	\hinweis{Für die Interpretation des Rechenterms ignorieren wir die Punkt-vor-Strich Regel und
+	rechnen einfach von links nach rechts.}
+\end{aufgabe}
+
+
+\begin{aufgabe}[subtitle=Semantische Analyse,symbol=\symStern]
+	\label{aufg:semantik}
+	Die Sprache für gültige Rechenterme hat noch ein Problem: Tauscht im Rechenterm bei einer
+	Division als Divisor die 0 (Null) auf, dann kann das Ergebnis nicht berechnet werden, auch wenn
+	die Eingabe syntaktisch korrekt ist.
+
+	Implementiere eine neue Methode \code{boolean analysiere()}, die die Tokenliste darauf prüft,
+	ob nach einem Geteiltzeichen (\code{:}) eine Null auftaucht und mit einer entsprechenden
+	Fehlermeldung abbricht.
+\end{aufgabe}
+
+\end{document}
