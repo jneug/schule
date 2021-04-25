@@ -1,0 +1,98 @@
+\documentclass[11pt, a4paper, ngerman]{arbeitsblatt}
+
+\ladeModule{theme,typo,icons,boxen,aufgaben}
+\aboptionen{
+	name 		= {J. Neugebauer},
+	kuerzel 	= {Ngb},
+	titel 		= {Effizienzklassen},
+	reihe 		= {Suchen und Sortieren},
+	fach 		= {Informatik},
+	kurs 		= {Q1},
+	nummer 		= {IV.4},
+	lizenz 		= {cc-by-nc-sa-4},
+	version 	= {2021-04-25},
+}
+
+\begin{document}
+\ReiheTitel
+
+\begin{infobox}
+	\textbf{Die Landau-Notation (O-Notation)}
+
+	In der Landau-Notation gibt es verschiedene Symbole. Für uns ist die
+	\enquote{Groß-O-Notation} wichtig. Die Notation $O(n)$ bedeutet,
+	dass die Laufzeit eines Algorithmus \emph{nicht schneller wächst, als die größe
+	seiner Eingabe $n$}. Auf einen Suchalgorithmus bezogen
+	bedeutet dies: Wenn ich in doppelt so vielen Zahlen suche, dann braucht der
+	Algorithmus ungefähr doppelt so lange.
+
+	\smallskip
+	Wichtige Laufzeiten sind:\vspace{-1ex}
+	\begin{multicols}{2}
+		\begin{itemize}
+			\item $O(1)$ - Konstante Laufzeit
+			\item $O(\log(n))$ - Logarithmische Laufzeit
+			\item $O(n)$ - Lineare Laufzeit
+			\item $O(n\cdot\log(n))$ - Super-lineare Laufzeit
+			\item $O(n^2)$ - Quadratische Laufzeit
+			\item $O(n^m)$ - Polynomielle Laufzeit
+			\item $O(2^n)$ - Exponentielle Laufzeit
+			\item $O(n!)$ - Fakultative Laufzeit
+		\end{itemize}
+	\end{multicols}
+	\smallskip
+\end{infobox}
+
+Um die Laufzeit der bekannten Sortieralgorithmen zu ermitteln, wollen wir die
+Laufzeit für verschiedene Eingabegrößen ermitteln. Du kannst dazu deine eigenen
+Implementierungen nutzen, oder die Musterlösung aus dem Tauschordner benutzen
+(\ordner{03-Sortiermaschine\_ML}).
+
+\begin{rahmen}{\Large\faStopwatch}
+	Die Stoppuhr in deinem Projekt ist für unseren Zweck
+	nicht genau genug. Sie misst in \emph{Millisekunden}, für kleine Arrays ist
+	dies aber zu grob. Wenn du dein Projekt verwendest, musst du daher in Zeile 28
+	und 34 den Aufruf \code{System.currentTimeMillis()} durch \code{System.nanoTime()} ersetzen.
+	Nun misst die Uhr in \emph{Nanosekunden}!
+\end{rahmen}
+
+Wir vergleichen das Sortieren von Arrays verschiedener Größen.
+
+\begin{aufgabe}
+	Implementiert eine Methode \code{public void messen( int n )}, die ein Array mit
+	$n$ Zufallszahlen erstellt und mit einer der Sortiermethoden
+	sortiert. Die Zeit für das Sortieren soll mit der Stoppuhr gemessen werden
+	(aber nicht das erstellen des Zufallsarrays). Die gemessene Zeit soll auf der
+	Konsole ausgegeben werden. Nutze dafür den Befehl
+
+	\code{System.out.println(n+"$\backslash$t"+zeit);}
+
+	wobei \code{n} die Anzahl der sortierten Elemente ist und
+	\code{zeit} die gemessene Zeit. \code{$\backslash$t} erzeugt einen
+	Tabulator zwischen den Zahlen.
+
+	Das zufällige Zahlenarray kann durch \code{Zahlengenerator.zufallsArray(n)} erzeugt werden.
+\end{aufgabe}
+
+\begin{aufgabe}
+	Legt ein neues Tabellenblatt in \programm{LibreOffice Calc} an und notiert in der
+	ersten Zeile die Überschriften \emph{n} und
+	\emph{Nanosekunden}. Hier kopiert ihr die Ergebnisse der Messungen während
+	des Versuchs hinein. Durch den Tabulator in der Ausgabe übernimmt
+	\programm{LibreOffice} die Werte direkt in die beiden Zellen.
+
+	Führt Messungen für verschiedene Eingabegrößen durch, zum Beispiel
+	$100, 200, 300, ..., 1000, 2000, ..., 10000, ...$ und kopiert die Laufzeiten in das Tabellenblatt.
+\end{aufgabe}
+
+\begin{aufgabe}
+	Erstellt ein Streudiagramm aus den Messergebnissen. Dabei soll
+	$n$ auf der $x$-Achse und die
+	Nanosekunden auf der $y$-Achse abgebildet werden. Was würdet
+	ihr vermuten ist die Laufzeit des untersuchten Algorithmus?
+\end{aufgabe}
+
+\bigskip
+Wenn noch Zeit ist wiederholt Aufgaben 2 und 3 mit den anderen
+Sortieralgorithmen.
+\end{document}
