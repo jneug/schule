@@ -1,31 +1,23 @@
-\documentclass[10pt, a5paper, landscape]{scrartcl}
+\documentclass[10pt, a5paper, landscape, ngerman]{arbeitsblatt}
 
+%% Layout anpassen
 \usepackage{pgfpages}
 \pgfpagesuselayout{2 on 1}[a4paper]
 
-\usepackage{vorschule}
-\usepackage[
-	typ=ab,
-	fach=Informatik,
-	lerngruppe={Q1-GK},
-	nummer={III.4},
-	module={Symbole,Lizenzen},
-	seitenzahlen=keine,
-	farbig,
-	lizenz=cc-by-nc-sa-4,
-]{schule}
+\ladeModule{theme,typo,icons,boxen,aufgaben}
+\aboptionen{
+	name 		= {J. Neugebauer},
+	kuerzel 	= {Ngb},
+	titel 		= {Quicksort},
+	reihe 		= {Suchen und Sortieren},
+	fach 		= {Informatik},
+	kurs 		= {Q1-GK},
+	nummer 		= {IV.5},
+	lizenz 		= {cc-by-nc-sa-4},
+	version 	= {2021-04-25},
+}
 
-\usepackage[
-	kuerzel=Ngb,
-	reihe={Suchen und Sortieren},
-	version={2020-03-03},
-]{ngbschule}
-
-\author{J. Neugebauer}
-\title{Quicksort}
-\date{\Heute}
-
-\setzeAufgabentemplate{ngbnormal}
+\ladeFach[quelltext]{informatik}
 
 
 \begin{document}
@@ -33,25 +25,25 @@
 
 Ein (meistens) besonders schneller Sortieralgorithmus ist der \emph{Quicksort} Algorithmus. Sein Grundgedanke ist, dass eine Zahl genau dann sortiert ist, wenn alle Zahlen davor kleiner und alle dahinter größer sind. Diese Definition sagt aber nicht aus, dass die Zahlen davor oder danach sortiert sein müssen.
 
-In der Tabelle ist die grau hinterlegte Zahl in diesem Sinne sortiert. 
+In der Tabelle ist die markierte Zahl in diesem Sinne sortiert.
 \begin{center}
 \begin{tabular}{*{7}{|c}|}\hline
-	32 & 21 & 4 & \cellcolor{black!20} \textbf{45} & 99 & 67 & 87 \\ \hline
+	32 & 21 & 4 & \cellcolor{primary.hg} \textbf{45} & 99 & 67 & 87 \\ \hline
 \end{tabular}
 \end{center}
 
 Der Quick-Sort arbeitet daher umgangssprachlich formuliert so:
 
-\begin{smallenumerate}
-\item Wenn nur eine Zahl sortiert werden soll, brich ab. 
+\begin{smallenum}
+\item Wenn nur eine Zahl sortiert werden soll, brich ab.
 \item Wähle ein Element aus (das \emph{Pivot-Element}).
 \item Schiebe alle Elemente kleiner als das Pivot an eine Stelle vor diesem.
-\item Schiebe alle Elemente größer als das Pivot an eine Stelle hinter diesem.  
-\item Wiederhole von 1. jeweils mit den Elementen vor dem Pivot und denen danach.
-\end{smallenumerate}
+\item Schiebe alle Elemente größer als das Pivot an eine Stelle hinter diesem.
+\item Wiederhole ab 1. jeweils mit den Elementen vor dem Pivot und denen danach.
+\end{smallenum}
 
 \begin{aufgabe}
-Probiere den umgangssprachlichen Algorithmus mit dem bekannten Waage-Programm und mindestens 13 Elementen am Rechner aus. 
+Probiere den umgangssprachlichen Algorithmus mit dem bekannten Waage-Programm und mindestens 13 Elementen am Rechner aus.
 
 Macht es einen Unterschied, welches Pivot-Element Du wählst?
 \end{aufgabe}
@@ -60,20 +52,20 @@ Macht es einen Unterschied, welches Pivot-Element Du wählst?
 \TITEL[Quicksort 2]
 
 Quicksort wird in zwei Teilen implementiert:
-\begin{smallenumerate}
+\begin{smallenum}
 	\item Eine Methode \code{quicksort}, die rekursiv aufgerufen wird,
 	\item eine Methode \code{teile}.
-\end{smallenumerate}
+\end{smallenum}
 
 Für die Methode \code{quicksort} kann man folgenden \emph{Pseudocode} notieren:
-\begin{lstlisting}
+\begin{minted}{java}
 quicksort( zahlen, links, rechts)
-	wenn links < rechts dann 
+	wenn links < rechts dann
 		teiler = teile(zahlen, links, rechts)
-		
+
 		quicksort(zahlen, links, teiler-1)
 		quicksort(zahlen, teiler+1, rechts)
-\end{lstlisting}
+\end{minted}
 
 \begin{aufgabe}
  Erkläre den abgedruckten \emph{Pseudocode} und was der zweite Teil \code{teilen} vermutlich für eine Aufgabe hat.
@@ -87,10 +79,10 @@ Der zweite Teil des Quicksort Algorithmus ist die \code{teilen} Methode. Sie wä
 Wie der Algorithmus das \enquote{verschieben} der Elemente effizient schafft, ist eine der genialen Ideen des \emph{Quicksort}.
 
 \begin{aufgabe}
-	Holt euch von vorne Sortierzahlen, Marker und ein Pseudocode-Puzzle. 
-	
-	Bringt den Pseudocode in die passende Reihenfolge. Benutzt die Zahlen und Marker zum Ausprobieren. 
-	
+	Holt euch von vorne Sortierzahlen, Marker und ein Pseudocode-Puzzle.
+
+	Bringt den Pseudocode in die passende Reihenfolge. Benutzt die Zahlen und Marker zum Ausprobieren.
+
 	Analysiert die Methode dann nach diesen Leitfragen:
 	\begin{enumerate}
 		\item Wie funktioniert die \code{teilen} Methode?
@@ -106,20 +98,20 @@ Wie der Algorithmus das \enquote{verschieben} der Elemente effizient schafft, is
 Wähle eine der Aufgaben.
 
 \begin{aufgabe}[subtitle=Laufzeitmessung]
-	Kopiere das Projekt \ordner{03-Sortiermaschine\_3} aus dem Tauschordner. Es enthält Implementierungen aller Sortieralgorithmen (inklusive Quicksort), sowie der bekannten Messmethode. 
-	
+	Kopiere das Projekt \ordner{03-Sortiermaschine\_3} aus dem Tauschordner. Es enthält Implementierungen aller Sortieralgorithmen (inklusive Quicksort), sowie der bekannten Messmethode.
+
 	Ergänze Messungen für den \emph{Quicksort} Algorihtmus zu Deinem Calc-Dokument und vergleiche sie mit denen der anderen Sortieralgorithmen.
-	
+
 	Welche obere Grenze für die Laufzeit vermuteste Du hier?
 \end{aufgabe}
 
 \begin{aufgabe}[subtitle=Implementierung für gute Programmierer]
 	Implementiere den \emph{Quicksort} in deinem Sortiermaschine-Projekt.
-	\begin{lstlisting}[language=Java]
+	\begin{minted}{java}
 public int[] quicksortArray( int[] zahlen, int links, int rechts ) {
 }
-	\end{lstlisting}
-	
+	\end{minted}
+
 	 Du kannst die Testklasse aus dem Projekt \ordner{03-Sortiermaschine\_3} im Tauschordner in dein Projekt kopieren. Sie enthält eine Testmethode für den Quicksort.
 \end{aufgabe}
 

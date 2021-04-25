@@ -1,0 +1,87 @@
+\documentclass[10pt, a4paper, ngerman]{arbeitsblatt}
+
+\ladeModule{theme,typo,icons,boxen,aufgaben}
+\aboptionen{
+	name 		= {J. Neugebauer},
+	kuerzel 	= {Ngb},
+	titel 		= {Effizienz von Algorithmen},
+	reihe 		= {Suchen und Sortieren},
+	fach 		= {Informatik},
+	kurs 		= {Q1},
+	nummer 		= {IV.4},
+	lizenz 		= {cc-by-nc-sa-4},
+	version 	= {2021-04-25},
+}
+
+\begin{document}
+\ReiheTitel
+
+\begin{infobox}\small
+	Die \emph{Effizienz} eines Algorithmus ist nicht so einfach zu quantifizieren.
+	Es gibt verschiedene Faktoren, die einen Algorithmus \enquote{gut} oder \enquote{schlecht}
+	machen. Zwei wichtige Merkmale sind die \emph{Laufzeit} und der \emph{Speicherbedarf}
+	des Algorithmus.
+
+	Die \textbf{Laufzeit} misst, wie \enquote{schnell} der Algorithmus ist. Da diese Messgröße
+	von der Hardware beeinflusst wird, zählt man in der Regel, wie viele \enquote{elementare
+	Operationen} der Algorithmus braucht.
+
+	Der \textbf{Speicherbedarf} misst, wie viel (zusätzlichen) Speicher der Algorithmus benötigt.
+
+	\smallskip
+	Um Algorithmen besser vergleichen zu können, betrachtet man drei unterschiedliche
+	Fälle:
+	\begin{description}
+		\item[worst case:] Wie Effizient ist der Algorithmus im schlechtesten Fall?
+		\item[best case:] Wie Effizient ist er im bestmöglichen Fall?
+		\item[average case:] Wie Effizient ist er im Mittel (über alle möglichen Fälle hinweg)?
+	\end{description}
+	\smallskip
+\end{infobox}
+
+\begin{aufgabe}[icon=\iconHeft]
+	\label{aufg:cases-ermitteln}
+	Finde Beispiele für die \emph{best} und \emph{worst cases} der linearen und binären Suche. Erkläre
+	jeweils (umgangssprachlich), warum sie am schlechtesten sind.
+\end{aufgabe}
+
+\begin{aufgabe}[icon=\iconComputer]
+	\label{aufg:cases-zaehlen}
+	Zum Verglich der Sortieralgorithmen wollen wir die \emph{Anzahl der nötigen Vergleiche}
+	in einem Zahlenarray der größe $n$ in den drei Fällen bestimmen.
+
+	\hinweis{Der \emph{best case} ist jeweils trivial und kann ohne Messung bestimmt werden.}
+
+	Implementiere Methoden nach dem Format \code{public int countWorstLinear( int n )}, die ein
+	Array mit $n$ Zufallszahlen erstellt und den schlechtesten Fall für die lineare Suche durchführt.
+	Dabei soll die Anzahl an Vergleichoperationen gezählt und als Ergebnis zurückgegeben werden.
+
+	Erstelle jeweils Methoden für die Fälle der linearen und binären Suche.
+
+	\tipp{Das zufällige Zahlenarray kann durch \code{Zahlengenerator.zufallsArray(n)} erzeugt werden.}
+\end{aufgabe}
+
+\begin{aufgabe}[icon=\iconComputer]
+	\label{aufg:tabelle-anlegen}
+	Implementiere eine Testmethode, die für verschiedene $n$-Werte die Anzahl an Vergleichen zählt
+	und die Ergebnisse auf der Kommandozeile ausgibt. Nutze dabei diese Ausgabe:
+
+	\code{System.out.println(n+"$\backslash$t"+count);}
+
+	wobei \code{n} die Anzahl der durchsuchten Elemente ist und \code{count} die Anzahl der Vergleiche.
+	\code{$\backslash$t} erzeugt einen Tabulator zwischen den Zahlen.
+
+	Leg parallel ein neues Tabellenblatt in \programm{LibreOffice Calc} an und notiere in der
+	ersten Zeile die Überschriften \emph{n} und \emph{Vergleiche}. Hier kopierst Du die Ergebnisse
+	der Messungen während des Versuchs hinein. Durch den Tabulator in der Ausgabe übernimmt
+	\programm{LibreOffice} die Werte direkt in die beiden Zellen.
+
+	Führe Messungen für verschiedene Eingabegrößen durch, zum Beispiel
+	$100, 200, 300, ..., 1000, 2000, ..., 10000, ...$ und kopier die Laufzeiten in das Tabellenblatt.
+\end{aufgabe}
+
+\begin{aufgabe}
+	Erstell ein Streudiagramm aus den Messergebnissen. Dabei soll $n$ auf der $x$-Achse und die
+	Vergleiche auf der $y$-Achse abgebildet werden. Wie kann das entstandene Diagramm interpretiert werden?
+\end{aufgabe}
+\end{document}
