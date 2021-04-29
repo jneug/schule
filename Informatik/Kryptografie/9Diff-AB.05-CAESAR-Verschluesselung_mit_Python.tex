@@ -1,0 +1,96 @@
+\documentclass[11pt, a4paper, ngerman]{arbeitsblatt}
+
+\ladeModule{
+	theme,typo,icons,boxen,aufgaben
+}
+
+\aboptionen{
+	name		= {J. Neugebauer},
+	kuerzel 	= {Ngb},
+	titel 		= {CAESAR-Verschlüsselung mit Python},
+	reihe 		= {Kryptografie},
+	fach 		= {Informatik},
+	kurs 		= {9Diff},
+	nummer 		= {IV.5},
+	lizenz 		= {cc-by-nc-sa-4},
+	version 	= {2021-04-28},
+}
+
+
+\ladeFach[quelltexte]{informatik}
+
+\begin{document}
+\ReiheTitel
+
+Du weißt nun, wie die CAESAR-Verschlüsselung funktioniert und kennst dich auch
+schon etwas mit \programm{Python} aus. Das ist eine gute Gelegenheit, beides zu verbinden
+und ein \programm{Python}-Programm für die CAESAR-Verschlüsselung zu programmieren.
+
+\begin{rahmen}\textbf{Zur Erinnerung einige Python-Befehle}\small
+	\begin{tasks}[style=itemize](2)
+		\task\code{print(\textquotedbl Hallo, Welt!")} Gibt den Text \enquote{Hallo, Welt!} aus.
+		\task\code{input(\textquotedbl Gib etwas ein ein: ")} Gibt den Text \enquote{Gib etwas ein:} aus
+			  und wartet, bis der Nutzer die ENTER-Taste betätigt.
+		\task\code{ord(\textquotedbl A")} Wandelt den Buchstaben \enquote{A} in seinen Unicode (hier \enquote{65}) um.
+		\task\code{chr(65)} Wandelt den Unicode \enquote{65} in das passende Zeichen (hier \enquote{A}) um.
+		\task\code{\textquotedbl Ein Text".upper()} Wandelt \enquote{Ein Text} in \enquote{EIN TEXT} um.
+		\task\code{\textquotedbl Ein Text".lower()} Wandelt \enquote{Ein Text} in \enquote{ein text} um.
+
+		\task*\code{for x in \textquotedbl Hallo, Welt":} Setzt \code{x} auf jedes Zeichen in \enquote{Hallo, Welt}
+		und führt den Code hinter \code{:} aus.
+	\end{tasks}
+\end{rahmen}
+
+\begin{aufgabe}
+	\label{aufg:encode}
+\begin{wrapfix}
+\begin{wrapfigure}[5]{r}{0pt}
+	\includegraphics[width=2cm]{9Diff-AB.05-Abb_Puzzle}
+\end{wrapfigure}
+
+Bringe das folgende Programm-Puzzle in die korrekte Reihenfolge und
+teste deine Lösung mit \programm{TigerJython}.
+
+\hinweis{Du musst die Einrückungen selber noch passend setzen.}
+\end{wrapfix}
+
+\begin{itemize}[label=\faPuzzlePiece]
+    \item\mintinline{python}{neuesZeichen = chr(verschoben)}
+    \item\mintinline{python}{klartext = input("Klartextwort (ohne Leerzeichen): ")}
+    \item\mintinline{python}{if verschoben > ord("Z"):}
+    \item\mintinline{python}{geheimtext = ""}
+    \item\mintinline{python}{unicode = ord(zeichen)}
+    \item\mintinline{python}{schluessel = schluessel.upper()}
+    \item\mintinline{python}{schluessel = ord(schluessel)-ord("A")}
+    \item\mintinline{python}{print(klartext + " -> " + geheimtext)}
+    \item\mintinline{python}{# Schleife über alle Zeichen im Klartext}
+    \item\mintinline{python}{for zeichen in klartext:}
+    \item\mintinline{python}{klartext = klartext.upper()}
+    \item\mintinline{python}{verschoben = unicode + schluessel}
+    \item\mintinline{python}{schluessel = input("Schlüsselbuchstabe: ")}
+    \item\mintinline{python}{verschoben = verschoben - 26}
+    \item\mintinline{python}{geheimtext = geheimtext + neuesZeichen}
+\end{itemize}
+\end{aufgabe}
+
+\begin{aufgabe}
+	\label{aufg:decode}
+	\begin{enuma}
+		\item Erweitere das Programm so, dass es auch mit \emph{Leerzeichen} im Klartext klarkommt.
+		\item Entwickle ein Programm zum \emph{Entschlüsseln} eines Cäsar-Geheimtextes.
+	\end{enuma}
+\end{aufgabe}
+
+\begin{aufgabe}
+	\label{aufg:break}
+	Du weißt auch schon, dass die CAESAR-Chiffre für moderne Computer recht leicht zu knacken
+	ist. Entwickle ein Programm, dass einen Geheimtext \emph{ohne Kenntniss des Schlüssels}
+	entschlüsseln kann.
+
+	\hinweis{Das Programm kann nicht selber erkennen, ob der entschlüsselte Text ein sinnvoller
+	Klartext ist. Daher muss diese Entscheidung vom Benutzer getroffen werden.}
+
+	\hinweis{Nutze die Funktionen aus \prettyref{aufg:decode}.}
+\end{aufgabe}
+
+\end{document}
