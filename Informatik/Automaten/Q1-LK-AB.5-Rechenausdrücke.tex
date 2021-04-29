@@ -1,48 +1,48 @@
-\documentclass[10pt, a4paper]{scrartcl}
+\documentclass[fontsize=10pt, a4paper, ngerman]{scrartcl}
 
-\usepackage{vorschule}
-\usepackage[
-	typ=ab,
-	fach=Informatik,
-	lerngruppe={Q1-LK} ,
-	nummer=5,
-	module={Symbole,Lizenzen},
-	seitenzahlen=keine,
-	farbig,
-	lizenz=cc-by-nc-sa-4,
-]{schule}
+\usepackage[theme,typo,icons,boxen,aufgaben,qrcodes]{arbeitsblatt}
+\aboptionen{
+	name		= {J. Neugebauer},
+	kuerzel		= {Ngb},
+	titel		= {Rechenausdrücke},
+	reihe		= {Automaten und formale Sprachen},
+	fach		= {Informatik},
+	lerngruppe	= {Q1-LK},
+	nummer		= {IV.05},
+	lizenz		= {cc-by-nc-sa-4},
+	version		= {2021-04-10},
+}
 
-\usepackage[
-	kuerzel=Ngb,
-	reihe={Automaten und formale Sprachen} ,
-	version={2021-03-03} ,
-]{ngbschule}
-
-\author{J. Neugebauer}
-\title{Rechenausdrücke}
-\date{\Heute}
-
-\setzeAufgabentemplate{ngbnormal}
-
-
+\ladeFach[automaten]{informatik}
 
 
 \begin{document}
 \ReiheTitel
 
-Wir wollen in FLACI einen Akzeptor für gültige mathematische Rechenausdrücke erstellen. Der Automat $A = (Q, s, \Sigma, F, \delta)$ soll folgender Definition entsprechen:
+Wir wollen in FLACI einen Akzeptor für gültige mathematische Rechenausdrücke erstellen.
+Der Automat $A = (Q, s, \Sigma, F, \delta)$ soll folgender Definition entsprechen:
 
-Das Alphabet besteht aus den Ziffern 0 bis 9, dem Dezimalpunkt und den Rechenzeichen für Addition, Subtraktion, Multiplikation und Division:
 
-\[ \Sigma = \{0,1,2,3,4,5,6,7,8,9,.,+,-,\cdot,:\} \]
+\begin{rahmen}\small
+	Das Alphabet besteht aus den Ziffern 0 bis 9, dem Dezimalpunkt und den Rechenzeichen
+	für Addition, Subtraktion, Multiplikation und Division:
 
-Ein gütiger Rechenausdruck sei ein mathematischer Term aus Zahlen und Rechenzeichen, wobei der Term immer mit einer Zahl beginnt. Folgt auf eine Zahl ein Rechenzeichen, so muss danach immer noch eine Zahl folgen. Das leere Wort ist ein gültiger Term.
+	\[ \Sigma = \{0,1,2,3,4,5,6,7,8,9,.,+,-,\cdot,:\} \]
 
-Eine Zahl besteht aus beliebigen Kombinationen der Ziffern 0 bis 9. Optional kann genau ein Dezimalpunkt enthalten sein, der aber immer von mindestens einer Ziffer gefolgt werden muss. Ist die erste Ziffer einer Zahl eine Null, dann darf unmittelbar darauf höchstens ein Dezimalpunkt folgen, aber keine andere Ziffer (z.B. $0.234$ ist gültig, $01.234$ oder $00.234$ ist ungültig).
+	Ein gütiger Rechenausdruck sei ein mathematischer Term aus Zahlen und Rechenzeichen,
+	wobei der Term immer mit einer Zahl beginnt. Folgt auf eine Zahl ein Rechenzeichen,
+	so muss danach immer noch eine Zahl folgen. Das leere Wort ist ein gültiger Term.
+
+	Eine Zahl besteht aus beliebigen Kombinationen der Ziffern 0 bis 9. Optional kann
+	genau ein Dezimalpunkt enthalten sein, der aber immer von mindestens einer Ziffer
+	gefolgt werden muss. Ist die erste Ziffer einer Zahl eine Null, dann darf unmittelbar
+	darauf höchstens ein Dezimalpunkt folgen, aber keine andere Ziffer (z.B. $0.234$ ist
+	gültig, $01.234$ oder $00.234$ ist ungültig).
+\end{rahmen}
 
 \begin{aufgabe}\label{aufg:worte}
 	Entschiede für die folgenden Worte, ob sie laut der Definition gültig sind:
-	
+
 	\begin{tasks}(4)
 		\task $0$
 		\task $0.0$
@@ -60,16 +60,20 @@ Eine Zahl besteht aus beliebigen Kombinationen der Ziffern 0 bis 9. Optional kan
 \end{aufgabe}
 
 \begin{aufgabe}
-	Erstelle in FLACI den NEA $A$ und teste ihn ausgiebig. Nutze dazu die Worte aus \prettyref{aufg:worte}.
-	
+	Erstelle in \programm{FLACI} den NEA $A$ und teste ihn ausgiebig. Nutze dazu die
+	Worte aus \prettyref{aufg:worte}.
+
 	Eine Vorlage findest Du unter \url{https://link.ngb.schule/flaci-rechenterme}.
 \end{aufgabe}
 
 \linie[\textwidth]
 
-Der Automat $A$ kann Rechenterme laut der obigen Definition auf Gültigkeit prüfen. Aber wie können wir gültige Terme konstruieren?
+Der Automat $A$ kann Rechenterme laut der obigen Definition auf Gültigkeit prüfen.
+Aber wie können wir gültige Terme konstruieren?
 
-Eine Sprache $L$, die von einem DEA (oder auch NEA) akzeptiert wird, nennt man eine \emph{reguläre Sprache}. Eine Menge von Regeln zur Produktion von Wörtern aus $L$ nennt man eine \emph{reguläre Grammatik}.
+Eine Sprache $L$, die von einem DEA (oder auch NEA) akzeptiert wird, nennt man eine
+\emph{reguläre Sprache}. Eine Menge von Regeln zur Produktion von Wörtern aus
+$L$ nennt man eine \emph{reguläre Grammatik}.
 
 \begin{infobox}
 Eine reguläre Grammatik zu einer Sprache $L$ ist ein 4-Tupel $G_L = (N, T, S, P)$ mit
@@ -81,12 +85,18 @@ Eine reguläre Grammatik zu einer Sprache $L$ ist ein 4-Tupel $G_L = (N, T, S, P
 \end{itemize}
 \end{infobox}
 
-\emph{Terminale} sind die Buchstaben der Sprache. \emph{Nichtterminale} sind \enquote{Platzhalter}, die durch die \emph{Produktionen} mit Kombinationen aus Terminalen und Nichtterminalen ersetzte werden, bis keine Nichtterminale mehr vorhanden sind. Begonnen wird die Produktion immer mit dem Startsymbol $S$.
+\emph{Terminale} sind die Buchstaben der Sprache. \emph{Nichtterminale} sind
+\enquote{Platzhalter}, die durch die \emph{Produktionen} mit Kombinationen aus
+Terminalen und Nichtterminalen ersetzte werden, bis keine Nichtterminale mehr vorhanden
+sind. Begonnen wird die Produktion immer mit dem Startsymbol $S$.
 
-{\small Beispiel für eine Produktion: $A \rightarrow 0A | 1B | 2B | \epsilon$ bedeutet, dass das Nictterminal $A$ entweder mit $0A$, $1B$, $2B$ oder dem leeren Wort ersetzt werden kann. Das Nichtterminal $A$ in $0A$ kann wieder durch $0A$ ersetzt werden, und so weiter.}
+{\small Beispiel für eine Produktion: $A \rightarrow 0A | 1B | 2B | \epsilon$ bedeutet,
+dass das Nichtterminal $A$ entweder mit $0A$, $1B$, $2B$ oder dem leeren Wort ersetzt werden
+kann. Das Nichtterminal $A$ in $0A$ kann wieder durch $0A$ ersetzt werden, und so weiter.}
 
 \begin{aufgabe}
-Wie müsste eine reguläre Grammatik zur Produktion von Rechentermen (der Sprache $L(A)$) aussehen?
+Wie müsste eine reguläre Grammatik zur Produktion von Rechentermen (der Sprache $L(A)$)
+aussehen?
 \end{aufgabe}
 
 

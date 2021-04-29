@@ -1,0 +1,208 @@
+\documentclass[fontsize=10pt, a4paper, ngerman]{scrartcl}
+
+\usepackage[theme,typo,icons,aufgaben]{arbeitsblatt}
+\aboptionen{
+	name={J. Neugebauer},
+	kuerzel=Ngb,
+	titel={Die Programmiersprache \enquote{list}},
+	reihe={Automaten und formale Sprachen},
+	fach={Informatik},
+	kurs={Q1-LK},
+	nummer={IV.12},
+	lizenz=cc-by-nc-sa-4,
+	version={2021-04-10},
+}
+
+\ladeFach[automaten]{informatik}
+
+\begin{document}
+\ReiheTitel
+
+\begin{aufgabe}[subtitle=list 1.0]
+	\label{aufg:list-v1}
+	Die Programmiersprache \enquote{list} erlaubt das Programmieren von
+	nummerierten Listen.
+
+	\begin{minipage}[t]{.5\textwidth}
+	Beispielhaftes Programm in \enquote{list}:
+	\begin{verbatim}
+list from 1 to 5
+    Listeneintrag {i}
+end
+	\end{verbatim}
+	\end{minipage}\hfill\begin{minipage}[t]{.5\textwidth}
+	Ausgabe des Programms:
+	\begin{verbatim}
+Listeneintrag 1
+Listeneintrag 2
+Listeneintrag 3
+Listeneintrag 4
+Listeneintrag 5
+	\end{verbatim}
+	\end{minipage}
+
+	Ein endlicher Automat für die Analyse der Sprache könnte (vereinfacht) so aussehen.
+
+	\begin{center}
+		\rmfamily\small
+		\begin{transitiongraph}[fa]
+			\state[sf]{q0}{0}{0}
+			\state{q1}{20}{0}
+			\state{q2}{40}{0}
+			\state{q3}{60}{0}
+			\state{q4}{80}{0}
+			\state{q5}{100}{0}
+			\state{q6}{100}{-20}
+			\state{q7}{80}{-20}
+			\state{q8}{50}{-20}
+			\state{q9}{30}{-20}
+			\state[f]{q10}{10}{-20}
+
+			\transition[label=top]{q0}{q1}{list\textvisiblespace}
+			\transition[label=top]{q1}{q2}{from\textvisiblespace}
+			\transition[label=top]{q2}{q3}{1..9}
+			\transition[label=top,line=top]{q3}{q3}{0..9}
+			\transition[label=top]{q3}{q4}{\textvisiblespace}
+			\transition[label=top]{q4}{q5}{to\textvisiblespace}
+			\transition[label=right]{q5}{q6}{1..9}
+			\transition[label=bot,line=bot]{q6}{q6}{0..9}
+			\transition[label=bot]{q6}{q7}{\textvisiblespace}
+			\transition[label=bot]{q7}{q8}{string\textvisiblespace}
+			\transition[label=bot]{q8}{q9}{\{i\}\textvisiblespace}
+			\transition[label=bot]{q9}{q10}{end}
+		\end{transitiongraph}
+	\end{center}
+
+	Wobei zur besseren Übersicht folgende Vereinfachungen vereinbart werden:
+	\begin{itemize}
+		\item {\rmfamily\small 0..9} steht für die zehn Übergänge mit jeweils einer der Ziffern von 0 bis
+			9 als Übergangssymbol.
+		\item {\rmfamily\small string} steht für eine beliebige Zeichenfolge.
+		\item Das Symbol {\rmfamily\textvisiblespace} steht für \enquote{Whitespace}, also eine
+			beliebige Anzahl an Leerzeichen, Tabulatoren und Zeilenumbrüchen.
+		\item Steht {\rmfamily\textvisiblespace} am Ende eines Übergangs, bedeutet dies, dass der
+			Buchstabe (z.B. \texttt{list}) von mindestens einem \enquote{Whitespace} gefolgt werden
+			muss. Der Übergang von \texttt{q0} nach \texttt{q1} ist also eine Kurzform von
+
+
+			\begin{center}
+				\scalebox{.7}{
+				\begin{transitiongraph}[fa]\rmfamily\small
+					\state{q0}{0}{0}
+					\state{q0'}{20}{0}
+					\state{q1}{40}{0}
+					\transition[label=top]{q0}{q0'}{list}
+					\transition[label=top]{q0'}{q1}{\textvisiblespace}
+					\transition[label=top]{q1}{q1}{\textvisiblespace}
+				\end{transitiongraph}}
+			\end{center}
+	\end{itemize}
+
+	Implementiere einen Scanner, Parser und Interpreter für \enquote{list}.
+
+	\hinweis{Die Projektvorlage enthält schon die Vorbereitung für einen Scanner, der den
+		eingelesenen Quelltext nicht Zeichenweise durchgeht, sondern ihn jeweils an den Leerzeichen
+		trennt und \enquote{Wort für Wort} durchläuft. Der Scanner muss also vor allem noch die
+		Tokens aus dem Quelltext erstellen.}
+\end{aufgabe}
+
+\begin{aufgabe}[subtitle=list 2.0]
+	\label{aufg:list-v2}
+	Für Version 2 von \enquote{list} soll die Sprache um eine \code{by}-Nweisung ergänzt werden. Außerdem
+	soll es möglich sein, als Textausgabe beliebige Kombinationen aus Strings und Zählern
+	(\code{\{i\}}) anzugeben.
+
+	\begin{minipage}[t]{.6\textwidth}
+		Beispielhaftes Programm in \enquote{list2}:
+		\begin{verbatim}
+list from 1 to 99 by 3
+    {i} bottles of beer on the wall, {i} bottles of beer.
+end
+		\end{verbatim}
+		\end{minipage}\hfill\begin{minipage}[t]{.4\textwidth}
+		Ausgabe des Programms:
+		\begin{verbatim}
+1 bottles of beer on the wall, 1 bottles of beer.
+4 bottles of beer on the wall, 4 bottles of beer.
+7 bottles of beer on the wall, 7 bottles of beer.
+...
+		\end{verbatim}
+	\end{minipage}
+\end{aufgabe}
+
+\begin{aufgabe}[subtitle=list 3.0]
+	\label{aufg:list-v3}
+	\enquote{list3} soll beliebig viele \code{list}-Blöcke hintereinander erlauben.
+\end{aufgabe}
+
+\begin{aufgabe}[subtitle=list 4.0]
+	\label{aufg:list-v4}
+	List ist mittlerweile schon recht umfangreich. Version 4.0 von \enquote{list} soll die
+	Sprache daher etwas vereinfachen und \code{from}, \code{by} und die Zählvariable
+	optional machen. Die ersten beiden bekommen als Standardwert die \code{1}, die Zählvariable
+	\code{i}.
+
+	Ein minimales \enquote{list} Programm sieht dann so aus:
+	\begin{verbatim}
+list to 5
+    Listeneintrag {i}
+end
+	\end{verbatim}
+\end{aufgabe}
+
+\begin{aufgabe}[subtitle=list 5.0]
+	\label{aufg:list-v5}
+	Version 5 wird das bisher größte Update. \enquote{list} soll nun \emph{verschachtelte}
+	\code{list}-Blöcke erlauben. Dazu muss nun die Zählervariable (bisher \code{i}) immer
+	mit angegeben werden.
+
+	\begin{minipage}[t]{.6\textwidth}
+		Beispielhaftes Programm in \enquote{list4}:
+		\begin{verbatim}
+list i from 1 to 5 by 2
+    Liste {i}
+    list j from 5 to 9 by 2
+        - {j} Listeneintrag
+    end
+end
+		\end{verbatim}
+		\end{minipage}\hfill\begin{minipage}[t]{.4\textwidth}
+		Ausgabe des Programms:
+		\begin{verbatim}
+Liste 1:
+- 1.5 Listeneintrag
+- 1.7 Listeneintrag
+- 1.9 Listeneintrag
+Liste 3:
+- 3.5 Listeneintrag
+- 3.7 Listeneintrag
+...
+		\end{verbatim}
+	\end{minipage}
+
+	\hinweis{Version 5 ist keine reguläre Sprache mehr. Zur Analyse muss nun also ein Kellerautomat
+		verwendet werden. Konstruiere als Hilfe zunächst einen Automaten aus dem Übergangsgraphen
+		in \prettyref{aufg:list-v1}. Die Kellersymbole entsprechen den Zählvariablen. Pro
+		\code{list} Befehl wird die Zählvariable auf den Keller gelegt und bei \code{end} wieder entfernt.}
+\end{aufgabe}
+
+\begin{aufgabe}[subtitle=list 6.0]
+	\label{aufg:list-v6}
+	Das finale Update von \enquote{list} soll nochmal einige Neuerungen bringen. Die Community
+	diskutiert noch, welche Features als nächstes umgesetzt werden sollten. Hier sind die Vorschläge,
+	die im Moment die meisten Stimmen haben:
+
+	\begin{itemize}
+		\item Der Aufruf der Zählvariablen in der Ausgabe könnte einfache Arithmetik unterstützen.
+			Zum Beispiel \code{\{i+1\}} oder \code{\{i*2\}}.
+		\item Alle Zahlen (Anfangswert, Endwert, Schrittweite) dürfen auch negativ sein. (Vorsicht:
+			Es könnten sich semantische Fehler einschleichen.)
+		\item Die Ausgabe erlaubt derzeit nur eingeschränkte Verwendung von Leerzeichen in der Ausgabe.
+			Die List \verb|1-1, 1-2, 1-3, 2-1, 2-2, 2-3| kann momentan nicht erzeugt werden. Oder
+			Listeneinträge mit zwei Leerzeichen am Anfang. Das könnte geändert werden.
+		\item \code{from} und \code{to} dürfen auch Buchstaben sein. \code{list from a to d \{i\} end}
+			würde dann \code{a b c d} ausgeben.
+	\end{itemize}
+\end{aufgabe}
+
+\end{document}

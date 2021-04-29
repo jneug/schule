@@ -1,33 +1,22 @@
-\documentclass[10pt, a4paper]{scrartcl}
+\documentclass[10pt, a4paper, ngerman]{scrartcl}
 
-\usepackage{vorschule}
-\usepackage[
-	typ=ab,
-	fach=Informatik,
-	lerngruppe={Q1-LK} ,
-	nummer=11,
-	module={Symbole,Lizenzen},
-	seitenzahlen=keine,
-	farbig,
-	lizenz=cc-by-nc-sa-4,
-]{schule}
+\usepackage[theme,typo,icons,aufgaben]{arbeitsblatt}
+\aboptionen{
+	name		= {J. Neugebauer},
+	kuerzel		= {Ngb},
+	titel		= {Scanner und Parser},
+	reihe		= {Automaten und formale Sprachen},
+	fach		= {Informatik},
+	lerngruppe	= {Q1-LK},
+	nummer		= {IV.11},
+	lizenz		= {cc-by-nc-sa-4},
+	version		= {2021-04-10},
+}
 
-\usepackage[
-	kuerzel=Ngb,
-	reihe={Automaten und formale Sprachen} ,
-	version={2021-04-10} ,
-]{ngbschule}
-
-\author{J. Neugebauer}
-\title{Scanner und Parser}
-\date{\Heute}
-
-\setzeAufgabentemplate{ngbnormal}
-
-\usepackage{FLaAL}
+\ladeFach[automaten]{informatik}
 
 \begin{document}
-\ReiheTitel
+% \ReiheTitel
 
 \begin{aufgabe}[subtitle=Funktionsweise eines Compilers]
 	\label{aufg:compiler}
@@ -39,7 +28,7 @@
 	implementiert wurde. Beachte auch die Verwendung der \code{switch}-Anweisung. (Recherchiere
 	ihren Aufbau, falls sie dir neu ist.)
 
-	Welche Aufgabe hat in diesem Beispiel die \code{scan}-Methode, welche die \code{parse}-Methode?
+	Welche Aufgabe hat in diesem Beispiel die \code{scan}-Methode? Welche die \code{parse}-Methode?
 	Könnte man beide zur Vereinfachung auch zusammenfassen?
 
 	\tipp{Teste das Programm mit verschiedenen Eingaben und studiere vor allem die Fehlermeldungen
@@ -48,15 +37,18 @@
 
 \begin{aufgabe}[subtitle=Minusterme]
 	\label{aufg:subtraktion}
-	Ändere das Programm so ab, dass statt \emph{Plustermen} nun \emph{Minusterme} erkannt und
-	berechnet werden.
 
-	Erweitere das Programm dann so, dass als Rechenoperation nun Addition \emph{und}
-	Subtraktion erlaubt sind.
+	\begin{enuma}
+		\item Ändere das Programm so ab, dass statt \emph{Plustermen} nun \emph{Minusterme} erkannt und
+		berechnet werden.
+
+		\item Erweitere das Programm dann so, dass als Rechenoperation nun Addition \emph{und}
+		Subtraktion erlaubt sind.
+	\end{enuma}
 \end{aufgabe}
 
 \begin{aufgabe}[subtitle=Rechenterme]
-	\label{aufg:subtraktion}
+	\label{aufg:rechenterme}
 	Auf \prettyref{ab:5} wurde die Sprache der gültigen Rechenterme (ohne Klammerung) definiert.
 
 	\begin{figure}[h]
@@ -82,28 +74,33 @@
 			\transition{q4}{q4}{0..9}
 			\transition{q4}{q5}{+;-;:;$\cdot$}
 		\end{transitiongraph}
-		\caption{[NEA] Rechenausdruck}
-		\label{graph:[NEA]_Rechenausdruck}
+		\caption{Nichtdeterministischer Automat zu Rechenausdrücken.}
+		\label{abb:graph-rechenausdruck}
 	\end{figure}
 
-	Passe das Programm schrittweise an (Scanner, Parser, Interpreter), so dass gültige Rechenterme
-	übersetzt und korrekt ausgerechnet werden. Achte auch auf aussagekräftige Fehlermeldungen bei der
-	Übersetzung.
+	Passe das Programm aus \prettyref{aufg:subtraktion} schrittweise an (Scanner, Parser, Interpreter),
+	so dass gültige Rechenterme übersetzt und korrekt ausgerechnet werden. Achte auch auf
+	aussagekräftige Fehlermeldungen bei der Übersetzung.
 
 	\hinweis{Für die Interpretation des Rechenterms ignorieren wir die Punkt-vor-Strich Regel und
 	rechnen einfach von links nach rechts.}
 \end{aufgabe}
 
 
-\begin{aufgabe}[subtitle=Semantische Analyse,symbol=\symStern]
+\begin{aufgabe}[subtitle=Semantische Analyse,icon=\iconStern]
 	\label{aufg:semantik}
 	Die Sprache für gültige Rechenterme hat noch ein Problem: Tauscht im Rechenterm bei einer
 	Division als Divisor die 0 (Null) auf, dann kann das Ergebnis nicht berechnet werden, auch wenn
 	die Eingabe syntaktisch korrekt ist.
 
-	Implementiere eine neue Methode \code{boolean analysiere()}, die die Tokenliste darauf prüft,
-	ob nach einem Geteiltzeichen (\code{:}) eine Null auftaucht und mit einer entsprechenden
-	Fehlermeldung abbricht.
+	Implementiere eine neue Methode \code{boolean analysiere()}, die die Tokenliste vor der
+	Interpretation darauf prüft, ob nach einem Geteiltzeichen (\code{:}) eine Null auftaucht und
+	mit einer entsprechenden Fehlermeldung abbricht.
+\end{aufgabe}
+
+\begin{aufgabe}[subtitle=Klammerausdrücke,icon=\iconStern]
+	\label{aufg:nka}
+	Erweitere die Rechenmaschine um Klammerausdrücke.
 \end{aufgabe}
 
 \end{document}

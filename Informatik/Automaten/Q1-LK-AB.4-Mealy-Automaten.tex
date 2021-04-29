@@ -1,29 +1,19 @@
-\documentclass[10pt, a4paper]{scrartcl}
+\documentclass[fontsize=11pt, a4paper, ngerman]{scrartcl}
 
-\usepackage{vorschule}
-\usepackage[
-	typ=ab,
-	fach=Informatik,
-	lerngruppe={Q1-LK} ,
-	nummer=4,
-	module={Symbole,Lizenzen},
-	seitenzahlen=keine,
-	farbig,
-	lizenz=cc-by-nc-sa-4,
-]{schule}
+\usepackage[theme,typo,icons,aufgaben]{arbeitsblatt}
+\aboptionen{
+	name		= {J. Neugebauer},
+	kuerzel		= {Ngb},
+	titel		= {Mealy-Automaten},
+	reihe		= {Automaten und formale Sprachen},
+	fach		= {Informatik},
+	lerngruppe	= {Q1-LK},
+	nummer		= {IV.04},
+	lizenz		= {cc-by-nc-sa-4},
+	version		= {2021-04-15},
+}
 
-\usepackage[
-	kuerzel=Ngb,
-	reihe={Automaten und formale Sprachen} ,
-	version={2021-03-03} ,
-]{ngbschule}
-
-\author{J. Neugebauer}
-\title{Mealy-Automaten}
-\date{\Heute}
-
-\setzeAufgabentemplate{ngbnormal}
-
+\ladeFach[automaten]{informatik}
 
 \begin{document}
 \ReiheTitel
@@ -44,16 +34,26 @@ Ein Mealy-Automat wird als 6-Tupel $A = (Q, \Sigma, \Omega, \delta, \lambda, q_0
 
 \begin{aufgabe}
 	Konstruiere den gezeigten Mealy-Automaten in FLACI und teste ihn. Was macht der Automat?
-	
-	\begin{figure}[h]\centering
-		\includegraphics[width=6cm]{Q1-LK-AB.4-Abb_Mealy_1}
+
+	\begin{figure}[h]
+	    \centering
+	    \begin{transitiongraph}[fa]
+	        \state[s]{q0}{0}{0}
+			\state{q1}{30}{0}
+	        \transition[label=top]{q0}{q0}{0 / 0}
+	        \transition[label=top,line=left]{q0}{q1}{1 / 0}
+	        \transition[label=bot,line=left]{q1}{q0}{1 / 1}
+	        \transition[label=top]{q1}{q1}{0 / 1}
+	    \end{transitiongraph}
+		%\includegraphics[width=6cm]{Q1-LK-AB.4-Abb_Mealy_1}
 		\caption{Ein Mealy-Automat}
+		\label{abb:mealy-graph}
 	\end{figure}
 \end{aufgabe}
 
 \begin{aufgabe}
 	Konstruiere in FLACI einen Mealy-Automaten mit dem Eingabealphabet $\Sigma = \{ 0, 1, 2, 3 \}$ und dem Ausgabealphabet $\Omega = \{ 0, 1, 2, 3, 4, 5, 6 \}$, der für Eingaben aus zwei Buchstaben (z.B. $23$) die Summe der Zahlen bestimmt (also hier $5$).
-	
+
 	\tipp{Es reichen sechs Zustände zur Umsetzung des Automaten.}
 \end{aufgabe}
 
