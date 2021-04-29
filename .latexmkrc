@@ -16,4 +16,4 @@ sub compileumlet {
 
 add_cus_dep( "qr", "png", 0, "compileqr" );
 sub compileqr {
-	system("cat \"$_[0].qr\" | qrencode -o \"$_[0].png\""); }
+	system("cat \"$_[0].qr\" | qrencode -m 0 -o \"$_[0].png\""); }
