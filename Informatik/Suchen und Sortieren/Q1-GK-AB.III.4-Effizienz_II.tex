@@ -10,13 +10,13 @@
 	kurs 		= {Q1},
 	nummer 		= {IV.4},
 	lizenz 		= {cc-by-nc-sa-4},
-	version 	= {2021-04-25},
+	version 	= {2021-05-12},
 }
 
 \begin{document}
 \ReiheTitel
 
-\begin{infobox}
+\begin{infobox}\small
 	\textbf{Die Landau-Notation (O-Notation)}
 
 	In der Landau-Notation gibt es verschiedene Symbole. Für uns ist die
@@ -48,27 +48,27 @@ Laufzeit für verschiedene Eingabegrößen ermitteln. Du kannst dazu deine eigen
 Implementierungen nutzen, oder die Musterlösung aus dem Tauschordner benutzen
 (\ordner{03-Sortiermaschine\_ML}).
 
-\begin{rahmen}{\Large\faStopwatch}
-	Die Stoppuhr in deinem Projekt ist für unseren Zweck
-	nicht genau genug. Sie misst in \emph{Millisekunden}, für kleine Arrays ist
-	dies aber zu grob. Wenn du dein Projekt verwendest, musst du daher in Zeile 28
-	und 34 den Aufruf \code{System.currentTimeMillis()} durch \code{System.nanoTime()} ersetzen.
-	Nun misst die Uhr in \emph{Nanosekunden}!
-\end{rahmen}
+% \begin{rahmen}{\Large\faStopwatch}
+% 	Die Stoppuhr in deinem Projekt ist für unseren Zweck
+% 	nicht genau genug. Sie misst in \emph{Millisekunden}, für kleine Arrays ist
+% 	dies aber zu grob. Wenn du dein Projekt verwendest, musst du daher in Zeile 28
+% 	und 34 den Aufruf \code{System.currentTimeMillis()} durch \code{System.nanoTime()} ersetzen.
+% 	Nun misst die Uhr in \emph{Nanosekunden}!
+% \end{rahmen}
 
-Wir vergleichen das Sortieren von Arrays verschiedener Größen.
+Wir vergleichen das Sortieren von Integer-Arrays verschiedener Größen.
 
 \begin{aufgabe}
-	Implementiert eine Methode \code{public void messen( int n )}, die ein Array mit
+	Implementiert eine Methode \code{public void time( int n )}, die ein Array mit
 	$n$ Zufallszahlen erstellt und mit einer der Sortiermethoden
 	sortiert. Die Zeit für das Sortieren soll mit der Stoppuhr gemessen werden
 	(aber nicht das erstellen des Zufallsarrays). Die gemessene Zeit soll auf der
 	Konsole ausgegeben werden. Nutze dafür den Befehl
 
-	\code{System.out.println(n+"$\backslash$t"+zeit);}
+	\code{System.out.println(n+"$\backslash$t"+time);}
 
 	wobei \code{n} die Anzahl der sortierten Elemente ist und
-	\code{zeit} die gemessene Zeit. \code{$\backslash$t} erzeugt einen
+	\code{time} die gemessene Zeit. \code{$\backslash$t} erzeugt einen
 	Tabulator zwischen den Zahlen.
 
 	Das zufällige Zahlenarray kann durch \code{Zahlengenerator.zufallsArray(n)} erzeugt werden.
