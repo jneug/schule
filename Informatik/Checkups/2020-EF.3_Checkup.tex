@@ -1,0 +1,190 @@
+\documentclass[a4paper,ngerman,fontsize=10pt]{scrartcl}
+
+\usepackage[checkup,typo,theme,qrcodes]{arbeitsblatt}
+
+\ladeFach[quelltexte]{informatik}
+
+\aboptionen{
+	fach=Mathematik,
+	name=J. Neugebauer,
+	kuerzel=Ngb,
+	reihe={Objektorientierte Programmierung},
+	kurs=EF,
+	nummer=3,
+	version={2021-04-13},
+	lizenz=cc-by-nc-sa-eu-4,
+}
+
+\newcommand{\af}[1]{Aufg.#1}
+\newcommand{\bu}[2]{Buch S.#1\ifthenelse{\equal{#2}{}}{}{, \af{#2}}}
+\newcommand{\ah}[2]{AH S.#1\ifthenelse{\equal{#2}{}}{}{, \af{#2}}}
+\newcommand{\ab}[2][AB]{#1 \enquote{#2}}
+
+\begin{document}
+\CheckupBild\CheckupTitel
+
+Kreuze jeweils an, wie sicher du dich bei den einzelnen \textbf{Themenschwerpunkten}
+fühlst (von \enquote{sehr sicher} \iconLachen\ bis \enquote{sehr unsicher} \iconTraurig).
+Nutze die \textbf{Aufgaben und Informationen} zum Wiederholen und Lernen von Themen,
+\emph{bei denen du noch unsicher bist}.
+
+
+\bigskip
+\begin{checkup}
+	\ichkann{eine Situationsbeschreibung auf Objekte, Klassen, Eigenschaften und Fähigkeiten analysieren.}{
+		\bu{20ff}{}
+	}
+	\ichkann{Klassen mit ihren Eigenschaften und Fähigkeiten als Entwurfs\-diagramm darstellen.)}{
+		\bu{20ff}{} \\
+		\bu{200f}{}
+	}
+	\ichkann{Entwurfsdiagramme in Implemeniterungsdiagramme überführen.}{
+		\bu{103ff}{} \\
+		(vor allem Diagramm S.106) \\
+		\bu{200f}{}
+	}
+	\ichkann{Grundlagen der Programmierung mit Java (Methoden, Variablen, Parameter, Rückgaben, ...).}{
+		\bu{214ff}{} \\
+		Padlet zur OOP
+	}
+	\ichkann{Kontrollstrukuren in Java benutzen (Schleifen, bedingte Anweisungen).}{
+		\bu{214ff}{} \\
+		Padlet zur OOP
+	}
+	\ichkann{Objektorientierte Programmierung (Objekte erstellen, Methoden auf Objekten aufrufen).}{
+		\bu{214ff}{} \\
+		Padlet zur OOP
+	}
+\end{checkup}
+
+\begin{center}
+	\qrlink{https://helmholtz.padlet.org/ngb/i8ovjtmx3cn7rmi8}{Padlet zur OOP}
+\end{center}
+
+\newpage
+
+\subsection*{Aufgabe 1}
+
+Entscheide für die folgenden Quelltexte jeweils, welcher syntaktisch korrekt ist und welcher
+Fehler enthält. Markiere jeweils \emph{alle} Fehler im Programm und erkläre sie im Heft.
+
+\begin{minipage}{.48\linewidth}
+	\begin{minted}{java}
+		for( int i = 0; i << 100; i ++= 1 ) {
+			System.out.println("Eine Zahl: " + i);
+		}
+	\end{minted}
+\end{minipage}\hfill\begin{minipage}{.48\linewidth}
+	\begin{minted}{java}
+		for( int i = 0; i < 100; i ++ ) {
+			System.out.println("Eine Zahl: " + i);
+		}
+	\end{minted}
+\end{minipage}
+
+\begin{minipage}{.48\linewidth}
+	\begin{minted}{java}
+	int zahl = 100;
+	while( zahl != 0 && zahl < 1000 ) {
+		zahl = zahl / 2;
+		zahl += zahl * 0.5;
+	}
+	\end{minted}
+\end{minipage}\hfill\begin{minipage}{.48\linewidth}
+	\begin{minted}{java}
+	int zahl = 100;
+	while( zahl != 0 and zahl < 1000 ) {
+		zahl /= 2;
+		zahl *= 0.5;
+	}
+	\end{minted}
+\end{minipage}
+
+\begin{minipage}{.48\linewidth}
+	\begin{minted}{java}
+	Zufall z = new Zufall();
+	int zahl = z.wuerfeln();
+	System.out.println("Es wurde "+zahl
+		+" gewuerfelt.");
+	\end{minted}
+\end{minipage}\hfill\begin{minipage}{.48\linewidth}
+	\begin{minted}{java}
+	Zufall wuerfeln = new Zufall();
+	int zahl = wuerfeln();
+	System.out.println("Es wurde "+zahl
+		+" gewuerfelt.");
+	\end{minted}
+\end{minipage}
+
+\subsection*{Aufgabe 2}
+Gegeben ist das folgende Entwurfsdiagramm. Überführe es in ein sinnvolles Implementierungsdiagramm
+nach dem Schema aus dem Buch (S.106). Begründe jeweils deine Entscheidungen für Datentypen, Parameter
+und Rückgaben.
+
+\begin{center}
+	\includegraphics[width=.5\linewidth]{2020-EF.3-Abb_UML-Pokemon.pdf}
+\end{center}
+
+\subsection*{Lösung 1}
+\begin{enumn}
+	\item Der rechte Quelltext ist korrekt.
+
+	Fehler im linken Quelltext:
+	\begin{itemize}
+		\item \code{<<} in Zeile 1 ist kein Vergleichsoperator. In der Zählschleife muss \code{i < 100} stehen.
+		\item \code{++=} ist kein gültiger Operator. Statt dessen muss \code{i += 1} oder \code{i++} verwendet werden.
+	\end{itemize}
+
+	\item Der linke Quelltext ist korrekt.
+
+	Fehler im rechten Quelltext:
+	\begin{itemize}
+		\item \code{and} in Zeile 2 ist kein Vergleichsoperator. Statt dessesn muss \code{\&} oder \code{\&\&} verwendet werden.
+	\end{itemize}
+
+	\item Der linke Quelltext ist korrekt.
+
+	Fehler im rechten Quelltext:
+	\begin{itemize}
+		\item \code{wuerfeln()} in Zeile 2 ist keine Methode.
+			  \code{wuerfeln} ist ein Objekt und kann nicht wie eine Methode aufgerufen werden.
+			  Es müsste \code{wuerfeln.wuerfeln()} lauten.
+	\end{itemize}
+\end{enumn}
+
+\subsection*{Lösung 2}
+Eine mögliche Lösung:
+\begin{center}
+	\includegraphics[width=.5\linewidth]{2020-EF.3-Abb_UML-Pokemon_ML.pdf}
+\end{center}
+
+Einige wichtige Aspekte bei der Umwandlung:
+\begin{smallitem}
+	\item Für jedes Attribut muss entschieden werden, ob es Getter und/oder Setter
+			benötigt. Ohne weitere Informationen müssen sinnvolle Vermutungen
+			angestellt werden.
+
+			Für die meisten Attribute sollten Getter erstellt werden. Setter werden in
+			vielen Fällen weggelassen. Der Name eines \code{Trainer}s ist zum Beispiel
+			fest und kann sich nicht mehr ändern. Daher ist ein Setter unnötig.
+			Andererseits könnte man entscheiden, dass ein Trainer seinen Namen jederzeit
+			ändern kann, dann würde ein Setter benötigt.
+
+			Die Lebenspunkte eines \code{Pokemon} ändern sich zwar immer wieder, aber nicht
+			direkt, sondern wenn es angegriffen wird. Zum Beispiel könnte man überlegen, dass
+			bei einem Angriff die Methode \code{verteidigung} aufgerufen wird und wenn die
+			Verteidigung fehlschlägt, dann werden Lebenspunkte abgezogen.
+	\item Für Beziehungen werden keine eigenen Attribute erstellt, aber ggf.
+			Getter und Setter, falls sinnvoll.
+			Hier sollte der \code{Trainer} Methoden haben, um die \code{Pokemon},
+			die er \emph{besitzt} zu setzen und abzurufen. Da es mehrere Pokemon
+			sein können, könnten der Getter und Setter eine Nummer als Parameter
+			bekommen, um bestimmte Pokemon abzufragen.
+
+			Das Pokemon sollte einen Getter haben, um das Pokemon abzufragen,
+			zu dem es sich entwickelt.
+	\item Es sollte immer einen Konstruktor geben, in dem die Attribute als
+			Parameter übergeben werden
+\end{smallitem}
+
+\end{document}
