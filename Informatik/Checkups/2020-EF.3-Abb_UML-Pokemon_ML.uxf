@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<diagram program="umlet" version="14.3.0">
+  <zoom_level>10</zoom_level>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>100</x>
+      <y>70</y>
+      <w>290</w>
+      <h>140</h>
+    </coordinates>
+    <panel_attributes>*Trainer*
+--
+-name: String
+--
++Trainer(pName: String)
++getName(): String
++getPokemon(pNummer: int): Pokemon
++setPokemon(pNummer: int,
+    pPokemon: Pokemon): void</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>60</x>
+      <y>280</y>
+      <w>360</w>
+      <h>310</h>
+    </coordinates>
+    <panel_attributes>*Pokemon*
+--
+-name: String
+-lebenspunkte: int
+-attacke: double
+-verteidigung: double
+-mussRegenerieren: boolean
+--
++Pokemon(pName: String, pLebenspunkte: int,
+    pAttacke: double, pVerteidigung: double)
++getName(): String
++getLebenspunkte(): int
++getAttacke(): double
++getVerteidigung(): double
++mussRegenerieren(): boolean
++setzeMussRegenerieren(
+    pMussRegenerieren: boolean): void
++getEntwickeltSichZu(): Pokemon
++angreifen(pGegner: Pokemon): void
++verteidigen(pGegner: Pokemon): void</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>220</x>
+      <y>200</y>
+      <w>80</w>
+      <h>100</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;-
+-besitzt
+m1=0..*</panel_attributes>
+    <additional_attributes>10.0;80.0;10.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>410</x>
+      <y>350</y>
+      <w>220</w>
+      <h>140</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;-
+-entwickeltSichZu
+m1=0..1</panel_attributes>
+    <additional_attributes>10.0;10.0;80.0;10.0;80.0;120.0;10.0;120.0</additional_attributes>
+  </element>
+</diagram>
