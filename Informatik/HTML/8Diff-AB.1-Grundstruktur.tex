@@ -1,41 +1,34 @@
-\documentclass[a4paper,11pt]{scrartcl}
+\documentclass[11pt, a4paper, ngerman]{arbeitsblatt}
 
-\usepackage{vorschule}
-\usepackage[
-	typ=ab,
-	fach={Informatik},
-	lerngruppe={Diff 8},
-%	module={Lizenzen},
-%	lizenz={cc-by-nc-sa-4},
-]{schule}
+\ladeModule{theme,typo,icons,aufgaben}
+\ladeFach[listings]{informatik}
 
-\usepackage[
-	kuerzel={Ngb},
-	reihe={Webseiten erstellen mit HTML},
-	version={2019-03-30},
-	%url={https://www.github.com/jneug/schule},
-]{ngbschule}
-
-\author{J. Neugebauer}
-\title{Grundstruktur einer HTML Seite}
-\date{30.03.2019}
-
-\setzeAufgabentemplate{ngbnormal}
+\aboptionen{
+	name 		= {J. Neugebauer},
+	kuerzel 	= {Ngb},
+	titel 		= {Grundstruktur einer HTML Seite},
+	reihe 		= {Webseiten erstellen mit HTMLWebseiten erstellen mit HTML},
+	fach 		= {Informatik},
+	kurs 		= {8Diff},
+	nummer 		= {II.1},
+	lizenz 		= {cc-by-nc-sa-4},
+	version 	= {2021-05-05},
+}
 
 \begin{document}
-%\ReiheTitel
+\ReiheTitel
 
 \begin{quote}
 HTML steht für \enquote{Hypertext Markup Language}. HTML ist eine formale Sprache zur Beschreibung der Struktur von Hypertexten (in Form verlinkter Webseiten) mit Hilfe von Auszeichnungen.
 \end{quote}
 
-\begin{aufgabe}[symbol=\Large\symLaptop]
+\begin{aufgabe}[icon=\iconComputer]
 Ruft die Adresse \url{https://link.ngb.schule/html-bailey} im Firefox Browser auf. Unten ist der Quelltext der Seite abgebildet. Studiert den Quelltext und vergleicht ihn mit der Darstellung der Seite im Browser. Beantwortet dann folgende Fragen:
-\begin{enumeratea}\itemsep 0ex
+\begin{enuma}\itemsep 0ex
 	\item Wieso ist HTML eine \enquote{Auszeichnungssprache}?
 	\item Welche Elemente erkennt ihr?
 	\item Welche Grundstruktur hat eine HTML-Seite?
-\end{enumeratea}
+\end{enuma}
 \begin{lstlisting}[language=HTML,basicstyle=\scriptsize\ttfamily]
 <!doctype html>
 <html>
@@ -50,20 +43,20 @@ Ruft die Adresse \url{https://link.ngb.schule/html-bailey} im Firefox Browser au
 	<img src="img/bailey1.jpg" alt="Foto von Bailey">
 	</p>
 	<p>
-	Hallo, ich heiße Bailey und lebe in der Nähe von 
-	<a href="http://www.kaiserslautern.de">Kaiserslautern</a>. 
-	Ich bin ein Australian Shepherd, meine Vorfahren haben in 
+	Hallo, ich heiße Bailey und lebe in der Nähe von
+	<a href="http://www.kaiserslautern.de">Kaiserslautern</a>.
+	Ich bin ein Australian Shepherd, meine Vorfahren haben in
 	Australien Schafe gehütet.
 	</p>
 	<p>
-	Wenn ich erwachsen bin, will ich Agility-Sport treiben. 
-	Wisst ihr überhaupt, was das ist? Wenn nicht, dann schaut 
-	euch doch mal die Fotos bei 
-	<a href="https://de.wikipedia.org/wiki/Agility">Wikipedia</a> 
+	Wenn ich erwachsen bin, will ich Agility-Sport treiben.
+	Wisst ihr überhaupt, was das ist? Wenn nicht, dann schaut
+	euch doch mal die Fotos bei
+	<a href="https://de.wikipedia.org/wiki/Agility">Wikipedia</a>
 	an. Ihr werdet staunen, was wir Hunde alles können!
 	</p>
 	<p>
-	Ich kann aber auch schon ganz viel. Das könnt ihr auf 
+	Ich kann aber auch schon ganz viel. Das könnt ihr auf
 	der <a href="_bailey2.html">nächsten Seite</a> sehen.
 	</p>
 </body>
@@ -74,7 +67,7 @@ Ruft die Adresse \url{https://link.ngb.schule/html-bailey} im Firefox Browser au
 \begin{wrapfigure}{r}{3cm}
 	\includegraphics[width=3cm]{8Diff-Ab.1-Abb_Menu.jpg}
 \end{wrapfigure}
-\begin{aufgabe}[symbol=\Large\symLaptop]
+\begin{aufgabe}[icon=\iconComputer]
 	Durch einen Rechtsklick im Browserfenster könnt ihr ein \menu{Element untersuchen}\\
 	 und sogar \enquote{live} bearbeiten. Nutzt diesen \enquote{Inspektor}, um die Seite weiter zu \\
 	 erkunden.
