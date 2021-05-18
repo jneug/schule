@@ -33,44 +33,44 @@
 import java.util.Random;
 
 public class Schueler {
-	
+
 	public static int zufallszahl( int pMin, int pMax ) {
 		Random r = new Random();
 		return r.nextInt(pMax-pMin)+pMin;
-	}	
-	
+	}
+
 	private String vorname;
-	
+
 	private String nachname;
 
 	private int notenpunkte;
-	
+
 	private Schueler sitznachbar;
-	
-	
+
+
 	public Schueler( String pVorname, String pNachname ) {
 		vorname = pVorname;
 		nachname = pNachname;
-		
+
 		notenpunkte = Schueler.zufallszahl(0,15);
 	}
-	
+
 	public String getName() {
 		return vorname + " " + nachname;
 	}
-	
+
 	public int getNotenpunkte() {
 		return note;
 	}
-	
+
 	public Schueler getSitznachbar() {
 		return sitznachbar;
 	}
-	
+
 	public void setSitznachbar( Schueler pNeuerNachbar ) {
 		sitznachbar = pNeuerNachbar;
 	}
-	
+
 	public int notenschnittErmitteln() {
 		if( sitznachbar != null ) {
 			return Math.round((sitznachbar.getNotenpunkte() + notenpunkte)/2);
@@ -78,16 +78,16 @@ public class Schueler {
 			return notenpunkte;
 		}
 	}
-	
-	
+
+
 	public static void main( String[] args ) {
 		Schueler kim = new Schueler("Kim", "Meyer");
 		Schueler johann = new Schueler("Johann", "Schmidt");
 		kim.setSitznachbar(johann);
 		System.out.println(kim.notenschnittErmitteln());
-		
+
 	}
-	
+
 }
 \end{lstlisting}
 
