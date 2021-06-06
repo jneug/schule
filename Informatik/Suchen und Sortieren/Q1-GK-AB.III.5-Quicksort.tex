@@ -1,4 +1,4 @@
-\documentclass[10pt, a5paper, landscape, ngerman]{arbeitsblatt}
+\documentclass[9pt, a5paper, landscape, ngerman]{arbeitsblatt}
 
 %% Layout anpassen
 \usepackage{pgfpages}
@@ -11,13 +11,13 @@
 	titel 		= {Quicksort},
 	reihe 		= {Suchen und Sortieren},
 	fach 		= {Informatik},
-	kurs 		= {Q1-GK},
+	kurs 		= {Q1},
 	nummer 		= {IV.5},
 	lizenz 		= {cc-by-nc-sa-4},
 	version 	= {2021-04-25},
 }
 
-\ladeFach[quelltext]{informatik}
+\ladeFach[quelltexte]{informatik}
 
 
 \begin{document}
@@ -59,7 +59,7 @@ Quicksort wird in zwei Teilen implementiert:
 
 Für die Methode \code{quicksort} kann man folgenden \emph{Pseudocode} notieren:
 \begin{minted}{java}
-quicksort( zahlen, links, rechts)
+quicksort( zahlen, links, rechts )
 	wenn links < rechts dann
 		teiler = teile(zahlen, links, rechts)
 
@@ -95,24 +95,46 @@ Wie der Algorithmus das \enquote{verschieben} der Elemente effizient schafft, is
 \clearpage
 \TITEL[Quicksort 4]
 
-Wähle eine der Aufgaben.
+% Wähle eine der Aufgaben.
 
-\begin{aufgabe}[subtitle=Laufzeitmessung]
-	Kopiere das Projekt \ordner{03-Sortiermaschine\_3} aus dem Tauschordner. Es enthält Implementierungen aller Sortieralgorithmen (inklusive Quicksort), sowie der bekannten Messmethode.
+% \begin{aufgabe}[subtitle=Laufzeitmessung]
+% 	Kopiere das Projekt \ordner{03-Sortiermaschine\_3} aus dem Tauschordner. Es enthält Implementierungen aller Sortieralgorithmen (inklusive Quicksort), sowie der bekannten Messmethode.
 
-	Ergänze Messungen für den \emph{Quicksort} Algorihtmus zu Deinem Calc-Dokument und vergleiche sie mit denen der anderen Sortieralgorithmen.
+% 	Ergänze Messungen für den \emph{Quicksort} Algorihtmus zu Deinem Calc-Dokument und vergleiche sie mit denen der anderen Sortieralgorithmen.
 
-	Welche obere Grenze für die Laufzeit vermuteste Du hier?
-\end{aufgabe}
+% 	Welche obere Grenze für die Laufzeit vermuteste Du hier?
+% \end{aufgabe}
 
-\begin{aufgabe}[subtitle=Implementierung für gute Programmierer]
+% \begin{aufgabe}[subtitle=Implementierung für gute Programmierer]
+% 	Implementiere den \emph{Quicksort} in deinem Sortiermaschine-Projekt.
+% 	\begin{minted}{java}
+% public int[] quicksortArray( int[] zahlen, int links, int rechts ) {
+% }
+% 	\end{minted}
+
+% 	 Du kannst die Testklasse aus dem Projekt \ordner{03-Sortiermaschine\_3} im Tauschordner in dein Projekt kopieren. Sie enthält eine Testmethode für den Quicksort.
+% \end{aufgabe}
+
+\begin{aufgabe}[subtitle=Implementierung]
 	Implementiere den \emph{Quicksort} in deinem Sortiermaschine-Projekt.
 	\begin{minted}{java}
 public int[] quicksortArray( int[] zahlen, int links, int rechts ) {
 }
 	\end{minted}
 
-	 Du kannst die Testklasse aus dem Projekt \ordner{03-Sortiermaschine\_3} im Tauschordner in dein Projekt kopieren. Sie enthält eine Testmethode für den Quicksort.
+	 \hinweis{Zum testen kannst du eine der Testmethoden in der Testklasse kopieren und für den
+	 Quicksort anpassen.}
 \end{aufgabe}
+
+\begin{aufgabe}[subtitle=Laufzeitmessung]
+	Führe auch für den Quicksort eine Zeitmessung der Laufzeit aus und stelle die Messungen
+	als Streudiagramm dar. Stelle begründete Vermutungen auf, welche Laufzeit Quicksort haben
+	könnte.
+\end{aufgabe}
+
+\begin{aufgabe*}[subtitle=Mergesort]
+	Es gibt noch eine ganze Reihe weiterer Sortieralgorithmen
+	Informiere dich über den \emph{Mergesort} Algorithmus und implementiere ihn.
+\end{aufgabe*}
 
 \end{document}

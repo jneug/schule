@@ -1,37 +1,25 @@
-\documentclass[10pt, a4paper]{scrartcl}
+\documentclass[11pt, a4paper, ngerman]{arbeitsblatt}
 
-\usepackage{vorschule}
-\usepackage[
-    typ=ab,
-    fach=Informatik,
-    lerngruppe={Diff-9},
-    nummer=1,
-    module={Symbole,Lizenzen},
-    seitenzahlen=keine,
-    farbig,
-    lizenz=cc-by-nc-sa-4,
-]{schule}
-
-\usepackage[
-	kuerzel=Ngb,
-	reihe={Geschichte der Informatik},
-	version={2019-09-1},
-]{ngbschule}
-
-\author{J. Neugebauer}
-\title{Quiz zur Geschichte der Informatik}
-\date{\Heute}
-
-\setzeAufgabentemplate{ngbnormal}
+\ladeModule{theme,typo,icons,boxen,aufgaben}
+\aboptionen{
+	name 		= {J. Neugebauer},
+	kuerzel 	= {Ngb},
+	titel 		= {Quiz zur Geschichte der Informatik},
+	reihe 		= {Geschichte der Informatik},
+	fach 		= {Informatik},
+	kurs 		= {9Diff},
+	nummer 		= {I.1},
+	lizenz 		= {cc-by-nc-sa-4},
+	version 	= {2021-05-27},
+}
 
 \begin{document}
-
 \ReiheTitel
 
-\begin{wrapfigure}[6]{l}{0pt}
+\begin{wrapfigure}[5]{l}{0pt}
 \includegraphics[width=1.8cm]{9Diff-AB.1-Abb-1}
 \end{wrapfigure}
-Die Informatik ist noch ein recht junges Fach – im Vergleich etwa zur Mathematik oder zur Physik. 
+Die Informatik ist noch ein recht junges Fach – im Vergleich etwa zur Mathematik oder zur Physik.
 Es gibt einige Frauen und Männer, die die Entstehung der Informatik maßgeblich beeinflusst haben.
 
 
@@ -41,13 +29,14 @@ alle Teams in einem Quiz-Spiel zur Informatik gegeneinander an.
 
 Teilt die Fragen untereinander auf und macht euch Notizen, die ihr beim Quiz nutzen könnt.
 
+\begin{rahmen}
 \begin{enumerate}
 	\item Einer der ersten mechanischen Computer, die \enquote{Analytical Engine}, wurde von einem Engländer gebaut. Wie heißt dieser Mann und wann hat er gelebt?
 	\item Die Person aus Frage 1 hat sehr eng mit einer Frau zusammen gearbeitet, der zu Ehren eine bekannte Programmiersprache \enquote{Ada} genannt wurde. Um wen geht es hierbei und welche Rolle hat die Frau bei der Analytical Engine gespielt?
-	\item Das was \person{Albert Einstein} für die Physik ist, ist \person{Alan Turing} für die Informatik. 
+	\item Das was \person{Albert Einstein} für die Physik ist, ist \person{Alan Turing} für die Informatik.
 	Wann lebte er und was sind seine wichtigsten Leistungen für die Informatik?
 	\item Es gibt eine Stadt, in der ein Denkmal \person{Alan Turings} steht. Wo steht das Denkmal und was hält Turing dort in der Hand? Welche Bedeutung hat dieser Gegenstand?
-	\item Drei Betriebssysteme dominieren heute den Markt: Windows, Linux (Basis von Android) sowie Mac OS. Wie heißen die \enquote{Erfinder} dieser Systeme und wann sind diese entstanden? 
+	\item Drei Betriebssysteme dominieren heute den Markt: Windows, Linux (Basis von Android) sowie Mac OS. Wie heißen die \enquote{Erfinder} dieser Systeme und wann sind diese entstanden?
 	\item Welche bahnbrechende Erfindung für unser heutiges Leben hat \person{Tim Berners-Lee} gemacht?
 	\item Was ist die \enquote{Z3}? Wer hat sie entwickelt und wann war das? Wo kann man heute einen Nachbau der Z3 sehen?
 	\item Jeder moderne Computer (PC, Handy, …) basiert auf den Ideen von \person{John von Neumann}. Um welche \enquote{Idee} handelt es sich dabei?
@@ -58,5 +47,6 @@ Teilt die Fragen untereinander auf und macht euch Notizen, die ihr beim Quiz nut
 	\item Was verbirgt sich hinter den Abkürzungen \enquote{WWW}, \enquote{HTTP}, \enquote{HTML} und \enquote{SSL}?
 	\item Die Gründer von Apple, Microsoft und Google haben in den letzten Jahrzehnten den Fortschritt der Rechenmaschine mitgestaltet. Wie heißen sie und was waren ihre wichtigsten Meilensteine?
 \end{enumerate}
+\end{rahmen}
 
 \end{document}

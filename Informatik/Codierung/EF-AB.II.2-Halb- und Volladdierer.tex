@@ -1,34 +1,23 @@
-\documentclass[10pt, a4paper]{scrartcl}
+\documentclass[10pt, a4paper]{arbeitsblatt}
 
-\usepackage{vorschule}
-\usepackage[
-    typ=ab,
-    fach=Informatik,
-    lerngruppe={EF},
-    nummer={II.2},
-    module={Symbole,Lizenzen},
-    seitenzahlen=keine,
-    farbig,
-    lizenz=cc-by-nc-sa-4,
-]{schule}
+\ladeModule{theme,boxen,tabellen}
+\aboptionen{
+	name 		= {J. Neugebauer},
+	kuerzel 	= {Ngb},
+	titel 		= {Halb- und Volladdierer},
+	reihe 		= {Digitale Schaltungen},
+	fach 		= {Informatik},
+	kurs 		= {EF},
+	nummer 		= {II.2},
+	lizenz 		= {cc-by-nc-sa-4},
+	version 	= {2021-05-30},
+}
 
-\usepackage[
-	kuerzel=Ngb,
-	reihe={Digitale Schaltungen},
-	version={2020-09-4},
-]{ngbschule}
-
-\author{J. Neugebauer}
-\title{Halb- und Volladdierer}
-\date{\Heute}
-
-\setzeAufgabentemplate{ngbnormal}
-
-%\usepackage{qrcode}
-
+\usetikzlibrary{fit}
 \newcommand\addvmargin[1]{%
 \node[fit=(current bounding box),inner ysep=#1,inner xsep=0]{};}
 
+\usepackage{circuitikz}
 \ctikzset{tripoles/european not symbol=ieee circle}
 
 \setlength{\tabcolsep}{5mm}
@@ -53,7 +42,7 @@ Der \textbf{Halbaddierer} bestimmt die Summe ($s$) und den Übertrag ($c_o$) ein
 \end{tabular}
 \end{center}
 
-\vspace*{1cm}
+\vspace*{2cm}
 
 \columnbreak
 
@@ -78,11 +67,11 @@ Der \textbf{Volladdierer} bestimmt die Summe ($s$) und den Übertrag ($c_o$) ein
 
 \begin{rahmen}\centering
 Schaltnetz des Halbaddierers.
-\vspace{5cm}
+\vspace{4.5cm}
 \end{rahmen}
 \begin{rahmen}\centering
 Schaltnetz des Volladdierers.
-\vspace{5cm}
+\vspace{4.5cm}
 \end{rahmen}
 
 \end{document}

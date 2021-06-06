@@ -1,58 +1,83 @@
-\documentclass[10pt, a5paper]{scrartcl}
+\documentclass[10pt, a5paper]{arbeitsblatt}
+
+\ladeModule{theme,typo,icons,tabellen,aufgaben}
+\aboptionen{
+	name 		= {J. Neugebauer},
+	kuerzel 	= {Ngb},
+	titel 		= {Subtraktions- und Moduloverfahren},
+	reihe 		= {Grundlagen der Informatik},
+	fach 		= {Informatik},
+	kurs 		= {8Diff},
+	nummer 		= {II.1},
+	lizenz 		= {cc-by-nc-sa-4},
+	version 	= {2021-05-28},
+	aufgaben/format = abohne
+}
 
 \usepackage{pgfpages}
 \pgfpagesuselayout{2 on 1}[a4paper,landscape]
-
-\usepackage{vorschule}
-\usepackage[
-	typ=ab,
-	fach=Informatik,
-	lerngruppe={9Diff},
-	nummer={II.2},
-	module={Symbole,Lizenzen},
-	seitenzahlen=keine,
-	farbig,
-	lizenz=cc-by-nc-sa-4,
-]{schule}
-
-\usepackage[
-	kuerzel=Ngb,
-	reihe={Informationen, Daten und Codierung},
-	version={2020-09-11},
-]{ngbschule}
-
-\author{J. Neugebauer}
-\title{Subtraktions- und Moduloverfahren}
-\date{\Heute}
-
-\setzeAufgabentemplate{schule-keinenummer}
-
-\usepackage{scratch}
 
 \begin{document}
 \ReiheTitel
 
 \begin{aufgabe}
-	Wandle die Zahl $(42)_{10}$ in ihre binäre Darstellung um. Befolge dazu die folgenden Schritte genau:
+	Wandle die Zahl $(42)_{10}$ in ihre binäre Darstellung um. Befolge
+	dazu die folgenden Schritte genau:
 	\begin{enumerate}
-		\item Teile die Zahl \emph{mit Rest} durch 2 (die Modulo-Operation).
-			\begin{align*}
-				\text{z.B.}\quad7 : 2 &= 3 \quad\text{Rest}\ 1  \\
-				12 : 2 &= 6 \quad\text{Rest}\ 0
-			\end{align*}
-		\item Wenn das Ergebnis gleich Null ist, nimm das Ergebnis als neue Zahl und gehe wieder zu Schritt 1.
-			\begin{align*}
-				\text{z.B.}\quad7 : 2 &= 3 \quad\text{Rest}\ 1 \\
-				\text{Neue Zahl:} &\quad 3
-			\end{align*}
-		
-			Wenn das Ergebnis gleich Null ist, dann weiter bei Schritt 3.
-		\item Notiere die Reste der Rechnung von \enquote{unten nach oben}, also vom letzten berechneten Rest bis zum Rest der ersten Division.
+		\item \label{goto-0} Teile die Zahl \emph{mit Rest} durch
+		      $2$ (die Modulo-Operation).
+		      \begin{align*}
+			      \text{z.B.}\quad7 : 2 & = 3 \quad\text{Rest}\ 1 \\
+			      12 : 2                & = 6 \quad\text{Rest}\ 0
+		      \end{align*}
+		\item Wenn das Ergebnis gleich Null ist, nimm das Ergebnis als neue Zahl und gehe
+		      wieder zu Schritt \ref{goto-0}.
+		      \begin{align*}
+			      \text{z.B.}\quad7 : 2 & = 3 \quad\text{Rest}\ 1 \\
+			      \text{Neue Zahl:}     & \quad 3
+		      \end{align*}
+
+		      Wenn das Ergebnis gleich Null ist, dann weiter bei Schritt
+		      \ref{goto-1}.
+		\item \label{goto-1} Notiere die Reste der
+		      Rechnung von \enquote{unten nach oben}, also vom letzten berechneten Rest bis zum
+		      Rest der ersten Division.
 	\end{enumerate}
 \end{aufgabe}
 
 \newpage
-
 \ReiheTitel
+
+\begin{aufgabe}
+	Wandle die Zahl $(42)_{10}$ in ihre binäre Darstellung um. Befolge
+	dazu die folgenden Schritte genau:
+	\begin{enumerate}
+		\item Suche die größte Potenz von $2$, die kleiner oder gleich der
+		      Zahl ist.
+		      \begin{align*}
+			      \text{z.B.}\quad 5 \geq 2^2 & = 4
+		      \end{align*}
+		\item \label{goto-2} Prüfe, ob die Zweierpotenz kleiner oder gleich der
+		      Zahl ist.
+
+		      Ist dies der Fall, notiere eine $1$.
+		      \begin{align*}
+			      \text{z.B.}\quad 5 \geq 2^2 & = 4 \quad\longrightarrow 1
+		      \end{align*}
+
+		      Ansonsten notiere eine $0$.
+		      \begin{align*}
+			      \text{z.B.}\quad 1 < 2^1 & = 2 \quad\longrightarrow 0
+		      \end{align*}
+		\item Subtrahiere die Zweierpotenz von der Zahl.
+		      \begin{align*}
+			      \text{z.B.}\quad 5-2^2 & = 1
+		      \end{align*}
+		\item Wenn die Differenz (im Beispiel $1$) ungleich Null ist, dann
+		      wiederhole ab Schritt \ref{goto-2} und benutze die Differenz als neue
+		      Zahl und der nächst kleinere Zweierpotenz (im Beispiel also
+		      $1$ und $2^1$).
+	\end{enumerate}
+\end{aufgabe}
 
 \end{document}

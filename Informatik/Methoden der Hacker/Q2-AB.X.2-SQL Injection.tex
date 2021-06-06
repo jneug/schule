@@ -1,38 +1,24 @@
-\documentclass[10pt, a4paper]{scrartcl}
+\documentclass[10pt, a4paper, ngerman]{scrartcl}
 
-%\usepackage{qrcode}
-
-\usepackage{vorschule}
-\usepackage[
-	typ=ab,
-	fach=Informatik,
-	lerngruppe={Q2},
-	nummer=X.2,
-	module={Symbole,Lizenzen},
-	seitenzahlen=keine,
-	farbig,
-	lizenz=cc-by-nc-sa-4,
-]{schule}
-
-\usepackage[
-	kuerzel=Ngb,
-	reihe={Die Methoden der Hacker},
-	version={2020-01-28},
-]{ngbschule}
-
-\author{J. Neugebauer}
-\title{SQL-Injections}
-\date{\Heute}
-
-\setzeAufgabentemplate{ngbnormal}
-
+\usepackage[theme,typo,icons,aufgaben]{arbeitsblatt}
+\aboptionen{
+	name		= {J. Neugebauer},
+	kuerzel		= {Ngb},
+	titel		= {SQL-Injections},
+	reihe		= {Die Methoden der Hacker},
+	fach		= {Informatik},
+	lerngruppe	= {Q2},
+	nummer		= {X.2},
+	lizenz		= {cc-by-nc-sa-4},
+	version		= {2021-05-27},
+}
 
 \begin{document}
 \ReiheTitel
 
 Kopiere zur Vorbereitung die Dateien \datei{fussballem.db}, \datei{YeOldCheeseShoppe.db} und das Projekt \ordner{SuperSecureServer} aus dem Tauschordner. Du kannst eine der Datenbankdateien durch Doppelklick im Programm \programm{DB Browser for SQLite} öffnen. Hier kannst du dir den Inhalt der Datenbank anzeigen lassen und SQL-Anfragen ausführen.
 
-\begin{aufgabe}[symbol=\symPartner\,\symLaptop]
+\begin{aufgabe}[icon=\iconPartner\,\iconLaptop]
 	\begin{teilaufgaben}
 		\teilaufgabe
 		Öffne die Datenbank \datei{fussballem.db} und erkunde das Programm. Sende dann einige \code{SELECT} Anfragen an die Datenbank.
@@ -52,7 +38,7 @@ Kopiere zur Vorbereitung die Dateien \datei{fussballem.db}, \datei{YeOldCheeseSh
 	\hinweis{Falls du die Datenbank beim Arbeiten löscht oder \enquote{kaputt} machst, kannst du dir die Originalversion erneut aus dem Tauschordner kopieren.}
 \end{aufgabe}
 
-\begin{aufgabe}[symbol=\symPartner\,\symLaptop]
+\begin{aufgabe}[icon=\iconPartner\,\iconLaptop]
 	Öffnen die Seite \url{https://link.ngb.schule/sqlinjection} und lies den Text bis zur Überschrift \enquote{Wie können Webserver helfen?}. Erkläre dir selber, was eine \enquote{SQL-Injection} ist und welche Schwachstelle sie ausnutzt.
 
 	Die Beispieldatenbank zum Text findest du in der Datei \datei{YeOldCheeseShoppe.db}. Hier kannst du die Abfragen selber nachvollziehen.
@@ -60,7 +46,7 @@ Kopiere zur Vorbereitung die Dateien \datei{fussballem.db}, \datei{YeOldCheeseSh
 	\hinweis{Den ersten Teil brauchst du nur überfliegen, da die Grundlagen von SQLite beschrieben werden, die nun bekannt sein sollten. Interessant wird es ab der Überschirft \enquote{Verkettung von Zeichenfolgen: Die Wurzel allen Übels?}.}
 \end{aufgabe}
 
-\begin{aufgabe}[symbol=\symPartner\,\symLaptop]
+\begin{aufgabe}[icon=\iconPartner\,\iconLaptop]
 	\begin{wrapfigure}[4]{r}{0pt}
 	\includegraphics[width=3cm]{Q2-AB.X.2-ABB_S3-Logo.png}
 	\end{wrapfigure}

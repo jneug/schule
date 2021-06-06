@@ -1,0 +1,56 @@
+\documentclass[13pt, a4paper, ngerman]{arbeitsblatt}
+
+\ladeModule{theme}
+\aboptionen{
+	name 		= {J. Neugebauer},
+	kuerzel 	= {Ngb},
+	titel 		= {Quicksort},
+	reihe 		= {Suchen und Sortieren},
+	fach 		= {Informatik},
+	kurs 		= {Q1},
+	nummer 		= {IV.5},
+	lizenz 		= {cc-by-nc-sa-4},
+	version 	= {2021-04-25},
+}
+
+\ladeFach[listings]{informatik}
+
+\thispagestyle{empty}
+
+\begin{document}
+
+\begin{lstlisting}[numbers=none,frame=none,backgroundcolor=\color{white}]
+teilen( zahlen, links, rechts )
+
+	pivot = rechts
+
+	solange links < rechts
+
+	wiederhole
+
+		wenn zahlen[links] < zahlen[pivot]
+
+		dann
+
+			links += 1
+
+		sonst, wenn zahlen[rechts] >= zahlen [pivot]
+
+		dann
+
+			rechts -= 1
+
+		sonst
+
+		dann
+
+			tausche zahlen[links], zahlen[rechts]
+
+	ende wiederhole
+
+	tausche zahlen[rechts], zahlen[pivot]
+
+	return rechts
+\end{lstlisting}
+
+\end{document}

@@ -1,34 +1,23 @@
-\documentclass[10pt, a4paper]{scrartcl}
+\documentclass[9pt, a4paper]{arbeitsblatt}
 
-\usepackage{vorschule}
-\usepackage[
-    typ=ab,
-    fach=Informatik,
-    lerngruppe={EF},
-    nummer={II.1},
-    module={Symbole,Lizenzen},
-    seitenzahlen=keine,
-    farbig,
-    lizenz=cc-by-nc-sa-4,
-]{schule}
+\ladeModule{theme,boxen,tabellen}
+\aboptionen{
+	name 		= {J. Neugebauer},
+	kuerzel 	= {Ngb},
+	titel 		= {Die Grundgatter},
+	reihe 		= {Digitale Schaltungen},
+	fach 		= {Informatik},
+	kurs 		= {EF},
+	nummer 		= {II.1},
+	lizenz 		= {cc-by-nc-sa-4},
+	version 	= {2021-05-30},
+}
 
-\usepackage[
-	kuerzel=Ngb,
-	reihe={Digitale Schaltungen},
-	version={2020-09-4},
-]{ngbschule}
-
-\author{J. Neugebauer}
-\title{Die Grundgatter}
-\date{\Heute}
-
-\setzeAufgabentemplate{ngbnormal}
-
-%\usepackage{qrcode}
-
+\usetikzlibrary{fit}
 \newcommand\addvmargin[1]{%
 \node[fit=(current bounding box),inner ysep=#1,inner xsep=0]{};}
 
+\usepackage{circuitikz}
 \ctikzset{tripoles/european not symbol=ieee circle}
 
 \setlength{\tabcolsep}{5mm}
@@ -38,9 +27,9 @@
 
 \ReiheTitel
 Die Grundelemente einer digitalen Schaltung sind drei einfache
-logische Schaltungen - auch \emph{Gatter} genannt. Sie stellen 
+logische Schaltungen - auch \emph{Gatter} genannt. Sie stellen
 die Basiselemente dar, aus denen man alle anderen Schaltungen
-konstruieren kann. Diese drei Grundgatter sind \textbf{UND}, 
+konstruieren kann. Diese drei Grundgatter sind \textbf{UND},
 \textbf{ODER} und \textbf{NICHT}.
 
 \subsection*{Die Grundgatter}

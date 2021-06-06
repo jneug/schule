@@ -1,104 +1,96 @@
-\documentclass[11pt, a4paper]{scrartcl}
+\documentclass[11pt, a4paper, ngerman]{arbeitsblatt}
 
-\usepackage{vorschule}
-\usepackage[
-    typ=ab,
-    fach=Mathematik,
-    lerngruppe={Q1 GK},
-    nummer=11,
-    loesungen=folgend,
-    seitenzahlen=keine,
-    zitate=quotes,
-    module={Symbole},
-]{schule}
+\ladeModule{theme,muster}
 
-\usepackage[
-	kuerzel=Ngb,
-	reihe={Analysis},
-	version=1,
-]{ngbschule}
+\aboptionen{
+	name 		= {J. Neugebauer},
+	kuerzel 	= {Ngb},
+	titel 		= {BRIO Eisenbahnrampe}
+	reihe 		= {Analysis},
+    fach 		= {Mathematik},
+    kurs 		= {Q1 GK},
+    nummer 		= {11},
+    lizenz 		= {cc-by-nc-sa-4},
+	version 	= {2021-04-30},
+	loesungen	= folgend,
+}
 
-\author{J. Neugebauer}
-\title{BRIO Eisenbahnrampe}
-\date{\Heute}
-
-\setzeAufgabentemplate{ngbohne}
+\ladeFach[gleichungen,funktionen,geometrie]{mathematik}
 
 \begin{document}
-	\TITEL
+\TITEL
 
-	\begin{aufgabe}
-		\operator{Bestimmen} sie eine Modellfunktion zur Beschreibung einer Eisenbahnrampe für eine Kinder-Holzeisenbahn.
+\begin{aufgabe}
+	\operator{Bestimmen} sie eine Modellfunktion zur Beschreibung einer Eisenbahnrampe für eine Kinder-Holzeisenbahn.
 
-		\includegraphics[width=\textwidth]{Q1-Abb-Brio_Rampe.pdf}
+	\includegraphics[width=\textwidth]{Q1-Abb-Brio_Rampe.pdf}
+\end{aufgabe}
+\begin{loesung}
+	Die gesuchte Funktion hat mindestens Grad 3, da sie zwei Stellen hat mit $f'(x) = 0$. Also:
 
-		\begin{loesung}
-			Die gesuchte Funktion hat mindestens Grad 3, da sie zwei Stellen hat mit $f'(x) = 0$. Also:
+	\[ f(x) = ax^3 + bx^2 + cx + d \]
 
-			\[ f(x) = ax^3 + bx^2 + cx + d \]
+	Es werden also vier Gleichungen benötigt, da in der Funktion vier Unbekannte zu bestimmen sind. Die beiden Stellen mit Steigung $0$ liefern jeweils zwei Gleichungen. Die Punkte können durch Messen der Schiene bestimmt werden und die Ableitung kann bestimmt und gleich $0$ gesetzt werden:
 
-			Es werden also vier Gleichungen benötigt, da in der Funktion vier Unbekannte zu bestimmen sind. Die beiden Stellen mit Steigung $0$ liefern jeweils zwei Gleichungen. Die Punkte können durch Messen der Schiene bestimmt werden und die Ableitung kann bestimmt und gleich $0$ gesetzt werden:
+	\[ f'(x) = 3ax^2 + 2bx + c \]
 
-			\[ f'(x) = 3ax^2 + 2bx + c \]
+	Angenommen die gemessenen Werte sind $h = 7$ und $l = 20$, dann ergeben sich die Gleichungen:
 
-			Angenommen die gemessenen Werte sind $h = 7$ und $l = 20$, dann ergeben sich die Gleichungen:
+	\begin{align*}
+		f(0) = 7 &\Leftrightarrow a\cdot 0^3 + b\cdot 0^2 + c\cdot 0 + d = 7 \\
+		f(20) = 0 &\Leftrightarrow a\cdot 20^3 + b\cdot 20^2 + c\cdot 20 + d = 0 \\
+		f'(0) = 0 &\Leftrightarrow 3a\cdot 0^2 + 2b\cdot 0 + c = 0 \\
+		f'(20) = 0 &\Leftrightarrow 3a\cdot 20^2 + 2b\cdot 20 + c = 0
+	\end{align*}
 
-			\begin{align*}
-				f(0) = 7 &\Leftrightarrow a\cdot 0^3 + b\cdot 0^2 + c\cdot 0 + d = 7 \\
-				f(20) = 0 &\Leftrightarrow a\cdot 20^3 + b\cdot 20^2 + c\cdot 20 + d = 0 \\
-				f'(0) = 0 &\Leftrightarrow 3a\cdot 0^2 + 2b\cdot 0 + c = 0 \\
-				f'(20) = 0 &\Leftrightarrow 3a\cdot 20^2 + 2b\cdot 20 + c = 0
-			\end{align*}
+	Nun lässt sich die erweiterte Koeffizientenmatrix aufstellen und mit dem Gauß-Algorithmus lösen:
+	\[ \begin{gmatrix}[p]
+	0 & 0 & 0 & 1 & 7 \\
+	8000 & 400 & 20 & 1 & 0 \\
+	0 & 0 & 1 & 0 & 0 \\
+	1200 & 40 & 1 & 0 & 0
+	\rowops
+	\swap{0}{3}
+	\end{gmatrix} \]
+	\[ \begin{gmatrix}[p]
+	1200 & 40 & 1 & 0 & 0 \\
+	8000 & 400 & 20 & 1 & 0 \\
+	0 & 0 & 1 & 0 & 0 \\
+	0 & 0 & 0 & 1 & 7
+	\end{gmatrix} \]
 
-			Nun lässt sich die erweiterte Koeffizientenmatrix aufstellen und mit dem Gauß-Algorithmus lösen:
-			\[ \begin{gmatrix}[p]
-			0 & 0 & 0 & 1 & 7 \\
-			8000 & 400 & 20 & 1 & 0 \\
-			0 & 0 & 1 & 0 & 0 \\
-			1200 & 40 & 1 & 0 & 0
-			\rowops
-			\swap{0}{3}
-			\end{gmatrix} \]
-			\[ \begin{gmatrix}[p]
-			1200 & 40 & 1 & 0 & 0 \\
-			8000 & 400 & 20 & 1 & 0 \\
-			0 & 0 & 1 & 0 & 0 \\
-			0 & 0 & 0 & 1 & 7
-			\end{gmatrix} \]
+	Durch Verwendung des GTR-Befehls \texttt{rref} kann das Gleichungssystem gelöst werden. Wir erhalten:
+	\[ \begin{gmatrix}[p]
+	1 & 0 & 0 & 0 & \frac{7}{4000} \\
+	0 & 1 & 0 & 0 & \frac{-21}{400} \\
+	0 & 0 & 1 & 0 & 0 \\
+	0 & 0 & 0 & 1 & 7
+	\end{gmatrix} \]
 
-			Durch Verwendung des GTR-Befehls \texttt{rref} kann das Gleichungssystem gelöst werden. Wir erhalten:
-			\[ \begin{gmatrix}[p]
-			1 & 0 & 0 & 0 & \frac{7}{4000} \\
-			0 & 1 & 0 & 0 & \frac{-21}{400} \\
-			0 & 0 & 1 & 0 & 0 \\
-			0 & 0 & 0 & 1 & 7
-			\end{gmatrix} \]
+	Die gesuchte Funktion ist also:
+	\begin{align*}
+		f(x) &= \frac{7}{4000}x^3 - \frac{21}{400}x^2 + 7 \\
+		f'(x) &= \frac{21}{4000}x^2 - \frac{42}{400}x
+	\end{align*}
 
-			Die gesuchte Funktion ist also:
-			\begin{align*}
-				f(x) &= \frac{7}{4000}x^3 - \frac{21}{400}x^2 + 7 \\
-				f'(x) &= \frac{21}{4000}x^2 - \frac{42}{400}x
-			\end{align*}
+	\begin{center}
+		\begin{tikzpicture}[scale=.6]
+			\tkzInit[xmin=-1,xmax=25,ymin=-1,ymax=9]
+			\tkzGrid
+			\tkzAxeXY[font=\sffamily\small]
+			\tkzFct[color=NavyBlue,line width=1.2pt,domain=0:20]{(7 * x ** 3)/4000 - (21 * x ** 2)/400 + 7}
+			\tkzFct[color=WildStrawberry,line width=.9pt,style=dashed]{(21 * x ** 2)/4000 - (42 * x)/400}
+			\geoKoordinate(3,7){A}\geoPunktBeschriften[above](A){$f(x)$}
+			\geoKoordinate(1,0){B}\geoPunktBeschriften[above](B){$f'(x)$}
+		\end{tikzpicture}
+	\end{center}
 
-			\begin{center}
-				\begin{tikzpicture}[scale=.6]
-					\tkzInit[xmin=-1,xmax=25,ymin=-1,ymax=9]
-					\tkzGrid
-					\tkzAxeXY[font=\sffamily\small]
-					\tkzFct[color=NavyBlue,line width=1.2pt,domain=0:20]{(7 * x ** 3)/4000 - (21 * x ** 2)/400 + 7}
-					\tkzFct[color=WildStrawberry,line width=.9pt,style=dashed]{(21 * x ** 2)/4000 - (42 * x)/400}
-					\geoKoordinate(3,7){A}\geoPunktBeschriften[above](A){$f(x)$}
-					\geoKoordinate(1,0){B}\geoPunktBeschriften[above](B){$f'(x)$}
-				\end{tikzpicture}
-			\end{center}
-
-			Probe:
-			\begin{align*}
-			f(0) = \frac{7}{4000}\cdot 0^3 - \frac{21}{400}\cdot 0^2 + 7 = 7 \ \checkmark\\
-			f(20) = \frac{7}{4000}\cdot 20^3 - \frac{21}{400}\cdot 20^2 + 7 = 0 \ \checkmark\\
-			f'(0) = \frac{21}{4000}\cdot 0^2 - \frac{42}{400}\cdot 0 = 0 \ \checkmark \\
-			f'(20) = \frac{21}{4000}\cdot 20^2 - \frac{42}{400}\cdot 20 = 0 \ \checkmark
-			\end{align*}
-		\end{loesung}
-	\end{aufgabe}
+	Probe:
+	\begin{align*}
+	f(0) = \frac{7}{4000}\cdot 0^3 - \frac{21}{400}\cdot 0^2 + 7 = 7 \ \checkmark\\
+	f(20) = \frac{7}{4000}\cdot 20^3 - \frac{21}{400}\cdot 20^2 + 7 = 0 \ \checkmark\\
+	f'(0) = \frac{21}{4000}\cdot 0^2 - \frac{42}{400}\cdot 0 = 0 \ \checkmark \\
+	f'(20) = \frac{21}{4000}\cdot 20^2 - \frac{42}{400}\cdot 20 = 0 \ \checkmark
+	\end{align*}
+\end{loesung}
 \end{document}

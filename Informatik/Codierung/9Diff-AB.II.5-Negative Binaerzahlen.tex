@@ -1,28 +1,19 @@
-\documentclass[9pt, a4paper]{scrartcl}
+\documentclass[9pt, a4paper]{arbeitsblatt}
 
-\usepackage{vorschule}
-\usepackage[
-	typ=ab,
-	fach=Informatik,
-	lerngruppe={9Diff},
-	nummer={II.5},
-	module={Symbole,Lizenzen},
-	seitenzahlen=keine,
-	farbig,
-	lizenz=cc-by-nc-sa-4,
-]{schule}
+\ladeModule{theme,typo,icons,tabellen,boxen,aufgaben}
+\aboptionen{
+	name 		= {J. Neugebauer},
+	kuerzel 	= {Ngb},
+	titel 		= {Negative Binärzahlen},
+	reihe 		= {Informationen, Daten und Codierung},
+	fach 		= {Informatik},
+	kurs 		= {9Diff},
+	nummer 		= {II.5},
+	lizenz 		= {cc-by-nc-sa-4},
+	version 	= {2021-05-28},
+}
 
-\usepackage[
-	kuerzel=Ngb,
-	reihe={Informationen, Daten und Codierung},
-	version={2020-09-09},
-]{ngbschule}
-
-\author{J. Neugebauer}
-\title{Negative Binärzahlen}
-\date{\Heute}
-
-\setzeAufgabentemplate{ngbnormal}
+\newcommand{\luecke}[1]{\underline{\hspace{#1}}}
 
 \begin{document}
 \ReiheTitel
@@ -39,7 +30,7 @@ Bei n-Bit Zahlen in \emph{Vorzeichenbit-Darstellung} (VzD) wird das höchstwerti
 
 \begin{aufgabe}
 	Forme die \textbf{6-Bit VzD Zahlen} ins Dezimalsystem um:
-	
+
 	\begin{tasks}(2)
 		\task $(010101)_2 = (\luecke{2cm})_{10}$
 		\task $(101010)_2 = (\luecke{2cm})_{10}$
@@ -54,7 +45,7 @@ Bei n-Bit Zahlen in \emph{Vorzeichenbit-Darstellung} (VzD) wird das höchstwerti
 
 \begin{aufgabe}
 	Berechne die Summe der \textbf{4-Bit VzD Zahlen} (denke an den Überlauf) und kontrolliere die Rechnung im Dezimalsystem.
-	
+
 	\begin{tasks}(2)
 		\task $(0001)_2 + (1110)_2$
 		\task $(1001)_2 + (0111)_2$
@@ -77,17 +68,17 @@ Bei Binärzahlen in \emph{Zweierkomplement-Darstellung} (ZkD) sind negative Zahl
 
 \begin{aufgabe}
 	Bilde das Zweierkomplement der \textbf{4-Bit Zahlen} (denke an den Überlauf). Notiere darunter auch jeweils die Dezimalzahldarstellung der Zahlen.
-	
+
 	\begin{tasks}(3)
 		\task $(0001)_2 \longrightarrow (\luecke{2cm})_2$
 		\task $(1010)_2 \longrightarrow (\luecke{2cm})_2$
 		\task $(0000)_2 \longrightarrow (\luecke{2cm})_2$
-	\end{tasks}	
+	\end{tasks}
 \end{aufgabe}
 
 \begin{aufgabe}
 	Berechne die Summe der \textbf{4-Bit ZkD Zahlen} und kontrolliere die Rechnung im Dezimalsystem.
-	
+
 	\begin{tasks}(2)
 		\task $(0001)_2 + (1110)_2$
 		\task $(1001)_2 + (0111)_2$

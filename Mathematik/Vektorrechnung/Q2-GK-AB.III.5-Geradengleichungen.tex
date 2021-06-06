@@ -1,62 +1,59 @@
-\documentclass[10pt, a4paper]{scrartcl}
+\documentclass[10pt, a4paper, ngerman]{arbeitsblatt}
 
-\usepackage{vorschule}
-\usepackage[
-    typ=ab,
-    fach=Mathematik,
-    lerngruppe={Q2-GK},
-    nummer=III.5,
-    module={Symbole,Lizenzen},
-    seitenzahlen=keine,
-    farbig,
-    lizenz=cc-by-nc-sa-4,
-]{schule}
+\ladeModule{theme,typo,icons,boxen,aufgaben}
+\ladeFach[]{mathematik}
 
-\usepackage[
-	kuerzel=Ngb,
-	reihe={Analytische Geometrie},
-	version={2019-11-17},
-]{ngbschule}
-
-\author{J. Neugebauer}
-\title{Geradengleichungen}
-\date{\Heute}
-
-\setzeAufgabentemplate{ngbnormal}
-
-%\usepackage{qrcode}
-%\usepackage{tinspire}
+\aboptionen{
+	name 		= {J. Neugebauer},
+	kuerzel 	= {Ngb},
+	titel 		= {Geradengleichungen},
+	reihe 		= {Analytische Geometrie},
+	fach 		= {Mathematik},
+	kurs 		= {Q2},
+	nummer 		= {III.5},
+	lizenz 		= {cc-by-nc-sa-4},
+	version 	= {2021-05-14},
+}
 
 
 \begin{document}
-
 \ReiheTitel
 
-\begin{aufgabe}\label{afg:geraden_bestimmen}
-	\operator{Bestimmen} sie eine Gleichung in Parameterdarstellung für eine Gerade ...
-	\begin{enumerate}
-		\item ... durch die Punkte \pkt[A](5,8|7|-8) und \pkt[B](19|3|-8): $\quad g:$\linie[6cm]
-		\item ... durch den Punkt \pkt[C](1|-6,5|32) mit der Richtung $\vec{v} = \vector(13,2|-4|0)$:  $\quad h:$\linie[6cm]
-		\item ... entlang des Vektors $\vec{w} = \vector(-6,38|-7,7|8,8)$: $\quad i:$\linie[6cm]
-	\end{enumerate} 
+\begin{aufgabe}
+	\label{aufg:geraden-bestimmen}
+	Bestimme eine Gleichung in Parameterdarstellung für eine Gerade \dots
+	\begin{enumn}
+		\item \dots durch die Punkte \punkt[A](5,8|7|-8) und \punkt[B](19|3|-8):
+		      $\quad g:$\linie[6cm]
+		\item \dots durch den Punkt \punkt[C](1|-6,5|32) mit der Richtung
+		      $\vec{v} = \vector(13,2|-4|0)$:	$\quad h:$\linie[6cm]
+		\item \dots entlang des Vektors $\vec{w} = \vector(-6,38|-7,7|8,8)$:
+		      $\quad i:$\linie[6cm]
+	\end{enumn}
 \end{aufgabe}
 
 \begin{aufgabe}
 	\begin{infobox}\small
-		Die Spurpunkte einer Geraden sind die \emph{Schnittpunkte der Geraden mit den Koordinatenebenen}. \emph{Mindestens eine} Koordinate jedes Spurpunktes ist also null. Eine Gerade kann einen, zwei oder drei Spurpunkte haben. Die Spurpunkte helfen dabei, Geraden zu zeichnen.
+		Die Spurpunkte einer Geraden sind die \emph{Schnittpunkte der Geraden mit den Koordinatenebenen}.
+		\emph{Mindestens eine} Koordinate jedes Spurpunktes ist also null. Eine Gerade
+		kann einen, zwei oder drei Spurpunkte haben. Die Spurpunkte helfen dabei,
+		Geraden zu zeichnen.
 	\end{infobox}
-	
+
 	\begin{enumerate}
-		\item Überlegen sie, welche Möglichkeiten und Sonderfälle es für die Spurpunkte einer Geraden geben kann.
-		\item \operator{Berechnen} sie die \emph{Spurpunkte} der Geraden $g$ aus \prettyref{afg:geraden_bestimmen}.
+		\item Überlege, welche Möglichkeiten und Sonderfälle es für die Spurpunkte einer
+		      Geraden geben kann.
+		\item Berechne die \emph{Spurpunkte} der Geraden
+		      $g$ aus \prettyref{aufg:geraden-bestimmen}.
 	\end{enumerate}
-	
+
 	\vspace{4cm}
 \end{aufgabe}
 
 \begin{aufgabe}
-	\operator{Bestimmen} sie die paarweise Lage aller Geraden aus \prettyref{afg:geraden_bestimmen} zueinander. 
-	
+	Bestimme die paarweise Lage aller Geraden aus
+	\prettyref{aufg:geraden-bestimmen} zueinander.
+
 	\begin{itemize}
 		\item $g$ und $h$ sind \linie zueinander.
 		\item $h$ und $i$ sind \linie zueinander.

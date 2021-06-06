@@ -1,32 +1,22 @@
-\documentclass[10pt, a5paper]{scrartcl}
+\documentclass[10pt, a5paper]{arbeitsblatt}
+
+\ladeModule{theme,typo,icons,tabellen,aufgaben}
+\aboptionen{
+	name 		= {J. Neugebauer},
+	kuerzel 	= {Ngb},
+	titel 		= {Binärzahlen I},
+	reihe 		= {Grundlagen der Informatik},
+	fach 		= {Informatik},
+	kurs 		= {8Diff},
+	nummer 		= {II.1},
+	lizenz 		= {cc-by-nc-sa-4},
+	version 	= {2021-05-28},
+}
+
 
 \usepackage{pgfmorepages}
 \pgfmorepagesloadextralayouts
 \pgfpagesuselayout{repeated 2-up}[a4paper,landscape]
-
-\usepackage{vorschule}
-\usepackage[
-	typ=ab,
-	fach=Informatik,
-	lerngruppe={8Diff},
-	nummer={II.1},
-	module={Symbole,Lizenzen},
-	seitenzahlen=keine,
-	farbig,
-	lizenz=cc-by-nc-sa-4,
-]{schule}
-
-\usepackage[
-	kuerzel=Ngb,
-	reihe={Grundlagen der Informatik},
-	version={2020-09-11},
-]{ngbschule}
-
-\author{J. Neugebauer}
-\title{Binärzahlen I}
-\date{\Heute}
-
-\setzeAufgabentemplate{ngbnormal}
 
 \begin{document}
 \ReiheTitel
@@ -37,19 +27,19 @@ Um zu zeigen, dass eine Zahl im \emph{Binärsystem} steht, schreiben wir zum Bei
 
 \begin{aufgabe}[subtitle=Binärzahlen umrechnen]
 	Wandele vom \emph{Binärsystem} ins \emph{Dezimalsystem} um.
-	
+
 	\begin{teilaufgaben}
 		\teilaufgabe $(1110)_2$ =
-		\teilaufgabe $(10001)_2$ = 
-		\teilaufgabe $(10111)_2$ = 
+		\teilaufgabe $(10001)_2$ =
+		\teilaufgabe $(10111)_2$ =
 	\end{teilaufgaben}
 \end{aufgabe}
 
 \begin{aufgabe}[subtitle=Vorgänger und Nachfolger]
 	Notiere Vorgänger und Nachfolger im \emph{Binärsystem}.
-	
+
 	\begin{tabularx}{\textwidth}{|X|X|X|}\hline
-		\rowcolor{ngb.tabelle.kopf.hg} Vorgänger & Zahl & Nachfolger \\\hline
+		\rowcolor{ab.tabelle.kopf.hg} Vorgänger & Zahl & Nachfolger \\\hline
 		\Zeilenabstand & $(10001)_2$ & \\\hline
 		\Zeilenabstand & & $(1111)_2$ \\\hline
 		$(1000)_2$ &\Zeilenabstand & \\\hline
