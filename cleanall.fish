@@ -14,3 +14,7 @@ end
 echo "Cleaning xmpi files"
 find . -name "*.xmpi" -exec rm -rf {} \;
 echo "All done"
+
+echo "Cleaning minted caches"
+find . -name "_minted-*" -type d -exec rm -rf {} \;
+echo "All done"
