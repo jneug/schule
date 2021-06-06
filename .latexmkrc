@@ -1,14 +1,14 @@
 $pdf_mode = 1;
-$pdflatex = 'pdflatex --shell-escape %O %S';
+$pdflatex = 'pdflatex -synctex=1 --shell-escape %O %S';
 
 $pdf_previewer = 'open -a PDF\ Expert';
 
 @default_excluded_files = ("*.inhalt.tex");
 
 @generated_exts = (@generated_exts, 'synctex.gz', 'xsim', 'xmpi');
-@generated_exts = (@generated_exts, 'tkzfct.gnuplot', 'tkzfct.table', 'tkzfonct.gnuplot', 'tkzfonct.table');
+@generated_exts = (@generated_exts, 'tkzfct.gnuplot', 'tkzfct.table', 'tkzfonct.gnuplot', 'tkzfonct.table', 'code');
 
-$clean_ext = "%R-*.xsim xmpi _minted-%R lizenz-cc-by-nc-sa-4.xmpi";
+$clean_ext = "%R-*.xsim xmpi _minted-%R cc-by-nc-sa-4.xmpi";
 
 add_cus_dep( "uxf", "pdf", 0, "compileumlet" );
 sub compileumlet {
