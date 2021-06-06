@@ -1,88 +1,96 @@
-\documentclass[a4paper,11pt,debug]{scrartcl}
+\documentclass[10pt, a4paper]{arbeitsblatt}
 
-\usepackage{vorschule}
-\usepackage[
-	typ=ab,
-	fach=Informatik,
-	lerngruppe={Diff 8},
-	seitenzahlen=keine,
-	zitate=quotes,
-	module={Lizenzen,Symbole},
-	lizenz={cc-by-nc-sa-4},
-]{schule}
+\ladeModule{theme,typo,icons,tabellen,boxen,aufgaben}
+\aboptionen{
+	name		= {J. Neugebauer},
+	kuerzel		= {Ngb},
+	titel		= {HTML-Tabellen},
+	reihe		= {Webseiten erstellen mit HTML},
+	fach		= {Informatik},
+	lerngruppe	= {8Diff},
+	nummer		= {II.5},
+	lizenz		= {cc-by-nc-sa-4},
+	version		= {2021-05-27},
+}
 
-\usepackage[
-	kuerzel=Ngb,
-	reihe={Webseiten erstellen mit HTML},
-	version={0.1 (2018)},
-	url={https://www.github.com/jneug/schule},
-]{ngbschule}
-
-\author{J. Neugebauer}
-\title{HTML-Tabellen}
-\date{\Heute}
-
-\setzeAufgabentemplate{schule-binnen}
+\ladeFach[listings]{informatik}
 
 \begin{document}
 \ReiheTitel
 
-Tabellen können auf Webseiten benutzt werden um Informationen strukturiert darzustellen.\medskip
+Tabellen können auf Webseiten benutzt werden um Informationen
+strukturiert darzustellen.
 
-\begin{savelst}{bsptabelle}
-\begin{lstlisting}[language=HTML,linewidth=.45\textwidth]
+\begin{figure}[ht]
+	\begin{subfigure}[b]{.5\linewidth}
+		\begin{lstlisting}[language=HTML]
 <table border="1">
-  <thead>
-    <tr>
-      <th>Monat</th>
-      <th>Ersparnis</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td>Januar</td>    
-      <td>100</td>
-    </tr>
-    <tr>    
-      <td>Februar</td>    
-      <td>80</td>
-    </tr>
-  </tbody>
-  <tfoot>
-    <tr>
-      <td>Summe</td>
-      <td>180</td>
-    </tr>
-  </tfoot>
+	<thead>
+	<tr>
+		<th>Monat</th>
+		<th>Ersparnis</th>
+	</tr>
+	</thead>
+	<tbody>
+	<tr>
+		<td>Januar</td>
+		<td>100</td>
+	</tr>
+	<tr>
+		<td>Februar</td>
+		<td>80</td>
+	</tr>
+	</tbody>
+	<tfoot>
+	<tr>
+		<td>Summe</td>
+		<td>180</td>
+	</tr>
+	</tfoot>
 </table>
-\end{lstlisting}
-\end{savelst}
-\begin{tabularx}{\textwidth}{XX}
-	\loadlst{bsptabelle} & \\
-	\scriptsize{\textit{Quelltext einer HTMl-Tabelle}} &
-	\scriptsize{\textit{Darstellung im Webbrowser}} \\
-\end{tabularx}
+		\end{lstlisting}
+		\caption{Quelltext einer HTMl-Tabelle}\label{lst:tabelle}
+	\end{subfigure}%
+	\begin{subfigure}[b]{.5\linewidth}\centering
+		\includegraphics[width=3cm]{8Diff-AB.5-Abb_Tabelle.png}
+		\caption{Darstellung im Webbrowser}\label{abb:tabelle-render}
+	\end{subfigure}
+	\caption{Eine HTML-Tabelle}\label{abb:tabelle}
+\end{figure}
 
 \begin{rahmen}\small
-	In der Anfangszeit des World Wide Web wurden Tabellen darüber hinaus zum Design von Webseiten eingesetzt. Mit dem Aufkommen von Endgeräten mit unterschiedlichen Bildschirmgrößen wurde diese Praxis aber zugunsten des \emph{Responsiven Webdesigns} aufgegeben, da Webseiten mit einem tabellenbasierten Design keine Anpassungen zum Beispiel auf Smartphonegröße erlauben.
+	In der Anfangszeit des World Wide Web wurden Tabellen darüber hinaus
+	zum Design von Webseiten eingesetzt. Mit dem Aufkommen von Endgeräten
+	mit unterschiedlichen Bildschirmgrößen wurde diese Praxis aber zugunsten
+	des \emph{Responsiven Webdesigns} aufgegeben, da Webseiten mit einem
+	tabellenbasierten Design keine Anpassungen zum Beispiel auf
+	Smartphonegröße erlauben.
 \end{rahmen}
 
 \section*{Arbeitsaufträge}
-\begin{aufgabe}[symbol=\symHeft]
-	\textbf{(Ohne Computer)}
-	Analysiere den Quelltext einer HTML Tabelle oben links und vergleiche ihn mit der Darstellung auf der rechten Seite. Beschreibe, wie HTML Tabellen aufgebaut sind und versuche eine Erklärung für die einzelnen Tags zu finden.
+\begin{aufgabe}[icon=\iconHeft]
+	Analysiere den Quelltext einer HTML Tabelle oben links und vergleiche
+	ihn mit der Darstellung auf der rechten Seite. Beschreibe, wie HTML
+	Tabellen aufgebaut sind und versuche eine Erklärung für die einzelnen
+	Tags zu finden.
 \end{aufgabe}
-\begin{aufgabe}[symbol=\symLaptop]
-	\textbf{(Am Computer)}
-	Öffne die Webseite \url{https://link.ngb.schule/html-tabellen} und klicke oben auf \enquote{Run}. Modifiziere nun den Quelltext auf der linken Seite und erkunde, wie sich die Tabelle rechts verändert. Weitere Informationen findest du unter \url{https://www.html-seminar.de/attribute-bei-tabellen.htm}.
+
+\begin{aufgabe}[icon=\iconLaptop]
+	Öffne die Webseite \url{https://link.ngb.schule/html-tabellen} und
+	klicke oben auf \enquote{Run}. Modifiziere nun den Quelltext auf der
+	linken Seite und erkunde, wie sich die Tabelle rechts verändert.
+	Weitere Informationen findest du unter
+	\url{https://www.html-seminar.de/attribute-bei-tabellen.htm}.
 \end{aufgabe}
-\begin{aufgabe}[symbol=\symLaptop]
-	\textbf{(Am Computer)}
-	Erweitere deinen Steckbrief um eine HTML Tabelle, die die Informationen über dich strukturiert darstellt.
+
+\begin{aufgabe}[icon=\iconLaptop]
+	Erweitere deinen Steckbrief um eine HTML Tabelle, die die Informationen
+	über dich strukturiert darstellt.
 \end{aufgabe}
+
 %\begin{aufgabe}
 %	\begin{teilaufgaben}
-%		\teilaufgabe\setzeSymbol{\symOhr} \textbf{(Ohne Computer)}
+%		\teilaufgabe\setzeIcon{\iconOhr} \textbf{(Ohne Computer)}
 %		Analysiere den Quelltext einer HTML Tabelle oben links und vergleiche ihn mit der Darstellung auf der rechten Seite. Beschreibe, wie HTML Tabellen aufgebaut sind und versuche eine Erklärung für die einzelnen Tags zu finden.
 %		\teilaufgabe \textbf{(Am Computer)}
 %		Öffne die Webseite \url{https://link.ngb.schule/html-tabellen} und klicke oben auf \enquote{Run}. Modifiziere nun den Quelltext auf der linken Seite und erkunde, wie sich die Tabelle rechts verändert. Weitere Informationen findest du unter \url{https://www.html-seminar.de/attribute-bei-tabellen.htm}.

@@ -1,43 +1,36 @@
-\documentclass[a4paper,11pt,debug]{scrartcl}
+\documentclass[10pt, a4paper]{arbeitsblatt}
 
-\usepackage{vorschule}
-\usepackage[
-	typ=ab,
-	fach=Informatik,
-	lerngruppe={Diff 8},
-	seitenzahlen=keine,
-	zitate=quotes,
-	module={Lizenzen,Symbole},
-	lizenz={cc-by-nc-sa-4},
-]{schule}
+\ladeModule{theme,typo,icons,tabellen,boxen,aufgaben}
+\aboptionen{
+	name		= {J. Neugebauer},
+	kuerzel		= {Ngb},
+	titel		= {Übersicht wichtiger CSS-Eigenschaften},
+	reihe		= {Webseiten erstellen mit HTML},
+	fach		= {Informatik},
+	lerngruppe	= {8Diff},
+	nummer		= {II.7},
+	lizenz		= {cc-by-nc-sa-4},
+	version		= {2021-05-28},
+}
 
-\usepackage[
-	kuerzel=Ngb,
-	reihe={Webseiten erstellen mit HTML},
-	version={2019-03-31},
-	url={https://www.github.com/jneug/schule},
-]{ngbschule}
-
-\author{J. Neugebauer}
-\title{Übersicht wichtiger CSS-Eigenschaften}
-\date{\Heute}
+\ladeFach[listings]{informatik}
+\lstset{numbers=none}
 
 \usepackage{xinttools}
 
-\zeilennummernAus
 \begin{document}
 \ReiheTitel
 
 \begin{savelst}{pseudoregel}
-\begin{lstlisting}[linewidth=6cm]
+	\begin{lstlisting}[linewidth=6cm]
 selektor {
   eigenschaft1: wert1;
   eigenschaft2: wert2;
 }
-\end{lstlisting}	
+\end{lstlisting}
 \end{savelst}
 \begin{savelst}{cssregel}
-\begin{lstlisting}[linewidth=6.2cm]
+	\begin{lstlisting}[linewidth=6.2cm]
 p {
   color: #ae34f2;
   text-decoration: underline;
@@ -46,16 +39,20 @@ p {
 \end{savelst}
 
 \begin{tabularx}{\textwidth}{|X|p{6cm}|p{6.2cm}|} \hline
-	CSS-Regeln & \loadlst{pseudoregel} & \loadlst{cssregel}\smallskip \\ \hline
+	\textbf{CSS-Regeln} & \loadlst{pseudoregel} & \loadlst{cssregel}\smallskip \\ \hline
 \end{tabularx}\medskip
 
-Such dir eine CSS-Eigenschaft unten aus und recherchiere seine Bedeutung auf der Seite \url{https://www.css-wiki.com}.
-Erstelle ein Beispiel in deinem Steckbrief, anhand dessen du die Eigenschaften und seine möglichen Werte demonstrieren kannst.
+Such dir eine CSS-Eigenschaft unten aus und recherchiere seine Bedeutung auf
+der Seite \url{https://www.css-wiki.com}. Erstelle ein Beispiel in deinem Steckbrief,
+anhand dessen du die Eigenschaften und seine möglichen Werte demonstrieren
+kannst.
 
+\setlength{\zeilenhoehe}{.9cm}
 \begin{tabularx}{\textwidth}{|c|X|X|} \hline
+	\rowcolor{ab.tabelle.kopf.hg}
 	\textbf{Eigenschaft} & \textbf{Beispiele} & \textbf{Beschreibung} \\ \hline
 	\xintFor #1 in {color,background-color,font-family,font-size,font-style,font-weight,text-decoration,text-align,text-shadow,text-transform,border-style,border-radius,border-width,border-color,padding,margin,list-style-type,cursor}
-	\do {\texttt{#1} & & \Zeilenabstand[1cm] \\ \hline}
+	\do {\code{#1}     &                    & \Zeilenabstand   \\ \hline}
 \end{tabularx}
 
 \end{document}

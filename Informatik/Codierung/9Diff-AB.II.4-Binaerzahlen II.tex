@@ -1,53 +1,42 @@
-\documentclass[10pt, a4paper]{scrartcl}
+\documentclass[10pt, a4paper]{arbeitsblatt}
 
-\usepackage{vorschule}
-\usepackage[
-	typ=ab,
-	fach=Informatik,
-	lerngruppe={9Diff},
-	nummer={II.4},
-	module={Symbole,Lizenzen,Papiertypen},
-	seitenzahlen=keine,
-	farbig,
-	lizenz=cc-by-nc-sa-4,
-]{schule}
-
-\usepackage[
-	kuerzel=Ngb,
-	reihe={Informationen, Daten und Codierung},
-	version={2020-09-06},
-]{ngbschule}
-
-\author{J. Neugebauer}
-\title{Binärzahlen II}
-\date{\Heute}
-
-\setzeAufgabentemplate{ngbnormal}
+\ladeModule{theme,typo,icons,boxen,muster,aufgaben}
+\aboptionen{
+	name 		= {J. Neugebauer},
+	kuerzel 	= {Ngb},
+	titel 		= {Binärzahlen II},
+	reihe 		= {Informationen, Daten und Codierung},
+	fach 		= {Informatik},
+	kurs 		= {9Diff},
+	nummer 		= {II.4},
+	lizenz 		= {cc-by-nc-sa-4},
+	version 	= {2021-05-28},
+}
 
 \begin{document}
 \ReiheTitel
 
-\begin{aufgabe}[symbol=\Large\symHeft]
+\begin{aufgabe}[icon=\iconHeft]
 	\begin{enumerate}
-		\item[\symEinzel] Überleg dir zunächst \emph{alleine}, wie du zwei
+		\item[\iconEinzel] Überleg dir zunächst \emph{alleine}, wie du zwei
 		Binärzahlen miteinander addieren kannst. Rechne dabei die Zahlen noch
 		nicht ins Dezimalsystem um, sondern versuche in Verfahren mit
 		Binärzahlen zu finden.
-		
+
 		\tipp{Auch ohne Dezimalzahlen kannst du dich daran orientieren, wie
 		man Dazimalzahlen addiert.}
-		
+
 		\begin{tasks}(2)
 			\task \code{0101 + 1100 =}
 			\task \code{1010 + 0011 =}
 		\end{tasks}
-		\item[\symPartner] Suche dir einen Partner/eine Partnerin und
+		\item[\iconPartner] Suche dir einen Partner/eine Partnerin und
 		vergleicht eure Ideen für ein Rechenverfahren miteinander. Habt ihr
-		dieselben Ergebnisse? 
-		
-		Rechnet weitere Beispiele und prüft die Ergebnisse, indem ihr die 
+		dieselben Ergebnisse?
+
+		Rechnet weitere Beispiele und prüft die Ergebnisse, indem ihr die
 		Zahlen ins Dezimalsystem umrechnet.
-		
+
 		\begin{tasks}(2)
 			\task \code{11100 + 00011 =}
 			\task \code{11011 + 01001 =}
@@ -55,13 +44,13 @@
 	\end{enumerate}
 \end{aufgabe}
 
-\begin{aufgabe}[symbol=\Large\symHeft]
+\begin{aufgabe}[icon=\iconHeft]
 	Der Computer hat nicht unbegrenzt Speicherplatz. Normalerweise ist die Größe
-	der Binärzahlen begrenzt, mit denen er rechnen kann. Zur Vereinfachung 
-	legen wir die maximale Länge auf \emph{4-Bits} fest. Wir addieren also 
-	Zahlen mit vier Bit und das Ergebnis hat auch vier Bit. (Bei weniger Bits 
+	der Binärzahlen begrenzt, mit denen er rechnen kann. Zur Vereinfachung
+	legen wir die maximale Länge auf \emph{4-Bits} fest. Wir addieren also
+	Zahlen mit vier Bit und das Ergebnis hat auch vier Bit. (Bei weniger Bits
 	füllen wir den Rest mit Nullen auf.)
-	
+
 	Berechne folgende Ergebnisse der 4-Bit Addition:
 	\begin{tasks}(2)
 		\task \code{0001 + 0001 =}
@@ -69,51 +58,57 @@
 		\task \code{0111 + 0001 =}
 		\task \code{1111 + 0001 =}
 	\end{tasks}
-	
-	Welches Problem kann auftreten, wenn das Ergebnis nur maximal 4-Bit haben 
+
+	Welches Problem kann auftreten, wenn das Ergebnis nur maximal 4-Bit haben
 	darf?
-	
-	\feldLin{3}
+
+	\liniert{3}
 \end{aufgabe}
 
-\vspace{1cm}
-\begin{rahmen}\centering
-Klebe hier Aufgabe 3 ein, wenn du die anderen bearbeitest hast.
-\vspace{5cm}
-\end{rahmen}
+% \vspace{1cm}
+\begin{aufgabe*}[icon=\iconPartner]
+	\label{aufg:zusatz}
+	\begin{rahmen}\centering
+		Klebe hier \prettyref{aufg:zusatz} ein, wenn du die anderen bearbeitest hast.
+		\vspace{4.5cm}
+	\end{rahmen}
+\end{aufgabe*}
 
-\clearpage\nohead
+\clearpage\thispagestyle{empty}
 
 \newsavebox{\aufgabeDrei}
-\savebox{\aufgabeDrei}{%
-\begin{rahmen}
-	\textbf{\rmfamily\llap{\symPartner~} Aufgabe 3}\par\smallskip
+\savebox{\aufgabeDrei}{\parbox{\linewidth}{%
 	In dieser Aufgabe betrachten wir weiter 4-Bit Binärzahlen. Mit vier Bit
 	können insgesamt 16 Zahlen dargestellt werden. Von $(0000)_2 = (0)_{10}$
 	bis $(1111)_2 = (15)_{10}$.
-	
+
 	Was aber, wenn wir auch \emph{negative Zahlen} im Binärsystem darstellen wollen?
-	
+
 	\begin{enumerate}
-		\item Überlegt euch, wie man negative Zahlen im Binärsystem darstellen 
+		\item Überlegt euch, wie man negative Zahlen im Binärsystem darstellen
 		kann.
 		\item Welche Zahlen können nach eurem Verfahren mit 4 Bit dargestellt werden?
 		\item Probiert die Addition von Binärzahlen aus. Funktioniert sie noch
 		wie zuvor?
 	\end{enumerate}
-\end{rahmen}%
-}
+}}
 
 \usebox{\aufgabeDrei}
 
 \vfill
-\usym{2701}\dotfill
+\schneidekante
 \vfill
 
 \usebox{\aufgabeDrei}
 
 \vfill
-\usym{2701}\dotfill
+\schneidekante
+\vfill
+
+\usebox{\aufgabeDrei}
+
+\vfill
+\schneidekante
 \vfill
 
 \usebox{\aufgabeDrei}

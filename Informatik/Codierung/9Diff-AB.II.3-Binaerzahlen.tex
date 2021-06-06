@@ -1,40 +1,34 @@
-\documentclass[10pt, a4paper, final]{scrartcl}
+\documentclass[10pt, a4paper]{arbeitsblatt}
 
-\usepackage{vorschule}
-\usepackage[
-	typ=ab,
-	fach=Informatik,
-	lerngruppe={9Diff},
-	nummer={II.3},
-	module={Symbole,Lizenzen},
-	seitenzahlen=keine,
-	farbig,
-	lizenz=cc-by-nc-sa-4,
-]{schule}
-
-\usepackage[
-	kuerzel=Ngb,
-	reihe={Informationen, Daten und Codierung},
-	version={2020-09-02},
-]{ngbschule}
-
-\author{J. Neugebauer}
-\title{Binärzahlen}
-\date{\Heute}
-
-\setzeAufgabentemplate{ngbnormal}
+\ladeModule{theme,typo,icons,aufgaben}
+\aboptionen{
+	name 		= {J. Neugebauer},
+	kuerzel 	= {Ngb},
+	titel 		= {Binärzahlen},
+	reihe 		= {Informationen, Daten und Codierung},
+	fach 		= {Informatik},
+	kurs 		= {9Diff},
+	nummer 		= {II.3},
+	lizenz 		= {cc-by-nc-sa-4},
+	version 	= {2021-05-28},
+}
 
 \usepackage{scratch}
 
 \begin{document}
 \ReiheTitel
 
-Ein \emph{Zahlensystem} ist ein System zur Darstellung von Zahlen. Wir benutzen im Alltag das \emph{Dezimalsystem}, ein sogenanntes \emph{Stellenwertsystem} zur Basis 10. Das bedeutet, es werden 10 verschiedene Ziffern zur Darstellung benutzt. Das \emph{Binärsystem} benutzt nur zwei, und das \emph{Hexadezimalsystem} verwendet ganze 16.
+Ein \emph{Zahlensystem} ist ein System zur Darstellung von Zahlen. Wir
+benutzen im Alltag das \emph{Dezimalsystem}, ein sogenanntes
+\emph{Stellenwertsystem} zur Basis 10. Das bedeutet, es werden 10 verschiedene
+Ziffern zur Darstellung benutzt. Das \emph{Binärsystem} benutzt nur zwei,
+und das \emph{Hexadezimalsystem} verwendet ganze 16.
 
-Die Berechnung des Zahlwertes einer Binärzahl im Dezimalsystem erfolgt nach der Formel
-\[ (1100111)_2 = 1\cdot 2^6 + 1\cdot 2^5 + 0\cdot 2^4 + 0\cdot 2^3 + 1\cdot 2^2 + 1\cdot 2^1 + 1\cdot 2^0 = (103)_{10} \]
+Die Berechnung des Zahlwertes einer Binärzahl im Dezimalsystem erfolgt nach der
+Formel \[ (1100111)_2 = 1\cdot 2^6 + 1\cdot 2^5 + 0\cdot 2^4 + 0\cdot 2^3 + 1\cdot 2^2 +
+	1\cdot 2^1 + 1\cdot 2^0 = (103)_{10} \]
 
-\begin{aufgabe}[symbol=\Large\symHeft]
+\begin{aufgabe}[icon=\iconHeft]
 	Rechne in das Dezimalsystem um.
 	\begin{tasks}(3)
 		\task $(1101)_2$
@@ -43,8 +37,11 @@ Die Berechnung des Zahlwertes einer Binärzahl im Dezimalsystem erfolgt nach der
 	\end{tasks}
 \end{aufgabe}
 
-\begin{aufgabe}[symbol=\Large\symHeft\yspace\symPartner]
-	Rechne in das Binärsystem um. Nutze jeweils das \emph{Subtraktions-} und das \emph{Moduloverfahren}. Diskutiere dann mit deinem Sitznachbarn, welches Verfahren in welcher Situation besser geeignet ist.
+\begin{aufgabe}[icon=\iconHeft\,\iconPartner]
+	Rechne in das Binärsystem um. Nutze jeweils das
+	\emph{Subtraktions-} und das \emph{Moduloverfahren}. Diskutiere dann mit
+	deinem Sitznachbarn, welches Verfahren in welcher Situation besser geeignet
+	ist.
 	\begin{tasks}(3)
 		\task $(65)_{10}$
 		\task $(71)_{10}$
@@ -52,31 +49,40 @@ Die Berechnung des Zahlwertes einer Binärzahl im Dezimalsystem erfolgt nach der
 	\end{tasks}
 \end{aufgabe}
 
-\begin{aufgabe}[symbol=\Large\symLaptop\yspace\symPartner]
-	Erstellt in \programm{Scratch} ein Programm, dass eine Dezimalzahl mit dem \emph{Moduloverfahren} in eine Binärzahl umrechnen kann. Nutzt dazu die folgende Vorlage und ersetzt die fehlenden Befehle (durch \code{xxx} markiert) mit den passenden Blöcken aus dem Bereich \enquote{Daten}.
-	
-	(Ihr müsst im Bereich \enquote{Daten} zuerst mit dem Button \enquote{Neue Variable} die Variablen \code{binaer} und \code{dezimal} erstellen.)
-	
+\begin{aufgabe}[icon=\iconLaptop\,\iconPartner]
+	Erstellt in \programm{Scratch} ein Programm, dass
+	eine Dezimalzahl mit dem \emph{Moduloverfahren} in eine Binärzahl umrechnen
+	kann. Nutzt dazu die folgende Vorlage und ersetzt die fehlenden Befehle (durch
+	\code{xxx} markiert) mit den passenden Blöcken aus dem Bereich
+	\enquote{Daten}.
+
+	(Ihr müsst im Bereich \enquote{Daten} zuerst mit dem Button
+	\enquote{Neue Variable} die Variablen \code{binaer} und
+	\code{dezimal} erstellen.)
+
 	\begin{center}
-%	\includegraphics[width=.8\textwidth]{9Diff-AB.II.3-Abb_ScratchDezBin}
-\scalebox{.8}{\begin{scratch}
-	\blockinit{Wenn ich angeklickt werde}
-	\blocksensing{frage \txtbox{Gib eine Zahl ein} und warte}
-	\blockvariable{setze \selectmenu{dezimal} auf \ovalsensing{Antwort}}
-	\blockvariable{setze \selectmenu{binaer} auf \txtbox{}}
-	\blockrepeat{wiederhole bis \booloperator{\ovalvariable{xxx} = \txtbox{0}}}{
-		\blockvariable{setze \selectmenu{xxx} auf \ovaloperator{verbinde \ovaloperator{\ovalvariable{xxx} mod \ovalnum{2}}\ovalvariable{xxx}}}
-		\blockvariable{setze \selectmenu{xxx} auf \ovaloperator{\selectmenu{abrunden} von \ovaloperator{\ovalvariable{xxx} / \ovalnum{2}}}}
-	}
-	\blocklook{sage \ovalvariable{binaer}}
-\end{scratch}}
+		%	\includegraphics[width=.8\textwidth]{9Diff-AB.II.3-Abb_ScratchDezBin}
+		\scalebox{.8}{\begin{scratch}
+				\blockinit{Wenn ich angeklickt werde}
+				\blocksensing{frage \txtbox{Gib eine Zahl ein} und warte}
+				\blockvariable{setze \selectmenu{dezimal} auf \ovalsensing{Antwort}}
+				\blockvariable{setze \selectmenu{binaer} auf \txtbox{}}
+				\blockrepeat{wiederhole bis \booloperator{\ovalvariable{xxx} = \txtbox{0}}}{
+					\blockvariable{setze \selectmenu{xxx} auf \ovaloperator{verbinde \ovaloperator{\ovalvariable{xxx} mod \ovalnum{2}}\ovalvariable{xxx}}}
+					\blockvariable{setze \selectmenu{xxx} auf \ovaloperator{\selectmenu{abrunden} von \ovaloperator{\ovalvariable{xxx} / \ovalnum{2}}}}
+				}
+				\blocklook{sage \ovalvariable{binaer}}
+			\end{scratch}}
 	\end{center}
-	
+
 	Testet das Programm mit den Zahlen von oben.
 \end{aufgabe}
 
-\begin{aufgabe}[symbol=\Large\symStern\yspace\symLaptop\yspace\symPartner]
-	Überlege dir, wie ein \programm{Scratch}-Programm aussehen müsste, dass eine Binärzahl in eine Dezimalzahl umformt. Notiert euch das Programm zunächst in Stichpunkten auf einem Zettel. Versucht dann den Plan in \programm{Scratch} umzusetzen.
+\begin{aufgabe}[icon=\iconStern\,\iconLaptop\,\iconPartner]
+	Überlege dir, wie ein \programm{Scratch}-Programm
+	aussehen müsste, dass eine Binärzahl in eine Dezimalzahl umformt. Notiert euch
+	das Programm zunächst in Stichpunkten auf einem Zettel. Versucht dann den Plan
+	in \programm{Scratch} umzusetzen.
 \end{aufgabe}
 
 \end{document}

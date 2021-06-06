@@ -2,7 +2,6 @@
 
 \ladeModule{theme,typo,icons,aufgaben}
 \ladeFach[listings]{informatik}
-
 \aboptionen{
 	name 		= {J. Neugebauer},
 	kuerzel 	= {Ngb},
@@ -18,23 +17,27 @@
 \begin{document}
 \ReiheTitel
 
-\begin{quote}
-HTML steht für \enquote{Hypertext Markup Language}. HTML ist eine formale Sprache zur Beschreibung der Struktur von Hypertexten (in Form verlinkter Webseiten) mit Hilfe von Auszeichnungen.
-\end{quote}
+HTML steht für \enquote{Hypertext Markup Language}. HTML ist
+eine formale Sprache zur Beschreibung der Struktur von
+Hypertexten (in Form verlinkter Webseiten) mit Hilfe von
+Auszeichnungen.
 
 \begin{aufgabe}[icon=\iconComputer]
-Ruft die Adresse \url{https://link.ngb.schule/html-bailey} im Firefox Browser auf. Unten ist der Quelltext der Seite abgebildet. Studiert den Quelltext und vergleicht ihn mit der Darstellung der Seite im Browser. Beantwortet dann folgende Fragen:
-\begin{enuma}\itemsep 0ex
+Ruft die Adresse \url{https://link.ngb.schule/html-bailey} im
+Firefox Browser auf. Unten ist der Quelltext der Seite abgebildet.
+Studiert den Quelltext und vergleicht ihn mit der Darstellung
+der Seite im Browser. Beantwortet dann folgende Fragen:
+\begin{smallenum}
 	\item Wieso ist HTML eine \enquote{Auszeichnungssprache}?
 	\item Welche Elemente erkennt ihr?
 	\item Welche Grundstruktur hat eine HTML-Seite?
-\end{enuma}
+\end{smallenum}
 \begin{lstlisting}[language=HTML,basicstyle=\scriptsize\ttfamily]
 <!doctype html>
 <html>
 <head>
 	<meta charset="utf-8">
-	<link href='styles/style.css' rel='stylesheet' type='text/css'>
+	<link href="styles/style.css" rel="stylesheet" type="text/css">
 	<title>Homepage von Bailey</title>
 </head>
 <body>
@@ -64,13 +67,16 @@ Ruft die Adresse \url{https://link.ngb.schule/html-bailey} im Firefox Browser au
 \end{lstlisting}
 \end{aufgabe}
 
-\begin{wrapfigure}{r}{3cm}
+\begin{wrapfix}
+\begin{wrapfigure}[8]{r}{0pt}
 	\includegraphics[width=3cm]{8Diff-Ab.1-Abb_Menu.jpg}
 \end{wrapfigure}
 \begin{aufgabe}[icon=\iconComputer]
-	Durch einen Rechtsklick im Browserfenster könnt ihr ein \menu{Element untersuchen}\\
-	 und sogar \enquote{live} bearbeiten. Nutzt diesen \enquote{Inspektor}, um die Seite weiter zu \\
-	 erkunden.
+	Durch einen Rechtsklick im Browserfenster könnt ihr ein
+	\menu{Element untersuchen} und sogar \enquote{live} \\
+	bearbeiten. Nutzt diesen \enquote{Inspektor}, um die Seite
+	weiter zu erkunden.
 \end{aufgabe}
+\end{wrapfix}
 
 \end{document}

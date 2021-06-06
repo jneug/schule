@@ -1,48 +1,52 @@
-\documentclass[a4paper,11pt]{scrartcl}
+\documentclass[10pt, a4paper]{arbeitsblatt}
 
-\usepackage{vorschule}
-\usepackage[
-	typ=ab,
-	fach=Informatik,
-	lerngruppe={Diff 8},
-	seitenzahlen=keine,
-	zitate=quotes,
-	module={Lizenzen,Symbole},
-	lizenz={cc-by-nc-sa-4},
-]{schule}
+\ladeModule{theme,typo,icons,tabellen,boxen,aufgaben}
+\aboptionen{
+	name		= {J. Neugebauer},
+	kuerzel		= {Ngb},
+	titel		= {Gestaltung mit Cascading Style Sheets (CSS)},
+	reihe		= {Webseiten erstellen mit HTML},
+	fach		= {Informatik},
+	lerngruppe	= {8Diff},
+	nummer		= {II.6},
+	lizenz		= {cc-by-nc-sa-4},
+	version		= {2021-05-28},
+}
 
-\usepackage[
-	kuerzel=Ngb,
-	reihe={Webseiten erstellen mit HTML},
-	version={0.1 (2018)},
-	url={https://www.github.com/jneug/schule},
-]{ngbschule}
-
-\author{J. Neugebauer}
-\title{Gestaltung mit Cascading Style Sheets (CSS)}
-\date{\Heute}
-
-\setzeAufgabentemplate{schule-binnen}
-
+\ladeFach[listings]{informatik}
 
 \begin{document}
 \ReiheTitel
 
-{\small Um die Elemente einer Webseite nach den eigenen Wünschen gestalten zu können wurde die Sprache CSS entwickelt. Sie erlaubt die Trennung von Seiteninhalt (Texte, Tabellen, Navigationselemente, …) und Gestaltung (Farben, Schriftarten, Rahmen, …).
+Um die Elemente einer Webseite nach den eigenen Wünschen gestalten zu können
+wurde die Sprache CSS entwickelt. Sie erlaubt die Trennung von Seiteninhalt
+(Texte, Tabellen, Navigationselemente, …) und Gestaltung (Farben, Schriftarten,
+Rahmen, …).
 
-Indem das Aussehen der Webseite getrennt vom HTML-Quelltext in einer separaten Datei gespeichert wird, kann ganz einfach durch den Tausch der CSS-Datei das Aussehen der Webseite vollständig verändert werden. Auf der anderen Seite kann dieselbe Gestaltungsdatei auf mehreren Seiten wiederverwendet werden.}
+Indem das Aussehen der Webseite getrennt vom HTML-Quelltext in einer separaten
+Datei gespeichert wird, kann ganz einfach durch den Tausch der CSS-Datei das
+Aussehen der Webseite vollständig verändert werden. Auf der anderen Seite kann
+dieselbe Gestaltungsdatei auf mehreren Seiten wiederverwendet werden.
 
-\section*{Arbeitsaufträge}
-\begin{aufgabe}[symbol=\Large\symLaptop]
-	Öffne deinen Steckbrief im HTML-Editor. Links oben findest du in deinem Projekt einen Ordner \directory{css}, in dem eine Datei mit dem Namen \directory{formate.css} gespeichert ist. In diese Datei kannst du deine CSS-Formatierungen schreiben.
-	
-	Damit die Datei von deiner Webseite benutzt wird, muss du sie mit der Seite \enquote{verlinken}. Öffne dazu deinen Steckbrief und suche das \code{<head>}-Tag ganz oben. Füge zwischen \code{<head>} und \code{</head>} das folgende Tag ein:
+\begin{aufgabe}[icon=\iconLaptop]
+	Öffne deinen Steckbrief im \programm{HTML-Editor}. Links oben
+	findest du in deinem Projekt einen Ordner \ordner{css}, in dem eine
+	Datei mit dem Namen \datei{formate.css} gespeichert ist. In diese Datei
+	kannst du deine CSS-Formatierungen schreiben.
+
+	Damit die Datei von deiner Webseite benutzt wird, muss du sie mit der Seite
+	\enquote{verlinken}. Öffne dazu deinen Steckbrief und suche das
+	\lstinline[language=HTML]{<head>}-Tag ganz oben. Füge zwischen \lstinline[language=HTML]{<head>} und
+	\lstinline[language=HTML]{</head>} das folgende Tag ein:
 	\begin{lstlisting}[language=HTML]
 <link rel="stylesheet" type="text/css" href="css/formate.css">
 	\end{lstlisting}
 \end{aufgabe}
-\begin{aufgabe}[symbol=\Large\symLaptop]
-	Füge in die Datei \directory{formate.css} folgenden CSS-Quelltext ein, speichere sie ab und betrachte deinen Steckbrief nun in der Vorschau.
+
+\begin{aufgabe}[icon=\iconLaptop]
+	Füge in die Datei \datei{formate.css} folgenden
+	CSS-Quelltext ein, speichere sie ab und betrachte deinen Steckbrief nun in der
+	Vorschau.
 	\begin{lstlisting}[language=HTML,basicstyle=\scriptsize\ttfamily]
 body {
   background-color: yellow;
@@ -64,23 +68,29 @@ u {
 }
 	\end{lstlisting}
 \end{aufgabe}
-\begin{aufgabe}[symbol=\Large\symLaptop]
-	Schau dir den Quelltext oben und im Editor genau an und versuche zu erklären, was du siehst. Wie ist eine CSS-Datei aufgebaut?
+
+\begin{aufgabe}[icon=\iconLaptop]
+	Schau dir den Quelltext oben und im Editor genau an und
+	versuche zu erklären, was du siehst. Wie ist eine CSS-Datei aufgebaut?
 \end{aufgabe}
-\begin{aufgabe}[symbol=\Large\symLaptop]
-	Versuche anhand des Quelltextes die Bedeutung folgender Begriffe zu erklären:
+
+\begin{aufgabe}[icon=\iconLaptop]
+	Versuche anhand des Quelltextes die Bedeutung folgender
+	Begriffe zu erklären:
 	\begin{multicols}{4}
 		CSS-Regel
-		
+
 		CSS-Selektor
-		
+
 		CSS-Eigenschaft
-		
+
 		Eigenschafts-Wert
 	\end{multicols}
 \end{aufgabe}
-\begin{aufgabe}[symbol=\Large\symStern]
-	Erkläre anhand eines (theoretischen) Beispiels, warum die Trennung von \emph{Gestaltung} und \emph{Inhalt} sinnvoll ist.
-\end{aufgabe}
-	
+
+\begin{aufgabe*}
+	Erkläre anhand eines (theoretischen) Beispiels, warum
+	die Trennung von \emph{Gestaltung} und \emph{Inhalt} sinnvoll ist.
+\end{aufgabe*}
+
 \end{document}

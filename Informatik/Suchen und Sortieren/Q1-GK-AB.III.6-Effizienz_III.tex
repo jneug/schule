@@ -1,0 +1,140 @@
+\documentclass[10pt, a4paper, ngerman]{arbeitsblatt}
+
+\ladeModule{theme,typo,icons,qrcodes,aufgaben}
+\ladeFach[graphen]{informatik}
+\aboptionen{
+	name 		= {J. Neugebauer},
+	kuerzel 	= {Ngb},
+	titel 		= {Effizienz Quicksort},
+	reihe 		= {Suchen und Sortieren},
+	fach 		= {Informatik},
+	kurs 		= {Q1},
+	nummer 		= {IV.6},
+	lizenz 		= {cc-by-nc-sa-4},
+	version 	= {2021-05-20},
+}
+
+\begin{document}
+\ReiheTitel
+
+Für die Analyse des Quicksort Algorithmus hilft die Betrachtung
+des \emph{Rekursionsbaums}.
+
+Quicksort teilt den Sortierbereich in zwei
+Teile auf, alle Elemente, die kleiner als das Pivot-Element sind, und alle, die
+größer sind. Dann wird der Algorithmus rekursiv auf die beiden Teile angewandt.
+Der Rekursionsbaum ist also ein Binärbaum. Die Aufteilung hängt dabei wesentlich
+von der Wahl des Pivot-Elements ab.
+
+Für die Eingabe \code{24,13,15,2,33,34,4,18} und die bekannte Implementierung des
+Quicksort, könnte der Re\-kursions\-baum wie in \prettyref{abb:rekbaum-1} aussehen
+(das Pivot-Element ist jeweils fett markiert):
+
+\begin{figure}[ht]
+	\begin{subfigure}[ht]{.5\linewidth}\centering
+		\begin{forest}
+		for tree={ellipse,draw}
+		[{24,13,15,2,33,34,4,\textbf{18}}
+			[{13,15,2,\textbf{4}}
+				[{\textbf{2}}
+				]
+				[{13,\textbf{15}}
+					[\textbf{13}]
+				]
+			]
+			[{24,33,\textbf{34}}
+				[{24,\textbf{33}}
+					[\textbf{24}]
+				]
+			]\quad
+		]
+		\end{forest}
+		\caption{Rekursionsbaum mit Suchbereichen}\label{abb:rekbaum-1}
+	\end{subfigure}%
+	\begin{subfigure}[ht]{.5\linewidth}\centering
+		\begin{forest}
+		for tree={circle,draw}
+		[8
+			[4
+				[1]
+				[2
+					[1]
+				]
+			]
+			[3
+				[2
+					[1]
+				]
+			]
+		]
+		\end{forest}
+		\caption{Rekursionsbaum mit Anzahl Elementen}\label{abb:rekbaum-2}
+	\end{subfigure}
+	\caption{Rekursionsbaum des Quicksort}\label{abb:rekbaum}
+\end{figure}
+
+Zur Vereinfachung notieren wir nur die \emph{Anzahl der Elemente} pro rekursivem Aufruf,
+wie in \prettyref{abb:rekbaum-2} zu sehen.
+
+\begin{aufgabe}
+	\label{aufg:rekursionsbaum}
+	Zeichne beide Varianten des Rekursionsbaums für die Eingabe \code{3,14,5,37,28,12,21,52,19,8,32,41,44,17,1} bei Wahl
+	des letzten (rechten) Elements im Sortierbereich.
+\end{aufgabe}
+
+Für die Laufzeit gibt es zwei wesentliche Faktoren: Die Teilung (Partitionierung) des Suchbereichs
+abhängig vom Pivot-Element, sowie einen Verwaltungsaufwand. Für den Verwaltungsaufwand (z.B. das Tauschen
+von Elementen) kann \emph{konstanter Zeitaufwand} veranschlagt werden.
+
+\begin{aufgabe}
+	\begin{wrapfix}
+	\begin{wrapfigure}[4]{r}{0pt}
+		\qrcode{https://qr-lernhilfen.de/mobileUrl?url=f1e0cbf3a6ba0f47}
+	\end{wrapfigure}
+	Bestimme den Zeitaufwand für die Partitionierung eines Sortierbereichs mit $n$ Elementen.
+
+	\begin{itemize}
+		\item Verwaltungsaufwand: $O(1)$
+		\item Aufwand zur  Partitionierung: \linie[6cm]
+	\end{itemize}
+	\end{wrapfix}
+\end{aufgabe}
+
+\begin{aufgabe}
+	\label{aufg:analyse-worst-case}
+	\begin{wrapfix}
+	\begin{wrapfigure}[4]{r}{0pt}
+		\qrcode{https://qr-lernhilfen.de/mobileUrl?url=e70534b1f28ff954}
+	\end{wrapfigure}
+
+	Im \emph{worst case} wird immer genau das größte oder kleinste Element im Suchbereich
+	als Pivot-Element gewählt.
+
+	Zeichne den Rekursionsbaum (mit der Anzahl der Elemente) zum Beispiel oben für den worst case.
+
+	Begründe anhand des Baumes, warum die Laufzeit im worst case in $O(n^2)$ liegt.
+	\end{wrapfix}
+	\hinweis{Die Summe der Zahlen von $1$ bis $n$ lässt sich zusammenfassen zu $(n+1)\cdot n\cdot 0,5$.}
+\end{aufgabe}
+
+\begin{aufgabe}
+	\label{aufg:analyse-best-case}
+	\begin{wrapfix}
+	\begin{wrapfigure}[4]{r}{0pt}
+		\qrcode{https://qr-lernhilfen.de/mobileUrl?url=82930c3bf17525c1}
+	\end{wrapfigure}
+
+	Im \emph{best case} wird immer genau das Element in der Mitte des Sortierbereichs gewählt,
+	wodurch die beiden Teilbäume dieselbe Anzahl Elemente haben.
+
+	Zeichne den Rekursionsbaum (mit der Anzahl der Elemente) zum Beispiel oben für den best case.
+
+	Begründe anhand des Baumes, warum die Laufzeit im best case in $O(n\cdot \log{n})$ liegt.
+	\end{wrapfix}
+\end{aufgabe}
+
+\begin{center}
+	\qrlink{https://qr-lernhilfen.de/mobileSolution?s=39407}{Lösungen}
+\end{center}
+
+\end{document}

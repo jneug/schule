@@ -1,52 +1,44 @@
-\documentclass[10pt, a4paper]{scrartcl}
+\documentclass[9pt, a4paper]{arbeitsblatt}
 
-\usepackage{vorschule}
-\usepackage[
-    typ=ab,
-    fach=Informatik,
-    lerngruppe={EF},
-    nummer={I.2},
-    module={Symbole,Lizenzen},
-    seitenzahlen=keine,
-    farbig,
-    lizenz=cc-by-nc-sa-4,
-]{schule}
-
-\usepackage[
-	kuerzel=Ngb,
-	reihe={Informationen, Daten und Codierung},
-	version={2019-09-4},
-]{ngbschule}
-
-\author{J. Neugebauer}
-\title{Zahlensysteme}
-\date{\Heute}
-
-\setzeAufgabentemplate{ngbnormal}
-
-%\usepackage{qrcode}
+\ladeModule{theme,typo,icons,tabellen,boxen,aufgaben}
+\aboptionen{
+	name 		= {J. Neugebauer},
+	kuerzel 	= {Ngb},
+	titel 		= {Zahlensysteme},
+	reihe 		= {Informationen, Daten und Codierung},
+	fach 		= {Informatik},
+	kurs 		= {EF},
+	nummer 		= {I.2},
+	lizenz 		= {cc-by-nc-sa-4},
+	version 	= {2021-05-28},
+}
 
 \begin{document}
-
 \ReiheTitel
 
-Ein \emph{Zahlensystem} ist ein System zur Darstellung von Zahlen. Wir benutzen im Alltag das \emph{Dezimalsystem}, ein sogenanntes \emph{Stellenwertsystem} zur Basis 10. Das bedeutet, es werden 10 verschiedene Ziffern zur Darstellung benutzt. Das \emph{Binärsystem} benutzt nur zwei, und das \emph{Hexadezimalsystem} verwendet 16.
+Ein \emph{Zahlensystem} ist ein System zur Darstellung von Zahlen. Wir
+benutzen im Alltag das \emph{Dezimalsystem}, ein sogenanntes
+\emph{Stellenwertsystem} zur Basis 10. Das bedeutet, es werden 10 verschiedene
+Ziffern zur Darstellung benutzt. Das \emph{Binärsystem} benutzt nur zwei,
+und das \emph{Hexadezimalsystem} verwendet 16.
 
 \subsection*{Ziffern der Zahlenwertsysteme}
-\begin{tabularx}{\textwidth}{c|*{16}{|X}}
-	Binär& 0& 1 &&&&&&&&&&&&&& \\ \hline
-	Dezimal& 0& 1& 2& 3& 4& 5& 6& 7& 8& 9&&&&&& \\\hline
-	Hex& 0& 1& 2& 3& 4& 5& 6& 7& 8& 9& A& B& C& D& E& F
+\begin{tabularx}{\textwidth}{c|*{16}{|>{\centering\large\arraybackslash}X}}
+	Binär   & 0 & 1 &   &   &   &   &   &   &   &   &   &   &   &   &   &   \\ \hline
+	Dezimal & 0 & 1 & 2 & 3 & 4 & 5 & 6 & 7 & 8 & 9 &   &   &   &   &   &   \\\hline
+	Hex     & 0 & 1 & 2 & 3 & 4 & 5 & 6 & 7 & 8 & 9 & A & B & C & D & E & F
 \end{tabularx}
 
 \subsection*{Darstellung von Zahlen}
-Die Darstellung von Zahlen in den Stellenwertsystemen erfolgt immer gleich. Der einzige Unterschied ist die Basis - also die Anzahl an Ziffern.
+Die Darstellung von Zahlen in den Stellenwertsystemen erfolgt immer gleich. Der
+einzige Unterschied ist die Basis - also die Anzahl an Ziffern.
 
 \begin{tabularx}{\textwidth}{c|c|c|X}
-	& Zahlwert & Darstellung & Berechnung \\ \hline
-	Binär & \num{103} & $(1100111)_2$ & $1\cdot 2^6 + 1\cdot 2^5 + 0\cdot 2^4 + 0\cdot 2^3 + 1\cdot 2^2 + 1\cdot 2^1 + 1\cdot 2^0$ \\ \hline
-	Dezimal & \num{103} & $(103)_{10}$ & $1\cdot 10^2 + 0\cdot 10^1 + 3\cdot 10^0$ \\ \hline
-	Hex & \num{103} & $(67)_{16}$ & $6\cdot 16^1 + 7\cdot 16^0$
+	        & Zahlwert  & Darstellung   & Berechnung                                                                     \\ \hline
+	Binär   & \num{103} & $(1100111)_2$ & $1\cdot 2^6 + 1\cdot 2^5 + 0\cdot 2^4 + 0\cdot 2^3 + 1\cdot 2^2 + 1\cdot 2^1 +
+	1\cdot 2^0$                                                                                                          \\ \hline
+	Dezimal & \num{103} & $(103)_{10}$  & $1\cdot 10^2 + 0\cdot 10^1 + 3\cdot 10^0$                                      \\ \hline
+	Hex     & \num{103} & $(67)_{16}$   & $6\cdot 16^1 + 7\cdot 16^0$
 \end{tabularx}
 \bigskip
 
@@ -66,14 +58,28 @@ Die Darstellung von Zahlen in den Stellenwertsystemen erfolgt immer gleich. Der 
 \end{aufgabe}
 
 \subsection*{Rechnen mit Hexadezimalzahlen}
-Das Rechnen in Stellenwertsystemen unterscheidet sich auch nur durch die Basis. Das Verfahren ist gleich: Für jede Stelle werden die Ziffern zusammengezählt. Wird für diese Stelle die letzte Ziffer überschritten (z.B. $F$ im Hexadezimalsystem), wird die nächste Stelle um eins erhöht. (Vergleiche Addition im Dezimalsystem.)
+Das Rechnen in Stellenwertsystemen unterscheidet sich auch nur durch die Basis.
+Das Verfahren ist gleich: Für jede Stelle werden die Ziffern zusammengezählt.
+Wird für diese Stelle die letzte Ziffer überschritten (z.B.
+$F$ im Hexadezimalsystem), wird die nächste Stelle um eins
+erhöht. (Vergleiche Addition im Dezimalsystem.)
 
 \begin{aufgabe}
 	Berechne im jeweiligen Zahlensystem:
 	\begin{tasks}(3)
-		\task $(45)_{10} + (13)_{10}$ \task $(23)_{10} + (8)_{10}$ \task $(105)_{10} + (77)_{10}$
-		\task $(0101)_{2} + (1100)_{2}$ \task $(1011)_{2} + (1000)_{2}$ \task $(1001)_{2} + (1110)_{2} + (0100)_{2}$
-		\task $(1E)_{16} + (A2)_{16}$ \task $(FF)_{16} + (06)_{16}$ \task $(FE)_{16} + (A4)_{16}$
+		\task $(45)_{10} +
+				(13)_{10}$ \task $(23)_{10} +
+				(8)_{10}$ \task $(105)_{10} +
+				(77)_{10}$
+		\task $(0101)_{2} +
+				(1100)_{2}$ \task $(1011)_{2} +
+				(1000)_{2}$ \task $(1001)_{2} +
+				(1110)_{2} +
+				(0100)_{2}$
+		\task $(1E)_{16} +
+				(A2)_{16}$ \task $(FF)_{16} +
+				(06)_{16}$ \task $(FE)_{16} +
+				(A4)_{16}$
 	\end{tasks}
 \end{aufgabe}
 
