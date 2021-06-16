@@ -1,0 +1,102 @@
+\documentclass[11pt, a4paper]{arbeitsblatt}
+
+\ladeModule{theme,tabellen}
+
+\ladeFach[]{informatik}
+
+\aboptionen{
+	name		= {J. Neugebauer},
+	kuerzel 	= {Ngb},
+	titel 		= {Ticker},
+	reihe 		= {Projekt: Zulda},
+	fach 		= {Informatik},
+	kurs 		= {Q1-LK},
+	nummer 		= {2},
+	lizenz 		= {cc-by-nc-sa-4},
+	version 	= {2021-06-13},
+}
+
+\begin{document}
+\ReiheTitel
+
+\begin{aufgabe}[subtitle=Ticker]
+	\label{aufg:ticker}
+	Klassen, die das Interface \code{Ticker} implementieren, werden von
+	der \programm{Engine-Alpha} in regelmäßigen Abständen aufgerufen. Sie erlauben
+	so zum Beispiel die Umsetzung von Animationen und Bewegungen von
+	Computergegnern.
+	\begin{wrapfix}
+		\begin{wrapfigure}[8]{r}{0pt}
+			\begin{tabular}{|c|c|c|}\hline
+				\rowcolor{ab.tabelle.kopf.hg}
+				Aufruf & \code{delta} & \code{speed} \\ \hline
+				       &              &              \\ \hline
+				       &              &              \\ \hline
+				       &              &              \\ \hline
+				       &              &              \\ \hline
+				       &              &              \\ \hline
+				       &              &              \\ \hline
+				       &              &              \\ \hline
+				       &              &              \\ \hline
+			\end{tabular}
+		\end{wrapfigure}
+		\begin{enuma}
+			\item Schau dir die Methode \code{tick()} in der Klasse \code{TrankAngriff}
+			      an. Wofür stehen die Variablen \code{delta} und \code{speed}?
+			      Fülle in der Tabelle aus, wie sich die Werte der Variablen verändern, wenn die
+			      Methode \code{tick()} mehrmals aufgerufen wird.
+			\item Verändere die Initialwerte der Variablen bei ihrer Deklaration (zeilen 8 und 9)
+			      und versuche zu erklären, was du siehst.
+			\item Die Klasse \code{Ork} ist auch ein \code{Ticker}. Die
+			      \code{tick()} Methode wird alle 250 Millisekunden aufgerufen. Dazu
+			      muss sie beim \code{Manager} angemeldet werden (Zeile 70).
+
+			      Implementiere eine Bewegung für den \code{Ork} in der
+			      \code{tick()} Methode.
+
+			      \hinweis{Nutze dazu die \code{bewege}-Methoden der Klasse
+				      \code{Karte}, um den \code{Ork} über die Felder zu bewegen. \\(z.B.
+				      \code{karte.bewegeRechts(this)}). Implementiere zum Beispiel eine zufällige Bewegung mit
+				      der Klasse \code{Random}.}
+		\end{enuma}
+	\end{wrapfix}
+\end{aufgabe}
+
+\begin{aufgabe}[subtitle=Interaktionen 1]
+	\label{aufg:interaktionen-1}
+	Nun können sich \code{Lunk} und die Gegner in der Welt bzw. auf den
+	Karten bewegen. (Wenn auch bisher nur zufällig.) Bisher gibt es aber noch keine
+	Interaktion zwischen den Objekten.
+
+	\begin{enuma}
+		\item In der Klasse \code{Troll} findest Du die Variante eines Gegners, der
+		      den Spieler auf der Karte verfolgt und den Spieler angreift, sobald er ihn
+		      erreicht. Analysiere den Inhalt der \code{tick()} Methode und wie die
+		      Objekte miteinander interagieren.
+		\item Füge dem Spiel einen \code{Troll} hinzu (zum Beispiel in der
+		      \code{Karte\_0} oder auf einer anderen Karte) und teste das Spiel.
+	\end{enuma}
+\end{aufgabe}
+
+\begin{aufgabe}[subtitle=Interaktionen 2]
+	\label{aufg:interaktionen-2}
+	Interaktionen können auf verschiede Arten umgesetzt werden. Der
+	\code{TrankAngriff} besitzt zum Beispiel zwar eine \code{tick()}
+	Methode, dort wird aber nur die Animation des Tranks implementiert.
+
+	\begin{enuma}
+		\item Starte das Spiel und versuch den Trank einzusammeln.
+		\item Viele Interaktionen finden statt, wenn sich der Spieler in der Welt bewegt.
+		      Daher wird nach jeder Bewegung des Spielers das aktuelle \code{Feld}
+		      auf Gegenstände geprüft. Dazu wurden in der Klasse \code{Karte}
+		      einige Hilfsmethoden zur Ermittlung der Gegenstände und Gegner auf einem Feld
+		      ergänzt. Studiere die Dokumentation der Klasse (in BlueJ der Reiter
+		      \enquote{Dokumentation} im Editor oben rechts) und welche Methoden es gibt.
+		      Analysiere dann, wie sie in den \code{bewege}-Methoden in Welt benutzt
+		      werden.
+		\item Implementiere einen weiteren Gegenstand (z.B. \code{TrankVerteidigung}) und teste
+		      ihn im Spiel.
+	\end{enuma}
+\end{aufgabe}
+
+\end{document}
