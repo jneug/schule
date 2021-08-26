@@ -1,26 +1,17 @@
 \documentclass[11pt, a4paper]{scrartcl}
 
-\usepackage{vorschule}
-\usepackage[
-    typ=ab,
-    fach=Mathematik,
+\usepackage[theme,typo,icons,aufgaben]{arbeitsblatt}
+\aboptionen{
+    fach={Mathematik},
     lerngruppe={Jg.7},
-    nummer=10,
-    module={Symbole,Papiertypen,Lizenzen},
+    nummer={10},
     lizenz=cc-by-nc-sa-4,
-]{schule}
-
-\usepackage[
 	kuerzel=Ngb,
+	name={J. Neugebauer},
+	titel={Knackt die Box},
 	reihe={Terme und Gleichungen},
 	version={2019-04-01},
-]{ngbschule}
-
-\author{J. Neugebauer}
-\title{Knackt die Box}
-\date{\Heute}
-
-\setzeAufgabentemplate{ngbnormal}
+}
 
 
 \begin{document}
@@ -54,7 +45,7 @@
 		\end{smallitemize}
 	\end{aufgabe}
 
-	\begin{aufgabe}[symbol=\symStern]
+	\begin{aufgabe*}
 		Bisher bestehen unsere Boxengleichungen aus Summen von positiven Zahlen und Variablen. Überlegt gemeinsam, wie man auch negative Zahlen mit Streichhölzern darstellen könnte.
-	\end{aufgabe}
+	\end{aufgabe*}
 \end{document}
