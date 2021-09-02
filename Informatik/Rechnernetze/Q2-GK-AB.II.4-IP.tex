@@ -1,28 +1,17 @@
- \documentclass[10pt, a4paper]{scrartcl}
+ \documentclass[10pt, a4paper]{arbeitsblatt}
 
-\usepackage{vorschule}
-\usepackage[
-	typ=ab,
-	fach=Informatik,
-	lerngruppe={Q2},
-	nummer=II.4,
-	module={Symbole,Lizenzen},
-	seitenzahlen=keine,
-	farbig,
-	lizenz=cc-by-nc-sa-4,
-]{schule}
-
-\usepackage[
-	kuerzel=Ngb,
-	reihe={Rechnernetze},
-	version={2020-11-27},
-]{ngbschule}
-
-\author{J. Neugebauer}
-\title{Routing: IP-Adressen}
-\date{\Heute}
-
-\setzeAufgabentemplate{ngbkompakt}
+ \ladeModule{theme,tabellen}
+ \aboptionen{
+	name 		= {J. Neugebauer},
+	kuerzel 	= {Ngb},
+	titel 		= {Routing: IP-Adressen},
+	reihe 		= {Rechnernetze},
+	fach 		= {Informatik},
+	kurs 		= {Q2},
+	nummer 		= {II.4},
+	lizenz 		= {cc-by-nc-sa-4},
+	version 	= {2021-09-01},
+}
 
 \begin{document}
 \ReiheTitel
@@ -33,13 +22,13 @@ Zum besseren Verständnis des (IPv4) Routing-Prozesses ist eine Darstellung der 
 
 \begin{aufgabe}
 	Wiederhole die Umrechung zwischen dem Binärsystem und dem Dezimalsystem. Wandle anschließend in das jeweils andere Stellenwertsystem um.
-	
+
 	\begin{tasks}(4)
 		\task $1101 1110_2$
 		\task $0011 1111_2$
 		\task $1111 1101_2$
 		\task $0101 1010_2$
-		
+
 		\task $96_{10}$
 		\task $254_{10}$
 		\task $17_{10}$
@@ -52,32 +41,32 @@ Eine Subnetzmaske ist in IPv4 ebenfalls eine 32-Bit-Zahl, welche eine IP-Adresse
 Die kleinste Adresse des Netzwerks beschreibt das Netzwerk selbst, die größte Adresse ist für den \emph{Broadcast} reserviert. Beispiel:
 
 \begin{tabular}{llcl}
-	IP-Adresse: & \code{192.145.96.201} & = & $\code{11000000.10010001.01100000.11001001}$ \\
-	Subnetzmaske: & \code{255.255.255.240} & = & $\code{11111111.11111111.11111111.11110000}$ \\[3mm]
+	IP-Adresse: & \code{192.145.96.201} & = & \code{11000000.10010001.01100000.11001001} \\
+	Subnetzmaske: & \code{255.255.255.240} & = & \code{11111111.11111111.11111111.11110000} \\[3mm]
 
 	\multicolumn{4}{l}{UND-Verknüpfung ergibt den} \\
-	Netzwerkteil: & \code{192.145.96.192} & = & $\code{\underline{\textbf{11000000.10010001.01100000.1100}}0000}$ \\[3mm]
-	
+	Netzwerkteil: & \code{192.145.96.192} & = & \code{\underline{\textbf{11000000.10010001.01100000.1100}}0000} \\[3mm]
+
 	\multicolumn{4}{l}{UND-Verknüpfung mit der invertierten Maske ergibt den} \\
-	Geräteteil: & \code{0.0.0.9} & = & $\code{00000000.00000000.00000000.0000\underline{\textbf{1001}}}$ \\[3mm]
-	
+	Geräteteil: & \code{0.0.0.9} & = & \code{00000000.00000000.00000000.0000\underline{\textbf{1001}}} \\[3mm]
+
 	\multicolumn{4}{l}{Die größte Adresse im Netzwerk ist für den Broadcast definiert:} \\
-	Broadcast: & \code{192.145.96.207} & = & $\code{11000000.10010001.01100000.1100\underline{\textbf{1111}}}$ \\[3mm]
-	
+	Broadcast: & \code{192.145.96.207} & = & \code{11000000.10010001.01100000.1100\underline{\textbf{1111}}} \\[3mm]
+
 	\multicolumn{4}{l}{Nutzbarer Adressbereich im Netzwerk:} \\
-	Default-Gateway: & \code{192.145.96.193} & = & $\code{11000000.10010001.01100000.1100\underline{\textbf{0001}}}$ \\
-	bis: & \code{192.145.96.206} & = & $\code{11000000.10010001.01100brew info fish
-		000.1100\underline{\textbf{1110}}}$ \\
+	Default-Gateway: & \code{192.145.96.193} & = & \code{11000000.10010001.01100000.1100\underline{\textbf{0001}}} \\
+	bis: & \code{192.145.96.206} & = & \code{11000000.10010001.01100brew info fish
+		000.1100\underline{\textbf{1110}}} \\
 \end{tabular}
 
 Der Netzwerkteil ist gleichzeitig die \emph{Netzwerkadresse}.
 
 \begin{aufgabe}
 	Übertrage die Tabelle ins Heft und vervollständige sie mit den passenden IP-Adressen:
-	
+
 	\small
 	\begin{tabularx}{\textwidth}{|l|l|*{5}{X|}} \hline
-		\rowcolor{ngb.tabelle.kopf.hg} IP & Subnetz\-maske & Netzwerk\-adresse & Geräteteil & Broadcast & Default-Gateway & max IP im Netzwerk \\\hline
+		\rowcolor{ab.tabelle.kopf.hg} IP & Subnetz\-maske & Netzwerk\-adresse & Geräteteil & Broadcast & Default-Gateway & max IP im Netzwerk \\\hline
 		\code{192.168.213.15} & \code{255.255.255.192} &&&&&  \\\hline
 		\code{172.16.5.254} & \code{255.255.255.0} &&&&&  \\\hline
 		\code{172.254.13.8} & \code{255.255.248.0} &&&&&  \\\hline
