@@ -4,7 +4,7 @@
 \aboptionen{
 	name={J. Neugebauer},
 	kuerzel=Ngb,
-	titel={Die Programmiersprache \enquote{list}},
+	titel={Die Programmiersprache \enquote{LIST}},
 	reihe={Automaten und formale Sprachen},
 	fach={Informatik},
 	kurs={Q1-LK},
@@ -20,11 +20,11 @@
 
 \begin{aufgabe}[subtitle=list 1.0]
 	\label{aufg:list-v1}
-	Die Programmiersprache \enquote{list} erlaubt das Programmieren von
+	Die Programmiersprache \enquote{LIST} erlaubt das Programmieren von
 	nummerierten Listen.
 
 	\begin{minipage}[t]{.5\textwidth}
-	Beispielhaftes Programm in \enquote{list}:
+	Beispielhaftes Programm in \enquote{LIST}:
 	\begin{verbatim}
 list from 1 to 5
     Listeneintrag {i}
@@ -98,7 +98,7 @@ Listeneintrag 5
 			\end{center}
 	\end{itemize}
 
-	Implementiere einen Scanner, Parser und Interpreter für \enquote{list}.
+	Implementiere einen Scanner, Parser und Interpreter für \enquote{LIST}.
 
 	\hinweis{Die Projektvorlage enthält schon die Vorbereitung für einen Scanner, der den
 		eingelesenen Quelltext nicht Zeichenweise durchgeht, sondern ihn jeweils an den Leerzeichen
@@ -108,18 +108,18 @@ Listeneintrag 5
 
 \begin{aufgabe}[subtitle=list 2.0]
 	\label{aufg:list-v2}
-	Für Version 2 von \enquote{list} soll die Sprache um eine \code{by}-Nweisung ergänzt werden. Außerdem
+	Für Version 2 von \enquote{LIST} soll die Sprache um eine \code{by}-Anweisung ergänzt werden. Außerdem
 	soll es möglich sein, als Textausgabe beliebige Kombinationen aus Strings und Zählern
 	(\code{\{i\}}) anzugeben.
 
-	\begin{minipage}[t]{.6\textwidth}
+	\begin{minipage}[t]{.6\textwidth}\small
 		Beispielhaftes Programm in \enquote{list2}:
 		\begin{verbatim}
 list from 1 to 99 by 3
     {i} bottles of beer on the wall, {i} bottles of beer.
 end
 		\end{verbatim}
-		\end{minipage}\hfill\begin{minipage}[t]{.4\textwidth}
+		\end{minipage}\hfill\begin{minipage}[t]{.4\textwidth}\small
 		Ausgabe des Programms:
 		\begin{verbatim}
 1 bottles of beer on the wall, 1 bottles of beer.
@@ -132,17 +132,16 @@ end
 
 \begin{aufgabe}[subtitle=list 3.0]
 	\label{aufg:list-v3}
-	\enquote{list3} soll beliebig viele \code{list}-Blöcke hintereinander erlauben.
+	\enquote{LIST3} soll beliebig viele \code{list}-Blöcke hintereinander erlauben.
 \end{aufgabe}
 
 \begin{aufgabe}[subtitle=list 4.0]
 	\label{aufg:list-v4}
-	List ist mittlerweile schon recht umfangreich. Version 4.0 von \enquote{list} soll die
-	Sprache daher etwas vereinfachen und \code{from}, \code{by} und die Zählvariable
-	optional machen. Die ersten beiden bekommen als Standardwert die \code{1}, die Zählvariable
-	\code{i}.
+	List ist mittlerweile schon recht umfangreich. Version 4.0 von \enquote{LIST} soll die
+	Sprache daher etwas vereinfachen und \code{from} und \code{by}
+	optional machen. Beide Werte bekommen als Standardwert die \code{1}.
 
-	Ein minimales \enquote{list} Programm sieht dann so aus:
+	Ein minimales \enquote{LIST} Programm sieht dann so aus:
 	\begin{verbatim}
 list to 5
     Listeneintrag {i}
@@ -152,12 +151,12 @@ end
 
 \begin{aufgabe}[subtitle=list 5.0]
 	\label{aufg:list-v5}
-	Version 5 wird das bisher größte Update. \enquote{list} soll nun \emph{verschachtelte}
+	Version 5 wird das bisher größte Update. \enquote{LIST} soll nun \emph{verschachtelte}
 	\code{list}-Blöcke erlauben. Dazu muss nun die Zählervariable (bisher \code{i}) immer
 	mit angegeben werden.
 
 	\begin{minipage}[t]{.6\textwidth}
-		Beispielhaftes Programm in \enquote{list4}:
+		Beispielhaftes Programm in \enquote{LIST5}:
 		\begin{verbatim}
 list i from 1 to 5 by 2
     Liste {i}
@@ -169,11 +168,11 @@ end
 		\end{minipage}\hfill\begin{minipage}[t]{.4\textwidth}
 		Ausgabe des Programms:
 		\begin{verbatim}
-Liste 1:
+Liste 1
 - 1.5 Listeneintrag
 - 1.7 Listeneintrag
 - 1.9 Listeneintrag
-Liste 3:
+Liste 3
 - 3.5 Listeneintrag
 - 3.7 Listeneintrag
 ...
@@ -188,7 +187,7 @@ Liste 3:
 
 \begin{aufgabe}[subtitle=list 6.0]
 	\label{aufg:list-v6}
-	Das finale Update von \enquote{list} soll nochmal einige Neuerungen bringen. Die Community
+	Das finale Update von \enquote{LIST} soll nochmal einige Neuerungen bringen. Die Community
 	diskutiert noch, welche Features als nächstes umgesetzt werden sollten. Hier sind die Vorschläge,
 	die im Moment die meisten Stimmen haben:
 
