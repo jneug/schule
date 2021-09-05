@@ -1,32 +1,30 @@
-\documentclass[10pt, a5paper,landscape]{scrartcl}
+\documentclass[10pt, a5paper,landscape]{arbeitsblatt}
 
 \usepackage{pgfpages}
 \pgfpagesuselayout{2 on 1}[a4paper]
 
-\usepackage{vorschule}
-\usepackage[
-	typ=ab,
-	fach=Informatik,
-	lerngruppe={Q2},
-	nummer=4,
-	module={Symbole,Lizenzen},
-	seitenzahlen=keine,
-	farbig,
-	lizenz=cc-by-nc-sa-4,
-]{schule}
+\ladeModule{theme,tabellen}
+\aboptionen{
+	name 		= {J. Neugebauer},
+	kuerzel 	= {Ngb},
+	fach		= {Informatik},
+	lerngruppe	= {Q2},
+	reihe		= {Relationale Datenbanken},
+	titel		= {Anomalien},
+	version		= {2021-09-04},
+	nummer		= {IV.4},
+	lizenz		= {cc-by-nc-sa-4}
+}
 
-\usepackage[
-	kuerzel=Ngb,
-	reihe={Relationale Datenbanken},
-	version={2020-08-27},
-]{ngbschule}
-
-\author{J. Neugebauer}
-\title{Anomalien}
-\date{\Heute}
-
-\setzeAufgabentemplate{ngbohne}
-
+\renewcommand{\FussRechts}{}
+\renewcommand{\ReiheTitel}[1][\Titel]{%
+ \begin{minipage}{.49\textwidth}%
+	\usekomafont{titel}{#1}%
+ \end{minipage}\hfill\begin{minipage}{.49\textwidth}%
+	\hspace*{\fill}\usekomafont{reihe}{\Reihe}%
+ \end{minipage}
+ \titlerule%
+}
 
 \begin{document}
 \ReiheTitel
@@ -35,7 +33,7 @@ In der Datenbank eines Autohändlers finden sich folgende Daten:
 
 {\footnotesize
 \begin{tabular}{|*{11}{c|}}\hline
-	\rowcolor{ngb.tabelle.kopf.hg} ID & Name & Vorname & Straße & Nr. & PLZ & Stadt & Marke & Baujahr & Kaufpreis & Kaufdatum \\ \hline
+	\rowcolor{ab.tabelle.kopf.hg} ID & Name & Vorname & Straße & Nr. & PLZ & Stadt & Marke & Baujahr & Kaufpreis & Kaufdatum \\ \hline
 	512 & Heinrichs & Marko & Basaltweg & 18 & 54274 & Grünhausen & Audi A3 & 2001 & 12000 & 07.08.2003 \\\hline
 	2314 & Heinrichs & Marko & Basaltweg & 18 & 54274 & Grünhausen & Audi A4 & 2006 & 16000 & 05.03.2008 \\\hline
 	3290 & Heinrichs & Marko & Basaltweg & 18 & 54274 & Grünhausen & VW Touran & 2014 & 13450 & 01.06.2018 \\\hline
@@ -47,7 +45,7 @@ Nachdem die Änderungen eingetragen wurden sieht die Datenbank so aus:
 
 {\footnotesize
 \begin{tabular}{|*{11}{c|}}\hline
-	\rowcolor{ngb.tabelle.kopf.hg} ID & Name & Vorname & Straße & Nr. & PLZ & Stadt & Marke & Baujahr & Kaufpreis & Kaufdatum \\ \hline
+	\rowcolor{ab.tabelle.kopf.hg} ID & Name & Vorname & Straße & Nr. & PLZ & Stadt & Marke & Baujahr & Kaufpreis & Kaufdatum \\ \hline
 	512 & Heinrichs & Marko & Basaltweg & 18 & 54274 & Grünhausen & Audi A3 & 2001 & 12000 & 07.08.2003 \\\hline
 	2314 & Heinrichs & Marko & Basaltweg & 18 & 54274 & Grünhausen & Audi A4 & 2006 & 16000 & 05.03.2008 \\\hline
 	3290 & Heinrichs & Marko & Am Kreuz & 15 & 54331 & Grünhausen & VW Touran & 2014 & 13450 & 01.06.2018 \\\hline
@@ -69,7 +67,7 @@ Frau Peters bestellt sich jedes Jahr einen Kalender in einem Onlinehandel. In de
 
 {\footnotesize
 \begin{tabular}{|*{10}{c|}}\hline
-	\rowcolor{ngb.tabelle.kopf.hg} ID & Name & Vorname & Straße & Nr. & PLZ & Stadt & Geburtsdatum & Bestelldatum & Artikelnr. \\ \hline
+	\rowcolor{ab.tabelle.kopf.hg} ID & Name & Vorname & Straße & Nr. & PLZ & Stadt & Geburtsdatum & Bestelldatum & Artikelnr. \\ \hline
 	332 & Peters & Simone & Krähensteig & 4 & 32324 & Warendorf & 27.02.1982 & 04.04.2018 & 92002019 \\\hline
 \end{tabular}}
 
@@ -93,7 +91,7 @@ In der Datenbank eines Buchhändlers finden sich folgende Daten:
 
 {\footnotesize
 \begin{tabular}{|*{7}{c|}}\hline
-	\rowcolor{ngb.tabelle.kopf.hg} ID & Name & Vorname & Kaufdatum & Titel & ISBN & Autor\\ \hline
+	\rowcolor{ab.tabelle.kopf.hg} ID & Name & Vorname & Kaufdatum & Titel & ISBN & Autor\\ \hline
 	112 & Schneider & Harry & 14.09.2018 & Harry Potter und ... & 978-3-6... & J. K. Rowling \\\hline
 	154 & Brünger & Peter & 21.01.2019 & Der Herr der Ringe & 978-1-4.. & J. R. R. Tolkien \\\hline
 	188 & Bleimund & Lisa & 25.04.2019 &  Harry Potter und ... & 978-3-6... & J. K. Rowling \\\hline
@@ -105,14 +103,14 @@ Nachdem die Änderungen eingetragen wurden sieht die Datenbank so aus:
 
 {\footnotesize
 \begin{tabular}{|*{7}{c|}}\hline
-	\rowcolor{ngb.tabelle.kopf.hg} ID & Name & Vorname & Kaufdatum & Titel & ISBN & Autor\\ \hline
+	\rowcolor{ab.tabelle.kopf.hg} ID & Name & Vorname & Kaufdatum & Titel & ISBN & Autor\\ \hline
 	112 & Schneider & Harry & 14.09.2018 & Harry Potter und ... & 978-3-6... & J. K. Rowling \\\hline
 	154 & Brünger & Peter & 21.01.2019 & Der Herr der Ringe & 978-1-4.. & J. R. R. Tolkien \\\hline
 	188 & Bleimund & Lisa & 25.04.2019 & Harry Potter und ... & 978-3-6... & J. K. Rowling \\\hline
 	213 & XXXXX & YYYYYY & 00.00.0000 & Blutige Nachrichten & 978-3-4.. & Stephen King \\\hline
 \end{tabular}}
 
-\vspace{1em}
+%\vspace{1em}
 \begin{aufgabe}
 \begin{enumerate}
 	\item Untersuche die Datenbankausschnitte. Wo könnte ein Problem (eine Anomalie) stecken?
