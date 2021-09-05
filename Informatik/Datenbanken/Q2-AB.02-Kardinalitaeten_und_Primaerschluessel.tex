@@ -1,0 +1,153 @@
+\documentclass[11pt, a4paper, ngerman]{arbeitsblatt}
+
+\ladeModule{theme}
+
+\ladeFach[datenbanken]{informatik}
+
+\aboptionen{
+	name		= {J. Neugebauer},
+	kuerzel 	= {Ngb},
+	titel 		= {Kardinalitäten und Primärschlüssel},
+	reihe 		= {Relationale Datenbanken},
+	fach 		= {Informatik},
+	kurs 		= {Q2},
+	nummer 		= {IV.2},
+	lizenz 		= {cc-by-nc-sa-4},
+	version 	= {2021-09-05},
+}
+
+\begin{document}
+\ReiheTitel
+
+\begin{aufgabe}
+Beschreibe in eigenen Worten, was das folgende ER-Diagramm modelliert. Beurteile es unter
+Berücksichtigung der deutschen Rechtsordnung und gesellschaftlicher Erwartungen.
+
+\begin{center}
+\begin{tikzpicture}[erd]
+	\node (Mann)  at (-3.5,0) [entity] {Mann};
+	\node (PersonenNr1)  at (-5,1) [attribute] {\primarykey{PersonenNr}};
+	\node (Name1)  at (-2.5,1) [attribute] {Name};
+	\node (Vorname1)  at (-5.5,-.5) [attribute] {Vorname};
+	\node (Verein)  at (-2.5,-1) [attribute] {Fußballverein};
+	\draw (Mann) -- (PersonenNr1);
+	\draw (Mann) -- (Name1);
+	\draw (Mann) -- (Vorname1);
+	\draw (Mann) -- (Verein);
+
+	\node (verheiratet mit) at (0,0) [relation] {verheiratet mit};
+
+	\node (Frau)  at (3.5,0) [entity] {Frau};
+	\node (PersonenNr2)  at (2.5,1) [attribute] {\primarykey{PersonenNr}};
+	\node (Name2)  at (5,1) [attribute] {Name};
+	\node (Vorname2)  at (5.5,-.5) [attribute] {Vorname};
+	\node (Konfektion)  at (2.5,-1) [attribute] {Konfektionsgröße};
+	\draw (Frau) -- (PersonenNr2);
+	\draw (Frau) -- (Name2);
+	\draw (Frau) -- (Vorname2);
+	\draw (Frau) -- (Konfektion);
+
+	\draw (Mann) --node[above]{n} (verheiratet mit) --node[above]{1} (Frau);
+\end{tikzpicture}
+\end{center}
+\end{aufgabe}
+
+\begin{aufgabe}
+Notiere in den folgenden ER-Modellen jeweils die \emph{Kardinalitäten}.
+
+\begin{enuma}
+	\item
+	\begin{tikzpicture}[erd,baseline=(current bounding box.north)]
+		\node (Mann)  at (-3.5,0) [entity] {Mann};
+
+		\node (ist Vater von) at (0,0) [relation] {ist Vater von};
+
+		\node (Kind)  at (3.5,0) [entity] {Kind};
+
+		\draw (Mann) -- (ist Vater von) -- (Kind);
+	\end{tikzpicture}
+	\vspace{1cm}
+
+	\item
+	\begin{tikzpicture}[erd,baseline=(current bounding box.north)]
+		\node (Mann)  at (-3.5,0) [entity] {Mann};
+
+		\node (ist Geliebter von) at (0,0) [relation] {ist Geliebter von};
+
+		\node (Frau)  at (3.5,0) [entity] {Frau};
+
+		\draw (Mann) -- (ist Geliebter von) -- (Frau);
+	\end{tikzpicture}
+	\vspace{1cm}
+
+	\item
+	\begin{tikzpicture}[erd,baseline=(current bounding box.north)]
+		\node (Person)  at (-3.5,0) [entity] {Person};
+
+		\node (ist Fan von) at (0,0) [relation] {ist Fan von};
+
+		\node (Verein)  at (3.5,0) [entity] {Fußballverein};
+
+		\draw (Person) -- (ist Fan von) -- (Verein);
+	\end{tikzpicture}
+	\vspace{1cm}
+
+	\item
+	\begin{tikzpicture}[erd,baseline=(current bounding box.north)]
+		\node (Person)  at (-3.5,0) [entity] {Person};
+
+		\node (ist bester Freund von) at (3.5,0) [relation] {ist bester Freund von};
+
+		\draw (Person) -- (ist bester Freund von);
+		\draw (ist bester Freund von.south) -- +(0,-.5) -| (Person.south);
+	\end{tikzpicture}
+\end{enuma}
+\end{aufgabe}
+
+\newpage
+
+\begin{aufgabe}
+Ermittle mögliche Schlüsselkandidaten für die folgenden ER-Modelle. Welches ist der
+beste Schlüsselkandidat für einen Primärschlüssel?
+
+\begin{enuma}
+	\item
+	\begin{tikzpicture}[erd,baseline=(current bounding box.north),scale=1.6]
+		\node (Student)  at (0,0) [entity] {Student};
+		\node (MartNr)  at (-2,1) [attribute] {Martrikelnummer};
+		\node (Fach)  at (-3,0) [attribute] {Fach};
+		\node (Mail)  at (-2,-1) [attribute] {E-Mail-Adresse};
+		\node (Vorname)  at (1,-1) [attribute] {Vorname};
+		\node (Name)  at (2.5,-.5) [attribute] {Name};
+		\node (Geburtstag)  at (2.5,.5) [attribute] {Geburtstag};
+		\node (Adresse)  at (1,1.5) [attribute] {Adresse};
+		\draw (Student) -- (MartNr);
+		\draw (Student) -- (Fach);
+		\draw (Student) -- (Mail);
+		\draw (Student) -- (Vorname);
+		\draw (Student) -- (Name);
+		\draw (Student) -- (Geburtstag);
+		\draw (Student) -- (Adresse);
+	\end{tikzpicture}
+	\vspace{2cm}
+
+	\item
+	\begin{tikzpicture}[erd,baseline=(current bounding box.north),scale=1.6]
+		\node (Mitarbeiter)  at (0,0) [entity] {Mitarbeiter};
+		\node (SoziNr)  at (-2,1) [attribute] {\small Sozialversicherungsnummer};
+		\node (Ort)  at (-3,0) [attribute] {Ort};
+		\node (Strasse)  at (-2,-1) [attribute] {Straße};
+		\node (MitarbeiterID)  at (1,-1) [attribute] {Mitarbeiter ID};
+		\node (Name)  at (3,-.5) [attribute] {Name};
+		\node (Geburtstag)  at (2.5,.5) [attribute] {Geburtstag};
+		\draw (Mitarbeiter) -- (SoziNr);
+		\draw (Mitarbeiter) -- (Ort);
+		\draw (Mitarbeiter) -- (Strasse);
+		\draw (Mitarbeiter) -- (MitarbeiterID);
+		\draw (Mitarbeiter) -- (Name);
+		\draw (Mitarbeiter) -- (Geburtstag);
+	\end{tikzpicture}
+\end{enuma}
+\end{aufgabe}
+
+\end{document}

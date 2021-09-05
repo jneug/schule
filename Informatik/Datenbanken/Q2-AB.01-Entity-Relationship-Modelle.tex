@@ -1,0 +1,105 @@
+\documentclass[11pt, a4paper, ngerman]{arbeitsblatt}
+
+\ladeModule{theme,boxen}
+
+\ladeFach[datenbanken]{informatik}
+
+\aboptionen{
+	name		= {J. Neugebauer},
+	kuerzel 	= {Ngb},
+	titel 		= {Entity-Relationship-Modelle},
+	reihe 		= {Relationale Datenbanken},
+	fach 		= {Informatik},
+	kurs 		= {Q2},
+	nummer 		= {IV.1},
+	lizenz 		= {cc-by-nc-sa-4},
+	version 	= {2021-09-05},
+}
+
+\begin{document}
+\ReiheTitel
+
+\begin{aufgabe}
+Erstelle ein Entity-Relationship-Modell (ERM) (bestehend aus einem Entity-Relationship-Diagramm
+(ERD)) zu \underline{einem} der folgenden Szenarien:
+
+\begin{rahmen}\vspace*{-1em}
+\subsection*{Das Stahlwerk der Postapokalypse}
+
+Orientierungslos wachen Sie in einer Wüste aus Metall auf. Die Luft ist eiskalt klar.
+Der Boden besteht aus rostenden Stahl. Um Sie herum laufen orientierungslose Menschen,
+welche voller Panik versuchen kleine Stahlplatten und Stangen gegen belegte Butterbrote
+zu tauschen. Sie schleppen sich zu einer großen Halle aus der das Dröhnen von Hämmern zu
+vernehmen ist. Man erzählt Ihnen, dass dies vor dem Krieg das größte Stahlwerk der Welt
+war, aber bei einem Bombenangriff das vollständige ERM vernichtet wurde. Nun ist die
+Werksleitung außer Stande die Mitarbeiter in der Kantine mit Wurstbroten zu versorgen,
+da die Produktion am Boden liegt.
+
+Hilfe dem Werksleiter ein erstes ERM für die die Werkshalle \enquote{Stahlfuchs} zu entwerfen:
+
+\begin{quote}\itshape
+	In der Halle \enquote{Stahlfuchs} haben wir mehrere Öfen. An jeden Ofen arbeitet genau ein
+	Heizer. Mehrere Träger bringen Brennstäbe zum Beheizen der verschiedenen Öfen. Jeder
+	Heizer und Träger hat eine Personalnummer. Jeder Ofen ist über seinen Standort genau
+	bestimmt.
+\end{quote}
+
+\begin{enuma}[noitemsep]
+	\item Erstelle ein passendes ERM.
+	\item Füge dem Träger weitere sinnvolle Attribute hinzu.
+	\item Erstelle anhand deines ERM folgende SQL-Abfragen:
+	\begin{smallenum}
+		\item Gib alle Träger aus.
+		\item Gib die Träger aus, deren Personalnummer mit \code{5} beginnt.
+		\item Zähle alle Heizer.
+	\end{smallenum}
+	\smallskip
+	\item Zum Dank erhältst du ein Butterbrot und Pfefferminztee und ziehst dich damit für
+	eine Pause auf das Dach der Halle zurück. Voller Stauen erblickst du, dass weitere Hallen
+	bis an den Horizont reichen. Passe dein ERM so an, dass statt der Halle \enquote{Stahlfuchs}
+	die scheinbar unendlich vielen Hallen mit erfasst werden können.
+\end{enuma}
+\end{rahmen}
+
+\newpage
+
+\begin{rahmen}\vspace*{-1em}
+	\subsection*{Der Bibliothekar}
+
+	Sie sind in einer dunklen Gasse falsch abgebogen und finden sich unversehens in einer
+	großen Halle voller Bücher wieder. Gerade als Sie beschließen zu gehen, erhebt sich
+	hinter einem Stapel veralteter Lexika ein alter Mann und blickt Sie mit traurigen,
+	grauen Augen an. Schon lang ist es her, dass sich ein Besucher in seine Bibliothek
+	verirrt hat. Mit reißender Stimme bittet er Sie ihn bei seinem ERM zu helfen, damit
+	er bald die Bibliothek für junge Menschen erschließen kann.
+
+	Unter gelegentlichen Schnaufen und Glucksen berichtet er seine Anforderungen an die Datenbank:
+
+	\begin{quote}\itshape
+		Ein jedes Buch hat seinen Platz in einem Regal. Dabei wird der Platz in dem Regal durch
+		das Regalbrett genauer bestimmt. Alle Regale befinden sich in diesem Saal. Die Bücher
+		werden verschiedenen Genres zugeordnet. Beispielsweise ist das Werk \enquote{Der Frosch
+		zu Gast bei Helmut} nicht nur eine Komödie, sondern auch ein Krimi.
+	\end{quote}
+
+	\begin{enuma}[noitemsep]
+		\item Erstelle ein passendes ERM.
+		\item Füge den Büchern weitere sinnvolle Attribute hinzu.
+		\item Erstelle anhand deines ERM folgende SQL-Abfragen:
+		\begin{smallenum}
+			\item Gib alle Bücher aus.
+			\item Gib die Bücher mit dem Titel \enquote{Der Frosch zu Gast bei Helmut} aus.
+			\item Finde alle Bücher die im Titel \enquote{Helmut} tragen.
+			\item Zähle alle Bücher.
+		\end{smallenum}
+		\smallskip
+		\item Dich beschleicht ein schrecklicher Verdacht. Hinter einem verschlissenen Vorhang
+		befindet sich eine weitere Kammer mit Büchern. Bücher von epochaler Bedeutung für die
+		Zukunft des europäischen Schmiedehandwerks. Passe dein ERM so an, dass statt dem einzelnen
+		Saal auch die Kammer mit erfasst werden kann.
+	\end{enuma}
+	\end{rahmen}
+\end{aufgabe}
+
+
+\end{document}
