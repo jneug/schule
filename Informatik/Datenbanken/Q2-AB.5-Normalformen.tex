@@ -12,6 +12,7 @@
 	nummer		= {IV.5},
 	lizenz		= {cc-by-nc-sa-4}
 }
+\ladeFach[datenbanken]{informatik}
 
 \begin{document}
 \ReiheTitel
@@ -26,19 +27,22 @@ Ausgangspunkt ist die folgende Tabelle für die Personalverwaltung einer Firma.
 \end{tabular}
 \end{center}
 
-Man erkennt deutlich, dass es schwer ist, Teile der Daten zu löschen, einzufügen oder zu ändern. Daher überführt man solche Tabellen in die sogenannten Normalformen nach Codd.
+Man erkennt deutlich, dass es schwer ist, Teile der Daten zu löschen, einzufügen oder zu ändern.
+Daher überführt man solche Tabellen in die sogenannten \emph{Normalformen nach Codd}.
 
 \begin{infobox}\vspace*{-1em}
 	\subsubsection*{1. Normalform (1NF)}
-	
-	Eine Relation befindet sich in der ersten Normalform, wenn alle Attribute einen 
+
+	Eine Relation befindet sich in der ersten Normalform, wenn alle Attribute einen
 	\emph{atomaren Wertebereich} haben.
-	
+
 	\textbf{Jeder Datensatz muss durch den Primärschlüssel eindeutig identifizierbar sein.}
 \end{infobox}
 
-Das Attribut \emph{Projekt} ist nicht atomar, mehrere Werte enthält. Außerdem fehlt ein Primärschlüssel. Wir ergänzen \emph{PersNr} und teilen das Mehrfachattribut in seine atomaren Bestandteile auf. Damit der Primärschlüssel weiterhin
-eindeutig ist nehmen wir die Projektnummer in den Schlüssel auf (sonst gäbe es die \emph{PersNr} \enquote{1} zweimal).
+Das Attribut \emph{Projekt} ist nicht atomar, da es mehrere Werte enthält. Außerdem fehlt ein
+Primärschlüssel. Wir ergänzen \emph{PersNr} und teilen das Mehrfachattribut in seine atomaren
+Bestandteile auf. Damit der Primärschlüssel weiterhin eindeutig ist, nehmen wir \emph{ProjNr}
+in den Schlüssel auf (sonst gäbe es die \emph{PersNr} \enquote{1} zweimal).
 
 \begin{center}
 \begin{tabular}{|c|c|c|c|c|c|c|}\hline
@@ -53,13 +57,13 @@ Die Tabelle ist nun in der 1NF. Allerdings wurden bei der Umformung zusätzliche
 
 \begin{infobox}\vspace*{-1em}
 	\subsubsection*{2. Normalform (2NF)}
-	
+
 	Eine Relation befindet sich in der zweiten Normalform, wenn sie in der 1NF ist und jedes Nichtschlüsselattribut funktional abhängig ist vom Gesamtschlüssel, nicht dagegen von Schlüsselteilen.
 \end{infobox}
 
 \emph{Funktional abhängig} heißt, dass die Werte des Attributs durch ein anderes eindeutig festgelegt sind. Besteht
 der Primärschlüssel nur aus einem Attribut ist dies immer der Fall. Im Beispiel zeigt sich, dass
-\emph{Name}, \emph{AbtNr}, und \emph{Abteilung} nur durch \emph{PersNr} festgelegt werden, nicht aber 
+\emph{Name}, \emph{AbtNr}, und \emph{Abteilung} nur durch \emph{PersNr} festgelegt werden, nicht aber
 von \emph{ProjNr} abhängig sind. Daher werden die drei Attribute mit dem Primärschlüssel \emph{PersNr}
 in eine neue Tabelle ausgelagert. Beim Rest sieht man, dass \emph{Projekt} eindeutig durch \emph{ProjNr} festgelegt wird. Auch hier erstellen wir eine neue Tabelle.
 
@@ -91,13 +95,13 @@ in eine neue Tabelle ausgelagert. Beim Rest sieht man, dass \emph{Projekt} einde
 \end{center}
 \end{multicols}
 
-\newpage 
+\newpage
 
 \begin{infobox}\vspace*{-1em}
 	\subsubsection*{3. Normalform (3NF)}
-	
+
 	Eine Relation befindet sich in der dritten Normalform, wenn sie in der 2NF ist und es kein Nichtschlüsselattribut gibt, das \emph{transitiv abhängig} von einem Schlüsselattribut ist.
-	
+
 	Es darf also keine funnktionalen Abhängigkeiten zwischen Nichtschlüsselattributen geben.
 \end{infobox}
 
