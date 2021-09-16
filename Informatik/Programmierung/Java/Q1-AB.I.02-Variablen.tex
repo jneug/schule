@@ -1,0 +1,175 @@
+\documentclass[10pt, a4paper, ngerman]{arbeitsblatt}
+
+\ladeModule{theme,tabellen}
+
+\ladeFach[quelltexte]{informatik}
+
+\aboptionen{
+	name		= {J. Neugebauer},
+	kuerzel 	= {Ngb},
+	titel 		= {Variablen},
+	reihe 		= {Wiederholung der OOP},
+	fach 		= {Informatik},
+	kurs 		= {Q1},
+	nummer 		= {I.2},
+	lizenz 		= {cc-by-nc-sa-4},
+	version 	= {2021-09-15},
+}
+
+\begin{document}
+\ReiheTitel
+
+\begin{aufgabe}
+Studiere die Algorithmen auf der linken Seite sorgfältig. Notiere dann in der
+rechten Spalte die Werte der Variablen nachdem der Algorithmus beendet ist.
+
+\tipp{Gehe den Ablauf des Algorithmus durch und notiere die Veränderungen der
+Variablen in jedem Schritt in einer Tabelle.}
+
+\begin{enuma}
+	\item
+	\begin{links}[.69]
+		\begin{minted}[linenos=false]{java}
+		int i;
+		\end{minted}
+	\end{links}\begin{rechts}[.29]
+		\begin{description}
+			\item[\code{i}] =
+		\end{description}
+	\end{rechts}
+
+	\item
+	\begin{links}[.69]
+		\begin{minted}[linenos=false]{java}
+		double zahl = 10.5;
+		\end{minted}
+	\end{links}\begin{rechts}[.29]
+		\begin{description}
+			\item[\code{zahl}] =
+		\end{description}
+	\end{rechts}
+
+	\item
+	\begin{links}[.69]
+		\begin{minted}[linenos=false]{java}
+		double zahl1 = 2.3;
+		double zahl2;
+		double zahl3 = 2 * zahl1;
+		zahl2 = zahl1 + zahl3;
+		\end{minted}
+	\end{links}\begin{rechts}[.29]
+		\begin{description}
+			\item[\code{zahl1}] =
+			\item[\code{zahl2}] =
+			\item[\code{zahl3}] =
+		\end{description}
+	\end{rechts}
+
+	\item
+	\begin{links}[.69]
+		\begin{minted}[linenos=false]{java}
+		int i = 0;
+		while( i < 10 ) {
+			int j = 2;
+			i = i + j;
+		}
+		\end{minted}
+	\end{links}\begin{rechts}[.29]
+		\begin{description}
+			\item[\code{i}] =
+			\item[\code{j}] =
+		\end{description}
+	\end{rechts}
+
+	\item
+	\begin{links}[.69]
+		\begin{minted}[linenos=false]{java}
+		int zahl = 0;
+		int vari = 5;
+		while( vari > 0 ) {
+			int j = 0;
+			while( j < 5 ) {
+				vari = vari - 1;
+				j = j + 1;
+			}
+			zahl = zahl + 1;
+		}
+		\end{minted}
+	\end{links}\begin{rechts}[.29]
+		\begin{description}
+			\item[\code{zahl}] =
+			\item[\code{vari}] =
+			\item[\code{j}] =
+		\end{description}
+	\end{rechts}
+
+	\item
+	\begin{links}[.69]
+		\begin{minted}[linenos=false]{java}
+		double intt;
+		intt = 0.0;
+		while( intt < 8.0 ) {
+			int t = 4;
+			intt = intt + 0.5;
+			t = t + 1;
+		}
+		int f = 15;
+		intt = 15.0;
+		\end{minted}
+	\end{links}\begin{rechts}[.29]
+		\begin{description}
+			\item[\code{intt}] =
+			\item[\code{t}] =
+			\item[\code{f}] =
+		\end{description}
+	\end{rechts}
+\end{enuma}
+\end{aufgabe}
+
+
+\begin{aufgabe}[subtitle=Gültigkeitsbereiche]
+Studiere die Algorithmen sorgfältig. Markiere die Gültigkeitsbereiche der
+Variablen im Quelltext. Einige Variablenzugriffe sind ungültig, da sie
+außerhalb des Gültigkeitsbereiches liegen. Markiere auch diese.
+
+\begin{minted}{java}
+public void test() {
+	boolean wahrheit = false;
+	if( wahrheit ) {
+		int i = 2;
+	}
+	else {
+		int i = 4;
+	}
+	if( i == 4 ) {
+		wahrheit = true;
+	}
+}
+\end{minted}
+
+\begin{minted}{java}
+public void test() {
+	double intt = 0.0;
+	while( intt < 8.0 ) {
+		int t = 4;
+		intt = intt + 0.5;
+		t = t + 1;
+	}
+	t = t + 1;
+}
+\end{minted}
+
+\begin{minted}{java}
+public void test() {
+	int i = 4;
+	for( int j = 0; j < 5; j = j + 1 ) {
+		fahre();
+	}
+	if( i < 10 ) {
+		j = j - 1;
+	}
+}
+\end{minted}
+\end{aufgabe}
+
+\end{document}
