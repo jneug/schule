@@ -10,7 +10,8 @@
 	titel		= {Normalformen},
 	version		= {2021-09-05},
 	nummer		= {IV.5},
-	lizenz		= {cc-by-nc-sa-4}
+	lizenz		= {cc-by-nc-sa-4},
+	wechselnde zeilenfarben
 }
 \ladeFach[datenbanken]{informatik}
 
@@ -20,15 +21,16 @@
 Ausgangspunkt ist die folgende Tabelle für die Personalverwaltung einer Firma.
 
 \begin{center}
-\begin{tabular}{|c|c|c|c|}\hline
-	\rowcolor{ab.tabelle.kopf.hg} Name & AbtNr & Abteilung & Projekte \\\hline
-	Müller & 5 & EDV II & (6, MySQL, 50\%), (3, DV2010, 50\%) \\\hline
-	Schulze & 3 & Rechenzentrum & (3, DV2010, 100\%) \\\hline
-\end{tabular}
+	\begin{tabular}{|c|c|c|c|}\hline
+		\rowcolor{ab.tabelle.kopf.hg} Name & AbtNr & Abteilung     & Projekte                            \\\hline
+		Müller                             & 5     & EDV II        & (6, MySQL, 50\%), (3, DV2010, 50\%) \\\hline
+		Schulze                            & 3     & Rechenzentrum & (3, DV2010, 100\%)                  \\\hline
+	\end{tabular}
 \end{center}
 
-Man erkennt deutlich, dass es schwer ist, Teile der Daten zu löschen, einzufügen oder zu ändern.
-Daher überführt man solche Tabellen in die sogenannten \emph{Normalformen nach Codd}.
+Man erkennt deutlich, dass es schwer ist, Teile der Daten zu löschen,
+einzufügen oder zu ändern. Daher überführt man solche Tabellen in die
+sogenannten \emph{Normalformen nach Codd}.
 
 \begin{infobox}\vspace*{-1em}
 	\subsubsection*{1. Normalform (1NF)}
@@ -39,60 +41,72 @@ Daher überführt man solche Tabellen in die sogenannten \emph{Normalformen nach
 	\textbf{Jeder Datensatz muss durch den Primärschlüssel eindeutig identifizierbar sein.}
 \end{infobox}
 
-Das Attribut \emph{Projekt} ist nicht atomar, da es mehrere Werte enthält. Außerdem fehlt ein
-Primärschlüssel. Wir ergänzen \emph{PersNr} und teilen das Mehrfachattribut in seine atomaren
-Bestandteile auf. Damit der Primärschlüssel weiterhin eindeutig ist, nehmen wir \emph{ProjNr}
-in den Schlüssel auf (sonst gäbe es die \emph{PersNr} \enquote{1} zweimal).
+Das Attribut \emph{Projekt} ist nicht atomar, da es mehrere Werte
+enthält. Außerdem fehlt ein Primärschlüssel. Wir ergänzen
+\emph{PersNr} und teilen das Mehrfachattribut in seine atomaren
+Bestandteile auf. Damit der Primärschlüssel weiterhin eindeutig ist, nehmen wir
+\emph{ProjNr} in den Schlüssel auf (sonst gäbe es die
+\emph{PersNr} \enquote{1} zweimal).
 
 \begin{center}
-\begin{tabular}{|c|c|c|c|c|c|c|}\hline
-	\rowcolor{ab.tabelle.kopf.hg} \underline{PersNr} & Name & AbtNr & Abteilung & \underline{ProjNr} & Projekt & Zeit \\\hline
-	1 & Müller & 5 & EDV II & 6 & MySQL & 50\% \\\hline
-	1 & Müller & 5 & EDV II & 3 & DV2010 & 50\% \\\hline
-	2 & Schulze & 3 & Rechenzentrum & 3 & DV2010 & 100\% \\\hline
-\end{tabular}
+	\begin{tabular}{|c|c|c|c|c|c|c|}\hline
+		\rowcolor{ab.tabelle.kopf.hg} \primarykey{PersNr} & Name    & AbtNr & Abteilung     & \primarykey{ProjNr} & Projekt & Zeit  \\\hline
+		1                                                 & Müller  & 5     & EDV II        & 6                   & MySQL   & 50\%  \\\hline
+		1                                                 & Müller  & 5     & EDV II        & 3                   & DV2010  & 50\%  \\\hline
+		2                                                 & Schulze & 3     & Rechenzentrum & 3                   & DV2010  & 100\% \\\hline
+	\end{tabular}
 \end{center}
 
-Die Tabelle ist nun in der 1NF. Allerdings wurden bei der Umformung zusätzliche Redundanzen eingefügt.
+Die Tabelle ist nun in der 1NF. Allerdings wurden bei der Umformung zusätzliche
+Redundanzen eingefügt.
 
 \begin{infobox}\vspace*{-1em}
 	\subsubsection*{2. Normalform (2NF)}
 
-	Eine Relation befindet sich in der zweiten Normalform, wenn sie in der 1NF ist und jedes Nichtschlüsselattribut funktional abhängig ist vom Gesamtschlüssel, nicht dagegen von Schlüsselteilen.
+	Eine Relation befindet sich in der zweiten Normalform, wenn sie in der 1NF ist
+	und jedes Nichtschlüsselattribut \emph{funktional abhängig} ist vom
+	Gesamtschlüssel, nicht dagegen von Schlüsselteilen.
 \end{infobox}
 
-\emph{Funktional abhängig} heißt, dass die Werte des Attributs durch ein anderes eindeutig festgelegt sind. Besteht
-der Primärschlüssel nur aus einem Attribut ist dies immer der Fall. Im Beispiel zeigt sich, dass
-\emph{Name}, \emph{AbtNr}, und \emph{Abteilung} nur durch \emph{PersNr} festgelegt werden, nicht aber
-von \emph{ProjNr} abhängig sind. Daher werden die drei Attribute mit dem Primärschlüssel \emph{PersNr}
-in eine neue Tabelle ausgelagert. Beim Rest sieht man, dass \emph{Projekt} eindeutig durch \emph{ProjNr} festgelegt wird. Auch hier erstellen wir eine neue Tabelle.
+\emph{Funktional abhängig} heißt, dass die Werte des Attributs durch ein anderes
+eindeutig festgelegt sind. Besteht der Primärschlüssel nur aus einem Attribut
+ist dies immer der Fall. Im Beispiel zeigt sich, dass \emph{Name},
+\emph{AbtNr}, und \emph{Abteilung} nur durch
+\emph{PersNr} festgelegt werden, nicht aber von \emph{ProjNr}
+abhängig sind. Daher werden die drei Attribute mit dem Primärschlüssel
+\emph{PersNr} in eine neue Tabelle ausgelagert. Beim Rest sieht man,
+dass \emph{Projekt} eindeutig durch \emph{ProjNr} festgelegt
+wird. Auch hier erstellen wir eine neue Tabelle.
 
 \begin{center}
-\begin{tabular}{|c|c|c|c|}\hline
-	\rowcolor{ab.tabelle.kopf.hg} \underline{PersNr} & Name & AbtNr & Abteilung \\\hline
-	1 & Müller & 5 & EDV II \\\hline
-	1 & Müller & 5 & EDV II \\\hline
-	2 & Schulze & 3 & Rechenzentrum \\\hline
-\end{tabular}
+	\begin{tabular}{|c|c|c|}\hline
+		\rowcolor{ab.tabelle.kopf.hg}
+		\fpkey{PersNr} & \fpkey{ProjNr} & Zeit  \\\hline
+		1              & 6              & 50\%  \\\hline
+		1              & 3              & 50\%  \\\hline
+		2              & 3              & 100\% \\\hline
+	\end{tabular}
 \end{center}
 
 \begin{multicols}{2}
-\begin{center}
-\begin{tabular}{|c|c|c|}\hline
-	\rowcolor{ab.tabelle.kopf.hg} \underline{PersNr} & \underline{ProjNr} & Zeit \\\hline
-	1 & 6 & 50\% \\\hline
-	1 & 3 & 50\% \\\hline
-	2 & 3 & 100\% \\\hline
-\end{tabular}
-\end{center}
+	\begin{center}
+		\begin{tabular}{|c|c|c|c|}\hline
+			\rowcolor{ab.tabelle.kopf.hg}
+			\primarykey{PersNr} & Name    & AbtNr & Abteilung     \\\hline
+			1                   & Müller  & 5     & EDV II        \\\hline
+			1                   & Müller  & 5     & EDV II        \\\hline
+			2                   & Schulze & 3     & Rechenzentrum \\\hline
+		\end{tabular}
+	\end{center}
 
-\begin{center}
-\begin{tabular}{|c|c|}\hline
-	\rowcolor{ab.tabelle.kopf.hg} \underline{ProjNr} & Projekt \\\hline
-	6 & MySQL \\\hline
-	3 & DV2010 \\\hline
-\end{tabular}
-\end{center}
+	\begin{center}
+		\begin{tabular}{|c|c|}\hline
+			\rowcolor{ab.tabelle.kopf.hg}
+			\primarykey{ProjNr} & Projekt \\\hline
+			6                   & MySQL   \\\hline
+			3                   & DV2010  \\\hline
+		\end{tabular}
+	\end{center}
 \end{multicols}
 
 \newpage
@@ -100,29 +114,37 @@ in eine neue Tabelle ausgelagert. Beim Rest sieht man, dass \emph{Projekt} einde
 \begin{infobox}\vspace*{-1em}
 	\subsubsection*{3. Normalform (3NF)}
 
-	Eine Relation befindet sich in der dritten Normalform, wenn sie in der 2NF ist und es kein Nichtschlüsselattribut gibt, das \emph{transitiv abhängig} von einem Schlüsselattribut ist.
+	Eine Relation befindet sich in der dritten Normalform, wenn sie in der 2NF ist
+	und es kein Nichtschlüsselattribut gibt, das \emph{transitiv abhängig} von einem
+	Schlüsselattribut ist.
 
-	Es darf also keine funnktionalen Abhängigkeiten zwischen Nichtschlüsselattributen geben.
+	Es darf also keine \emph{funnktionalen Abhängigkeiten} zwischen Nichtschlüsselattributen
+	geben.
 \end{infobox}
 
-Das Attribut \emph{Abteilung} ist nur indirekt vom Primärschlüssel \emph{PersNr} abhängig. Vielmehr ist das Attribut \emph{Abteilung} von der \emph{AbtNr} abhängig. Also Aufspaltung in zwei Tabellen:
+Das Attribut \emph{Abteilung} ist nur indirekt vom Primärschlüssel
+\emph{PersNr} abhängig. Vielmehr ist das Attribut
+\emph{Abteilung} von der \emph{AbtNr} abhängig. Also
+Aufspaltung in zwei Tabellen:
 
 \begin{multicols}{2}
-\begin{center}
-\begin{tabular}{|c|c|c|}\hline
-	\rowcolor{ab.tabelle.kopf.hg} \underline{PersNr} & Name & AbtNr \\\hline
-	1 & Müller & 5 \\\hline
-	2 & Schulze & 3 \\\hline
-\end{tabular}
-\end{center}
+	\begin{center}
+		\begin{tabular}{|c|c|c|}\hline
+			\rowcolor{ab.tabelle.kopf.hg}
+			\primarykey{PersNr} & Name    & \foreignkey{AbtNr} \\\hline
+			1                   & Müller  & 5                  \\\hline
+			2                   & Schulze & 3                  \\\hline
+		\end{tabular}
+	\end{center}
 
-\begin{center}
-\begin{tabular}{|c|c|}\hline
-	\rowcolor{ab.tabelle.kopf.hg} \underline{AbtNr} & Abteilung \\\hline
-	5 & EDV II \\\hline
-	3 & Rechenzentrum \\\hline
-\end{tabular}
-\end{center}
+	\begin{center}
+		\begin{tabular}{|c|c|}\hline
+			\rowcolor{ab.tabelle.kopf.hg}
+			\primarykey{AbtNr} & Abteilung     \\\hline
+			5                  & EDV II        \\\hline
+			3                  & Rechenzentrum \\\hline
+		\end{tabular}
+	\end{center}
 \end{multicols}
 
 
@@ -131,49 +153,144 @@ Das Attribut \emph{Abteilung} ist nur indirekt vom Primärschlüssel \emph{PersN
 Durch die Transformation in die dritte Normalform wurde also aus der Tabelle
 
 \begin{center}
-\begin{tabular}{|c|c|c|c|}\hline
-	\rowcolor{ab.tabelle.kopf.hg} Name & AbtNr & Abteilung & Projekte \\\hline
-	Müller & 5 & EDV II & (6, MySQL, 50\%), (3, DV2010, 50\%) \\\hline
-	Schulze & 3 & Rechenzentrum & (3, DV2010, 100\%) \\\hline
-\end{tabular}
+	\begin{tabular}{|c|c|c|c|}\hline
+		\rowcolor{ab.tabelle.kopf.hg}
+		Name    & AbtNr & Abteilung     & Projekte                            \\\hline
+		Müller  & 5     & EDV II        & (6, MySQL, 50\%), (3, DV2010, 50\%) \\\hline
+		Schulze & 3     & Rechenzentrum & (3, DV2010, 100\%)                  \\\hline
+	\end{tabular}
 \end{center}
 
 diese Aufteilung vorgenommen:
 
 \begin{multicols}{2}
-\begin{center}
-\begin{tabular}{|c|c|c|}\hline
-	\rowcolor{ab.tabelle.kopf.hg} \underline{PersNr} & Name & AbtNr \\\hline
-	1 & Müller & 5 \\\hline
-	2 & Schulze & 3 \\\hline
-\end{tabular}
-\end{center}
+	\begin{center}
+		\begin{tabular}{|c|c|c|}\hline
+			\rowcolor{ab.tabelle.kopf.hg}
+			\primarykey{PersNr} & Name    & \foreignkey{AbtNr} \\\hline
+			1                   & Müller  & 5                  \\\hline
+			2                   & Schulze & 3                  \\\hline
+		\end{tabular}
+	\end{center}
 
-\begin{center}
-\begin{tabular}{|c|c|}\hline
-	\rowcolor{ab.tabelle.kopf.hg} \underline{AbtNr} & Abteilung \\\hline
-	5 & EDV II \\\hline
-	3 & Rechenzentrum \\\hline
-\end{tabular}
-\end{center}
+	\begin{center}
+		\begin{tabular}{|c|c|}\hline
+			\rowcolor{ab.tabelle.kopf.hg}
+			\primarykey{AbtNr} & Abteilung     \\\hline
+			5                  & EDV II        \\\hline
+			3                  & Rechenzentrum \\\hline
+		\end{tabular}
+	\end{center}
 
-\begin{center}
-\begin{tabular}{|c|c|c|}\hline
-	\rowcolor{ab.tabelle.kopf.hg} \underline{PersNr} & \underline{ProjNr} & Zeit \\\hline
-	1 & 6 & 50\% \\\hline
-	1 & 3 & 50\% \\\hline
-	2 & 3 & 100\% \\\hline
-\end{tabular}
-\end{center}
+	\begin{center}
+		\begin{tabular}{|c|c|c|}\hline
+			\rowcolor{ab.tabelle.kopf.hg} \fpkey{PersNr} & \fpkey{ProjNr} & Zeit  \\\hline
+			1                                            & 6              & 50\%  \\\hline
+			1                                            & 3              & 50\%  \\\hline
+			2                                            & 3              & 100\% \\\hline
+		\end{tabular}
+	\end{center}
 
-\begin{center}
-\begin{tabular}{|c|c|}\hline
-	\rowcolor{ab.tabelle.kopf.hg} \underline{ProjNr} & Projekt \\\hline
-	6 & MySQL \\\hline
-	3 & DV2010 \\\hline
-\end{tabular}
-\end{center}
+	\begin{center}
+		\begin{tabular}{|c|c|}\hline
+			\rowcolor{ab.tabelle.kopf.hg}
+			\primarykey{ProjNr} & Projekt \\\hline
+			6                   & MySQL   \\\hline
+			3                   & DV2010  \\\hline
+		\end{tabular}
+	\end{center}
 \end{multicols}
 
+Das Ergebnis enthält alle Informationen und Relationen der ersten Tabelle, aber
+verringert die Gefahr des Auftretens von Anomalien.
+
+\clearpage
+\ReiheTitel
+\large
+
+\begin{aufgabe}
+	Ein kleines Belegkrankenhaus stellt auf EDV um. Die Patientendaten enthalten
+	die folgenden Attribute:
+	\begin{description}
+		\item[Parient] (Name, Gebdatum, Adresse, Datum1, Blutdruck1,
+			Diagnosen1 (mehrere), Therapien1 (mehrere), Datum2, Blutdruck2, Diagnosen2
+			(mehrere), Therapien2 (mehrere), ... , Krankenkasse, Station, Raum)
+	\end{description}
+	\hinweis{Für einen Blutdruck-Messwert benötigt man Systol-Wert und DiastolWert.}
+
+	Überführen Sie die Tabelle in die erste, zweite und dritte Normalform nach
+	Codd.
+\end{aufgabe}
+
+\begin{aufgabe}
+	Hugo Unbedarft besitzt eine große Spedition. Er will seine Auftragsverwaltung
+	auf EDV umstellen und macht sich dazu einen genauen Plan.
+
+	Seine Aufträge sind immer so, dass sie nur zu einem Ziel führen, es kann
+	allerdings möglich sein, dass mehrere LKWs für einen Auftrag nötig sind. Nicht
+	jeder LKW-Typ ist dazu geeignet, alle Ziele zu erreichen (z.B. zu niedrige
+	Brücken), und nicht jeder Fahrer kann jeden LKW-Typ fahren.
+
+	Hugo will folgende Daten speichern: AuftragsNr. und LKW-Nr., Ziel,
+	Zielentfernung, Auftragsdatum, LKW-Typ, max. Zuladung eines LKW-Typs,
+	TÜV-Datum, Fahrer-Nr, Fahrer-Name.
+
+	Erstellen Sie ein ER-Modell für die Spedition. Überführen Sie dieses Modell
+	anschließend in das relationale Modell und normalisieren Sie Ihre Tabellen von
+	der ersten bis zur dritten Normalform.
+\end{aufgabe}
+
+\begin{aufgabe}
+	Überführen Sie das folgende ERM der KFZ-Zulassungsstelle zuerst in das
+	Relationale Modell. Überführen Sie dieses Modell anschließend Schritt für
+	Schritt in die erste bis dritte Normalform.
+
+	\begin{center}
+	\begin{tikzpicture}[erd]
+		\node[entity](Eigentuemer) at (-5,0) {Eigentümer};
+
+		\node[attribute](Geburtsdatum) at (-6,-1) {Geburtsdatum};
+		\node[attribute](Vorname) at (-6,1) {Vorname};
+		\node[attribute](Name) at (-4,1) {Name};
+
+		\draw (Vorname) -- (Eigentuemer) -- (Name);
+		\draw (Eigentuemer) -- (Geburtsdatum);
+
+
+		\node[entity](KFZ) at (5,0) {KFZ};
+
+		\node[attribute](Baujahr) at (5,1) {Baujahr};
+		\node[attribute](FGNr) at (6.5,0) {FGNr};
+
+		\draw (Baujahr) -- (KFZ) -- (FGNr);
+
+
+		\node[entity](Typklasse) at (0,-4) {Typklasse};
+
+		\node[attribute](Typcode) at (-2.5,-3.5) {Typcode};
+		\node[attribute](Modell) at (-2.5,-4.5) {Modell};
+		\node[attribute](Hersteller) at (0,-3) {Hersteller};
+		\node[attribute](Schadstoff) at (0,-5) {Schadstoff};
+
+		\draw (Typcode) -- (Typklasse) -- (Modell);
+		\draw (Hersteller) -- (Typklasse) -- (Schadstoff);
+
+
+		\node[relation](besitzt) at (0,0) {besitzt};
+
+		\node[attribute](Kennzeichen) at (0,-1) {Kennzeichen};
+		\node[attribute](Anmeldedatum) at (1.5,1.5) {Anmelde\-datum};
+		\node[attribute](Abmeldedatum) at (-1,1) {Abmelde\-datum};
+
+		\draw (Kennzeichen) -- (besitzt);
+		\draw (Abmeldedatum) -- (besitzt) -- (Anmeldedatum);
+
+		\node[relation](ist ein) at (5,-4) {ist ein};
+
+		\draw (Eigentuemer) --node[above]{1} (besitzt) --node[above]{n} (KFZ)
+			--node[right]{n} (ist ein) --node[above]{1} (Typklasse);
+	\end{tikzpicture}
+	\end{center}
+\end{aufgabe}
 
 \end{document}
