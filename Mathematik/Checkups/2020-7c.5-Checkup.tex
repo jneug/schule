@@ -1,0 +1,61 @@
+\documentclass[a4paper,ngerman,fontsize=10pt]{scrartcl}
+
+\usepackage[checkup,typo,theme,qrcodes]{arbeitsblatt}
+
+\aboptionen{
+	fach=Mathematik,
+	name=J. Neugebauer,
+	kuerzel=Ngb,
+	kurs=7c,
+	nummer=5,
+	reihe={Terme und Gleichungen},
+	titel={zur \Nummer. Arbeit},
+	version={2021-04-13},
+	lizenz=cc-by-nc-sa-eu-4,
+}
+
+\newcommand{\af}[1]{Aufg.#1}
+\newcommand{\bu}[2]{Buch S.#1\ifthenelse{\equal{#2}{}}{}{, \af{#2}}}
+\newcommand{\ah}[2]{AH S.#1\ifthenelse{\equal{#2}{}}{}{, \af{#2}}}
+\newcommand{\ab}[2][AB]{#1 \enquote{#2}}
+
+\begin{document}
+\CheckupBild\CheckupTitel
+
+Gehe noch einmal die Aufgaben der letzten Wochen durch. Kreuze jeweils an, wie
+sicher du dich bei den einzelnen \textbf{Themenschwerpunkten} fühlst (von
+\enquote{sehr sicher} \iconLachen\ bis \enquote{sehr unsicher} \iconTraurig).
+
+Notiere dir unter \textbf{Aufgaben und Informationen} Hilfen zur Wiederholung
+und Lernen der Themen, \emph{bei denen du noch unsicher bist}. Vor allem bieten
+sich dazu die \enquote{Teste dich!} Aufgaben im Buch, die \emph{Tests} am Ende
+eines Kapitels und das \emph{Arbeitsheft} an. Die \textbf{Lösungen} findest du
+hinten im Buch ab Seite 238, bzw. im Arbeitsheft im dazugehörigen Lösungsheft.
+
+Wir haben in der Schule auch einige Apps auf dem iPad eingesetzt, die für das
+Üben hilfreich sein können:
+
+\qrlink{https://apps.apple.com/de/app/maphi-die-mathe-app/id1276181580}[\enquote{Maphi} im AppStore]{
+	Gleichungen durch Wischgesten lösen.
+}
+\qrlink{https://apps.apple.com/de/app/algebra-touch-all-ages/id1512834904}[\enquote{Algebra Touch} im AppStore]{
+	Gleichungen durch Wischgesten lösen.
+}
+\qrlink{https://apps.apple.com/de/app/lineare-gleichungen/id1199448971}[\enquote{Lineare Gleichungen} im AppStore]{
+	Rechenaufgaben zu Gleichungen
+}
+
+\begin{checkup}
+	\ichkann{Terme mit Rechenregeln umformen und vereinfachen}{
+		Kapitel IV.2 und IV.3 im Buch
+	}
+	\ichkann{Gleichungen mit Äquivalenzumformungen lösen}{
+		Kapitel IV.5 im Buch \\
+		\qrcode[nolink]{https://www.youtube.com/watch?v=Lws4kWu2Z9g} \\[2.5em]
+	}
+	\ichkann{Gleichungen zu Sachaufgaben aufstellen und lösen}{
+		Kapitel IV.4 und IV.7 im Buch
+	}
+\end{checkup}
+
+\end{document}
