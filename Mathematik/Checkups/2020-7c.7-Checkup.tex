@@ -1,0 +1,46 @@
+\documentclass[a4paper,ngerman,fontsize=10pt]{scrartcl}
+
+\usepackage[checkup,typo,theme,qrcodes]{arbeitsblatt}
+
+\aboptionen{
+	fach=Mathematik,
+	name=J. Neugebauer,
+	kuerzel=Ngb,
+	kurs=7c,
+	nummer=6,
+	reihe={Zinserechnung},
+	titel={zur \Nummer. Arbeit},
+	version={2021-04-13},
+	lizenz=cc-by-nc-sa-eu-4,
+}
+
+\newcommand{\af}[1]{Aufg.#1}
+\newcommand{\bu}[2]{Buch S.#1\ifthenelse{\equal{#2}{}}{}{, \af{#2}}}
+\newcommand{\ah}[2]{AH S.#1\ifthenelse{\equal{#2}{}}{}{, \af{#2}}}
+\newcommand{\ab}[2][AB]{#1 \enquote{#2}}
+
+\begin{document}
+\CheckupBild\CheckupTitel
+
+\vspace{5cm}
+
+\begin{checkup}
+	\ichkann{Die Grundaufgaben der Prozentrechnung erkennen und lösen (prozentsatz, Grundwert, Prozentwert).}{
+		Buch Kapitel III.1 - III.4 \\
+		Material in Teams
+	}
+	\ichkann{Die Begriffe der Prozentrechnung auf die Zinsrechnung anwenden (Zinsen, Zinssatz, Guthaben, ...)}{
+		Kapitel III.5 im Buch \\
+		Material in Teams
+	}
+	\ichkann{Unterjährige Zinsen berechnen (z.B. für einen Monat)}{
+		Kapitel III.5 im Buch \\
+		Material in Teams
+	}
+	\ichkann{Zinseszinsen berechnen}{
+		Kapitel III.6 im Buch  \\
+		Material in Teams
+	}
+\end{checkup}
+
+\end{document}
