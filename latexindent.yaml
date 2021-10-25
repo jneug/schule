@@ -31,6 +31,7 @@ noAdditionalIndent:
 	aufgabe: 1
 	aufgabenteil: 0
 	teilaufgabe: 1
+	loesung: 1
 
 modifyLineBreaks:
 	condenseMultipleBlankLinesInto: 2
