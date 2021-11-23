@@ -1,0 +1,13 @@
+Diagram(
+    NonTerminal("Datentyp" ),
+    Terminal("␣"),
+    NonTerminal("Bezeichner" ),
+    Optional(
+       Sequence(
+            Terminal("="),
+            NonTerminal("Wert")
+        ),
+        "skip"
+    ),
+    Terminal(";")
+)

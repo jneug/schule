@@ -1,0 +1,9 @@
+ComplexDiagram(
+    OneOrMore(NonTerminal("Ziffer")),
+    Optional(
+        Sequence(
+            Terminal("."),
+            NonTerminal("Ziffer")
+        ), "skip"
+    )
+)

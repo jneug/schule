@@ -1,0 +1,5 @@
+ComplexDiagram(
+    Choice( 1,
+       "A","B","C",Comment("..."),"Z"
+    )
+)

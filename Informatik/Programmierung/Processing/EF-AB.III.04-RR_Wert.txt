@@ -1,0 +1,8 @@
+ComplexDiagram(
+    Choice(0,
+        NonTerminal("Zahl"),
+        Sequence("\"", ZeroOrMore(NonTerminal("ASCII Zeichen")), "\""),
+        "true", "false",
+        Sequence("'", NonTerminal("ASCII Zeichen"), "'")
+    )
+)

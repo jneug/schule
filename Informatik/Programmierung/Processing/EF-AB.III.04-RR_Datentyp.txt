@@ -1,0 +1,9 @@
+ComplexDiagram(
+    Choice(0,
+        Terminal("int"),
+        Terminal("float"),
+        Terminal("String"),
+        Terminal("boolean"),
+        Terminal("char")
+    )
+)

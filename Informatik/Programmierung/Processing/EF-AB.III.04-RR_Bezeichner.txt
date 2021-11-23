@@ -1,0 +1,11 @@
+ComplexDiagram(
+    NonTerminal("Kleinbuchstabe"),
+    ZeroOrMore(
+        Choice(0,
+            NonTerminal("Kleinbuchstabe"),
+            NonTerminal("Großbuchstabe"),
+            NonTerminal("Zahl"),
+           "_"
+        )
+    )
+)
