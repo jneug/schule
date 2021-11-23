@@ -1,28 +1,19 @@
-\documentclass[12pt,a5paper,landscape]{scrartcl}
+\documentclass[lerntheke,12pt,a5paper,landscape]{arbeitsblatt}
 
-\usepackage{vorschule}
-\PassOptionsToPackage{dvipsnames}{xcolor}
-\usepackage[
-    typ=ohne,
-    fach=Mathematik,
-    lerngruppe={6},
-    nummer=1,
-    module={Symbole,Lizenzen},
-    seitenzahlen=keine,
-    farbig,
-    lizenz=cc-by-nc-sa-4,
-]{schule}
-
-\usepackage[
-	typ=lerntheke,
-	kuerzel=Ngb,
-	reihe={Bruchrechnung},
-	version={0.2 (2019-11-18)},
-]{ngbschule}
-
-\author{J. Neugebauer}
-\title{Bruchrechnung}
-\date{\Heute}
+%\ladeModule{theme}
+\ladeFach[diagramme]{mathematik}
+\aboptionen{
+	titel 		= {Bruchrechnung},
+	name		= {J. Neugebauer},
+	kuerzel		= {Ngb},
+	reihe		= {Bruchrechnung},
+    fach		= {Mathematik},
+    lerngruppe	= {Jg.6},
+    nummer		= {1},
+    seitenzahlen= {keine},
+    lizenz		= cc-by-nc-sa-4,
+	version		= {2021-11-23},
+}
 
 
 \def\clrLsg{\color{\lsgFarbe}}
@@ -31,9 +22,9 @@
 \begin{document}
 	\begin{hilfekarte}{Bruchzahlen}{bruchzahlen}
 		Brüche beschreiben Anteile von einem Ganzen.
-		
+
 		Zum Beispiel \enquote{3 von 4} $= \frac{3}{4} =$ \begin{tikzpicture}[baseline=-3pt,scale=.5]\tikzAnteileKreis{3}{4}\end{tikzpicture}
-		
+
 		\begin{center}
 		\begin{tikzpicture}
 			\node[ellipse,draw=orange,thick] (frac) at (0,0) {\phantom{\Huge$\frac{a}{b}$}};
@@ -41,46 +32,46 @@
 			\node[ellipse,draw=violet,thick,inner sep=1pt] (b) at (0,-.4) {\Large b};
 			\node (s) at (.35,0) {};
 			\draw[black,thick] (-.4,0) -- (.4,0);
-			
+
 			\node[font=\color{orange}] (bruch) at (-2,.5) {Bruch};
 			\node[font=\color{green!50!gray}] (zaehler) at (2,.8) {Zähler};
 			\node[font=\color{violet}] (nenner) at (2,-.6) {Nenner};
 			\node[anchor=west] (bstrich) at (1,0) {\footnotesize Bruchstrich};
-			
+
 			\draw[thick,orange] (bruch) -- (frac);
 			\draw[thick,green!50!gray] (zaehler) -- (a);
 			\draw[thick,violet] (nenner) -- (b);
 			\draw[->] (bstrich) -- (s);
 		\end{tikzpicture}
 		\end{center}
-		
+
 		Wir Teilen \emph{das Ganze} in so viele \emph{gleichgroße Teile}, wie im \textbf{\textcolor{violet}{Nenner}} steht und nehmen von diesen Teilen so viele, wie im \textbf{\textcolor{green!50!gray}{Zähler}} steht.
-		
+
 		\vspace{1cm}
 		Anteile können auf verschiedene Arten dargestellt werden:
 		\begin{multicols}{2}
 			Als Bruchzahl: $\tfrac{3}{4}$
-			
+
 			\bigskip
 			Als Division: $3:4$
-			
+
 			Als Prozentzahl: $\prozent{75}$
-			
+
 			\bigskip
 			Als \enquote{von} Satz: \enquote{3 von 4}
 		\end{multicols}
 	\end{hilfekarte}
-		
+
 	\begin{hilfekarte}{Kürzen und erweitern}{kuerzen}
 		Haben der \textbf{Nenner} und der \textbf{Zähler} eines Bruchs einen gemeinsamen
 		\emph{Teiler}, dann kann der Bruch \emph{gekürzt} werden. Der Anteil bleibt dabei gleich.
-		
+
 		\vspace{1cm}
 		Beim Kürzen wird der \textbf{Zähler} und der \textbf{Nenner} durch denselben \emph{Teiler} dividiert.
-		
+
 		\begin{multicols}{2}
 			\[ \frac{12}{42} = \frac{2\cdot 6}{7\cdot 6} = \frac{2}{7} \]
-			
+
 			\begin{center}
 				\begin{tikzpicture}[scale=.5,baseline=3mm]
 				\tikzAnteile[5,2]{7}{6}{12}
@@ -89,13 +80,13 @@
 				\end{tikzpicture}
 			\end{center}
 		\end{multicols}
-		
+
 		\vspace{1cm}
 		Umgekehrt kann ein Bruch beliebig \emph{erweitert} werden, indem der \textbf{Zähler} und der \textbf{Nenner} mit demselben Faktor multipliziert werden.
-		
+
 		\begin{multicols}{2}
 			\[ \frac{3}{8} = \frac{3\cdot 4}{8\cdot 4} = \frac{12}{32} \]
-			
+
 			\begin{center}
 				\begin{tikzpicture}[scale=.5,baseline=3mm]
 				\tikzAnteile[5,2]{4}{2}{3}
@@ -105,12 +96,12 @@
 			\end{center}
 		\end{multicols}
 	\end{hilfekarte}
-		
+
 	\begin{hilfekarte}{Brüche addieren und subtrahieren}{addition}
 		Brüche addieren ist ganz einfach, wenn sie denselben \emph{Nenner} haben.
 		\begin{multicols}{2}
 			\[ \frac{1}{6} + \frac{4}{6} = \frac{5}{6} \]
-			
+
 			\begin{center}
 				\begin{tikzpicture}[scale=.5,baseline=3mm]
 				\tikzAnteile*{3}{2}{1}
@@ -122,55 +113,55 @@
 			\end{center}
 		\end{multicols}
 		\vspace{1cm}
-		
+
 		Sind die \emph{Nenner} verschieden, dann kannst du sie durch \emph{kürzen} und \emph{erweitern} auf denselben \emph{Nenner} bringen.
-		
+
 		\[ \frac{6}{12} + \frac{3}{8} = \frac{12}{24} + \frac{9}{24} = \frac{21}{24} \]
-		
+
 		\begin{center}
 			 \tikz[scale=.5,baseline=6mm]{\tikzAnteile[4,3]{4}{3}{6}} +
-			\tikz[scale=.5,baseline=6mm]{\tikzAnteile[4,3]{2}{4}{3}} = 
-			\tikz[scale=.5,baseline=6mm]{\tikzAnteile[4,3]{6}{4}{12}} + 
-			\tikz[scale=.5,baseline=6mm]{\tikzAnteile[4,3]{6}{4}{0}\tikzAnteile[2,2.25]{3}{3}{9}} = 
+			\tikz[scale=.5,baseline=6mm]{\tikzAnteile[4,3]{2}{4}{3}} =
+			\tikz[scale=.5,baseline=6mm]{\tikzAnteile[4,3]{6}{4}{12}} +
+			\tikz[scale=.5,baseline=6mm]{\tikzAnteile[4,3]{6}{4}{0}\tikzAnteile[2,2.25]{3}{3}{9}} =
 			\tikz[scale=.5,baseline=6mm]{\tikzAnteile[4,3]{6}{4}{12}\tikzAnteile(2,0)[2,2.25]{3}{3}{9}}
 		\end{center}
-		
+
 		Die Subtraktion geht genauso.
 	\end{hilfekarte}
 
 	\begin{hilfekarte}{Brüche gleichnamig machen}{gleichnamig}
 		Du kannst Brüche immer \textbf{gleichnamig} machen, indem du jeden Bruch mit dem \emph{Nenner} des anderen Bruchs \emph{erweiterst}:
-		
+
 		\[ \frac{2}{3} + \frac{4}{5} = \frac{2\cdot 5}{3\cdot 5} + \frac{4\cdot 3}{5\cdot 3} = \frac{10}{15} + \frac{12}{15} = \frac{22}{15} \]
-		
+
 		\vspace{2cm}
 		Manchmal gibt es aber auch einen kleineren Nenner, auf den du beide Brüche bringen kannst. Der kleinste gemeinsame Nenner heißt \emph{Hauptnenner}.
-		
+
 		\[ \frac{3}{5} + \frac{12}{45} = \frac{3\cdot 3}{5\cdot 3} + \frac{12 : 3}{45 : 3} = \frac{9}{15} + \frac{4}{15} = \frac{13}{15} \]
 	\end{hilfekarte}
-	
+
 	\begin{hilfekarte}{Multiplikation von Brüchen}{multiplikation}
 		Die \emph{Multiplikation} von Brüchen ist ganz einfach:
-		
+
 		\begin{center}\itshape
 			Zähler mal Zähler und Nenner mal Nenner
 		\end{center}
 		\[ \frac{2}{3}\cdot \frac{4}{5} = \frac{2\cdot 4}{3\cdot 5} = \frac{8}{15} \]
-		
+
 		\vspace{1cm}
 		Ein Anteil wie \enquote{$\tfrac{1}{4}$ von 20} ist eigentlich eine Multiplikationsaufgabe:
 		\[ \frac{1}{4}\cdot 20 = \frac{1}{4}\cdot \frac{20}{1} = \frac{20}{4} = 5 \]
 	\end{hilfekarte}
-	
+
 	\begin{hilfekarte}{Division von Brüchen}{division}
 		Die \emph{Division} von Brüchen ist mit einem Trick ganz einfach:
-		
+
 		\begin{center}
 			Du dividierst durch einen Bruch, indem du mit dem \emph{Kehrwert} des Bruchs multiplizierst.
 		\end{center}
 		\[ \frac{2}{3}: \frac{5}{4} \overset{\text{Kehrwert}}{\underset{\text{Aus }:
 		\text{ wird }\cdot}{=}} \frac{2}{3}\cdot  \frac{4}{5} = \frac{2\cdot 4}{3\cdot 5} = \frac{8}{15} \]
-		
+
 		\vspace{1cm}
 		Jetzt musst du nur noch wissen, was der \emph{Kehrwert} ist:
 		\begin{center}
@@ -178,23 +169,23 @@
 		\end{center}
 		\[ \frac{2}{9} \tikz[baseline=-1mm,-latex]{\draw (-.2,.2) -- (.2,-.2);\draw (-.2,-.2) -- (.2,.2);} \frac{9}{2} \qquad \frac{4}{5} \tikz[baseline=-1mm,-latex]{\draw (-.2,.2) -- (.2,-.2);\draw (-.2,-.2) -- (.2,.2);} \frac{5}{4}\]
 	\end{hilfekarte}
-		
+
 	\begin{karte1}{Arten von Brüchen}\hilfeMarke{bruchzahlen}
 		\setlength{\columnseprule}{.5pt}\small
 		\begin{multicols}{2}
 		Es gibt verschiedene Arten von Brüchen:
-		\begin{smalldescription}
+		\begin{smalldescr}
 			\item[Echte Brüche] Bei echten Brüchen ist der \emph{Zähler} kleiner als der \emph{Nenner}. ($\tfrac{2}{3}$)
 			\item[Stammbrüche] Brüche mit dem Zähler $1$ heißen Stammbrüche.
  ($\tfrac{1}{7}$)
  			\item[Unechte Brüche] Bei unechten Brüchen ist der \emph{Zähler} größer oder gleich dem \emph{Nenner}. Unechte Brüche sind größer als ein Ganzes. ($\tfrac{23}{4}$)
 			\item[Gemischte Brüche] Unechte Brüche lassen sich auch als gemischte Brüche schreiben. Dazu wird der Zähler mit Rest durch den Nenner geteilt. Das Ergebnis wird vor den Bruch geschrieben, der Rest wird der neue Zähler. ($\tfrac{14}{6} = 2\tfrac{2}{6}$)
-		\end{smalldescription}
-		
+		\end{smalldescr}
+
 		\columnbreak
 		\textbf{Aufgabe}\\
 		Notiere in deinem Heft eine Tabelle und ordne die Brüche passend zu. Überlege dir zu jeder Bruchart auch drei eigene Beispiele.
-		
+
 		\begin{center}\footnotesize
 			\begin{tabular}{c|c}\hline
 				Echte Brüche & \hspace{2cm} \\\hline
@@ -202,7 +193,7 @@
 				Unechte Brüche & \\\hline
 				Gemischte Brüche & \\\hline
 			\end{tabular}
-	
+
 			\normalsize
 			\begin{tikzpicture}
 				\node at (0,0) {$\frac{1}{6}$};
@@ -218,7 +209,7 @@
 		\end{center}
 		\end{multicols}
 	\end{karte1}
-	
+
 	\begin{loesungskarte}
 		\begin{center}
 			\begin{tabular}{|c|c|}\hline
@@ -229,13 +220,13 @@
 			\end{tabular}
 		\end{center}
 	\end{loesungskarte}
-	
+
 	\begin{karte1}{Prozentzahlen}
 		\hilfeMarke{kuerzen}
 		Einen Hundertstelbruch kannst du auch als \textbf{Prozentzahl} schreiben. Gegebenenfalls musst du den Bruch zuerst durch kürzen und erweitern auf den \emph{Nenner} \num{100} bringen.
-		
+
 		\[ \frac{7}{20} = \frac{35}{100} = \prozent{35} \]
-		
+
 		\begin{enumerate}
 			\item Schreibe als Prozentzahl.
 			\begin{tasks}(4)
@@ -248,7 +239,7 @@
 				\task $\dfrac{30}{30}$
 				\task $\dfrac{20}{80}$
 			\end{tasks}
-			
+
 			\item Schreibe als vollständig gekürzten Bruch.
 			\begin{tasks}(4)
 				\task $\prozent{75}$
@@ -258,7 +249,7 @@
 			\end{tasks}
 		\end{enumerate}
 	\end{karte1}
-	
+
 	\begin{loesungskarte}
 		\vspace*{1cm}
 		\begin{enumerate}
@@ -272,7 +263,7 @@
 				\task $\dfrac{30}{30} = \clrLsg\prozent{100}$
 				\task $\dfrac{20}{80} = \clrLsg\prozent{25}$
 			\end{tasks}
-			
+
 			\vspace{1cm}
 			\item\begin{tasks}(4)
 				\task $\prozent{75} = \clrLsg\dfrac{3}{4}$
@@ -282,10 +273,10 @@
 			\end{tasks}
 		\end{enumerate}
 	\end{loesungskarte}
-	
+
 	\begin{karte1}{Anteile berechnen}\hilfeMarke{multiplikation}
 		Berechne im Kopf.
-		
+
 		\begin{tasks}(4)
 			\task $\dfrac{2}{3}$ von \SI{21}{\gram}
 			\task $\dfrac{3}{5}$ von \SI{65}{\gram}
@@ -301,7 +292,7 @@
 			\task $\dfrac{6}{125}$ von \SI{375}{\hour}
 		\end{tasks}
 	\end{karte1}
-	
+
 	\begin{loesungskarte}
 		\vspace*{1cm}
 		\begin{tasks}(4)
@@ -319,10 +310,10 @@
 			\task \clrLsg\SI{18}{\hour}
 		\end{tasks}
 	\end{loesungskarte}
-	
+
 	\begin{karte2}{Das Ganze berechnen}\hilfeMarke{multiplikation}\hilfeMarke{division}
 		Berechne das Ganze, wenn nur ein Bruchteil angegeben ist.
-		
+
 		\begin{tasks}(4)
 			\task $\dfrac{2}{3}$ von \SI{21}{\gram}
 			\task $\dfrac{3}{4}$ von \SI{36}{\meter}
@@ -338,7 +329,7 @@
 			\task $\dfrac{6}{125}$ von \SI{375}{\hour}
 		\end{tasks}
 	\end{karte2}
-	
+
 	\begin{loesungskarte}
 		\begin{tasks}(4)
 			\task $\dfrac{2}{3}$ von \SI{21}{\gram} = \clrLsg\SI{14}{\gram}
@@ -355,7 +346,7 @@
 			\task $\dfrac{6}{125}$ von \SI{375}{\hour} = \clrLsg\SI{18}{\hour}
 		\end{tasks}
 	\end{loesungskarte}
-	
+
 	\begin{karte1}{Brüche addieren und subtrahieren}\hilfeMarke{addition}
 		Rechne schriftlich im Heft.
 		\begin{tasks}(4)
@@ -367,7 +358,7 @@
 			\task $\dfrac{1}{2} + \dfrac{1}{4} + \dfrac{1}{8} + \dfrac{1}{16}$
 		\end{tasks}
 	\end{karte1}
-	
+
 	\begin{loesungskarte}
 		\vspace*{1cm}
 		\begin{tasks}(4)
@@ -379,10 +370,10 @@
 			\task $\dfrac{15}{16}$
 		\end{tasks}
 	\end{loesungskarte}
-	
+
 	\begin{karte1}{Bruchterme I}\hilfeMarke{addition}
 		Welche Zahl muss man für $x$ einsetzen, damit die Rechnung stimmt?
-	
+
 		\vspace{1cm}
 		\begin{tasks}(3)
 			\task $\dfrac{3}{8} + \dfrac{x}{8} = \dfrac{5}{8}$
@@ -395,16 +386,16 @@
 			\task $\dfrac{8}{9} - \dfrac{x}{27} = \dfrac{5}{9}$
 			\task $\dfrac{x}{2} + \dfrac{12}{26} = \dfrac{25}{26}$
 		\end{tasks}
-		
+
 		\infotext{$2,6,8,10,1,3,10,9,1$}
 	\end{karte1}
-		
+
 	% Leere Rückseite
 	\leereKarte
-	
+
 	\begin{karte2}{Bruchterme II}\hilfeMarke{multiplikation}\hilfeMarke{division}
 		Welche Zahl muss man für $x$ einsetzen, damit die Rechnung stimmt?
-	
+
 		\vspace{1cm}
 		\begin{tasks}(3)
 			\task $\dfrac{1}{2} : x = \dfrac{1}{4}$
@@ -416,15 +407,15 @@
 			\task $\dfrac{1}{11} : \dfrac{x}{11} = \dfrac{1}{3}$
 			\task $\dfrac{2}{7}\cdot \dfrac{x}{4} = \dfrac{3}{14}$
 		\end{tasks}
-		
+
 		\infotext{$2,4,3,5,1,3,3,3$}
 	\end{karte2}
-			
+
 	% Leere Rückseite
 	\leereKarte
-	
+
 	\begin{karte2}{Rechenmauer (Addition)}
-		\begin{enumeratea}
+		\begin{enuma}
 			\item\centering\begin{tikzpicture}[baseline=(current bounding box.north)]
 				\draw (0,0) |- (6,1) |- (0,0);
 				\draw (1,1) |- (5,2) |- (1,1);
@@ -436,13 +427,13 @@
 				\draw (1,0) -- +(0,-1);
 				\draw (3,0) -- +(0,-1);
 				\draw (5,0) -- +(0,-1);
-				
+
 				\node (a) at (0,-.5) {\Large$\tfrac{1}{8}$};
 				\node (b) at (2,-.5) {\Large$\tfrac{3}{8}$};
 				\node (d) at (4,1.5) {\Large$\tfrac{20}{8}$};
 				\node (d) at (3,2.5) {\Large$\tfrac{32}{8}$};
 			\end{tikzpicture}
-			
+
 			\item\centering\begin{tikzpicture}[baseline=(current bounding box.north)]
 				\draw (0,0) |- (6,1) |- (0,0);
 				\draw (1,1) |- (5,2) |- (1,1);
@@ -454,17 +445,17 @@
 				\draw (1,0) -- +(0,-1);
 				\draw (3,0) -- +(0,-1);
 				\draw (5,0) -- +(0,-1);
-				
+
 				\node (a) at (0,-.5) {\Large$\tfrac{2}{10}$};
 				\node (a) at (4,-.5) {\Large$\tfrac{3}{10}$};
 				\node (a) at (6,-.5) {\Large$\tfrac{5}{10}$};
 				\node (a) at (3,.5) {\Large$\tfrac{7}{10}$};
 			\end{tikzpicture}
-		\end{enumeratea}
+		\end{enuma}
 	\end{karte2}
-	
+
 	\begin{loesungskarte}
-		\begin{enumeratea}
+		\begin{enuma}
 			\item\centering\begin{tikzpicture}
 				\draw (0,0) |- (6,1) |- (0,0);
 				\draw (1,1) |- (5,2) |- (1,1);
@@ -476,12 +467,12 @@
 				\draw (1,0) -- +(0,-1);
 				\draw (3,0) -- +(0,-1);
 				\draw (5,0) -- +(0,-1);
-				
+
 				\node (a) at (0,-.5) {\Large$\tfrac{1}{8}$};
 				\node (b) at (2,-.5) {\Large$\tfrac{3}{8}$};
 				\node (d) at (4,1.5) {\Large$\tfrac{20}{8}$};
 				\node (d) at (3,2.5) {\Large$\tfrac{32}{8}$};
-				
+
 				\node (a) at (4,-.5) {\Large\clrLsg$\tfrac{5}{8}$};
 				\node (a) at (6,-.5) {\Large\clrLsg$\tfrac{7}{8}$};
 				\node (a) at (1,.5) {\Large\clrLsg$\tfrac{4}{8}$};
@@ -489,7 +480,7 @@
 				\node (a) at (5,.5) {\Large\clrLsg$\tfrac{12}{8}$};
 				\node (a) at (2,1.5) {\Large\clrLsg$\tfrac{12}{8}$};
 			\end{tikzpicture}
-			
+
 			\item\centering\begin{tikzpicture}
 				\draw (0,0) |- (6,1) |- (0,0);
 				\draw (1,1) |- (5,2) |- (1,1);
@@ -501,7 +492,7 @@
 				\draw (1,0) -- +(0,-1);
 				\draw (3,0) -- +(0,-1);
 				\draw (5,0) -- +(0,-1);
-				
+
 				\node (a) at (0,-.5) {\Large$\tfrac{2}{10}$};
 				\node (a) at (4,-.5) {\Large$\tfrac{3}{10}$};
 				\node (a) at (6,-.5) {\Large$\tfrac{5}{10}$};
@@ -514,12 +505,12 @@
 				\node (a) at (4,1.5) {\Large\clrLsg$\tfrac{15}{10}$};
 				\node (a) at (3,2.5) {\Large\clrLsg$\tfrac{28}{10}$};
 			\end{tikzpicture}
-		\end{enumeratea}
+		\end{enuma}
 	\end{loesungskarte}
-	
+
 	\begin{karte1}{Bruchteile berechnen I}\hilfeMarke{multiplikation}
 %		Berechne im Kopf.
-%		
+%
 %		\vspace{1cm}
 %		\begin{tasks}(4)
 %			\task $\dfrac{2}{3}$ von \SI{21}{\gram}
@@ -536,7 +527,7 @@
 %			\task $\dfrac{6}{125}$ von \SI{375}{\hour}
 %		\end{tasks}
 	\end{karte1}
-	
+
 	\begin{loesungskarte}
 %		\begin{tasks}(4)
 %			\task $\dfrac{2}{3}$ von \SI{21}{\gram} = \clrLsg\SI{14}{\gram}
@@ -553,32 +544,32 @@
 %			\task $\dfrac{6}{125}$ von \SI{375}{\hour} = \clrLsg\SI{18}{\hour}
 %		\end{tasks}
 	\end{loesungskarte}
-	
+
 	\begin{karte2}{Anteile berechnen II}
 		\begin{enumerate}
 			\item Wie hoch ragt ein \SI{28}{\centi\meter} dickes Eisstück aus dem Wasser, wenn nur $\dfrac{1}{7}$ des Eises zu sehen ist?
-			
+
 			\item Für ein Klassenfest hatte die 6c folgendes eingekauft:
 			\begin{itemize}
 				\item 63 Würstchen
 				\item 90 Flaschen Cola
 				\item 24 Tüten Chips
 			\end{itemize}
-			\begin{enumeratea}
-				\item Am Ende sind $\dfrac{1}{9}$ der Würstchen und $\dfrac{5}{18}$ der Cola übrig. Berechne den Anteil. 
+			\begin{enuma}
+				\item Am Ende sind $\dfrac{1}{9}$ der Würstchen und $\dfrac{5}{18}$ der Cola übrig. Berechne den Anteil.
 				\item Von den Chips bleiben \num{4} Tüten übrig. Welcher Bruchteil war das?
-			\end{enumeratea}
-			
+			\end{enuma}
+
 			\item Ca. $\dfrac{4}{5}$ eines Apfels sind Wasser, $\dfrac{1}{12}$ des Gewichts sind Fruchtzucker. Wie viele Gramm Wasser und Zucker enthält ein Apfel von \SI{120}{\gram} (\SI{180}{\gram},  \SI{240}{\gram})?
 		\end{enumerate}
 	\end{karte2}
-	
+
 	\begin{loesungskarte}
 		\begin{enumerate}
 			\item \SI{4}{\centi\meter}
-			
+
 			\item 7 Würstchen, 25 Flaschen Cola und $\dfrac{1}{6}$ der Tüten Chips
-			
+
 			\item \begin{itemize}
 				\item \SI{120}{\gram}-Apfel:\hspace{1cm} \SI{96}{\gram} Wasser, \SI{10}{\gram} Fruchtzucker
 				\item \SI{180}{\gram}-Apfel:\hspace{1cm} \SI{144}{\gram} Wasser, \SI{50}{\gram} Fruchtzucker
@@ -586,7 +577,7 @@
 			\end{itemize}
 		\end{enumerate}
 	\end{loesungskarte}
-	
+
 	\begin{karte3}{Punktrechnung bei Brüchen}\hilfeMarke{multiplikation}\hilfeMarke{division}
 		Rechne schriftlich im Heft.
 		\begin{enumerate}
@@ -600,7 +591,7 @@
 				\task $\dfrac{4}{5}\cdot 1\dfrac{1}{4}$
 				\task $\dfrac{1}{7}\cdot 3\dfrac{1}{2}$
 			\end{tasks}
-			
+
 			\vspace{2cm}
 			\item \begin{tasks}(3)
 				\task $4\dfrac{1}{2}\cdot 5\dfrac{2}{3}\cdot 6\dfrac{3}{4}$
@@ -612,7 +603,7 @@
 			\end{tasks}
 		\end{enumerate}
 	\end{karte3}
-	
+
 	\begin{loesungskarte}
 		\begin{enumerate}
 			\item \begin{tasks}(4)
@@ -625,7 +616,7 @@
 				\task \clrLsg$1$
 				\task \clrLsg$\frac{1}{2}$
 			\end{tasks}
-			
+
 			\vspace{2cm}
 			\item \begin{tasks}(3)
 				\task \clrLsg$4\dfrac{1}{2}\cdot 5\dfrac{2}{3}\cdot 6\dfrac{3}{4}$
@@ -637,82 +628,82 @@
 			\end{tasks}
 		\end{enumerate}
 	\end{loesungskarte}
-	
-	\begin{karte3}[\symPartner]{Brawl Stars}
+
+	\begin{karte3}[\iconPartner]{Brawl Stars}
 	\hilfeMarke{bruchzahlen}\hilfeMarke{multiplikation}\hilfeMarke{division}
 		\begin{minipage}{.5\textwidth}
 			\includegraphics[width=\textwidth]{6.1-LT-Abb_Brawler}
 		\end{minipage}\hfill\begin{minipage}{.49\textwidth}
 			Links siehst du eine Übersicht aller \emph{Brawler}, die man derzeit in \emph{Brawl Stars} spielen kann.
-			
-			\begin{smallenumerate}\small
+
+			\begin{smallenum}\small
 				\item Gebt für jede Brawler-Kategorie an, welcher Anteil aller Brawler ihr angehören.
-				
+
 				\item Der Brawler \person{Frank} hat auf Level 1 mit \num{6100} die meisten Lebenspunkte aller Brawler. \person{Tick} hat dagegen nur etwa $\tfrac{9}{25}$ davon (und damit am wenigsten). Wie viel Lebenspunkte hat \person{Tick} ungefähr?
-				
+
 				\item Die Brawlerin \person{Piper} kann auf Level 9 maximal \num{1900} Schadenspunkte austeilen. Das sind aber nur \prozent{70} des Schadens den sie erreichen kann, wenn sie ihre Star-Power \emph{Hinterhalt} aktiviert und sich in einem Busch versteckt. Wie hoch ist dann ihr maximaler Schaden ungefähr?
-			\end{smallenumerate}
+			\end{smallenum}
 		\end{minipage}
 		\infotext{\enquote{All Brawlers} von \href{https://www.starlist.pro/brawlers}{Starlist.pro}}
 	\end{karte3}
-	
+
 	\begin{loesungskarte}
 		\begin{multicols}{2}
-		\begin{enumeratea}
-			\item \begin{smallitemize}
+		\begin{enuma}
+			\item \begin{smallitem}
 				\item Trophy Road: $\clrLsg\dfrac{11}{30}$
 				\item Rare: $\clrLsg\dfrac{4}{30}$
 				\item Super Rare: $\clrLsg\dfrac{4}{30}$
 				\item Epic: $\clrLsg\dfrac{4}{30}$
 				\item Mythic: $\clrLsg\dfrac{3}{30}$
 				\item Legendary: $\clrLsg\dfrac{4}{30}$
-			\end{smallitemize}
-			
+			\end{smallitem}
+
 			\item Zu berechnen ist, wie viel $\tfrac{9}{25}$ von \num{6100} sind:
 			\[ \frac{9}{25}\cdot 6100 = \frac{9\cdot 6100}{25} = \frac{54900}{25} = \clrLsg2196 \]
-			
+
 			\item Wenn \num{1900} der Anteil $\prozent{70} = \frac{7}{10}$ vom Ganzen sind, dann kann das Ganze berechnet werden durch:
 			\begin{align*}
 				1900: \frac{7}{10} &= 1900\cdot \frac{10}{7} = \frac{1900\cdot 10}{7} \\
 				&= \frac{19000}{7} = \clrLsg 2714\frac{2}{7}\approx 2714
 			\end{align*}
-		\end{enumeratea}
+		\end{enuma}
 		\end{multicols}
 	\end{loesungskarte}
-	
-	\begin{karte3}[\symPartner]{Frozen}
+
+	\begin{karte3}[\iconPartner]{Frozen}
 	\hilfeMarke{bruchzahlen}\hilfeMarke{multiplikation}\hilfeMarke{division}
 		\begin{wrapfigure}[11]{r}{0pt}
 			\includegraphics[width=3cm]{6.1-LT-Abb_Frozen}
 		\end{wrapfigure}
-		
+
 		Der Film \emph{Frozen} ist 2013 in die Kinos gekommen und hat große Erfolge gefeiert.
 		Bisher hat er weltweit schon weit über \$\num{1200000000} eingespielt (über \num{1,2} Milliarden Dollar).
-		
-		\begin{enumeratea}\small
+
+		\begin{enuma}\small
 			\item Der Produzent Disney war mit den Einnahmen sehr zufrieden, denn die Produktion des Films hatte nur etwa $\tfrac{1}{8}$ davon gekostet. Wie teuer war der Film ungefähr?
-			
+
 			\item Alleine am ersten Wochenende nach Veröffentlichung konnte der Film \$\num{400000000} einspielen. Welcher Anteil der gesamten Einnahmen ist das?
-			
+
 			\item Im Film soll Prinzessin \person{Elsa} zur Königin gekrönt werden. Bisher musste sie sich ganze \num{13} Jahre im Schloss verstecken. Das waren immerhin \prozent{62} ihres Lebens. Wie alt ist \person{Elsa}, als sie gekrönt werden soll und wie alt war sie, als ihre Familie sich im Schloss eingeschlossen hat? (Rundet das Ergebnis.)
-		\end{enumeratea}
-		
+		\end{enuma}
+
 		\infotext{Image by Mallory Muse from Pixabay }
 	\end{karte3}
-	
+
 	\begin{loesungskarte}
 		\begin{multicols}{2}
-		\begin{enumeratea}
+		\begin{enuma}
 			\item Gesucht sind $\dfrac{1}{8}$ von \num{1200000000}.
 			\begin{align*}
 				\frac{1}{8}\cdot 1200000000 &= \frac{1200000000}{8} \\
 					&= 1200000000 : 8 \\
 					&= \clrLsg 150000000
 			\end{align*}
-			
+
 			\item
 			\[ \frac{400000000}{1200000000} = \frac{4}{12} = \clrLsg\frac{1}{3} \]
-			
+
 			\item Wenn \num{13} Jahre $\prozent{62} = \tfrac{62}{100}$ ihres Lebens sind, dann ist ihr Alter:
 			\begin{align*}
 				13: \frac{62}{100} &= 13\cdot \frac{100}{62} \\
@@ -720,19 +711,19 @@
 					&= \frac{1300}{62} = \clrLsg 20\frac{60}{62}\approx 21
 			\end{align*}
 			Elsa ist also \num{21} Jahre alt. \num{13} Jahre zuvor war sie dann \num{8} Jahre.
-		\end{enumeratea}
+		\end{enuma}
 		\end{multicols}
 	\end{loesungskarte}
-	
-	\begin{karte2}[\symPartner]{Verhältnisse II}
+
+	\begin{karte2}[\iconPartner]{Verhältnisse II}
 		% https://tex.stackexchange.com/a/27699/179614
-		\begin{wrapfig}
+		\begin{wrapfix}
 		\begin{wrapfigure}{r}{2cm}
 			\includegraphics[width=2cm]{6.1-LT-Abb_Fussball}
 		\end{wrapfigure}
 		Im Fußball wird in der Tabelle auch das \emph{Torverhältnis} angegeben. Zum Beispiel bedeutet \enquote{6 zu 4}, dass der Verein in den bisherigen Spielen $6$ Tore geschossen und $4$ Tore kassiert hat.
-		\end{wrapfig}\vspace{-.8em}
-		
+		\end{wrapfix}\vspace{-.8em}
+
 		\begin{enumerate}\small
 			\item Wie viele Tore sind in den Spielen des Vereins oben insgesamt gefallen? Welchen Anteil der Tore hat die Mannschaft geschossen? Welchen Anteil hat sie selber rein bekommen?
 			\item Schreibe zu den folgenden Torverhältnissen die beiden Brüche auf.
@@ -751,18 +742,18 @@
 				\end{tasks}
 		\end{enumerate}
 	\end{karte2}
-	
+
 	\begin{loesungskarte}
 		\begin{enumerate}
 			\item Insgesamt sind $6+4=10$ Tore gefallen. $\dfrac{6}{10}$ hat die Mannschaft geschossen und $\dfrac{4}{10}$ haben sie erhalten.
-			
+
 			\item\begin{tasks}(4)
 				\task $\dfrac{8}{18}, \dfrac{10}{18}$
 				\task $\dfrac{10}{15}, \dfrac{5}{15}$
 				\task $\dfrac{9}{12}, \dfrac{3}{12}$
 				\task $\dfrac{3}{12}, \dfrac{9}{12}$
 			\end{tasks}
-				
+
 			\item\begin{tasks}(1)
 				\task 5 zu 4
 				\task 2 zu 11
@@ -774,26 +765,26 @@
 
 	\begin{karte1}{Brüche ordnen}
 		Ordne die Brüche der Größe nach vom Kleinsten zum Größten.
-		
-		\begin{enumeratea}
+
+		\begin{enuma}
 			\item \[ \frac{2}{3}\:;\ \frac{1}{2}\:;\ \frac{4}{5}\:;\ \frac{3}{10}\:;\ \frac{5}{6} \]
-			
+
 			\item \[ \frac{4}{5}\:;\ \frac{7}{9}\:;\ \frac{14}{15}\:;\ \frac{2}{3}\:;\ \frac{17}{18}\:;\ \frac{13}{20} \]
-			
+
 			\item \[ \frac{16}{35}\:;\ \frac{3}{7}\:;\ \frac{4}{5}\:;\ \frac{6}{15}\:;\ \frac{4}{21}\:;\ \frac{11}{14} \]
-		\end{enumeratea}
+		\end{enuma}
 	\end{karte1}
-	
+
 	\begin{loesungskarte}
-		\begin{enumeratea}
+		\begin{enuma}
 			\item \[ \frac{3}{10} < \frac{1}{2} < \frac{2}{3} < \frac{4}{5} < \frac{5}{6} \]
-			
+
 			\item \[ \frac{13}{20} < \frac{2}{3} < \frac{7}{9} < \frac{4}{5} < \frac{14}{15} < \frac{17}{18} \]
-			
+
 			\item \[ \frac{4}{21} < \frac{6}{15} < \frac{3}{7} < \frac{16}{35} < \frac{11}{14} < \frac{4}{5} \]
-		\end{enumeratea}
+		\end{enuma}
 	\end{loesungskarte}
-	
+
 	\begin{karte1}{Anteile erkennen}\hilfeMarke{bruchzahlen}
 		Notiere zu jedem Bild den gefärbten Anteil als Bruch.
 		\begin{enumerate}
@@ -801,50 +792,50 @@
 				\task \begin{tikzpicture}[baseline=(current bounding box.north)]
 					\tikzAnteileKreis{1}{6}
 				\end{tikzpicture}
-				
+
 				\task \begin{tikzpicture}[baseline=(current bounding box.north)]
 					\tikzAnteileKreis{1}{10}
 				\end{tikzpicture}
-				
+
 				\task \begin{tikzpicture}[baseline=(current bounding box.north)]
 					\tikzAnteileKreis{3}{8}
 				\end{tikzpicture}
-				
+
 				\task \begin{tikzpicture}[baseline=(current bounding box.north)]
 					\tikzAnteileKreis{5}{9}
 				\end{tikzpicture}
-				
+
 				\task \begin{tikzpicture}[baseline=(current bounding box.north)]
 					\tikzAnteileKreis{12}{16}
 				\end{tikzpicture}
 			\end{tasks}
-			
+
 			\item \begin{tasks}(5)
 				\task \begin{tikzpicture}[baseline=(current bounding box.north),scale=.6]
 					\tikzAnteile{3}{3}{0}
-					\tikzRechteck[fill=\tikzAnteilFarbe](0,0){1,1}
-					\tikzRechteck[fill=\tikzAnteilFarbe](1,1){1,1}
-					\tikzRechteck[fill=\tikzAnteilFarbe](2,2){1,1}
-					\tikzRechteck[fill=\tikzAnteilFarbe](2,0){1,1}
+					\tikzRechteck[fill=ab.diagramme.anteile](0,0){1,1}
+					\tikzRechteck[fill=ab.diagramme.anteile](1,1){1,1}
+					\tikzRechteck[fill=ab.diagramme.anteile](2,2){1,1}
+					\tikzRechteck[fill=ab.diagramme.anteile](2,0){1,1}
 				\end{tikzpicture}
-				
+
 				\task \begin{tikzpicture}[baseline=(current bounding box.north),scale=.6]
 					\tikzAnteile{4}{3}{0}
 					\tikzAnteile(0,1){4}{1}{4}
-					\tikzRechteck[fill=\tikzAnteilFarbe](1,0){1,1}
+					\tikzRechteck[fill=ab.diagramme.anteile](1,0){1,1}
 				\end{tikzpicture}
-				
+
 				\task \begin{tikzpicture}[baseline=(current bounding box.north),scale=.6]
 					\tikzAnteile{4}{4}{0}
 					\tikzAnteile(1,1){3}{1}{3}
-					\tikzRechteck[fill=\tikzAnteilFarbe](2,0){1,1}
-					\tikzRechteck[fill=\tikzAnteilFarbe](2,2){1,1}
+					\tikzRechteck[fill=ab.diagramme.anteile](2,0){1,1}
+					\tikzRechteck[fill=ab.diagramme.anteile](2,2){1,1}
 				\end{tikzpicture}
-				
+
 				\task \begin{tikzpicture}[baseline=(current bounding box.north),scale=.6]
 					\tikzAnteile[3,3]{5}{2}{7}
 				\end{tikzpicture}
-				
+
 				\task \begin{tikzpicture}[baseline=(current bounding box.north),scale=.6]
 					\tikzAnteile{3}{5}{0}
 					\tikzAnteile(0,2){2}{2}{4}
@@ -852,7 +843,7 @@
 			\end{tasks}
 		\end{enumerate}
 	\end{karte1}
-	
+
 	\begin{loesungskarte}
 		\begin{enumerate}
 			\item \begin{tasks}(5)
@@ -890,7 +881,7 @@
 			\task $\dfrac{32}{240}$
 		\end{tasks}
 	\end{karte1}
-	
+
 	\begin{loesungskarte}
 		\begin{tasks}(5)
 			\task $\dfrac{1}{5}$
@@ -907,32 +898,32 @@
 			\task $\dfrac{2}{15}$
 		\end{tasks}
 	\end{loesungskarte}
-	
-	\begin{karte2}[\symEinzel]{Textaufgaben}
+
+	\begin{karte2}[\iconEinzel]{Textaufgaben}
 	\hilfeMarke{bruchzahlen}\hilfeMarke{multiplikation}\hilfeMarke{division}
 		\begin{minipage}{\textwidth-4.5cm}
-			\begin{enumeratea}
+			\begin{enuma}
 				\item Von den 20 Schülern einer Klasse sind 3 krank. Welcher Anteil an der Schülerzahl sind das?
-				
+
 				\item Eine Klasse hat 40 Schüler, davon werden 38 versetzt. Welcher Anteil der Schüler erreichen das Klassenziel, welcher Anteil nicht?
-				
+
 				\item $\tfrac{1}{8}$ einer Geldsumme sind \EUR{11}. Welches ist die Gesamtsumme?
-				
+
 				\item Auf einen Kühlschrank wurde eine Anzahlung von \EUR{315} geleistet, das sind $\tfrac{7}{20}$ des Kaufpreises. Wie hoch war dieser?
-				
+
 				\item Die Schülerzahl einer Schule stieg von 600 auf 636 Schüler. Welcher Anteil der ursprünglichen Schülerzahl beträgt die Zunahme?
-			\end{enumeratea}
+			\end{enuma}
 		\end{minipage}\hfill\begin{minipage}{4cm}
 			\includegraphics[width=4cm]{6.1-LT-Abb_Nachdenken}
 		\end{minipage}
 		\infotext{$\tfrac{3}{20}, \tfrac{19}{20}, \tfrac{1}{20}, \tfrac{1}{20}$, \EUR{88}, \EUR{900}, $\tfrac{3}{50}$}
 	\end{karte2}
-	
+
 	\leereKarte
-	
+
 	\begin{karte2}{Finde den Fehler}
 		Finde den Fehler in der Aufgabe und korrigiere ihn.
-		
+
 		\begin{tasks}(2)
 			\task Erweitere mit $4$: $\dfrac{2}{3}\cdot 4 = \dfrac{8}{3}$
 			\task $\dfrac{1}{8}$ von $32$ sind $8$.
@@ -946,7 +937,7 @@
 			\task $\dfrac{2}{3}\cdot 5 = \dfrac{2}{3\cdot 5} = \dfrac{2}{15}$
 		\end{tasks}
 	\end{karte2}
-	
+
 	\begin{loesungskarte}
 		\begin{tasks}(2)
 			\task $\dfrac{2}{3} = \clrLsg\dfrac{8}{12}$
@@ -961,7 +952,7 @@
 			\task $\dfrac{2}{3}\cdot 5 = \clrLsg\dfrac{2\cdot 5}{3} = \dfrac{10}{3}$
 		\end{tasks}
 	\end{loesungskarte}
-	
+
 	\begin{karte1}{Verhältnisse I}
 		\emph{Verhältnisse} sind eine besondere Art, \emph{Anteile} zu notieren. Ein Verhältnis beschreibt immer zwei Anteile:
 		\begin{center}
@@ -969,7 +960,7 @@
 		\end{center}
 		oder als Brüche geschrieben
 		\[ \frac{5}{13} \quad\text{und}\quad \frac{8}{13} \]
-		
+
 		\begin{enumerate}
 			\item Notiere zu jedem Verhältnis die beiden Brüche.
 				\begin{tasks}(4)
@@ -978,7 +969,7 @@
 					\task 14 zu 21
 					\task 13 zu 9
 				\end{tasks}
-			
+
 			\item Notiere zu jedem Bruch den passenden zweiten Bruch und notiere als Verhältnis. (Beispiel: $\tfrac{1}{3} \rightarrow \tfrac{2}{3} \rightarrow \text{1 zu 2}$)
 				\begin{tasks}(4)
 					\task $\dfrac{4}{15}$
@@ -988,7 +979,7 @@
 				\end{tasks}
 		\end{enumerate}
 	\end{karte1}
-	
+
 	\begin{loesungskarte}
 		\begin{enumerate}
 			\vspace{1cm}
@@ -998,75 +989,75 @@
 					\task $\dfrac{14}{35}\quad\dfrac{21}{35}$
 					\task $\dfrac{13}{22}\quad\dfrac{9}{22}$
 				\end{tasks}
-			
+
 			\vspace{1cm}
 			\item\begin{tasks}(2)
 					\task $\dfrac{11}{15}\quad$ 4 zu 11
 					\task $\dfrac{11}{19}\quad$ 8 zu 11
 					\task $\dfrac{1}{6}\quad$ 5 zu 1
-					\task $\dfrac{20}{32}\quad$ 12 zu 20 
+					\task $\dfrac{20}{32}\quad$ 12 zu 20
 				\end{tasks}
 		\end{enumerate}
 	\end{loesungskarte}
-	
+
 	\begin{karte3}{Snapchat, Tik-Tok und WhatsApp}
-		
+
 	\end{karte3}
 
 	\begin{loesungskarte}
-		
+
 	\end{loesungskarte}
-		
+
 	\begin{karte1}{Noch leer}
 	\end{karte1}
-	
+
 	\begin{karte1}{Noch leer}
 	\end{karte1}
-	
+
 	\begin{karte1}{Noch leer}
 	\end{karte1}
-	
+
 	\begin{karte1}{Noch leer}
 	\end{karte1}
-		
+
 	\begin{karte1}{Noch leer}
 	\end{karte1}
-	
+
 	\begin{karte1}{Noch leer}
 	\end{karte1}
-	
-	\begin{karte3}[\symPartner]{Erstelle eine Lernstation}
+
+	\begin{karte3}[\iconPartner]{Erstelle eine Lernstation}
 		\hinweis{Bearbeite diese Karte erst, wenn du die \textcolor{green!55!black}{grünen} Karten fertig hast.}\bigskip
-			
+
 		\begin{wrapfigure}{r}{0pt}
 			\includegraphics[width=5cm]{6.1-LT-Abb_Kartei}
 		\end{wrapfigure}
 		Überleg dir selber \emph{eine Lernstation} zum Thema \emph{\Titel}.
-		
+
 		Such dir zum Beispiel aus dem Buch eine Aufgabe, überlege dir mit einer Mitschülerin eine Karte oder erfinde selber eine tolle Aufgabe.
-		
+
 		Erstelle dann deine Karte auf einem Din-A5 Blatt.
-		
+
 		Deine Karte braucht auch
-		\begin{smallitemize}
+		\begin{smallitem}
 			\item einen Titel,
 			\item eine Farbe,
 			\item ein Symbol.
-		\end{smallitemize}
-		
+		\end{smallitem}
+
 		Vergiss auch nicht, auf der Rückseite \emph{die Lösung} darzustellen.
-		
+
 		\bigskip
 		(\textit{Lies auf der Rückseite weiter})
 
 		\infotext{Bild \enquote{Datenbank} von Ute Ohlms (bidab.nibis.de)}
 	\end{karte3}
-	
+
 	\begin{loesungskarte}[Wenn du fertig bist]
 		Wenn du mit deiner eigenen Karte fertig und zufrieden bist, dann such dir am besten einen Mitschüler, der die Karte für dich ausprobiert. Vielleicht findet er ja noch Fehler oder hat Verbesserungsvorschläge.
-		
+
 		\bigskip
 		Wenn du denkst, dass deine Karte wirklich fertig ist, dann \textbf{gib sie vorne am Pult ab}.
 	\end{loesungskarte}
-	
+
 \end{document}

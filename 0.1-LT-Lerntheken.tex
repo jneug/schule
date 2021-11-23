@@ -1,32 +1,17 @@
-\documentclass[12pt,a5paper,landscape]{scrartcl}
+\documentclass[lerntheke,12pt,a5paper,landscape]{arbeitsblatt}
 
-\usepackage{vorschule}
-\PassOptionsToPackage{dvipsnames}{xcolor}
-\usepackage[
-    typ=ohne,
-%    fach=Mathematik,
-    lerngruppe={0},
-    nummer=1,
-    module={Symbole,Lizenzen},
-    seitenzahlen=keine,
-    farbig,
+%\ladeModule{theme}
+\aboptionen{
+	titel 		= {Lerntheken},
+	name		= {J. Neugebauer},
+	kuerzel		= {Ngb},
+	reihe		= {Lernen mit Lerntheken},
+    lerngruppe	= {0},
+    nummer		= {1},
+    seitenzahlen= {keine},
     lizenz=cc-by-nc-sa-4,
-]{schule}
-
-\usepackage[
-	typ=lerntheke,
-	kuerzel=Ngb,
-	reihe={Lernen mit Lerntheken},
-	version={1.0 (2019-11-19)},
-]{ngbschule}
-
-\author{J. Neugebauer}
-\title{Lerntheken}
-\date{\Heute}
-
-%\usepackage{pgfmorepages}
-%\pgfmorepagesloadextralayouts
-%\pgfpagesuselayout{4 on 2, odd then even}[a4paper]
+	version={2021-11-23},
+}
 
 \begin{document}
 
@@ -36,12 +21,12 @@
 	\medskip
 	\begin{wrapfigure}[7]{r}{0pt}
 	\includegraphics[width=5cm]{0.1-LT-Abb_Lernen}
-	\end{wrapfigure}	
+	\end{wrapfigure}
 	Du entscheidest selber, welche Stationen du bearbeiten möchtest und wie. Aber denk daran, dass du am Ende trotzdem eine Klassenarbeit schreiben musst. Versuch also die Stationen in deinem Tempo zu bearbeiten, und nicht sofort die Lösungen abzuschreiben.
-	
+
 	\medskip
 	Die Karten dieser Lerntheke zeigen dir, wie du an der Lerntheke arbeiten kannst, welche Hilfsmittel es gibt und wie die Stationenkarten aufgebaut sind.
-	
+
 	\medskip
 	\begin{center}\large\bfseries
 		Viel Spaß und Erfolg beim Lernen!
@@ -61,15 +46,15 @@ Zu Beginn erstellt du in deinem Heft eine Tabelle, in der du deinen Fortschritt 
 	\begin{center}\scalebox{1}{
 	\begin{tikzpicture}[]
 		\node (tabelle) at (0,0) {\includegraphics[width=10cm]{0.1-LT-Abb_Tabelle}};
-		
+
 		\node (marker1) at (-3.6,-1) {};
 		\node (marker2) at (-.8,-1) {};
 		\node (marker3) at (3,-1) {};
-		
+
 		\node[font=\color{blue!60!gray},text width=4cm,anchor=north] (text1) at (-6,-2) {Nummer der Station, an der du arbeitest.};
 		\node[font=\color{green!50!black},text width=4cm,anchor=north] (text2) at (-1,-2.5) {Datum, an dem du mit der Station fertig geworden bist.};
 		\node[font=\color{orange!80!black},text width=4cm,anchor=north] (text3) at (5,-2) {Falls du dich für die Station als Experte eingetragen hast, mache hier ein Kreuz.};
-		
+
 		\draw[draw=blue!60!gray,-latex,line width=2pt] (text1) -- (marker1);
 		\draw[draw=green!50!black,-latex,line width=2pt] (text2) -- (marker2);
 		\draw[draw=orange!80!black,-latex,line width=2pt] (text3) -- (marker3);
@@ -81,32 +66,32 @@ Zu Beginn erstellt du in deinem Heft eine Tabelle, in der du deinen Fortschritt 
 	\begin{center}\scalebox{.9}{
 	\begin{tikzpicture}[red color/.style={draw=red!80!black,line width=2pt},marker/.style={red color,fill=red!50!black,fill opacity=.2},red circle/.style={marker,circle,minimum width=1cm,minimum height=1cm},red rect/.style={marker},text field/.style={red color,fill=white,drop shadow,rounded corners=1pt,anchor=north west,font=\footnotesize},red line/.style={red color}]
 		\node[draw=black] (karte) at (0,0) {\includegraphics[width=8cm]{0.1-LT-Abb_Beispielkarte}};
-		
+
 		\node[red circle] (nrMarker) at (-3.3,2.25) {};
 		\node[red circle] (symMarker) at (3.15,2.25) {};
 		\node[red circle] (helpMarker) at (3.5,1.13) {};
 		\node[red rect,minimum width=2cm,minimum height=.5cm] (infoMarker) at (2.8,-2.4) {};
 		\node (taskMarker) at (-1.5,-1.4) {};
 		\node (headMarker) at (0,2.4) {};
-		
+
 		\node[text field,text width=11cm] (headText) at (-8,5.6) {Die Farbe der Kopfzeile zeigt die \textbf{Stufe} der Station an:\\
 		\textcolor{green!80!black}{Grün: Grundlagen lernen}\\
 		\textcolor{orange!80!black}{Gelb: Anwendung der Grundlagen}\\
 		\textcolor{red!80!black}{Rot: Komplexe Aufgaben, die mehrere Grundlagen verknüpfen}};
-		
+
 		\node[text field,text width=4cm] (nrText) at (-9.2,3) {Jede Station hat eine \textbf{Nummer}. Die Stationen können, \emph{müssen aber nicht} in dieser Reihenfolge bearbeitet werden. Überleg dir am besten eine \emph{eigene Reihenfolge}.};
-		
-		\node[text field,text width=3cm] (symText) at (4.5,5.2) {{\normalsize\symEinzel} Einzelarbeit\\
-		{\normalsize\symPartner} Partnerarbeit\\
-		{\normalsize\symGruppe} Gruppenarbeit};
-		
+
+		\node[text field,text width=3cm] (symText) at (4.5,5.2) {{\normalsize\iconEinzel} Einzelarbeit\\
+		{\normalsize\iconPartner} Partnerarbeit\\
+		{\normalsize\iconGruppe} Gruppenarbeit};
+
 		\node[text field,text width=3cm] (helpText) at (4.9,2.7) {Diese Symbole zeigen dir an, auf welchen \textbf{Hilfekarten} du bei Problemen nachsehen kannst.};
-		
+
 		\node[text field,text width=4cm] (infoText) at (4.5,-1.4) {Hier stehen manchmal klein die \textbf{Lösungen} zur Karte, anstatt auf der Rückseite. Oder hier stehen Informationen zu den verwendeten Bildern.};
-		
+
 		\node[text field,text width=4cm] (taskText) at (-8.8,-1) {Das wichtigste jeder Station sind die \textbf{Aufgaben}. Lies sie \emph{sorgfältig} und bearbeite sie \emph{möglichst eigenständig}. Zur Kontrolle findest du auf der Rückseite die Lösung.};
-		
-		
+
+
 		\draw[red line] (nrText) -- (nrMarker);
 		\draw[red line] (symText) -- (symMarker);
 		\draw[red line] (helpText) -- (helpMarker);
@@ -155,7 +140,7 @@ Auf der \emph{Rückseite} einer Karte findest du in der Regel die \emph{Lösunge
 Hilfekarten haben normalerweise keine Lösung. Aber wenn auf der Vorderseite nicht genug Platz war, stehen auf der Rückseite manchmal weitere Informationen.
 
 \medskip
-So wie hier. \symSmileyZwinkernd
+So wie hier. \faSmileWink
 \end{loesungskarte}
 
 \begin{hilfekarte}{Das Expertenposter}{expertenposter}
@@ -187,5 +172,5 @@ Hast du eine Station gelöst kannst du dein Ergebnis mit den \emph{Lösungen auf
 \end{hilfekarte}
 
 \leereKarte
-	
+
 \end{document}
