@@ -2,7 +2,7 @@
 
 Hier sammele ich meine Arbeitsblätter und Materialien (hauptsächlich für den Informatik- und Mathematikunterricht).
 
-Die Materialien sind unter CC-BY-SA Lizenz veröffentlicht und dürfen beliebig weiterverwendet werden.
+Die Materialien sind unter [CC-BY-SA Lizenz 4.0](https://creativecommons.org/licenses/by-sa/4.0/deed.de) veröffentlicht und dürfen beliebig weiterverwendet werden.
 
 Das Repository ist nach Fach und Thema sortiert. Alle Dateinamen folgen einem festen Schema. Zu jedem Dokument sind die TeX-Quelldateien und fertig gesetzte PDF-Dateien im Repository vorhanden.
 
