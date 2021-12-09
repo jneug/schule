@@ -51,7 +51,16 @@ sudo tlmgr install --repository https://ftp.tu-chemnitz.de/pub/tex/systems/texli
 
 ### Der richtige Editor
 
-### latexmk einrichten
+### latexmk und latexindent einrichten
+
+Die Dateien im Repository werden am besten mit [latexmk](https://www.ctan.org/pkg/latexmk/) gesetzt. Dazu liegt im Repository die Konfigurationsdatei [.latexmkrc](.latexmkrc). Die Datei muss im Home-Verzeichnis liegen, damit latexmk sie findet.
+
+Im repository liegt eine [Konfigurationsdatei für Latexindent](latexindent.yaml). Sie kann über eine `.indentconfig.yaml` Datei im Home-Ordner als Globale KOnfigurationsdatei definiert werden. Lege die Datei `~/.indentconfig.yaml` mit folgendem Inhalt an:
+
+```yaml
+paths:
+- PATH/TO/THIS/REPOSITORY/latexindent.yaml
+```
 
 ### Pygments installieren
 
@@ -60,3 +69,5 @@ sudo tlmgr install --repository https://ftp.tu-chemnitz.de/pub/tex/systems/texli
 ### Gnuplot installieren
 
 ### UMLet
+
+### Shell-Skripte
