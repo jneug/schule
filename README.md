@@ -33,7 +33,7 @@ sudo tlmgr --repository https://ftp.tu-chemnitz.de/pub/tex/systems/texlive/tlnet
 sudo tlmgr --repository https://ftp.tu-chemnitz.de/pub/tex/systems/texlive/tlnet update --all
 ```
 
-'''Hinweis''': (''10.12.2021'') Die unten stehenden Informationen sind nicht mehr ganz aktuell und werden demnächst aktualisiert.
+**Hinweis**: (*10.12.2021*) Die unten stehenden Informationen sind nicht mehr ganz aktuell und werden demnächst aktualisiert.
 
 Das Material benötigt auf jeden Fall die Pakete [schule](https://www.ctan.org/package/schule) und [ngbschule](https://github.com/jneug/ngbschule), sowie deren Abhängigkeiten, um übersetzt zu werden. Einige Dokumente nutzen weitere Zusazpakete.
 
