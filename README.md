@@ -33,6 +33,8 @@ sudo tlmgr --repository https://ftp.tu-chemnitz.de/pub/tex/systems/texlive/tlnet
 sudo tlmgr --repository https://ftp.tu-chemnitz.de/pub/tex/systems/texlive/tlnet update --all
 ```
 
+**Hinweis**: (*10.12.2021*) Die unten stehenden Informationen sind nicht mehr ganz aktuell und werden demnächst aktualisiert.
+
 Das Material benötigt auf jeden Fall die Pakete [schule](https://www.ctan.org/package/schule) und [ngbschule](https://github.com/jneug/ngbschule), sowie deren Abhängigkeiten, um übersetzt zu werden. Einige Dokumente nutzen weitere Zusazpakete.
 
 `schule` ist in vielen LaTeX-Distributionen (TeXlive, MikTeX, ...) enthalten. Das Paket vereinfacht einige Funktionen, die in der Schule regelmäßig genutzt werden. Vor allem das Setzen von Aufgaben in Arbeitsblättern und Klassenarbeiten, und das Erstellen von Erwartungshorizonten wird vereinfacht.
@@ -53,14 +55,16 @@ sudo tlmgr install --repository https://ftp.tu-chemnitz.de/pub/tex/systems/texli
 
 ### latexmk und latexindent einrichten
 
-Die Dateien im Repository werden am besten mit [latexmk](https://www.ctan.org/pkg/latexmk/) gesetzt. Dazu liegt im Repository die Konfigurationsdatei [.latexmkrc](.latexmkrc). Die Datei muss im Home-Verzeichnis liegen, damit latexmk sie findet.
+Die Dateien im Repository werden am besten mit [latexmk](https://www.ctan.org/pkg/latexmk/) gesetzt. Dazu liegt im Repository die Konfigurationsdatei [.latexmkrc](.latexmkrc). Die Datei muss im Home-Verzeichnis liegen, damit latexmk sie findet. (Am besten per symbolischem Link: `ln -s PATH/TO/THIS/REPOSITORY/.latexmkrc ~/.latexmkrc`.)
 
-Im repository liegt eine [Konfigurationsdatei für Latexindent](latexindent.yaml). Sie kann über eine `.indentconfig.yaml` Datei im Home-Ordner als Globale KOnfigurationsdatei definiert werden. Lege die Datei `~/.indentconfig.yaml` mit folgendem Inhalt an:
+Mit Latexinden können die Quelltexte der Dokumente einheitlich formatiert werden. Im Repository liegt eine [Konfigurationsdatei für Latexindent](latexindent.yaml). Sie kann über eine `.indentconfig.yaml` Datei im Home-Ordner als Globale Konfigurationsdatei definiert werden. Lege dazu die Datei `~/.indentconfig.yaml` mit folgendem Inhalt an:
 
 ```yaml
 paths:
 - PATH/TO/THIS/REPOSITORY/latexindent.yaml
 ```
+
+(Die Syntax von TeX-Dateien ist sehr komplex, daher sind die Ergebnisse manchmal eher "verschlimmbessert", als wirklich übersichtlicher. Daher sind die Dateien nicht alle oder nur teilweise mit Latexindent formatiert.)
 
 ### Pygments installieren
 
