@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<diagram program="umlet" version="14.3.0">
+  <zoom_level>10</zoom_level>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>100</x>
+      <y>280</y>
+      <w>210</w>
+      <h>140</h>
+    </coordinates>
+    <panel_attributes>*Vokabel*
+--
+-deutsch: String
+-englisch: String
+--
++Vokabel(pDeutsch: String,
+    pEnglisch: String)
++getDeutsch(): String
++getEnglisch(): String</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>490</x>
+      <y>60</y>
+      <w>370</w>
+      <h>170</h>
+    </coordinates>
+    <panel_attributes>template=ContentType: Vokabel
+*Queue*
+--
+
+--
++Queue()
++isEmpty(): boolean
++enqueue(pContent: ContentType)
++dequeue()
++front(): ContentType</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>490</x>
+      <y>250</y>
+      <w>370</w>
+      <h>130</h>
+    </coordinates>
+    <panel_attributes>template=ContentType: Vokabel
+*Stack*
+--
+
+--
++Stack()
++isEmpty(): boolean
++push(pContent: ContentType)
++pop()
++top(): ContentType</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>80</x>
+      <y>70</y>
+      <w>240</w>
+      <h>180</h>
+    </coordinates>
+    <panel_attributes>*Vokabeltrainer*
+--
+-richtig: int
+-falsch: int
+--
++Vokabeltrainer()
++neueVokabel(pDeutsch: String,
+    pEnglisch: String): void
++abfrageStarten(): void
++abfrageVorbereiten(): void</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>310</x>
+      <y>140</y>
+      <w>200</w>
+      <h>40</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;-
+-vokabeln</panel_attributes>
+    <additional_attributes>180.0;20.0;10.0;20.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>310</x>
+      <y>180</y>
+      <w>200</w>
+      <h>140</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;-
+-ablage</panel_attributes>
+    <additional_attributes>180.0;120.0;10.0;10.0</additional_attributes>
+  </element>
+</diagram>
