@@ -1,29 +1,19 @@
-\documentclass[10pt, a4paper]{scrartcl}
+\documentclass[10pt, a4paper]{arbeitsblatt}
 
-\usepackage{vorschule}
-\usepackage[
-	typ=ab,
-	fach=Informatik,
-	lerngruppe={Q2-GK},
-	nummer=II.6,
-	module={Symbole,Lizenzen},
-	seitenzahlen=keine,
-	farbig,
-	lizenz=cc-by-nc-sa-4,
-]{schule}
+\ladeModule{theme,boxen,tabellen}
+\ladeFach[]{informatik}
 
-\usepackage[
-	kuerzel=Ngb,
-	reihe={Rechnernetze},
-	version={2020-12-08},
-]{ngbschule}
-
-\author{J. Neugebauer}
-\title{Das POP3-Protokoll}
-\date{\Heute}
-
-\setzeAufgabentemplate{ngbnormal}
-
+\aboptionen{
+	name		= {J. Neugebauer},
+	kuerzel		= {Ngb},
+	titel		= {Das POP3-Protokoll},
+	reihe		= {Rechnernetze},
+	fach		= {Informatik},
+	lerngruppe	= {Q2},
+	nummer		= {II.06},
+	lizenz		= {cc-by-nc-sa-4},
+	version		= {2022-01-09},
+}
 
 \begin{document}
 \ReiheTitel
@@ -40,6 +30,7 @@ Festgelegt werden im Wesentlichen
 \end{tabularx}
 \end{infobox}
 
+\vspace*{-1em}
 Das \emph{Post Office Protocol} (POP) ist ein Übertragungsprotokoll, über das ein Client E-Mails von einem E-Mail-Server abholen kann. POP3 (Version 3 des Protokolls) kommuniziert standardmäßig über den \emph{Port 110}.
 
 Das POP3 definiert neun \emph{Vokabeln} mit jeweils vier Zeichen. Einige Vokabeln erfordern einen zusätzlichen Parameter. Gleichzeitig wird das \emph{Verhalten} durch erwartete Antworten und Reihenfolge festgelegt. POP3 hat drei Phasen. Einige Befehle dürfen nur in bestimmten Phasen ausgeführt werden, bei anderen gibt es keine Einschränkung.
@@ -61,33 +52,39 @@ Das POP3 definiert neun \emph{Vokabeln} mit jeweils vier Zeichen. Einige Vokabel
 
 \clearpage
 \ReiheTitel
-\begin{aufgabe}
-	Recherchiert im Internet die Bedeutung der Vokablen des POP3 und notiert die Funde in der Tabelle.
+\begin{aufgabe}[icon=\iconBlatt]
+Recherchiere die Bedeutung der \emph{Vokablen} des POP3 und vervollständige die Tabelle zum Protokoll.
 \end{aufgabe}
 
-\begin{aufgabe}
-	Benutzt den Telnet-Client, um mit Hilfe des POP3 manuell eine E-Mail abzurufen.
-	
-	\begin{enumerate}
-		\item Kopiert den Ordner \ordner{Babypop3} aus dem Tauschordner. Führt dann einmalig durch Doppelklick die Datei \datei{babypop3\_config.reg} aus. Startet dann das Programm \programm{babypop3.exe}.
-		\item Öffnet eine Windows-Befehlszeile und baut eine \texttt{telnet} Verbindung zum Server \enquote{127.0.0.1} auf dem Port \enquote{110} auf:
+\begin{aufgabe}[icon=\iconComputer\,\iconBlatt]
+Benutze den Telnet-Client, um mit Hilfe des POP3 manuell eine E-Mail abzurufen.
 
-		\begin{center}
-			\verb|C:\WINDOWS> telnet 127.0.0.1 110|
-		\end{center}
-		
-		Meldet der Server eine positive Antwort (\verb|+OK Baby POP3 Server ready|), dann können die POP3-Befehle eingegeben werden.
-		\item Als erstes müsst ihr euch mit einem Nutzernamen und Passwort am Server anmelden. Es gibt fünf Nutzer mit Nutzername/Passwort \texttt{user1}/\texttt{user1} bis \texttt{user5}/\texttt{user5}.
-		\item Benutzt die Tabelle zum möglichen Ablauf eines E-Mail Abrufs als Hilfe und notiert jeweils die Antworten des Servers.
-		\item Variiert die Befehle und versucht weitere Mails abzurufen. Probiert auch fehlerhafte Befehle und Reihenfolgen.
-	\end{enumerate}
+\begin{enumerate}
+	\item Kopier den Ordner \ordner{Babypop3} aus dem Tauschordner. Führ dann einmalig durch Doppelklick die Datei \datei{babypop3\_config.reg} aus\footnote{Die Datei erstellt automatisch die nötigen Benutzerkonten für den Babypop3 E-Mail-Server.}. Start dann das Programm \programm{babypop3.exe}.
+	\item Öffne eine Windows-Befehlszeile (\code{cmd}) und baue eine \texttt{telnet} Verbindung zum Server \enquote{127.0.0.1} auf dem Port \enquote{110} auf:
+
+	\begin{center}
+		\verb|C:\WINDOWS> telnet 127.0.0.1 110|
+	\end{center}
+
+	Meldet der Server eine positive Antwort (\verb|+OK Baby POP3 Server ready|), dann können die POP3-Befehle eingegeben werden.
+	\item Als erstes musst du dich mit einem Nutzernamen und Passwort am Server anmelden. Es gibt fünf Nutzer mit Nutzername/Passwort \code{user1}/\code{user1} bis \code{user5}/\code{user5}.
+	\item Benutze die Tabelle zum möglichen Ablauf eines E-Mail Abrufs als Hilfe und notiere jeweils die Antworten des Servers.
+	\item Variiere die Befehle und versucht weitere Mails abzurufen. Probier auch fehlerhafte Befehle und Reihenfolgen aus. Wie reagiert der Server?
+\end{enumerate}
 \end{aufgabe}
 
-\begin{aufgabe}
-	Studiert das Format der E-Mails, die vom Server gesendet werden. Für einen einfachen Zugriff könnt ihr im Ordner \ordner{Babypop3/maildrop} die E-Mails im Klartext als Textdatei abrufen.
-	
+\begin{aufgabe}[icon=\iconComputer\,\iconHeft]
+	Studiere das Format der E-Mails, die vom Server gesendet werden. Für einen einfachen Zugriff kannst du im Ordner \ordner{Babypop3/maildrop} die E-Mails im Klartext als Textdatei einsehen.
+
 	\medskip
-	Welche Bestandteile der E-Mail könnt ihr identifizieren? Wie ist das Format aufgebaut? Versucht eine möglichst exakte Beschreibung zu erstellen.
+	Welche Bestandteile der E-Mail kannst du identifizieren? Wie ist das Format aufgebaut? Versuche eine möglichst exakte Beschreibung zu erstellen.
 \end{aufgabe}
+
+\begin{aufgabe*}[icon=\iconComputer]
+Erstelle eine Mail \enquote{von Hand}, indem du im Posteingang eines Nutzers (zum Beispiel \ordner{Babypop3/maildrop/user1}) eine neue Textdatei erstellst und die Mail anhand deiner Notizen in einem Texteditor schreibst.
+
+Rufe die Mail dann via Telnet vom Server ab und prüfe, ob das Format korrekt erkannt wird.
+\end{aufgabe*}
 
 \end{document}
