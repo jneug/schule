@@ -1,0 +1,88 @@
+\documentclass[10pt, a4paper]{arbeitsblatt}
+
+\ladeModule{theme,boxen,tabellen}
+\ladeFach[quelltexte]{informatik}
+
+\aboptionen{
+	name		= {J. Neugebauer},
+	kuerzel		= {Ngb},
+	titel		= {Bedingte Schleifen},
+	reihe		= {Programmierung mit TigerJython},
+	fach		= {Informatik},
+	lerngruppe	= {9Diff},
+	nummer		= {III.08},
+	lizenz		= {cc-by-nc-sa-4},
+	version		= {2022-01-09},
+}
+
+\begin{document}
+\ReiheTitel
+
+\begin{aufgabe}[icon=\iconComputer\,\iconPartner]
+\vspace*{-1em}
+\begin{center}
+	\emph{Was macht die Turtle denn jetzt schon wieder?}
+\end{center}
+
+Gebt das Programm in \programm{TigerJython} ein und beschreibt seine
+Arbeitsweise. Erklärt besonders die Zeilen 10 und 15.
+
+\begin{minted}{python}
+from gturtle import *
+
+def dreieck():
+	repeat 3:
+		forward(100)
+		right(120)
+
+makeTurtle()
+runde = 1
+while runde <= 6:   # neu!
+	if runde == 1 or runde == 3 or runde == 5:
+		setPenColor("red")
+	else:
+		setPenColor("green")
+	fillToPoint(0,0)  # neu !
+	dreieck()
+	right(60)
+	runde = runde + 1
+\end{minted}
+\end{aufgabe}
+
+\begin{aufgabe}[icon=\iconBuch\,\iconComputer\,\iconPartner]
+\begin{teilaufgaben}
+	\teilaufgabe
+	Lest im Buch auf Seite 96 die Box \enquote{Neue Konzepte und Befehle}.
+
+	\teilaufgabe
+	Bearbeitet im Buch auf Seite 97 Aufgabe 35.
+
+	\teilaufgabe
+	Schreibt ein Programm, dass alle Quadratzahlen ausgibt, die kleiner als ein
+	Parameter \code{zahl} sind.
+
+	\teilaufgabe
+	Entwickelt einen Befehl, der eine Zufallszahl generiert (\code{randint(min, max)})
+	und dann den Benutzer nach einer Zahl fragt. Ist die Zahl größer wird
+	\enquote{größer} angezeigt, ist die Zahl kleiner \enquote{kleiner}.
+	Dies wird solange wiederholt, bis die Eingabe gleich der Zahl ist. Dann wird
+	\enquote{Treffer!} angezeigt.
+\end{teilaufgaben}
+\end{aufgabe}
+
+\vspace*{-1em}
+\subsubsection*{Logische Operatoren}
+\begin{tabularx}{\textwidth}{|c|X|} \hline
+	\code{and} & Und-Verknüpfung; beide Bedingungen müssen \emph{wahr} sein                     \\ \hline
+	\code{or}  & Oder-Verknüpfung; midestens eine Bedingungen muss \emph{wahr} sein             \\ \hline
+	\code{not} & Negation; Umkehrung des Wahrheitsgehaltes (aus \emph{wahr} wird \emph{falsch}) \\ \hline
+	\code{==}  & prüft zwei Werte oder Variablen auf Gleichheit (auch Texte)                    \\ \hline
+	\code{!=}  & prüft zwei Werte oder Variablen auf Ungleichheit (auch Texte)                  \\ \hline
+	\code{>}   & prüft ob der erste Werte echt größer ist als der Zweite                        \\ \hline
+	\code{>=}  & prüft ob der erste Werte größer oder gleich der Zweite ist                     \\ \hline
+	\code{<}   & prüft ob der erste Werte echt kleiner ist als der Zweite                       \\ \hline
+	\code{<=}  & prüft ob der erste Werte kleiner oder gleich der Zweite ist                    \\ \hline
+\end{tabularx}
+
+
+\end{document}

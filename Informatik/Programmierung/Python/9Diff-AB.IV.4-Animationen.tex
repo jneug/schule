@@ -1,55 +1,46 @@
-\documentclass[10pt, a4paper]{scrartcl}
+\documentclass[10pt, a4paper]{arbeitsblatt}
 
-\usepackage{vorschule}
-\usepackage[
-    typ=ab,
-    fach=Informatik,
-    lerngruppe={9Diff},
-    nummer=4,
-    module={Symbole,Lizenzen},
-    seitenzahlen=keine,
-%    farbig,
-    lizenz=cc-by-nc-sa-4,
-]{schule}
+\ladeModule{theme,boxen}
+\ladeFach[quelltexte,algorithmen]{informatik}
 
-\usepackage[
-	kuerzel=Ngb,
-	reihe={Imperative Programmierung mit Python},
-	version={2019-11-18},
-]{ngbschule}
-
-\author{J. Neugebauer}
-\title{Animationen}
-\date{\Heute}
-
-\setzeAufgabentemplate{ngbnormal}
+\aboptionen{
+	name		= {J. Neugebauer},
+	kuerzel		= {Ngb},
+	titel		= {Animationen},
+	reihe		= {Programmierung mit TigerJython},
+	fach		= {Informatik},
+	lerngruppe	= {9Diff},
+	nummer		= {III.04},
+	lizenz		= {cc-by-nc-sa-4},
+	version		= {2022-01-09},
+}
 
 \begin{document}
 
 \ReiheTitel
 
-\begin{aufgabe}[symbol=\Large\symLaptop\yspace\symPartner]
-	Kopiert euch das Programm \datei{Hampelmann.py} aus dem Tauschordner \ordner{Python} in euren Bereich und öffnet es in \texttt{TigerJython}. Probiert die Methoden \texttt{hampelmann1()} und \texttt{hampelmann2()} aus und seht, was sie machen.
+\begin{aufgabe}[icon=\iconComputer\,\iconPartner]
+	Kopiert euch das Programm \datei{Hampelmann.py} aus dem Tauschordner \ordner{Python} in euren Bereich und öffnet es in \code{TigerJython}. Probiert die Methoden \code{hampelmann1()} und \code{hampelmann2()} aus und seht, was sie machen.
 \end{aufgabe}
 
-\begin{aufgabe}[symbol=\Large\symLaptop\yspace\symPartner]
+\begin{aufgabe}[icon=\iconComputer\,\iconPartner]
 	Der Hampelmann soll nun tanzen. Dazu sollen die beiden Methoden im Wechsel ausgeführt werden.
-	
+
 	Gebt das folgende Programm ein. Tauscht vor dem Start Vermutungen auf, was ihr sehen werdet.
-	\begin{lstlisting}[language=Python]
-repeat 10:
-	hampelmann1()
-	hampelmann2()
-	\end{lstlisting}
-	
+	\begin{minted}{python}
+	repeat 10:
+		hampelmann1()
+		hampelmann2()
+	\end{minted}
+
 	Beobachtet was passiert und versucht zu erklären, wo das Problem liegt.
 \end{aufgabe}
 
-\begin{aufgabe}
+\begin{aufgabe}[icon=\iconComputer\,\iconPartner]
 	Damit der Hampelmann richtig tanzen kann, muss er \emph{animiert} werden. Das bedeutet, seine Tanzschritte müssen nacheinander gezeigt werden. Zwischen dem Wechsel muss eine kleine Pause sein, damit es nicht zu schnelle geht. Außerdem muss der Bildschirm wieder geleert werden, bevor das neue Bild gemalt wird.
-	
-	Dafür stehen die Befehle \texttt{clear()} und \texttt{delay()} zur Verfügung.
-	
+
+	Dafür stehen die Befehle \code{clear()} und \code{delay()} zur Verfügung.
+
 	Übernehmt das folgende Programm in den Editor und probiert es aus.
 	\begin{center}
 	\begin{tikzpicture}[pap,every node/.style={font=\scriptsize}]
@@ -62,7 +53,7 @@ repeat 10:
 		\node[aktion, left=of a4] (a5) {\texttt{hampelmann2()}};
 		\node[aktion, left=of a5] (a6) {\texttt{delay(180)}};
 		\node[startstop, left=of v1] (e1) {Stop};
-		
+
 		\draw[linie] (s1)--(v1);
 		\draw[linie] (v1)--(a1);
 		\draw[linie] (a1)--(a2);
@@ -74,14 +65,14 @@ repeat 10:
 		\draw[linie] (v1)--(e1) node[near start, above] {dann};
 	\end{tikzpicture}
 	\end{center}
-	
-	Variiert die Werte im \texttt{delay()} Befehl. Was verändert sich?
+
+	Variiert die Werte im \code{delay()} Befehl. Was verändert sich?
 \end{aufgabe}
 
-\begin{aufgabe}[symbol=\Large\symLaptop\yspace\symBuch\yspace\symPartner]
-	Bearbeitet die Aufgaben auf den Seiten \num{25} bis \num{27} im Buch. 
-	
-	\hinweis{Denkt daran, dass ihr auch schon den \texttt{clear()} Befehl kennt und mit \texttt{repeat} Wiederholungen programmieren könnt.}
+\begin{aufgabe}[icon=\iconComputer\,\iconBuch\,\iconPartner]
+	Bearbeitet die Aufgaben auf den Seiten 25 bis 27 im Buch.
+
+	\hinweis{Denkt daran, dass ihr auch schon den \code{clear()} Befehl kennt und mit \code{repeat} Wiederholungen programmieren könnt.}
 \end{aufgabe}
 
 \end{document}

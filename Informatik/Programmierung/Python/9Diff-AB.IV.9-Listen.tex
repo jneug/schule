@@ -1,28 +1,19 @@
-\documentclass[10pt, a4paper]{scrartcl}
+\documentclass[9pt, a4paper]{arbeitsblatt}
 
-\usepackage{vorschule}
-\usepackage[
-	typ=ab,
-	fach=Informatik,
-	lerngruppe={9Diff},
-	nummer=IV.9,
-	module={Symbole,Lizenzen},
-	seitenzahlen=keine,
-	farbig,
-	lizenz=cc-by-nc-sa-4,
-]{schule}
+\ladeModule{theme,boxen,tabellen}
+\ladeFach[quelltexte]{informatik}
 
-\usepackage[
-	kuerzel=Ngb,
-	reihe={Imperative Programmierung mit Python},
-	version={2020-11-25},
-]{ngbschule}
-
-\author{J. Neugebauer}
-\title{Listen}
-\date{\Heute}
-
-\setzeAufgabentemplate{ngbnormal}
+\aboptionen{
+	name		= {J. Neugebauer},
+	kuerzel		= {Ngb},
+	titel		= {Listen},
+	reihe		= {Programmierung mit TigerJython},
+	fach		= {Informatik},
+	lerngruppe	= {9Diff},
+	nummer		= {III.09},
+	lizenz		= {cc-by-nc-sa-4},
+	version		= {2022-01-09},
+}
 
 \begin{document}
 \ReiheTitel
@@ -31,39 +22,39 @@ Eine \emph{Variable} kann benutzt werden, um \emph{einen} Wert zu speichern. Mö
 
 Eine Liste speichert in einer Variablen beliebig viele Werte \enquote{hintereinander}.
 
-\begin{aufgabe}
+\begin{aufgabe}[icon=\iconBlatt\,\iconEinzel]
 	Studiere das Programm und überlege, was es macht. Schau dir vor allem die neuen Befehle an.
-	
+
 	Übernimm dann das Programm in TigerJython und probiere es aus.
-	\begin{lstlisting}[language=Python,gobble=8]
-		from gturtle import *
-		
-		eingabe = 1
-		seiten = [] 		#neu: eine leere Liste erstellen
-		while eingabe > 0:
-			eingabe = input("Gib eine Zahl ein. 0 um zu beenden.")
-			seiten.append(eingabe) #neu: Wert von eingabe hinten an die Liste anhängen
-		
-		makeTurtle()
-		
-		for s in seiten:	#neu: s nimmt jeden Wert in seiten an
-			fd(s)
-			rt(90)
-	\end{lstlisting}
+	\begin{minted}{python}
+	from gturtle import *
+
+	eingabe = 1
+	seiten = [] 		#neu: eine leere Liste erstellen
+	while eingabe > 0:
+		eingabe = input("Gib eine Zahl ein. 0 um zu beenden.")
+		seiten.append(eingabe) #neu: Wert von eingabe hinten an die Liste anhängen
+
+	makeTurtle()
+
+	for s in seiten:	#neu: s nimmt jeden Wert in seiten an
+		fd(s)
+		rt(90)
+	\end{minted}
 \end{aufgabe}
 
-\begin{aufgabe}
-	Lies den Kasten \enquote{Neue Konzepte und Befehle} auf Seite 101.
-	
-	Bearbeite dann auf Seite 102 das Beispiel 3 und Aufg. 3 und 4.
+\begin{aufgabe}[icon=\iconBuch\,\iconComputer\,\iconPartner]
+	Lest den Kasten \enquote{Neue Konzepte und Befehle} auf Seite 101.
+
+	Bearbeitet dann auf Seite 102 das Beispiel 3 und Aufg. 3 und 4.
 \end{aufgabe}
 
-\begin{aufgabe}
-	Bearbeite die folgenden Aufgaben nach eigenem Ermessen:
-	
+\begin{aufgabe}[icon=\iconBuch\,\iconComputer\,\iconPartner]
+	Bearbeitet die folgenden Aufgaben nach eigenem Ermessen:
+
 	\begin{multicols}{2}
 	\begin{itemize}
-		\item S.103, Aufg. 5, 6, 8 
+		\item S.103, Aufg. 5, 6, 8
 		\item S.106, Aufg. 14
 		\item S.108, Aufg. 17, 19
 		\item S.109, Aufg. 21; S.110, Aufg. 23
@@ -74,7 +65,7 @@ Eine Liste speichert in einer Variablen beliebig viele Werte \enquote{hintereina
 
 \begin{rahmen}\small
 Der \code{repeat}-Befehl ist kein richtiger Python-Befehl. Es gibt ihn nur in \programm{TigerJython}. In Python erzeugt man statt dessen für eine n-fache Wiederholung eine Liste mit den Zahlen 0\code{0} bis \code{n-1} und durchläuft sie mit \code{for}:
-\begin{lstlisting}[language=Python]
+\begin{minted}[fontsize=\small]{python}
 from gturtle import *
 
 repeat 4:			# funktioniert nur in TigerJython
@@ -84,7 +75,7 @@ repeat 4:			# funktioniert nur in TigerJython
 for i in range(4):	# range ergeugt eine Liste mit vier Zahlen
 	fd(100)
 	rt(90)
-\end{lstlisting}
+\end{minted}
 \end{rahmen}
 
 \end{document}
