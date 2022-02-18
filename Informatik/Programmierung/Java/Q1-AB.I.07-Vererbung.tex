@@ -1,0 +1,50 @@
+\documentclass[10pt, a4paper]{arbeitsblatt}
+
+\ladeModule{theme,tabellen,boxen}
+\ladeFach[]{Informatik}
+
+\aboptionen{
+	name		= {J. Neugebauer},
+	kuerzel		= {Ngb},
+	titel		= {Vererbung},
+	reihe		= {Objektorientierte Programmierung},
+	fach		= {Informatik},
+	lerngruppe	= {Q1},
+	nummer		= {I.07},
+	lizenz		= {cc-by-nc-sa-4},
+	version		= {2022-02-08},
+}
+
+\begin{document}
+\ReiheTitel
+
+Kopiert und öffnet das Projekt \ordner{Medienplayer\_Entwurf3} aus dem Tauschordner.
+\begin{enumn}
+	\item\label{ta-eins} Studiert und testet zunächst nur die Klasse \code{Video}, insbesondere die Methode \code{ausgabe()}\footnote{Die Methode \code{ausgabe()} ist nicht Teil des Klassendiagramms und wurde nachträgliche ergänzt.}. Was fällt euch auf? Was ist ungewöhnlich oder neu für euch?
+
+	Markiert Besonderheiten mit Kommentaren im Quelltext.
+	\item Zieht nun auch die Klasse \code{Mediendatei} hinzu. Könnt ihr einige der Besonderheiten aus \ref{ta-eins} erklären? Notiert euch Stichpunkte.
+\end{enumn}
+\begin{rahmen}
+\begin{tabularx}{\linewidth}{|c|X|p{6cm}}
+	\multicolumn{2}{l}{Erkläre folgende Begriffe / Schlüsselworte:} & Klassendiagramm: \\ \cline{1-2}
+	Oberklasse (Superclass) & \Zeilenabstand & \\ \cline{1-2}
+	Unterklasse (Subclass) & \Zeilenabstand & \\ \cline{1-2}
+	\code{extends} & \Zeilenabstand & \\ \cline{1-2}
+	\code{protected} & \Zeilenabstand & \\ \cline{1-2}
+\end{tabularx}
+\end{rahmen}
+\begin{enumn}[resume*]
+	\item Implementiert anhand des Beispiels der Klasse \code{Video} die Klasse \code{Audio} oder \code{Bild} passend zum Implementierungsdiagramm unten.
+\end{enumn}
+\begin{center}
+	\includegraphics[height=8cm]{Q1-AB.I.07-Abb_Medienplayer_UML.png}
+\end{center}
+%\subsubsection*{Zusatzaufgabe}
+\begin{enumn}[resume*]
+	\item \code{Video} und \code{Audio} haben beide das Attribut \code{Laenge} und die Methode \code{kuerzen()}.
+
+	Implementiere eine neue Klasse \code{AbspielbareMediendatei}, die \emph{Unterklasse} von \code{Mediendatei} ist und \emph{Oberklasse} von \code{Audio} und \code{Video}.
+\end{enumn}
+
+\end{document}
