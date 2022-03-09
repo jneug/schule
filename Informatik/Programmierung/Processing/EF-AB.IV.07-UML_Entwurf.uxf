@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<diagram program="umlet" version="14.3.0">
+  <zoom_level>9</zoom_level>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>90</x>
+      <y>90</y>
+      <w>153</w>
+      <h>81</h>
+    </coordinates>
+    <panel_attributes>*Sun*
+--
+x: Zahl
+y: Zahl
+--
+draw</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>333</x>
+      <y>63</y>
+      <w>144</w>
+      <h>162</h>
+    </coordinates>
+    <panel_attributes>*Planet*
+--
+name: Text
+x: Zahl
+y: Zahl
+distance: Zahl
+angle: Zahl
+speed: Zahl
+color: Zahl
+--
+move
+draw</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>234</x>
+      <y>108</y>
+      <w>117</w>
+      <h>36</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;-
+sun</panel_attributes>
+    <additional_attributes>10.0;20.0;110.0;20.0</additional_attributes>
+  </element>
+</diagram>

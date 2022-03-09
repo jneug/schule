@@ -1,0 +1,142 @@
+\documentclass[10pt, a4paper]{arbeitsblatt}
+
+\ladeModule{theme,boxen}
+
+\ladeFach[quelltexte]{informatik}
+
+\aboptionen{
+	name		= {J. Neugebauer},
+	kuerzel 	= {Ngb},
+	titel 		= {Klassen und Objekte},
+	reihe 		= {Objektorientierte Programmierung},
+	fach 		= {Informatik},
+	kurs 		= {EF},
+	nummer 		= {IV.7},
+	lizenz 		= {cc-by-nc-sa-eu-4},
+	version 	= {2022-03-03},
+}
+
+\usepackage{pgfpages}
+\pgfpagesuselayout{2 on 1}[a4paper,landscape]
+
+\begin{document}
+\ReiheTitel
+
+\begin{infobox}
+Eine \textbf{Klasse} ist ein \emph{Bauplan} für \textbf{Objekte}. Sie definieren Eigenschaften (Objektvariablen) und Fähigkeiten (Methoden) der Objekte. Die Objekte legen konkrete Ausprägungen (Werte) für die Variablen fest. Ein Java-Programm besteht zur Laufzeit aus Objektinstanzen, die miteinander interagieren.
+\end{infobox}
+\begin{wrapfix}
+\begin{wrapfigure}[8]{r}{0pt}\centering
+\includegraphics[width=.5\linewidth]{EF-AB.IV.07-UML_Entwurf.pdf}
+\end{wrapfigure}
+
+Das Entwurfsdiagramm rechts zeigt ein vereinfachtes Modell zur Sonnensystem-Simulation. Eine Klasse wird in Java mit dem Schlüsselwort \code{class} implementiert:
+\begin{minted}[linenos=none]{java}
+public class Sun {
+// Hier wird die Klasse implementiert
+}
+\end{minted}
+\end{wrapfix}
+
+\begin{multicols}{2}
+\subsubsection*{Objektvariablen}
+Eigenschaften einer Klasse werden als \emph{Objektvariablen} umgesetzt. Objektvariablen sind \emph{in der gesammten Klasse gültig}.
+\begin{minted}[linenos=none]{java}
+public class Sun {
+	// Deklaration von Objektvariablen
+	float x;
+	float y;
+}
+\end{minted}
+
+\subsubsection*{Methoden}
+Die Fähigkeiten einer Klasse sind \emph{Methoden} der Klasse. Sie können alle anderen Methoden und Objektvariablen der Klasse benutzen.
+\begin{minted}[linenos=none]{java}
+	public class Sun {
+		// Methode der Klasse
+		public void draw() {
+			fill(255,252,64);
+			ellipse(x, y, 30, 30);
+		}
+	}
+	\end{minted}
+
+\columnbreak
+\subsubsection*{Der Konstruktor}
+Der \emph{Konstruktor} einer Klasse ist ein besondere Methode, die beim Erstellen einer Objektinstanz \emph{immer als erstes} ausgeführt wird. Der Konstruktor muss genauso heißen wie die Klasse. Er dient dazu, die Objektinstanz zu \emph{initialisieren}. Ein Konstruktor kann wie andere Methoden auch \emph{Parameter} erthalten.
+\begin{minted}[linenos=none]{java}
+public class Sun {
+	// Der Konstruktor
+	public Sun( float pX, float pY) {
+		x = pX;
+		y = pY;
+	}
+}
+\end{minted}
+
+\subsubsection*{Objekte erstellen}
+Um eine Objektinstanz einer Klasse zu erstellen, wird das Schlüsselwort \code{new} verwendet. Daraufhin wird der \emph{Konstruktor} der Klasse aufgerufen. Falls der \emph{Parameter} besitzt, müssen für diese Werte angegben werden.
+\begin{minted}[linenos=none]{java}
+	Sun sol = new Sun(0.0, 0.0);
+\end{minted}
+\end{multicols}
+
+\newpage
+\begin{aufgabe}
+Kopiere dir das Projekt \ordner{Sonnensystem} aus dem Tauschordner und öffne es in \programm{Processing}. Oben siehst du drei Tabs für das \code{Sonnensystem}, die \code{Sun} und den \code{Planet}. In \programm{Processing} ist jeder Tab eine eigene Klasse.
+
+\hinweis{Durch einen Klick auf den kleinen Pfeil neben den Tabs kannst du neue Klassen erstellen.}
+
+Analysiere das Programm und vergleiche es mit der Modellierung oben. Beachte folgende Aspekte:
+\begin{smallitem}
+	\item Wie wurde das Modell umgesetzt? Welche Teile fehlen noch?
+	\item Wie wurden die Datentypen in Java übersetzt?
+	\item Welche Aufgabe übernehmen die Konstruktoren der Klassen?
+	\item Wie wird die Beziehung zwischen \code{Planet} und \code{Sun} hergestellt?
+\end{smallitem}
+\end{aufgabe}
+
+\begin{aufgabe}
+Modifiziere das Programm:
+\begin{smallitem}
+	\item Ändere die Position der Sonne.
+	\item Ändere Abstand und Winkel des Planeten.
+	\item Ändere das Aussehen der Sonne.
+	\item Füge weitere Sonnen und Planeten hinzu.
+\end{smallitem}
+\end{aufgabe}
+
+\begin{aufgabe}
+Wird die Sonne an eine andere Stelle verschoben, dann bewegt sich der Planet nicht mit ihr mit. Um dies zu erreichen, muss die Position des Planeten relativ zur Position der Sonne berechnet werden. Nach Anwendung des \code{cos} bzw. \code{sin} muss dazu die x- bzw. y-Koordinate der Sonne addiert werden.
+
+Um auf die Eigenschaften einer anderen Klasse zuzugreifen, brauchen wir eine spezielle Methode: Einen \emph{Getter}.
+
+\begin{multicols}{2}
+Für die Eigenschaft \code{x} sieht er so aus:
+\begin{minted}[linenos=none]{java}
+public float getX() {
+	return x;
+}
+\end{minted}
+
+Zur Berechnung der x-Koordinate des Planeten wird der Getter dann so verwendet:
+\begin{minted}[linenos=none]{java}
+x = distance * cos(angle) + sun.getX();
+\end{minted}
+\end{multicols}
+
+Implementiere einen \emph{Getter} für die y-Koordinate und benutze ihn, um auch die y-Koordinate des Planeten relativ zur Sonne anzupassen.
+\end{aufgabe}
+
+\begin{aufgabe}
+Erstelle eine Klasse \code{Moon} anhand des Beispiels der Klasse \code{Planet},
+die einen Mond anhand eines Abstandes und eines Winkels relativ zu einem Planeten anzeigt.
+
+Füge dem Sonnensystem Monde hinzu.
+\end{aufgabe}
+
+\begin{aufgabe*}
+Wenn du dich schon mit Klassen und Objekten auskennst, kannst du versuchen, die Erde in Relation zur Sonne in Bewegung zu setzen. Orientiere dich dazu an der Berechnung der Planetenposition im Kosntruktor der Klasse.
+\end{aufgabe*}
+
+\end{document}
