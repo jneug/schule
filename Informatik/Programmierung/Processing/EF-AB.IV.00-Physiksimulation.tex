@@ -1,0 +1,187 @@
+\documentclass[10pt, a4paper, ngerman]{arbeitsblatt}
+
+\ladeModule{theme,qrcodes}
+
+\ladeFach[quelltexte,uml]{informatik}
+\ladeFach[geometrie,vektoren]{mathematik}
+
+\aboptionen{
+	name		= {J. Neugebauer},
+	kuerzel 	= {Ngb},
+	titel 		= {Physiksimulation in Processing},
+	reihe 		= {Objektorientierte Programmierung},
+	fach 		= {Informatik},
+	kurs 		= {EF},
+	nummer 		= {IV.0},
+	lizenz 		= {cc-by-nc-sa-eu-4},
+	version 	= {2022-03-11},
+}
+
+\begin{document}
+\ReiheTitel
+
+\subsection*{Vektoren}
+\begin{multicols}{2}
+Vektoren sind in der Mathematik Objekte, die Verschiebungen im Raum beschreiben. In der Regel werden sie daher als Pfeile dargestellt. Ein Vektor, mit einer Verschiebung um \code{1.5} entlang der x-Achse und \code{1.0} entlang der y-Achse schreiben wir als
+\[
+	\vec{v} = \vector(1.5|1.0)
+\]
+
+\columnbreak
+Grafisch können wir uns den Vektor in \programm{Processing} so vorstellen:
+\begin{center}\vspace*{-2em}
+\begin{tikzpicture}[smooth]
+\tkzInit[xmin=0,xmax=4,ymin=-3,ymax=0]
+\tkzClip[space=1]
+\tkzGrid[color=gray!50,step=1]
+\tkzClip[space=.5]
+
+\draw[-latex] (0,0.1) -- (0,-3.2);
+\draw[-latex] (-0.1,0) -- (4.2,0);
+
+\draw[-latex,thick] (0,0) -- (1.5,-1.0);
+
+\node at (-.2,-3) {\small $y$};
+\node at (4,.2) {\small $x$};
+\node at (1,-.35) {\small $\vec{v}$};
+\end{tikzpicture}
+\end{center}
+\end{multicols}
+
+\vspace*{-4em}
+So betrachtet beschreibt uns ein Vektor also nicht nur eine Verschiebung, sondern auch eine Richtung (des Pfeils) und eine Länge (des Pfeils).
+
+Vektoren bieten uns in \programm{Processing} zum Beispiel den Vorteil, dass wir die Koordinaten eines Objektes in nur einer Variablen speichern können. Darüber hinaus lässt sich mit Vektoren aber auch rechnen, was uns viele Aspekte der Grafikprogrammierung erleichtert.
+
+\vspace*{-1em}\subsection*{Vektor zwischen zwei Objekten}
+\begin{multicols}{2}
+Ist die Position von zwei Objekten $A$ und $B$ durch die Vektoren $\vec{a}$ und $\vec{b}$ beschrieben, dann kann der Vektor von $A$ nach $B$ durch $\vec{b}-\vec{a}$ berechnet werden: \[ \vec{b} - \vec{a} = \vector(b_1|b_2) - \vector(a_1|a_2) = \vector(b_1 - a_1|b_2 - a_2) \]
+
+\begin{center}
+\begin{tikzpicture}[smooth]
+\tkzInit[xmin=0,xmax=4,ymin=-3,ymax=0]
+\tkzClip[space=1]
+\tkzGrid[color=gray!50,step=1]
+\tkzClip[space=.5]
+
+\draw[-latex] (0,0.1) -- (0,-3.2);
+\draw[-latex] (-0.1,0) -- (4.2,0);
+
+\node at (-.2,-3) {\small $y$};
+\node at (4,.2) {\small $x$};
+
+\draw[-latex,thick] (0,0) -- (1.0,-2.0);
+\node at (.4,-1.8) {\small $\vec{a}$};
+
+\draw[-latex,thick] (0,0) -- (3.0,-1.0);
+\node at (2.8,-.4) {\small $\vec{b}$};
+
+\draw[-latex,thick,primary] (1,-2) -- (3.0,-1.0);
+\node at (2.2,-2) {\small $\vec{b}-\vec{a}$};
+\end{tikzpicture}
+\end{center}
+\end{multicols}
+
+\vspace*{-4em}\subsection*{Vektor zwischen zwei Objekten}
+\begin{multicols}{2}
+Ein Vektor mit der Länge $1.0$ heißt \emph{normalisiert}. Wenn wir so einen Vektor mit einer Zahl multiplizieren, \emph{skalieren} wir ihn auf eine neue Länge.
+\[ \vector(1.0|0.0)\cdot 3.0 = \vector(1.0\cdot 3.0|0.0\cdot 3.0) = \vector(3.0|0.0)  \]
+
+\begin{center}
+\begin{tikzpicture}[smooth]
+\tkzInit[xmin=0,xmax=4,ymin=-3,ymax=0]
+\tkzClip[space=1]
+\tkzGrid[color=gray!50,step=1]
+\tkzClip[space=.5]
+
+\draw[-latex] (0,0.1) -- (0,-3.2);
+\draw[-latex] (-0.1,0) -- (4.2,0);
+
+\node at (-.2,-3) {\small $y$};
+\node at (4,.2) {\small $x$};
+
+
+\draw[-latex,thick,primary] (0,0) -- (3.0,0.0);
+\node at (2.8,-.4) {\small $\vec{v}\cdot 3.0$};
+
+\draw[-latex,thick] (0,0) -- (1.0,0.0);
+\node at (.5,-.4) {\small $\vec{v}$};
+\end{tikzpicture}
+\end{center}
+\end{multicols}
+
+\vspace*{-4em}\subsection*{Vektoren in Processing}
+\programm{Processing} besitzt eine eigene Klasse, die die Berechnung von Vektoren erlaubt: \code{PVector}\footnote{\url{https://processing.org/reference/PVector.html}}.
+
+\begin{links}[.5]\centering
+\begin{minted}{java}
+// Vektoren a und b erstellen.
+PVector a = new PVector(1.0, 2.0);
+PVector b = new PVector(3.0, 1.0);
+// Zufälliger Vektor.
+PVector c = PVector.random2D();
+// Vektor von a nach b berechnen.
+PVector ab = PVector.sub(b, a);
+// Vektor ab normalisieren (Länge auf 1.0 setzen)
+// und dann auf die Länge 3.0 skalieren.
+ab.normalize().mult(3.0);
+// das geht auch in einem Schritt mit
+// setMag (set magnitude).
+ab.setMag(3.0);
+\end{minted}
+% \begin{links}[.66]
+% Die vollständige Dokumentaiton der Klasse \code{PVector} findest du in der Processing Referenz.
+% \end{links}\hfill\qrlink{https://processing.org/reference/PVector.html}{Referenz der Klasse \code{PVector}.}
+\end{links}\begin{rechts}[.5]\centering
+	\begin{klassendiagramm}%[show background grid]
+		\begin{class}[text width=8cm]{Mover}{0,0}
+			\attribute{-position: PVector}
+			\attribute{-velocity: PVector}
+			\attribute{-acceleration: PVector}
+			\attribute{-mass: float}
+
+			\operation{+Mover(pPosition: PVector, pVelocity: PVector, pMass: float)}
+			\operation{+update(): void}
+			\operation{+draw(): void}
+			\operation{+getMass(): float}
+			\operation{+getPosition(): PVector}
+			\operation{+getVelocity(): PVector}
+			\operation{+applyForce(pForce: PVector): void}
+		\end{class}
+	\end{klassendiagramm}
+\end{rechts}
+
+\begin{aufgabe}
+\begin{enumerate}
+	\item
+	Erstelle eine Klasse \code{Mover} nach dem Implementierungsdiagramm oebn. Nutze die \code{PVector} Klasse für die Position des Movers. Die Darstellung eines Movers mittels der \code{draw} Methode kannst du dir selber überlegen und gegebenenfalls benötigte Attribute ergänzen (z.B. Größe und Farbe).
+
+	Initialisiere die \code{acceleration} (Beschleunigung) zunächst mit einem Nullvektor (\code{new PVector()}).
+	\item
+	Erstelle im Hauptprogramm die \code{void setup()} und \code{void draw()} Methoden. Erzeuge eine Array mit fünf \code{Mover} Objekten und zeichne sie.
+	\item
+	{Implementiere die \code{update()} Methode der \code{Mover} so, dass die aktuelle Geschwindigkeit (\code{velocity}) auf die aktuelle Position addiert wird. Aktualisiere die \code{Mover} dann vor dem Zeichnen.
+
+	\hinweis{Implementiere die Aktualisierung in einer eigenen Schleife und nicht in der Schleife zum Zeichnen der \code{Mover}.}}
+	\item
+	Die Geschwindigkeit eines \code{Mover} wird durch einwirkende Kräfte beeinflusst. Implementiere die Methode \code{addForce(PVector pForce)} wie folgt:
+	\begin{smallitem}
+		\item Addiere die Kraft \code{pForce} auf die Beschleunigung (\code{acceleration}).
+		\item In der \code{update()}, bevor die Geschwindigkeit zur Position addiert wird:
+		\begin{smallitem}
+			\item addiere die Beschleunigung auf die Geschwindigkeit (\code{velocity}),
+			\item Setze die Beschleunigung auf $(0,0)$.
+		\end{smallitem}
+	\end{smallitem}
+	\item
+	Erstelle einen Vektor \code{PVector grav = new PVector(0, 0.06734);} und übergib ihn vor dem Aufruf von \code{Mover.update()} der \code{applyForce()} Methode. Du hast nun eine einfache Simulation der Gravitationskraft implementiert.
+	\item
+	Initialisiere die \code{Mover} mit einem zufälligen Vektor für die Geschwindigkeit und beobachte, was passiert.
+	\item
+	Sorge dafür, dass die \code{Mover} am unteren Bildschirmrand abprallen, indem du bei Kontakt eine starke, nach oben gerichtete Kraft anwendest. Du kannst die Stärke der Kraft auch von der Masse des \code{Movers} abhängig machen.
+
+	Um ein Abprallen von den Seiten zu erreichen, reicht es, die Geschwindigkeit in \code{y} Richtung mit \code{-1} zu multiplizieren.
+\end{enumerate}
+\end{aufgabe}
+
+\end{document}
