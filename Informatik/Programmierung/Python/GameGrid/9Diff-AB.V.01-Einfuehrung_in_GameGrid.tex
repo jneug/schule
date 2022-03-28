@@ -1,0 +1,65 @@
+\documentclass[11pt, a4paper, ngerman]{arbeitsblatt}
+
+\ladeModule{theme}
+
+\ladeFach[quelltexte]{informatik}
+
+\aboptionen{
+	name		= {J. Neugebauer},
+	kuerzel 	= {Ngb},
+	titel 		= {Einführung in GameGrid},
+	reihe 		= {Programmierung mit Python},
+	fach 		= {Informatik},
+	kurs 		= {9Diff},
+	nummer 		= {V.1},
+	lizenz 		= {cc-by-nc-sa-eu-4},
+	version 	= {2022-03-21},
+}
+
+\begin{document}
+\ReiheTitel
+
+Das Python-Modul \code{gamegrid} erlaubt die Programmierung einfacher Spiele mit einer grafischen Oberfläche. Zum Kennenlernen des Moduls wollen wir eine Version des Spiels \enquote{Tic-Tac-Toe} programmieren.
+
+\begin{aufgabe}[icon=\iconPartner\,\iconComputer]
+Kopiert die Datei \datei{tictactoe\_vorlage.py} aus dem Tauschordner in euren eigenen Ordner. Startet \programm{TigerJython} und öffnet die Datei. Ihr seht das hier abgebildete Programm:
+\begin{minted}{python}
+from gamegrid import *
+
+player = 1
+
+def mausklick(e):
+    global player
+    loc = toLocation(e.getX(), e.getY())
+
+    bg.fillCell(loc, Color.green)
+
+    refresh()
+    return True
+
+def pruefeSiegbedingung():
+	pass
+
+makeGameGrid(3, 3, 100, Color.gray, False,
+    mousePressed = mausklick)
+setTitle("TicTacToe")
+
+bg = getBg()
+show()
+\end{minted}
+
+Analysiert das Programm und markiert neue Befehle und ungewohnte Programmkonstrukte. Notiert Stichpunkte zu ihrer Funktion auf dem AB.
+\end{aufgabe}
+
+\begin{aufgabe}[icon=\iconPartner\,\iconComputer]
+Programmiere das Spiel Tic-Tac-Toe in der Vorlage nach. Nutze die Tipps. Du kannst dich an dieses Vorgehen halten:
+\begin{enumerate}
+	\item Färbe das geklickte Feld mit einer anderen Farbe ein, abhängig vom Wert der Variablen \code{player}. Ändere \code{player} nach jedem Mausklick von \code{1} auf \code{2} und zurück.
+	\item Prüfe bei einem Mausklick, ob die angeklickte Zelle noch schwarz ist. Wenn ja, dann passiert nichts.
+	\item Rufe nach jedem Mausklick die Funktion \code{pruefeSiegbedingung} auf.
+	\item Implementiere in \code{pruefeSiegbedingung} eine Logik, die prüft, ob der Spieler mit seinem Zug das Spiel gewonnen hat.
+	\item Implementiere einen Abbruch des Spiels, wenn alle Felder eingefärbt wurden.
+\end{enumerate}
+\end{aufgabe}
+
+\end{document}
