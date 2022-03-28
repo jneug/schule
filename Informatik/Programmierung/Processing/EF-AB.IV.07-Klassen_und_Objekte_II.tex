@@ -1,0 +1,149 @@
+\documentclass[9pt, a4paper]{arbeitsblatt}
+
+\ladeModule{theme,boxen}
+
+\ladeFach[quelltexte,uml]{informatik}
+\ladeFach[geometrie,vektoren]{mathematik}
+
+\aboptionen{
+	name		= {J. Neugebauer},
+	kuerzel 	= {Ngb},
+	titel 		= {Klassen und Objekte},
+	reihe 		= {Objektorientierte Programmierung},
+	fach 		= {Informatik},
+	kurs 		= {EF},
+	nummer 		= {IV.7},
+	lizenz 		= {cc-by-nc-sa-eu-4},
+	version 	= {2022-03-03},
+}
+
+% \usepackage{pgfpages}
+% \pgfpagesuselayout{2 on 1}[a4paper,landscape]
+
+\begin{document}
+\ReiheTitel
+
+In unserem Sonnensystem sollen sich auch Raumschiffe befinden. Ein Raumschiff hat eine Position und eine Geschwindigkeit, mit der es sich bewegt. Im zweidimensionalen werden für diese beiden Attribute jeweils zwei Werte benötigt: Für die x- und die y-Richtung. Es ist praktisch, beide Werte in einer eigenen \emph{Vektor}-Klasse zusammenzufassen, da wir mit Vektoren leichter rechnen können. \programm{Processing} besitzt dafür eine eigene Klasse \code{PVector}.
+
+\begin{infobox}
+	Beziehungen zwischen Klassen werden in UML-Diagrammen als \emph{Assoziation} umgesetzt. Sie werden als Pfeil von der aufrufenden zur aufgerufenen Klasse dargestellt.
+
+	Bei der Implementierung werden Assoziationen als Objektvariablen umgesetzt. Als Datentyp wird die aufgerufene Klasse verwendet.
+\end{infobox}
+
+\begin{klassendiagramm}
+	\begin{class}[text width=8cm]{Raumschiff}{0,0}
+		\attribute{-geschwindigkeit: PVector}
+		\attribute{-speed: float}
+
+		\operation{+Raumschiff(pPos: PVector, pSpeed: float)}
+		\operation{+getPosition(): PVector}
+		\operation{+getGeschwindigkeit(): PVector}
+		\operation{+getSpeed(): float}
+		\operation{+setSpeed(pSpeed: float): void}
+		\operation{+draw(): void}
+		\operation{+beschleunigen(): void}
+		\operation{+beschleunigen(pBeschl: PVector): void}
+	\end{class}
+
+	\begin{class}[text width=6cm]{PVector}{10,0}
+		\attribute{+x: float}
+		\attribute{+y: float}
+
+		\operation{+PVector(pX: float, pY: float)}
+		\operation{+set(pX: float, pY: float): void}
+		\operation{+mag(): float}
+		\operation{+setMag(pMag: float): void}
+		\operation{+heading(): float}
+		\operation{+mult(pZahl: float): void}
+		\operation{+add(pOther: PVector): void}
+		\operation{+sub(pOther: PVector): void}
+		\operation{+dist(pOther: PVector): void}
+	\end{class}
+
+	%\unidirectionalAssociation{Raumschiff}{-position}{1}{PVector}
+	\draw [umlcd style,->] (Raumschiff.east) --node[above]{-position} (PVector.west) node[very near end, below]{1};
+\end{klassendiagramm}
+
+\hinweis{Die Methode \code{mag} bzw. \code{setMag} der Klasse \code{PVector} berechnen bzw. setzen die Länge des Vektors. \code{heading} bestimmt den Winkel des Vektors.}
+
+\begin{aufgabe}
+\begin{enuma}
+	\item Implementiere die Klasse Raumschiff anhand des Implementierungsdiagramms oben. Achte vor allem auf die Umsetzung der dargestellten Assoziationen.
+
+	Implementiere im Raumschiff die \code{draw} Methode nach eigenem Ermessen. Du kannst auch im Internet ein passendes Bild suchen und mit der bekannten \code{loadImage} Methode laden.
+
+	Die \code{beschleunigen} Methoden kannst du zunächst noch weglassen.
+	\item Die Position des Raumschiffs verändert sich gemäß seiner Geschwindigkeit. Dazu wird der aktuelle Geschwindigkeitsvektor auf den Positionsvektor addiert.
+
+	Implementiere die beiden \code{beschleunigen} Methoden wie im Unterricht besprochen.
+	\item Das Raumschiff soll nun dem Mauszeiger folgen. Dazu muss vor jedem Zeichnen der Vektor vom Raumschiff zur Mausposition berechnet werden. Dazu subtrahieren wir einfach den Vektor der Mausposition vom Positionsvektor:
+	\begin{minted}{java}
+	PVector maus = new PVector(mouseX, mouseY);
+	maus.sub(raumschiff.getPosition());
+	raumschiff.beschleunigen(maus);
+	\end{minted}
+	\item Die Bewegung des Raumschiffs ist noch zu schnell. Setze die Länge des Beschleunigungsvektors (\code{setMag}) auf die Geschwindigkeit (\code{speed}) des Raumschiffs, bevor du sie der Methode \code{beschleunigen} übergibst.
+
+	Experimentiere mit verschiedenen Geschwindigkeiten für das Raumschiff.
+	\item Erweitere das Programm mit eigenen Ideen. Hier sind einige Vorschläge:
+	\begin{smallitem}
+		\item Füge weitere Raumschiffe hinzu.
+		\item Ergänze ein Bild für das Raumschiff (falls noch nicht geschehen).
+		\item Erinnerst du dich noch an Mausinteraktionen? Verdoppele die Geschwindigkeit des Raumschiffs, solange die Maustaste gedrückt ist. Oder stoße das Schiff vom Mauszeiger weg, anstatt es anzuziehen.
+	\end{smallitem}
+\end{enuma}
+\end{aufgabe}
+
+\newpage
+\begin{minted}{java}
+public class Raumschiff {
+	private PVector geschwindigkeit;
+	private PVector position;
+	private float speed;
+
+	// Konstruktor / Getter / Setter
+
+	public void beschleunigen() {
+		position.add(geschwindigkeit)
+	}
+
+	public void beschleunigen(PVector pBeschl) {
+		geschwindigkeit = pBeschl.copy();
+		geschwindigkeit.setMag(speed);
+		beschleunigen();
+	}
+
+	public void draw() {
+		circle(pos.x, pos.y, 10, 10);
+	}
+}
+\end{minted}
+\begin{center}
+	\begin{tikzpicture}[smooth,scale=1.6]
+		\tkzInit[xmin=0,xmax=8,ymin=-6,ymax=0]
+		\tkzClip[space=1]
+		\tkzGrid[step=.1,color=gray!25]
+		\tkzGrid[step=1,color=gray!75]
+		\tkzClip[space=.5]
+
+		\draw[-latex] (0,0.1) -- (0,-6.2);
+		\draw[-latex] (-0.1,0) -- (8.2,0);
+
+		\node at (-.1,-6.3) {\small $y$};
+		\node at (8.3,.1) {\small $x$};
+
+		\foreach \t in {1,2,...,8} {
+			\tkzHTick[mark=|]{\t}
+			\pgfmathtruncatemacro{\x}{100*\t}
+			\tkzText(\t,.3){\small $\x$}
+		}
+		\foreach \t in {1,2,...,6} {
+			\tkzVTick[mark=-]{-1*\t}
+			\pgfmathtruncatemacro{\y}{100*\t}
+			\tkzText(-.3,-1*\t){\small $\y$}
+		}
+	\end{tikzpicture}
+\end{center}
+
+\end{document}

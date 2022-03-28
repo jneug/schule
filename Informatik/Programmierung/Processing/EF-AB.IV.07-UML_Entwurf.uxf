@@ -7,14 +7,15 @@
       <x>90</x>
       <y>90</y>
       <w>153</w>
-      <h>81</h>
+      <h>90</h>
     </coordinates>
     <panel_attributes>*Sun*
 --
 x: Zahl
 y: Zahl
 --
-draw</panel_attributes>
+draw
+attract</panel_attributes>
     <additional_attributes/>
   </element>
   <element>

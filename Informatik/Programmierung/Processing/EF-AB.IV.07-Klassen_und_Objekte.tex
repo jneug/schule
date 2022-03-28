@@ -2,7 +2,7 @@
 
 \ladeModule{theme,boxen}
 
-\ladeFach[quelltexte]{informatik}
+\ladeFach[quelltexte,uml]{informatik}
 
 \aboptionen{
 	name		= {J. Neugebauer},
@@ -40,7 +40,7 @@ public class Sun {
 
 \begin{multicols}{2}
 \subsubsection*{Objektvariablen}
-Eigenschaften einer Klasse werden als \emph{Objektvariablen} umgesetzt. Objektvariablen sind \emph{in der gesammten Klasse gültig}.
+Eigenschaften einer Klasse werden als \emph{Objektvariablen} umgesetzt. Objektvariablen sind \emph{in der gesamten Klasse gültig}.
 \begin{minted}[linenos=none]{java}
 public class Sun {
 	// Deklaration von Objektvariablen
@@ -52,18 +52,18 @@ public class Sun {
 \subsubsection*{Methoden}
 Die Fähigkeiten einer Klasse sind \emph{Methoden} der Klasse. Sie können alle anderen Methoden und Objektvariablen der Klasse benutzen.
 \begin{minted}[linenos=none]{java}
-	public class Sun {
-		// Methode der Klasse
-		public void draw() {
-			fill(255,252,64);
-			ellipse(x, y, 30, 30);
-		}
+public class Sun {
+	// Methode der Klasse
+	public void draw() {
+		fill(255,252,64);
+		ellipse(x, y, 30, 30);
 	}
-	\end{minted}
+}
+\end{minted}
 
 \columnbreak
 \subsubsection*{Der Konstruktor}
-Der \emph{Konstruktor} einer Klasse ist ein besondere Methode, die beim Erstellen einer Objektinstanz \emph{immer als erstes} ausgeführt wird. Der Konstruktor muss genauso heißen wie die Klasse. Er dient dazu, die Objektinstanz zu \emph{initialisieren}. Ein Konstruktor kann wie andere Methoden auch \emph{Parameter} erthalten.
+Der \emph{Konstruktor} einer Klasse ist eine besondere Methode, die beim Erstellen einer Objektinstanz \emph{immer als erstes} ausgeführt wird. Er muss genauso heißen wie die Klasse. Er dient dazu, die Objektinstanz zu \emph{initialisieren}. Ein Konstruktor kann wie andere Methoden auch \emph{Parameter} enthalten.
 \begin{minted}[linenos=none]{java}
 public class Sun {
 	// Der Konstruktor
@@ -75,7 +75,7 @@ public class Sun {
 \end{minted}
 
 \subsubsection*{Objekte erstellen}
-Um eine Objektinstanz einer Klasse zu erstellen, wird das Schlüsselwort \code{new} verwendet. Daraufhin wird der \emph{Konstruktor} der Klasse aufgerufen. Falls der \emph{Parameter} besitzt, müssen für diese Werte angegben werden.
+Um eine Objektinstanz einer Klasse zu erstellen, wird das Schlüsselwort \code{new} verwendet. Daraufhin wird der \emph{Konstruktor} der Klasse aufgerufen. Falls der \emph{Parameter} besitzt, müssen für diese Werte angegeben werden.
 \begin{minted}[linenos=none]{java}
 	Sun sol = new Sun(0.0, 0.0);
 \end{minted}
@@ -85,26 +85,45 @@ Um eine Objektinstanz einer Klasse zu erstellen, wird das Schlüsselwort \code{n
 \begin{aufgabe}
 Kopiere dir das Projekt \ordner{Sonnensystem} aus dem Tauschordner und öffne es in \programm{Processing}. Oben siehst du drei Tabs für das \code{Sonnensystem}, die \code{Sun} und den \code{Planet}. In \programm{Processing} ist jeder Tab eine eigene Klasse.
 
-\hinweis{Durch einen Klick auf den kleinen Pfeil neben den Tabs kannst du neue Klassen erstellen.}
-
 Analysiere das Programm und vergleiche es mit der Modellierung oben. Beachte folgende Aspekte:
+\begin{multicols}{2}
 \begin{smallitem}
 	\item Wie wurde das Modell umgesetzt? Welche Teile fehlen noch?
 	\item Wie wurden die Datentypen in Java übersetzt?
 	\item Welche Aufgabe übernehmen die Konstruktoren der Klassen?
 	\item Wie wird die Beziehung zwischen \code{Planet} und \code{Sun} hergestellt?
 \end{smallitem}
+\end{multicols}
 \end{aufgabe}
 
 \begin{aufgabe}
 Modifiziere das Programm:
+\begin{multicols}{2}
 \begin{smallitem}
 	\item Ändere die Position der Sonne.
 	\item Ändere Abstand und Winkel des Planeten.
 	\item Ändere das Aussehen der Sonne.
 	\item Füge weitere Sonnen und Planeten hinzu.
+	\item Füge der Sonne und den Planeten eine neue Eigenschaft \code{mass} (Masse) hinzu. Ergänze auch jeweils einen Parameter für die Masse in den Konstruktoren.
+	\item Ändere die \code{draw} Methoden, sodass die Masse der Objekte die Größe der Ellipsen festlegt (ggf. um einen Faktor skaliert).
 \end{smallitem}
+\end{multicols}
 \end{aufgabe}
+
+\begin{aufgabe}
+Erstelle eine Klasse \code{Moon} anhand des Beispiels der Klasse \code{Planet},
+die einen Mond anhand eines Abstandes und eines Winkels relativ zu einem Planeten anzeigt.
+
+\hinweis{Durch einen Klick auf den kleinen Pfeil neben den Tabs kannst du neue Klassen erstellen.}
+
+Füge dem Sonnensystem Monde hinzu.
+\end{aufgabe}
+
+\begin{aufgabe*}
+Wenn du dich schon mit Klassen und Objekten auskennst, kannst du versuchen, die Erde in Relation zur Sonne in Bewegung zu setzen. Orientiere dich dazu an der Berechnung der Planetenposition im Konstruktor der Klasse.
+\end{aufgabe*}
+
+%\newpage
 
 \begin{aufgabe}
 Wird die Sonne an eine andere Stelle verschoben, dann bewegt sich der Planet nicht mit ihr mit. Um dies zu erreichen, muss die Position des Planeten relativ zur Position der Sonne berechnet werden. Nach Anwendung des \code{cos} bzw. \code{sin} muss dazu die x- bzw. y-Koordinate der Sonne addiert werden.
@@ -126,17 +145,70 @@ x = distance * cos(angle) + sun.getX();
 \end{multicols}
 
 Implementiere einen \emph{Getter} für die y-Koordinate und benutze ihn, um auch die y-Koordinate des Planeten relativ zur Sonne anzupassen.
+
+Passe auch die Klasse \code{Moon} entsprechend an.
 \end{aufgabe}
 
 \begin{aufgabe}
-Erstelle eine Klasse \code{Moon} anhand des Beispiels der Klasse \code{Planet},
-die einen Mond anhand eines Abstandes und eines Winkels relativ zu einem Planeten anzeigt.
+Die Nutzung von Gettern hat den Vorteil, dass die zurückgegebenen Werte nicht direkt aus einer Objektvariablen kommen müssen.
 
-Füge dem Sonnensystem Monde hinzu.
+\begin{smallenum}
+	\item Passe die \code{draw()} Methode der Sonne an, sodass die Getter zum Zeichnen der Ellipse verwendet werden (nicht mehr direkt \code{x} und \code{y}).
+	\item Ändere die Getter in \code{Sun} so ab, dass statt den Objektvariablen die x-/y-Position der Maus zurückgegeben werden (\code{mouseX} und \code{mouseY}). (Da das Koordinatensystem verschoben wurde, musst du die halbe Breite bzw. Höhe der Zeichenfläche subtrahieren, damit die Sonne genau beim Mauszeiger ist.)
+\end{smallenum}
+\end{aufgabe}
+
+\begin{aufgabe}
+Leider bewegen sich die Planeten und Monde noch nicht mit der Sonne mit, wenn diese dem Mauszeiger folgt.
+
+Erstelle in beiden Klassen eine \code{move()} Methode, die ihre Position so wie im Konstruktor neu berechnet. Rufe die Methode für jedes \code{Planet} und \code{Moon} Objekt in \code{void draw()} auf: z.B. \code{earth.move();}.
+
+Am Ende sollten sich Sonne, Planeten und Monde mit dem Mauszeiger mitbewegen.
+\end{aufgabe}
+
+\begin{aufgabe}
+Die Sonne wirkt auf die Planeten ein und zieht sie an. Die Entfernung der Planeten zur Sonne soll sich also verringern. Um dies zu simulieren, muss die Sonne Einfluss auf die Objektvariable \code{distance} der Klasse \code{Planet} nehmen.
+
+Analog zu einem \emph{Getter} definieren wir dafür in \code{Planet} einen \emph{Setter}:
+\begin{multicols}{2}
+	Für die Eigenschaft \code{distance} sieht er so aus:
+	\begin{minted}[linenos=none]{java}
+	public void setDistance( float pDistance ) {
+		distance = pDistance;
+	}
+	\end{minted}
+
+	Eine Vorlage für die Methode \code{attract} kann so aussehen:
+	\begin{minted}[linenos=none]{java}
+	public void attract( Planet pPlanet ) {
+
+	}
+	\end{minted}
+\end{multicols}
+
+\begin{enumerate}
+	\item Erstelle \emph{Getter} und \emph{Setter} für die Objektvariable \code{distance} der Klasse \code{Planet}.
+	\item Implementiere in der Klasse \code{Sun} eine Methode \code{public void attract( Planet pPlanet )}, die mithilfe der Getter und Setter des Planeten-Objektes \code{pPlanet} den Abstand des Planeten zur Sonne um \code{0.05} verringert.
+\end{enumerate}
+
+\tipp{Du kannst die Methoden des Objektes \code{pPlanet} mit der Punktnotation aufrufen: \code{pPlanet.getX()}}
+
+\begin{enumerate}[resume]
+	\item Rufe die Methode \code{attract} des \code{sol} Objektes in \code{void draw()} für jeden Planeten auf: z.B. \code{sol.attract(earth);}
+	\item Nutze eine bedingte Anweisung in \code{attract()}, um zu verhindern, dass die Planeten an der Sonne vorbeifliegen (also stehen bleiben, wenn \code{distance <= 0.0}).
+\end{enumerate}
 \end{aufgabe}
 
 \begin{aufgabe*}
-Wenn du dich schon mit Klassen und Objekten auskennst, kannst du versuchen, die Erde in Relation zur Sonne in Bewegung zu setzen. Orientiere dich dazu an der Berechnung der Planetenposition im Kosntruktor der Klasse.
+Erstelle für die Anziehungskraft der Sonne ein eigenes Attribut in der Klasse \code{Sun} und probiere für den Anziehungseffekt der Sonne verschiedene Werte aus. Was passiert bei mehreren Sonnen?
+
+Hat ein Planet die Sonne erreicht, bleibt er in deren Zentrum. Programmiere die \code{attract} Methode so um, dass die Planeten auch wieder abgestoßen werden. (Du kannst hierzu z.B. wieder eine der trigonometrischen Funktionen in Kombination mit \code{millis()} benutzen: \code{sin(millis()/1000.0)}).
+
+Kombiniere die Anziehung und Abstoßung mit der Rotation der Planeten um die Sonne.
+\end{aufgabe*}
+
+\begin{aufgabe*}
+In der Realität sind Umlaufbahnen der Planeten keine Kreise, sondern Ellipsen. Modifiziere die Bewegung der Planeten dahingehend, dass sie in elliptischen Bahnen um die Sonne fliegen.
 \end{aufgabe*}
 
 \end{document}
