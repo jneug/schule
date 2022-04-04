@@ -79,11 +79,11 @@ In unserem Sonnensystem sollen sich auch Raumschiffe befinden. Ein Raumschiff ha
 	Implementiere die beiden \code{beschleunigen} Methoden wie im Unterricht besprochen.
 	\item Das Raumschiff soll nun dem Mauszeiger folgen. Dazu muss vor jedem Zeichnen der Vektor vom Raumschiff zur Mausposition berechnet werden. Dazu subtrahieren wir einfach den Vektor der Mausposition vom Positionsvektor:
 	\begin{minted}{java}
-	PVector maus = new PVector(mouseX, mouseY);
+	PVector maus = new PVector(mouseX - width/2.0, mouseY- height/2.0);
 	maus.sub(raumschiff.getPosition());
 	raumschiff.beschleunigen(maus);
 	\end{minted}
-	\item Die Bewegung des Raumschiffs ist noch zu schnell. Setze die Länge des Beschleunigungsvektors (\code{setMag}) auf die Geschwindigkeit (\code{speed}) des Raumschiffs, bevor du sie der Methode \code{beschleunigen} übergibst.
+	\item Die Bewegung des Raumschiffs ist noch zu schnell. Setze die Länge des Beschleunigungsvektors (\code{setMag}) auf die Geschwindigkeit (\code{speed}) des Raumschiffs, bevor du die Methode \code{beschleunigen} aufrufst.
 
 	Experimentiere mit verschiedenen Geschwindigkeiten für das Raumschiff.
 	\item Erweitere das Programm mit eigenen Ideen. Hier sind einige Vorschläge:
@@ -123,7 +123,7 @@ public class Raumschiff {
 	\begin{tikzpicture}[smooth,scale=1.6]
 		\tkzInit[xmin=0,xmax=8,ymin=-6,ymax=0]
 		\tkzClip[space=1]
-		\tkzGrid[step=.1,color=gray!25]
+		\tkzGrid[step=.1,color=gray!40]
 		\tkzGrid[step=1,color=gray!75]
 		\tkzClip[space=.5]
 
