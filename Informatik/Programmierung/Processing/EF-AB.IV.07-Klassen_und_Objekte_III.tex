@@ -1,0 +1,102 @@
+\documentclass[9pt, a4paper]{arbeitsblatt}
+
+\ladeModule{theme,boxen}
+
+\ladeFach[quelltexte,uml]{informatik}
+\ladeFach[geometrie,vektoren]{mathematik}
+
+\aboptionen{
+	name		= {J. Neugebauer},
+	kuerzel 	= {Ngb},
+	titel 		= {Objektreferenzen},
+	reihe 		= {Objektorientierte Programmierung},
+	fach 		= {Informatik},
+	kurs 		= {EF},
+	nummer 		= {IV.8},
+	lizenz 		= {cc-by-nc-sa-eu-4},
+	version 	= {2022-04-07},
+}
+
+% \usepackage{pgfpages}
+% \pgfpagesuselayout{2 on 1}[a4paper,landscape]
+
+\begin{document}
+\ReiheTitel
+
+Objekte werden in Java nicht wie primitive Datentypen (\code{int}, \code{float}, usw.) immer als Kopie gespeichert, sondern als \emph{Referenzen}. Das bedeutet, wenn du ein Objekt mit \code{new} erzeugst und es einer Variablen zuweist, wird nur ein \emph{Zeiger} auf das Objekt im Speicher erstellt. Weist du das Objekt einer weiteren Variablen zu, dann wird nur dieser Zeiger kopiert, aber nicht das gesamte Objekt. Da beide Zeiger auf dasselbe Objekt zeigen (referenzieren), wirken sich Änderungen an der einen Variablen auch auf die andere aus.
+
+\begin{links}
+\begin{minted}[linenos=none]{java}
+int a = 5;
+int b = a;
+
+a += 5;
+
+print(b);  // Gibt 5 aus
+\end{minted}
+\end{links}\begin{rechts}
+\begin{minted}[linenos=none]{java}
+PVector a = new PVector(5,3);
+PVector b = a;
+
+a.y = 9;
+
+print(b.y);  // Gibt 9 aus
+\end{minted}
+\end{rechts}
+
+Referenzen auf Objekte können sehr praktisch sein, aber auch eine Fehlerquelle, die schwer zu finden sein kann, wenn du nicht aufpasst.
+
+\subsection*{Objekte und Arrays}
+
+Da du Objektreferenzen in Variablen speichern kannst, kannst du sie auch in Arrays ablegen. Aber Vorsicht: Auch hier werden keine Kopien von Objekten erstellt. (Du könntest also ein Array machen, dessen Indizes alle auf dasselbe Objekt referenzieren!)
+
+\begin{links}[.65]
+\begin{minted}[linenos=none]{java}
+PVector vectors = new PVector[4];
+vectors[0] = new Pvector(10, 10);
+vectors[1] = new Pvector(20, 20);
+vectors[2] = vectors[1];
+vectors[3] = vectors[0];
+
+vectors[2].x = 99;
+
+for( int i = 0; i < vectors.length; i++ ) {
+	print(vectors[i].x);
+}
+\end{minted}
+\end{links}\begin{rechts}[.3]
+\vspace*{1em}\textbf{Ausgabe:}
+\begin{minted}[linenos=none]{console}
+10
+99
+99
+10
+\end{minted}
+\end{rechts}
+
+\warnung{Wenn eine Objektreferenz noch nicht initialisiert wurde, dann zeigt sie noch auf kein Objekt. In Java wird dies durch den Wert \code{null} repräsentiert. Prüfe vor der Verwendung einer Referenz, ob sie ungleich \code{null} ist: \mintinline{java}{PVector vec; if( vec != null ) {  }}}
+
+\begin{aufgabe}[icon=\iconComputer]
+\begin{teilaufgaben}
+	\teilaufgabe
+	Ändere in deinem Sonnensystem die Verwaltung der Planeten auf ein Array um. Speichere die Referenzen auf die Planeten-Objekte im Array und rufe die \code{draw} Methode in einer Zählschleife auf.
+
+	\teilaufgabe
+	Füge weitere Planeten hinzu. Du kannst die Initialisierung der Planeten auch in einer Schleife mit Zufallswerten implementieren.
+
+	\teilaufgabe
+	Implementiere ein Raumschiff-Array mit vier Raumschiffen. Die Schiffe starten an zufälligen Positionen und bewegen sich mit zufälligen Geschwindigkeiten in Richtung Mauszeiger. Sobald ein Raumschiff den Mauszeiger erreicht hat, verschwindet es. Dazu wird die Referenz aus dem Array gelöscht (gleich \code{null} gesetzt).
+
+	Beachte folgende Hinweise:
+	\begin{itemize}
+		\item Du kansnt den Abstand zum Mausvektor mit der Methode \code{dist()} berechnen: \mintinline{java}{ships[0].dist(mouse)}
+		\item Du kannst eine Referenz löschen, indem du sie auf \code{null} setzt: \mintinline{java}{ships[3] = null}
+		\item Zeichne die Raumschiffe wieder in einer Zählschleife.
+		\item Prüfe in der Zählschleife (oder einer separaten) auch, ob das Raumschiff schon beim Mauszeiger ist.
+		\item Da im Raumschiff-Array nun manchmal \code{null} steht, musst du dies vor dem Aufruf von \code{draw()} prüfen.
+	\end{itemize}
+\end{teilaufgaben}
+\end{aufgabe}
+
+\end{document}
