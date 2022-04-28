@@ -52,7 +52,7 @@ Die Transformation findet in vier Schritten (nach vier \emph{Regeln}) statt:
 		 Zusätzlich werden die Attribute der Relation aufgenommen.
 
 		\begin{center}
-		\begin{tikzpicture}[node distance=1cm]
+		\begin{tikzpicture}[erd,node distance=1cm]
 			\node (Buch)  at (-2,0) [entity] {Buch};
 			\node (ISBN)  at (-2,1) [attribute] {\primarykey{ISBN}};
 			\node (Titel)  at (-2,-1) [attribute] {Titel};
@@ -77,12 +77,12 @@ Die Transformation findet in vier Schritten (nach vier \emph{Regeln}) statt:
 	\end{multicols}
 
 	\item\begin{multicols}{2}
-		 Jede \code{1:n}-Beziehung wird ohne eigene Tabelle abgebildet. Statt dessen wird
+		 Jede \code{1:n}-Beziehung wird ohne eigene Tabelle abgebildet. Stattdessen wird
 		 der Entität mit der Kardinalität \code{n} der \emph{Primärschlüssel} der anderen
 		 Entität als Attribut hinzugefügt.
 
 		\begin{center}
-		\begin{tikzpicture}[node distance=1cm]
+		\begin{tikzpicture}[erd,node distance=1cm]
 			\node (Buch)  at (-2,0) [entity] {Buch};
 			\node (ISBN)  at (-2,1) [attribute] {\primarykey{ISBN}};
 			\node (Titel)  at (-2,-1) [attribute] {Titel};
@@ -109,7 +109,7 @@ Die Transformation findet in vier Schritten (nach vier \emph{Regeln}) statt:
 		\emph{einer} Entität der Relation der anderen als Attribut hinzugefügt. \columnbreak
 
 		\begin{center}
-		\begin{tikzpicture}[node distance=1cm]
+		\begin{tikzpicture}[erd,node distance=1cm]
 			\node (Mitarbeiter)  at (-2.5,0) [entity] {Mitarbeiter};
 			\node (MID)  at (-2.5,1) [attribute] {\primarykey{MID}};
 			\node (Nachname)  at (-2.5,-1) [attribute] {Nachname};
@@ -141,7 +141,7 @@ Die Transformation findet in vier Schritten (nach vier \emph{Regeln}) statt:
 
 	\begin{teilaufgaben}
 		\teilaufgabe
-		\begin{tikzpicture}[baseline=(current bounding box.north)]
+		\begin{tikzpicture}[erd,baseline=(current bounding box.north)]
 			\node (Stadt)  at (-2.5,0) [entity] {Stadt};
 			\node (StadtID)  at (-3.5,1) [attribute] {\primarykey{Stadt\textunderscore ID}};
 			\node (Name)  at (-1.5,1) [attribute] {Name};
@@ -164,7 +164,7 @@ Die Transformation findet in vier Schritten (nach vier \emph{Regeln}) statt:
 		\bigskip
 
 		\teilaufgabe
-		\begin{tikzpicture}[baseline=(current bounding box.north)]
+		\begin{tikzpicture}[erd,baseline=(current bounding box.north)]
 			\node (Dönerladen)  at (-3.5,0) [entity] {Dönerladen};
 			\node (id)  at (-4.5,1) [attribute] {\primarykey{id}};
 			\node (Standort)  at (-2.5,1) [attribute] {Standort};
@@ -184,7 +184,7 @@ Die Transformation findet in vier Schritten (nach vier \emph{Regeln}) statt:
 		\bigskip
 
 		\teilaufgabe
-		\begin{tikzpicture}[baseline=(current bounding box.north)]
+		\begin{tikzpicture}[erd,baseline=(current bounding box.north)]
 			\node (Kunde) at (-3.5,0) [entity] {Kunde};
 			\node (id)  at (-5,0) [attribute] {\primarykey{id}};
 			\node (Nachname)  at (-4.5,1) [attribute] {Nachname};

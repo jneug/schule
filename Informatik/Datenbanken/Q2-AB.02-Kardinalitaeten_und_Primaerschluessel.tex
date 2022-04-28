@@ -60,50 +60,58 @@ Notiere in den folgenden ER-Modellen jeweils die \emph{Kardinalitäten}.
 
 \begin{enuma}
 	\item
-	\begin{tikzpicture}[erd,baseline=(current bounding box.north)]
-		\node (Mann)  at (-3.5,0) [entity] {Mann};
+	\begin{center}
+		\begin{tikzpicture}[erd,baseline=(current bounding box.north)]
+			\node (Mann)  at (-3.5,0) [entity] {Mann};
 
-		\node (ist Vater von) at (0,0) [relation] {ist Vater von};
+			\node (ist Vater von) at (0,0) [relation] {ist Vater von};
 
-		\node (Kind)  at (3.5,0) [entity] {Kind};
+			\node (Kind)  at (3.5,0) [entity] {Kind};
 
-		\draw (Mann) -- (ist Vater von) -- (Kind);
-	\end{tikzpicture}
+			\draw (Mann) -- (ist Vater von) -- (Kind);
+		\end{tikzpicture}
+	\end{center}
 	\vspace{1cm}
 
 	\item
-	\begin{tikzpicture}[erd,baseline=(current bounding box.north)]
-		\node (Mann)  at (-3.5,0) [entity] {Mann};
+	\begin{center}
+		\begin{tikzpicture}[erd,baseline=(current bounding box.north)]
+			\node (Mann)  at (-3.5,0) [entity] {Mann};
 
-		\node (ist Geliebter von) at (0,0) [relation] {ist Geliebter von};
+			\node (ist Geliebter von) at (0,0) [relation] {ist Geliebter von};
 
-		\node (Frau)  at (3.5,0) [entity] {Frau};
+			\node (Frau)  at (3.5,0) [entity] {Frau};
 
-		\draw (Mann) -- (ist Geliebter von) -- (Frau);
-	\end{tikzpicture}
+			\draw (Mann) -- (ist Geliebter von) -- (Frau);
+		\end{tikzpicture}
+	\end{center}
 	\vspace{1cm}
 
 	\item
-	\begin{tikzpicture}[erd,baseline=(current bounding box.north)]
-		\node (Person)  at (-3.5,0) [entity] {Person};
+	\begin{center}
+		\begin{tikzpicture}[erd,baseline=(current bounding box.north)]
+			\node (Person)  at (-3.5,0) [entity] {Person};
 
-		\node (ist Fan von) at (0,0) [relation] {ist Fan von};
+			\node (ist Fan von) at (0,0) [relation] {ist Fan von};
 
-		\node (Verein)  at (3.5,0) [entity] {Fußballverein};
+			\node (Verein)  at (3.5,0) [entity] {Fußballverein};
 
-		\draw (Person) -- (ist Fan von) -- (Verein);
-	\end{tikzpicture}
+			\draw (Person) -- (ist Fan von) -- (Verein);
+		\end{tikzpicture}
+	\end{center}
 	\vspace{1cm}
 
 	\item
-	\begin{tikzpicture}[erd,baseline=(current bounding box.north)]
-		\node (Person)  at (-3.5,0) [entity] {Person};
+	\begin{center}
+		\begin{tikzpicture}[erd,baseline=(current bounding box.north)]
+			\node (Person)  at (-3.5,0) [entity] {Person};
 
-		\node (ist bester Freund von) at (3.5,0) [relation] {ist bester Freund von};
+			\node (ist bester Freund von) at (3.5,0) [relation] {ist bester Freund von};
 
-		\draw (Person) -- (ist bester Freund von);
-		\draw (ist bester Freund von.south) -- +(0,-.5) -| (Person.south);
-	\end{tikzpicture}
+			\draw (Person) -- (ist bester Freund von);
+			\draw (ist bester Freund von.south) -- +(0,-.5) -| (Person.south);
+		\end{tikzpicture}
+	\end{center}
 \end{enuma}
 \end{aufgabe}
 
@@ -115,41 +123,45 @@ beste Schlüsselkandidat für einen Primärschlüssel?
 
 \begin{enuma}
 	\item
-	\begin{tikzpicture}[erd,baseline=(current bounding box.north),scale=1.6]
-		\node (Student)  at (0,0) [entity] {Student};
-		\node (MartNr)  at (-2,1) [attribute] {Matrikelnummer};
-		\node (Fach)  at (-3,0) [attribute] {Fach};
-		\node (Mail)  at (-2,-1) [attribute] {E-Mail-Adresse};
-		\node (Vorname)  at (1,-1) [attribute] {Vorname};
-		\node (Name)  at (2.5,-.5) [attribute] {Name};
-		\node (Geburtstag)  at (2.5,.5) [attribute] {Geburtstag};
-		\node (Adresse)  at (1,1.5) [attribute] {Adresse};
-		\draw (Student) -- (MartNr);
-		\draw (Student) -- (Fach);
-		\draw (Student) -- (Mail);
-		\draw (Student) -- (Vorname);
-		\draw (Student) -- (Name);
-		\draw (Student) -- (Geburtstag);
-		\draw (Student) -- (Adresse);
-	\end{tikzpicture}
+	\begin{center}
+		\begin{tikzpicture}[erd,baseline=(current bounding box.north),scale=1.6]
+			\node (Student)  at (0,0) [entity] {Student};
+			\node (MartNr)  at (-2,1) [attribute] {Matrikelnummer};
+			\node (Fach)  at (-3,0) [attribute] {Fach};
+			\node (Mail)  at (-2,-1) [attribute] {E-Mail-Adresse};
+			\node (Vorname)  at (1,-1) [attribute] {Vorname};
+			\node (Name)  at (2.5,-.5) [attribute] {Name};
+			\node (Geburtstag)  at (2.5,.5) [attribute] {Geburtstag};
+			\node (Adresse)  at (1,1.5) [attribute] {Adresse};
+			\draw (Student) -- (MartNr);
+			\draw (Student) -- (Fach);
+			\draw (Student) -- (Mail);
+			\draw (Student) -- (Vorname);
+			\draw (Student) -- (Name);
+			\draw (Student) -- (Geburtstag);
+			\draw (Student) -- (Adresse);
+		\end{tikzpicture}
+	\end{center}
 	\vspace{2cm}
 
 	\item
-	\begin{tikzpicture}[erd,baseline=(current bounding box.north),scale=1.6]
-		\node (Mitarbeiter)  at (0,0) [entity] {Mitarbeiter};
-		\node (SoziNr)  at (-2,1) [attribute] {\small Sozialversicherungsnummer};
-		\node (Ort)  at (-3,0) [attribute] {Ort};
-		\node (Strasse)  at (-2,-1) [attribute] {Straße};
-		\node (MitarbeiterID)  at (1,-1) [attribute] {Mitarbeiter ID};
-		\node (Name)  at (3,-.5) [attribute] {Name};
-		\node (Geburtstag)  at (2.5,.5) [attribute] {Geburtstag};
-		\draw (Mitarbeiter) -- (SoziNr);
-		\draw (Mitarbeiter) -- (Ort);
-		\draw (Mitarbeiter) -- (Strasse);
-		\draw (Mitarbeiter) -- (MitarbeiterID);
-		\draw (Mitarbeiter) -- (Name);
-		\draw (Mitarbeiter) -- (Geburtstag);
-	\end{tikzpicture}
+	\begin{center}
+		\begin{tikzpicture}[erd,baseline=(current bounding box.north),scale=1.6]
+			\node (Mitarbeiter)  at (0,0) [entity] {Mitarbeiter};
+			\node (SoziNr)  at (-2,1) [attribute] {\small Sozialversicherungsnummer};
+			\node (Ort)  at (-3,0) [attribute] {Ort};
+			\node (Strasse)  at (-2,-1) [attribute] {Straße};
+			\node (MitarbeiterID)  at (1,-1) [attribute] {Mitarbeiter ID};
+			\node (Name)  at (3,-.5) [attribute] {Name};
+			\node (Geburtstag)  at (2.5,.5) [attribute] {Geburtstag};
+			\draw (Mitarbeiter) -- (SoziNr);
+			\draw (Mitarbeiter) -- (Ort);
+			\draw (Mitarbeiter) -- (Strasse);
+			\draw (Mitarbeiter) -- (MitarbeiterID);
+			\draw (Mitarbeiter) -- (Name);
+			\draw (Mitarbeiter) -- (Geburtstag);
+		\end{tikzpicture}
+	\end{center}
 \end{enuma}
 \end{aufgabe}
 
