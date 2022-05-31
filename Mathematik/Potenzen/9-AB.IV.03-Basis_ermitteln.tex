@@ -1,0 +1,45 @@
+\documentclass[11pt, a5paper]{arbeitsblatt}
+
+\usepackage{pgfpages}
+\pgfpagesuselayout{2 on 1}[a4paper, landscape]
+
+\ladeModule{theme}
+\ladeFach[]{mathematik}
+
+\aboptionen{
+	name		= {J. Neugebauer},
+	kuerzel 	= {Ngb},
+	titel 		= {Basis ermitteln},
+	reihe 		= {Potenzrechnung},
+	fach 		= {Mathematik},
+	kurs 		= {Jg.9},
+	nummer 		= {IV.3},
+	lizenz 		= {cc-by-nc-sa-eu-4},
+	version 	= {2022-05-05},
+}
+
+
+\renewcommand{\FussRechts}{}
+\newcommand{\arbeitsauftrag}[4]{%
+\ReiheTitel
+{\Large\[ #1 = #2 \]}
+
+{\large Für welche Werte von $x$ ist die Gleichung erfüllt?}
+
+\begin{enuma}
+	\item Plotte die Funktion $f(x) = #1$ in Deinem GTR.
+	\item Ermittele grafisch die Stellen, an denen die Gleichung oben erfüllt ist. (An welchen Stellen nimmt die Funktion den Wert $#2$ an?)
+	\item Erkläre Deine Beobachtungen mathematisch. (Warum hat die Gleichung die beobachtete(n) Lösung(en)?)\\
+	(Tipp: Denke auch an die Definition der $n$-ten Wurzel.)
+	\item Formuliere eine allgemeine Regel für die Lösung von Gleichungen der Art \[ x^n = a \qquad \text{mit }n > 0 \text{ #3 und }a #4 0\]
+	\item Lies den Kasten unten auf Seite 118 im Buch und vergleiche mit Deinen Beobachtungen. Bearbeite dann auf Seite 119 Aufgabe 1.
+\end{enuma}
+}
+
+\begin{document}
+\arbeitsauftrag{x^4}{1296}{gerade}{>}\clearpage
+\arbeitsauftrag{x^6}{-64}{gerade}{<}\clearpage
+\arbeitsauftrag{x^3}{125}{ungerade}{>}\clearpage
+\arbeitsauftrag{x^5}{-32}{ungerade}{<}\clearpage
+
+\end{document}
