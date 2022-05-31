@@ -53,9 +53,9 @@ Da du Objektreferenzen in Variablen speichern kannst, kannst du sie auch in Arra
 
 \begin{links}[.65]
 \begin{minted}[linenos=none]{java}
-PVector vectors = new PVector[4];
-vectors[0] = new Pvector(10, 10);
-vectors[1] = new Pvector(20, 20);
+PVector[] vectors = new PVector[4];
+vectors[0] = new PVector(10, 10);
+vectors[1] = new PVector(20, 20);
 vectors[2] = vectors[1];
 vectors[3] = vectors[0];
 
@@ -90,10 +90,10 @@ for( int i = 0; i < vectors.length; i++ ) {
 
 	Beachte folgende Hinweise:
 	\begin{itemize}
-		\item Du kansnt den Abstand zum Mausvektor mit der Methode \code{dist()} berechnen: \mintinline{java}{ships[0].dist(mouse)}
+		\item Du kannst den Abstand zum Mausvektor mit der Methode \code{dist()} berechnen: \mintinline{java}{ships[0].dist(mouse)}
 		\item Du kannst eine Referenz löschen, indem du sie auf \code{null} setzt: \mintinline{java}{ships[3] = null}
 		\item Zeichne die Raumschiffe wieder in einer Zählschleife.
-		\item Prüfe in der Zählschleife (oder einer separaten) auch, ob das Raumschiff schon beim Mauszeiger ist.
+		\item Prüfe in der Zählschleife (oder einer separaten)  auch, ob das Raumschiff schon beim Mauszeiger ist.
 		\item Da im Raumschiff-Array nun manchmal \code{null} steht, musst du dies vor dem Aufruf von \code{draw()} prüfen.
 	\end{itemize}
 \end{teilaufgaben}
