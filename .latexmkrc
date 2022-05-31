@@ -5,10 +5,12 @@ $pdf_previewer = 'open -a PDF\ Expert';
 
 @default_excluded_files = ("*.inhalt.tex");
 
-@generated_exts = (@generated_exts, 'synctex.gz', 'xsim', 'xmpi');
+@generated_exts = (@generated_exts, 'synctex.gz', '%R-*.xsim');
+@generated_exts = (@generated_exts, '{%R,cc-by-nc-sa-4}.xmpi', '{%R,comment}.cut');
 @generated_exts = (@generated_exts, 'tkzfct.gnuplot', 'tkzfct.table', 'tkzfonct.gnuplot', 'tkzfonct.table', 'code');
+@generated_exts = (@generated_exts, '_minted-%R', );
 
-$clean_ext = "%R-*.xsim xmpi _minted-%R cc-by-nc-sa-4.xmpi";
+# $clean_ext = " xmpi _minted-%R cc-by-nc-sa-4.xmpi cut";
 
 add_cus_dep( "uxf", "pdf", 0, "compileumlet" );
 sub compileumlet {
