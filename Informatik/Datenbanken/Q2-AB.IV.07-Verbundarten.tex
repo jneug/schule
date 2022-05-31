@@ -1,0 +1,299 @@
+\documentclass[10pt, a4paper, ngerman]{arbeitsblatt}
+
+\ladeModule{theme,tabellen}
+
+\ladeFach[quelltexte,datenbanken]{informatik}
+
+\aboptionen{
+	name		= {J. Neugebauer},
+	kuerzel 	= {Ngb},
+	titel 		= {Verbundarten},
+	reihe 		= {Relationale Datenbanken},
+	fach 		= {Informatik},
+	kurs 		= {Q2},
+	nummer 		= {IV.7},
+	lizenz 		= {cc-by-nc-sa-eu-4},
+	version 	= {2022-05-05},
+}
+
+\begin{document}
+\ReiheTitel
+
+\begin{aufgabe}\label{aufg:1}
+Ordne die vier Verbundarten \code{INNER JOIN}, \code{LEFT JOIN}, \code{RIGHT JOIN} und \code{FULL OUTER JOIN} den Diagrammen unten zu.
+
+\begin{center}
+	\begin{tikzpicture}[thick, scale=.75,
+		every node/.style={scale=0.75},
+		set/.style={circle, minimum size=3cm}]
+		% INNER JOIN
+		\node[set,fill=white] (A3) at (0,0) {A};
+		\node[set,fill=white] (B3) at ($(A3)+(2,0)$) {B};
+		\begin{scope}
+			\clip (A3) circle(1.5cm);
+			\clip (B3) circle(1.5cm);
+			\fill[secondary.hg](A3) circle(1.5cm);
+		\end{scope}
+		\draw (A3) circle(1.5cm);
+		\draw (B3) circle(1.5cm);
+		\draw ($(A3)+(-1,-1.75)$) rectangle ++(4,-1);
+
+		% LEFT JOIN
+		\node[set,fill=white] (B1) at (14,0) {B};
+		\node[set,fill=secondary.hg] (A1) at ($(B1)+(-2,0)$) {A};
+		\draw (A1) circle(1.5cm);
+		\draw (B1) circle(1.5cm);
+		\draw ($(A1)+(-1,-1.75)$) rectangle ++(4,-1);
+
+		% RIGHT JOIN
+		\node[set,fill=white] (A2) at (6,0) {A};
+		\node[set,fill=secondary.hg] (B2) at ($(A2)+(2,0)$) {B};
+		\draw (A2) circle(1.5cm);
+		\draw (B2) circle(1.5cm);
+		\draw ($(A2)+(-1,-1.75)$) rectangle ++(4,-1);
+
+		% FULL JOIN
+		\node[set,fill=secondary.hg] (A4) at (18,0) {A};
+		\node[set,fill=secondary.hg] (B4) at ($(A4)+(2,0)$) {B};
+		\draw (A4) circle(1.5cm);
+		\draw (B4) circle(1.5cm);
+		\draw ($(A4)+(-1,-1.75)$) rectangle ++(4,-1);
+	\end{tikzpicture}
+\end{center}
+\end{aufgabe}
+
+\begin{aufgabe}
+Ausgehend von den Tabellen A und B unten wurden die gezeigten Ergebnisse durch SQL-Anweisungen mit \code{JOIN}s über das Attribut \code{p1} ermittelt. Verbinde die Ergebnisstabellen mit den passenden Verbundarten aus \prettyref{aufg:1}.
+
+\begin{enuma}
+	\item \mintinline{sql}{SELECT * FROM A INNER JOIN B ON A.p1 = B.p1}
+	\item \mintinline{sql}{SELECT * FROM A LEFT JOIN B ON A.p1 = B.p1}
+	\item \mintinline{sql}{SELECT * FROM A RIGHT JOIN B ON A.p1 = B.p1}
+	\item \mintinline{sql}{SELECT * FROM A FULL OUTER JOIN B ON A.p1 = B.p1}
+\end{enuma}
+
+\begin{tabularx}{4cm}{*{3}{X}}
+	\rowcolor{ab.tabelle.kopf.hg!90!black}
+	\multicolumn{3}{l}{\code{A}}       \\
+	\hline\rowcolor{ab.tabelle.kopf.hg}
+	\primarykey{p1} & colA & colB      \\
+	\hline\hline
+	1 & A & aa \\\hline
+	2 & B & bb \\\hline
+	3 & C & cc \\\hline
+	4 & D & dd \\\hline
+	5 & E & ee \\\hline
+	6 & F & ff \\\hline
+	7 & G & gg \\\hline
+	8 & H & hh \\\hline
+\end{tabularx}
+
+\begin{tabularx}{4cm}{*{4}{X}}
+	\rowcolor{ab.tabelle.kopf.hg!90!black}
+	\multicolumn{4}{l}{\code{B}}       \\
+	\hline\rowcolor{ab.tabelle.kopf.hg}
+	\primarykey{p2} & \foreignkey{p1} & colX & colY      \\
+	\hline\hline
+	9001 & 1 & 55 & ABC \\\hline
+	9002 & 3 & 77 & PQR \\\hline
+	9003 & 3 & 95 & DEF \\\hline
+	9004 & 7 & 62 & GHI \\\hline
+	9005 & 5 & 50 & KLM \\\hline
+	9006 & 2 & 42 & STU \\\hline
+	9007 & 9 & 83 & XYZ \\\hline
+\end{tabularx}
+
+\begin{tabular}{*{7}{l}} \hline
+	\rowcolor{ab.tabelle.kopf.hg}
+	A.p1 & colA & colB & p2 & B.p1 & colX & colY      \\
+	\hline\midrule
+	1 & A & aa & 9001 & 1 & 55 & ABC \\\midrule
+	2 & B & bb & 9006 & 2 & 42 & STU \\\midrule
+	3 & C & cc & 9002 & 3 & 77 & PQR \\\midrule
+	3 & C & cc & 9003 & 3 & 95 & DEF \\\midrule
+	5 & E & ee & 9005 & 5 & 50 & KLM \\\midrule
+	7 & G & gg & 9004 & 7 & 62 & GHI \\\bottomrule
+\end{tabular}
+
+\begin{tabular}{|*{7}{l|}}\hline
+	\rowcolor{ab.tabelle.kopf.hg}
+	A.p1 & colA & colB & p2 & B.p1 & colX & colY      \\
+	\hline
+	1 & A & aa & 9001 & 1 & 55 & ABC \\\hline
+	2 & B & bb & 9006 & 2 & 42 & STU \\\hline
+	3 & C & cc & 9002 & 3 & 77 & PQR \\\hline
+	3 & C & cc & 9003 & 3 & 95 & DEF \\\hline
+	4 & D & dd & NULL & NULL & NULL & NULL\\\hline
+	5 & E & ee & 9005 & 5 & 50 & KLM \\\hline
+	6 & F & ff & NULL & NULL & NULL & NULL \\\hline
+	7 & G & gg & 9004 & 7 & 62 & GHI \\\hline
+	8 & H & hh & NULL & NULL & NULL & NULL \\\hline
+\end{tabular}
+
+\begin{tabular}{|*{7}{l|}}\hline
+	\rowcolor{ab.tabelle.kopf.hg}
+	A.p1 & colA & colB & p2 & B.p1 & colX & colY      \\
+	\hline
+	1 & A & aa & 9001 & 1 & 55 & ABC \\\hline
+	2 & B & bb & 9006 & 2 & 42 & STU \\\hline
+	3 & C & cc & 9002 & 3 & 77 & PQR \\\hline
+	3 & C & cc & 9003 & 3 & 95 & DEF \\\hline
+	5 & E & ee & 9005 & 5 & 50 & KLM \\\hline
+	7 & G & gg & 9004 & 7 & 62 & GHI \\\hline
+	NULL & NULL & NULL & 9007 & 9 & 83 & XYZ \\\hline
+\end{tabular}
+
+\begin{tabular}{|*{7}{l|}}\hline
+	\rowcolor{ab.tabelle.kopf.hg}
+	A.p1 & colA & colB & p2 & B.p1 & colX & colY      \\
+	\hline
+	1 & A & aa & 9001 & 1 & 55 & ABC \\\hline
+	2 & B & bb & 9006 & 2 & 42 & STU \\\hline
+	3 & C & cc & 9002 & 3 & 77 & PQR \\\hline
+	3 & C & cc & 9003 & 3 & 95 & DEF \\\hline
+	4 & D & dd & NULL & NULL & NULL & NULL\\\hline
+	5 & E & ee & 9005 & 5 & 50 & KLM \\\hline
+	6 & F & ff & NULL & NULL & NULL & NULL \\\hline
+	7 & G & gg & 9004 & 7 & 62 & GHI \\\hline
+	8 & H & hh & NULL & NULL & NULL & NULL \\\hline
+	NULL & NULL & NULL & 9007 & 9 & 83 & XYZ \\\hline
+\end{tabular}
+\end{aufgabe}
+
+\newpage
+\begin{aufgabe}
+Ermittele die Ergebnisrelationen der folgenden Abfragen auf den Tabellen \code{Buch} und \code{Film}.
+
+\begin{tabularx}{\textwidth}{XXXcc} \hline
+	\rowcolor{ab.tabelle.kopf.hg!90!black}
+	\multicolumn{5}{l}{\code{Buch}} \\ \hline
+	\rowcolor{ab.tabelle.kopf.hg}
+	\primarykey{ISBN} & Titel & Autor & Preis & VID\\ \hline\toprule
+	978-3-608-93544-8 & Der Herr der Ringe & J. R. R. Tokien & 32,90 & 608 \\\midrule
+	978-3-596-29433-6 & Der Zauberberg & Thomas Mann & 12,95 & 596 \\\midrule
+	978-1-401-22266-6 & Watchmen & Alan Moore & 13,95 & 4012 \\\bottomrule
+\end{tabularx}
+
+\begin{tabularx}{\textwidth}{XXccX} \hline
+	\rowcolor{ab.tabelle.kopf.hg!90!black}
+	\multicolumn{5}{l}{\code{Film}} \\ \hline
+	\rowcolor{ab.tabelle.kopf.hg}
+	\primarykey{EAN} & Titel & FSK & Preis & zum\_Buch\\ \hline\toprule
+	4042564141962 & Der Zauberberg & 16 & 11,99 & 978-3-596-29433-6 \\\midrule
+	4011976887188 & Fack Ju Göhte & 12 & 7,99 & \\\midrule
+	4010324200334 & Rubinrot & 12 & 7,99 & \\\bottomrule
+\end{tabularx}
+
+\begin{multicols}{2}
+\begin{enuma}
+	\item ~\\[-3em]\begin{minted}{sql}
+	SELECT Titel, FSK
+	FROM Film
+	WHERE FSK = 12;
+	\end{minted}
+
+	\item ~\\[-3em]\begin{minted}{sql}
+	SELECT Titel, Preis
+	FROM Buch
+	UNION
+	SELECT Titel, Preis
+	FROM Film;
+	\end{minted}
+
+	\columnbreak
+	\item ~\\[-3em]\begin{minted}{sql}
+	SELECT Buch.Titel, Buch.Preis,
+		Film.Titel, Film.Preis
+	FROM Buch
+	  INNER JOIN Film
+		ON Buch.ISBN = Film.zum_BUCH
+	\end{minted}
+
+	\item ~\\[-3em]\begin{minted}{sql}
+	SELECT Buch.Titel, Buch.Preis,
+		Film.Titel, Film.Preis
+	FROM Buch
+	  RIGHT JOIN Film
+	    ON Buch.ISBN = Film.zum_BUCH
+	WHERE Film.Preis < 10;
+	\end{minted}
+\end{enuma}
+\end{multicols}
+\end{aufgabe}
+
+\begin{aufgabe}
+Gegeben sind die drei Relationen, die das Ausgehverhalten einiger Jugendlicher dokumentieren.
+
+\begin{multicols}{3}
+	\begin{tabularx}{\linewidth}{XX} \hline
+		\rowcolor{ab.tabelle.kopf.hg!90!black}
+		\multicolumn{2}{l}{\code{Hört\_gern}} \\ \hline
+		\rowcolor{ab.tabelle.kopf.hg}
+		Name & Musik\-richtung \\\hline\toprule
+		Tina & Pop \\\midrule
+		Lisa & Latin \\\midrule
+		Tina & Rock \\\midrule
+		Maxi & Pop \\\bottomrule
+	\end{tabularx}
+
+	\begin{tabularx}{\linewidth}{XX} \hline
+		\rowcolor{ab.tabelle.kopf.hg!90!black}
+		\multicolumn{2}{l}{\code{Geht\_in}} \\ \hline
+		\rowcolor{ab.tabelle.kopf.hg}
+		Name & Lokal \\\hline\toprule
+		Maxi & A \\\midrule
+		Maxi & C \\\midrule
+		Lisa & B \\\midrule
+		Tina & B \\\midrule
+		Flo & A \\\bottomrule
+	\end{tabularx}
+
+	\begin{tabularx}{\linewidth}{XX} \hline
+		\rowcolor{ab.tabelle.kopf.hg!90!black}
+		\multicolumn{2}{l}{\code{Spielt}} \\ \hline
+		\rowcolor{ab.tabelle.kopf.hg}
+		Lokal & Musik\-richtung \\\hline\toprule
+		A & Rock \\\midrule
+		A & Pop \\\midrule
+		B & Latin \\\midrule
+		D & Rock \\\bottomrule
+	\end{tabularx}
+\end{multicols}
+
+\begin{enuma}
+	\item Bilde den Vrbund der Tabellen \code{Hört\_gern} und \code{Spielt} über das gemeinsame Attribut \enquote{Musikrichtung} und beschreibe, welche Informationen die ergebnisrelation beinhaltet.
+
+	\item Gib alle Lokale an, die Musikrichtungen spielen, die Tina mag. Entiwckele dann eine entsprechende Abfrage in SQL.
+
+	\item Analysiere die folgenden Abfragen, indem du jeweils die Ergebnisrelation und eine umgangssprachliche Formulierung im Sachkontext für die Abfrage angibst.
+	\begin{enumerate}
+		\item ~\\[-3em]\begin{minted}{sql}
+		SELECT Musikrichtung
+		FROM Hört_gern
+		  INNER JOIN Geht_in
+		    ON Hört_gern.Name = Geht_in.Name
+		WHERE Lokal = 'A';
+		\end{minted}
+
+		\item ~\\[-3em]\begin{minted}{sql}
+		SELECT Musikrichtung
+		FROM Geht_in
+		  INNER JOIN Spielt
+			ON Geht_in.Lokal = Spielt.Lokal
+		WHERE Name = 'Maxi';
+		\end{minted}
+
+		\item ~\\[-3em]\begin{minted}{sql}
+		SELECT Name
+		FROM Hört_gern
+		  INNER JOIN Spielt
+			ON Hört_gern.Musikrichtung = Spielt.Musikrichtung
+		  INNER JOIN Geht_in
+		    ON Hört_gern.Name = Geht_in.Name
+			  AND Spielt.Lokal = Geht_in.Lokal
+		\end{minted}
+	\end{enumerate}
+\end{enuma}
+\end{aufgabe}
+
+\end{document}
