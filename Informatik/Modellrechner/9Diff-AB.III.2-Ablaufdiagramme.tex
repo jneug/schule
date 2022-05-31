@@ -22,15 +22,15 @@
 	Betrachte das Diagramm unten und versuch es zu lesen. Welche Elemente gibt es und was bedeuten sie?
 
 	\begin{center}
-	\begin{tikzpicture}[pap,cmd/.style={font=\usekomafont{code}}]
+	\begin{tikzpicture}[pap]
 		\node[startstop] (s1) {Start};
-		\node[verzweigung, cmd, below=of s1] (v1) {isz 2};
-		\node[aktion, cmd, below=of v1] (a1) {{dec 2}};
-		\node[verzweigung, cmd, right=of v1] (v2) {isz 1};
-		\node[aktion, cmd, below=of v2] (a2) {{dec 1}};
-		\node[aktion, cmd, below=of a2] (a3) {{inc 2}};
-		\node[aktion, cmd, below=of a3] (a4) {{inc 2}};
-		\node[startstop, cmd, right=of v2] (e1) {{stp}};
+		\node[verzweigung, kommando, below=of s1] (v1) {isz 2};
+		\node[aktion, kommando, below=of v1] (a1) {{dec 2}};
+		\node[verzweigung, kommando, right=of v1] (v2) {isz 1};
+		\node[aktion, kommando, below=of v2] (a2) {{dec 1}};
+		\node[aktion, kommando, below=of a2] (a3) {{inc 2}};
+		\node[aktion, kommando, below=of a3] (a4) {{inc 2}};
+		\node[startstop, kommando, right=of v2] (e1) {{stp}};
 
 		\draw[linie] (s1)--(v1);
 		\draw[linie] (v1)--(a1) node[near start, right] {nein};
