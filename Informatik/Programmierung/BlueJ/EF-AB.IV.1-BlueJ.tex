@@ -1,38 +1,30 @@
-\documentclass[10pt, a4paper]{scrartcl}
+\documentclass[11pt, a4paper]{arbeitsblatt}
 
-%\usepackage{qrcode}
+\usepackage{pgfpages}
+\pgfpagesuselayout{2 on 1}[a4paper, landscape]
 
-\usepackage{vorschule}
-\usepackage[
-	typ=ab,
-	fach=Informatik,
-	lerngruppe={EF},
-	nummer=IV.1,
-	module={Symbole,Lizenzen},
-	seitenzahlen=keine,
-	farbig,
-	lizenz=cc-by-nc-sa-4,
-]{schule}
+\ladeModule{theme}
 
-\usepackage[
-	kuerzel=Ngb,
-	reihe={Objektorientierte Modellierung},
-	version={2020-01-20},
-]{ngbschule}
+\ladeFach[]{informatik}
 
-\author{J. Neugebauer}
-\title{Erste Schritte in BlueJ}
-\date{\Heute}
-
-\setzeAufgabentemplate{ngbnormal}
-
+\aboptionen{
+	name		= {J. Neugebauer},
+	kuerzel 	= {Ngb},
+	titel 		= {Erste Schritte in BlueJ},
+	reihe 		= {Objektorientierte Programmierung},
+	fach 		= {Informatik},
+	kurs 		= {EF},
+	nummer 		= {IV.1},
+	lizenz 		= {cc-by-nc-sa-eu-4},
+	version 	= {2022-05-05},
+}
 
 \begin{document}
 \ReiheTitel
 
 \begin{aufgabe}
 	Öffne das Projekt \ordner{shapes} aus dem Tauschordner und studiere seinen Aufbau.
-	
+
 	\begin{teilaufgaben}
 		\teilaufgabe Erzeuge mit BlueJ und den Klassen Kreis, Quadrat und Dreieck interaktiv eine Abbildung, die ein einfaches Haus mit einer Sonne darstellt.
 		\teilaufgabe Versuche dabei dir die einzelnen Schritte bzw. Methodenaufrufe so zu merken, dass du eine erneute Darstellung des gleichen Bildes möglichst direkt erzeugen könntest.
@@ -42,7 +34,7 @@
 
 \begin{aufgabe}
 	Öffne nun das Projekt \ordner{picture} aus dem Tauschordner und öffne die Klasse \code{Picture} mit einem Doppelklick. Studiere die Klasse und ihren Aufbau.
-	
+
 	Verändere den Quelltext von Zeichnung so, dass die Sonne nicht mehr gelb, sondern rot ist. Dazu musst du im Quelltext die Zeile suchen, in der die Farbe der Sonne geändert wird.
 \end{aufgabe}
 
@@ -56,11 +48,27 @@
 
 \begin{aufgabe}
 	Der Mond aus der letzten Aufgabe soll nach dem Zeichnen langsam untergehen.
-		
+
 	\begin{teilaufgaben}
-		\teilaufgabe Die Klasse \code{Kreis} stellt die Methoden \code{langsamHorizontalBewegen} und \code{langsamVertikalBewegen} zur Verfügung, die du innerhalb von zeichne benutzen kannst.
+		\teilaufgabe Die Klasse \code{Kreis} stellt die Methoden \code{langsamHorizontalBewegen} und \code{langsamVertikalBewegen} zur Verfügung, die du innerhalb von \code{zeichne} benutzen kannst.
 		\teilaufgabe Schreibe eine extra Methode \code{monduntergang}, die von der Methode \code{zeichne} getrennt ist. Man soll also mittels \code{zeichne} das Bild aufbauen und dann mit \code{monduntergang} den Mond untergehen lassen.
 	\end{teilaufgaben}
+\end{aufgabe}
+
+\newpage
+
+\begin{aufgabe}
+Erstelle eine bebilderte Anleitung (eine A4 Seite) zu einer Funktion in \programm{BlueJ}.
+
+Funktionen:
+\begin{itemize}
+	\item Objekte instanziieren und Methoden benutzen.
+	\item Geschickte Fehlersuche (Objekte inspizieren und den Debugger nutzen).
+	\item Tests ausführen und interpretieren.
+	\item Hilfreiche Editor-Funktionen (Code-Completion und Auto-Formatierung).
+\end{itemize}
+
+Erkunde die Funktionen in \programm{BlueJ}. Informiere dich gegebenenfalls im Internet und im Handbuch über die Funktionen. Erstelle dann Bildschirmfotos und kombiniere sie zu einem PDF-Dokument (z.B. mit \programm{LibreOffice}).
 \end{aufgabe}
 
 \end{document}
