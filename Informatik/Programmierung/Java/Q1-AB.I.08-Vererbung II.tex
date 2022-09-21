@@ -6,20 +6,20 @@
 \aboptionen{
 	name		= {J. Neugebauer},
 	kuerzel		= {Ngb},
-	titel		= {Vererbung II},
+	titel		= {Übungen zur Vererbung},
 	reihe		= {Objektorientierte Programmierung},
 	fach		= {Informatik},
 	lerngruppe	= {Q1},
-	nummer		= {I.07},
+	nummer		= {I.08},
 	lizenz		= {cc-by-nc-sa-4},
-	version		= {2022-09-15},
+	version		= {2022-09-21},
 }
 
 \begin{document}
 \ReiheTitel
 
 \begin{aufgabe}[icon=\iconComputer]
-	Fork und klone das Projekt \ordner{Figuren} vom Git-Server.
+	Fork und klone das Projekt \ordner{Formen} vom Git-Server.
 
 	Die Klasse \code{Dreieck} ist nicht als \emph{Unterklasse} von \code{Form} implementiert. Das soll geändert werden.
 \end{aufgabe}
@@ -27,17 +27,19 @@
 \begin{aufgabe}[icon=\iconComputer]
 	Fork und klone das Projekt \ordner{Autos} vom Git-Server.
 
-	Studiere den Aufbau. Die beiden Klassen haben einige Attribute und Methoden gemeinsam. Erstelle eine geeignete \emph{Oberklasse}, die die gemeinsamen \emph{Attribute} und \emph{Methoden} sammelt. Die bestehenden Klassen werden zu \emph{Unterklassen}.
+	Analysiere den Aufbau. Die vorhandenen Klassen haben einige \emph{Attribute} und \emph{Methoden} gemeinsam. Erstelle eine geeignete \emph{Oberklasse} (\textbf{Generalisierung}), die die gemeinsamen \emph{Attribute} und \emph{Methoden} sammelt. Die bestehenden Klassen werden zu \emph{Unterklassen} (\textbf{Spezialisierung}).
+
+	Erkläre die Begriffe \textbf{Generalisierung} und \textbf{Spezialisierung} mit eigenen Worten.
 \end{aufgabe}
 
 \begin{aufgabe}[icon=\iconComputer]
-	Fork und klone das Projekt \ordner{Karneval der Tiere} vom Git-Server.
+	Fork und klone das Projekt \ordner{Zoo} vom Git-Server.
 
-	\begin{enumerate}
-		\item Ergänze mindestens drei weitere Tiere im Projekt. Orientiere dich an den gezeigten Klassen.
-		\item Überschreibe die Methode \code{sagWas()} in den \emph{Unterklassen}.
-		\item Ergänze neue \emph{Oberklassen}, die Tiere einer Art zusammenfassen (z.B: \enquote{Fliegend}, \enquote{Schwimmend}, \enquote{Laufend}, ...).
-	\end{enumerate}
+	Analysiere den Aufbau der \emph{Gehege} Klassen und vergleiche Gemeinsamkeiten und Unterschiede.
+
+	Erstelle Objekte der Tier-Klassen und versuche sie, den verschiedenen Gehegen zuzuweisen (auch Gehegen, in die sie eigentlich nicht gehören). Bei welchen Kombinationen klappt es, bei welchen nicht? Versuche zu erklären, woran das liegt.
+
+	Manchmal können die Objekte einer Klasse durch Objekte einer anderen Klasse ersetzt werden (\textbf{Substitutionsprinzip}). Erkläre anhand des Zoo-Projektes, unter welchen Bedingungen dies erlaubt ist.
 \end{aufgabe}
 
 \end{document}
