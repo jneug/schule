@@ -23,6 +23,7 @@ privat/*
 *.tkzfonct.table
 *.tkzfct.gnuplot
 *.tkzfct.table
+*.cut
 
 ## Intermediate documents:
 *.dvi
