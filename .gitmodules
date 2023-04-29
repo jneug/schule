@@ -1,0 +1,3 @@
+[submodule "schule-typst"]
+	path = ab
+	url = https://github.com/jneug/schule-typst
