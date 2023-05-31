@@ -11,7 +11,7 @@
 
 	version: 	[2023-05-30],
 
-	fontsize: 10pt,
+	fontsize: 9pt,
 	// paper: "a5",
 	// flipped: true,
 )
@@ -31,11 +31,11 @@
 			columns:(100%-20mm, 20mm),
 			column-gutter: 5mm,
 			[Streiche abgearbeitete Knoten im Graphen und der Tabelle durch. Notiert dann den kürzesten Weg und den Vorgängerknoten neben dem Knoten im Graphen.],
-			move(dy:-3mm, block(width:20mm)[
+			block(width:20mm)[
 				#circle(radius:5mm, stroke:1pt+black, text(size:14pt, [*C*]))
 				#place(top+left, dx:10mm, [1])
 				#place(top+left, dx:10mm, dy: 8mm, [A])
-			])
+			]
 		)
 	]
 	#kasten[
@@ -57,15 +57,21 @@
 ]
 
 #aufgabe[
-	Verwende den Algorithmus, um in den gezeigten Graphen den kürzesten Weg vom Knoten "A" zum Knoten "Z" zu finden. Was Fällt Dir bei der Durchführung auf?
+	Verwende den Algorithmus, um in den gezeigten Graphen den kürzesten Weg vom Knoten "A" zum Knoten "Z" zu finden. Was Fällt Dir bei der Durchführung auf? Diskutiere mit Deinen Mitschüler:innen.
+
+	#small[Hilfreiche Stichworte: _Effizienz_, _Voraussetzungen_, _Anwendungsfälle_, _Gültigkeit_, _Korrektheit_]
 
 	#set align(center)
 	#columns(2)[
-		1. #image("Q2-AB.III.12-Abb_A3a.png", width: 100%)
+		1. #image("Q2-AB.III.12-Abb_A3a.png", width: 90%)
 
 
-		2. #image("Q2-AB.III.12-Abb_A3b.png", width: 100%)
+		2. #image("Q2-AB.III.12-Abb_A3b.png", width: 90%)
 	]
+]
+
+#aufgabe(icons:emoji.star)[
+	Lässt sich der gezeigte Algorihtmus auch dafür nutzen, den _längsten_ Weg zu finden? Begründe Deine Überlegungen.
 ]
 
 #pagebreak()
