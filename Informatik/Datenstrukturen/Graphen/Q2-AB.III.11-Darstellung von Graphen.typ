@@ -4,7 +4,7 @@
 	fach: 		[Informatik],
 	name: 		[J. Neugebauer],
 	kuerzel: 	[Ngb],
-	kurs: 		[06c],
+	kurs: 		[Q1],
 	nummer: 	[III.3],
 	reihe: 		[Nicht-lineare Datenstrukturen],
 	titel:		[Darstellung von Graphen],
