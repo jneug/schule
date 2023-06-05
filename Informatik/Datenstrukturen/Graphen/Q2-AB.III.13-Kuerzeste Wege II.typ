@@ -19,12 +19,12 @@
 #v(1em)
 
 #figure(
-	image("Q2-AB.III.13-Abb_Strukt_Dijkstra.png", width: 100%),
+	image("Q2-AB.III.13-Abb_Strukt_Dijkstra_2.png", width: 100%),
 	caption: [Struktogramm zum Algorithmus von Dijkstra]
-) <strukt-dijkstra>
+)
 
 #aufgabe[
-	Führe eine Suche nach dem kürzesten Weg vom Startknoten "A" zum Zielknoten "Z" durch. Halte Dich dazu an das Struktogramm in @strukt-dijkstra.
+	Führe eine Suche nach dem kürzesten Weg vom Startknoten "A" zum Zielknoten "Z" durch. Halte Dich dazu an das Struktogramm oben.
 
 	Dokumentiere alle Veränderungen in der Liste in geeigneter Form.
 
@@ -58,7 +58,7 @@
 		[Polizeirevier], [Gefängnis], [8],
 	),[
 		#aufgabe(titel:[Banküberfall])[
-			Vor einem Banküberfall wollen die Ganoven ihre Fluchtroute planen. Dazu haben Sie einen Tag die Straßen beobachtet und gezählt, wie viele Polizeieinheiten in dieser Zeit die Straße befahren. Sie kamen zum in der Tabelle rechts dargestellten Ergebnis.
+			Vor einem Banküberfall wollen die Ganoven ihre Fluchtroute planen. Dazu haben Sie einen Tag die Straßen beobachtet und gezählt, wie viele Polizeieinheiten in dieser Zeit die Straße (in beliebiger Richtung) befahren. Sie kamen zum in der Tabelle rechts dargestellten Ergebnis.
 
 			#enuma[
 			1. Bilde die Informationen aus der Tabelle in einem Graphen ab.
