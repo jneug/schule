@@ -7,7 +7,7 @@ Die Materialien sind unter [CC-BY-SA Lizenz 4.0](https://creativecommons.org/lic
 
 Das Repository ist nach Fach und Thema sortiert. Alle Dateinamen folgen einem festen Schema. Zu jedem Dokument sind die Typst-Quelldateien im Repository vorhanden. Die kompilierten PDF-Dateien sind in einem zugehörigen öffentlichen Google Drive abgelegt.
 
-> [NOTE]
+> [!NOTE]
 > Seit etwa 1,5 Jahren bin ich von LaTeX komplett auf [Typst](https://typst.app) umgestiegen, um meine Arbeitsmaterialien zu erstellen. Derzeit arbeit ich daran, alles Material in diesem Repository darauf umzustellen.
 >
 > In diesem Zuge wurden alle PDF-Dateien aus diesem Repository entfernt.
