@@ -1,0 +1,73 @@
+\documentclass[10pt, a4paper, landscape, twocolumn]{scrartcl}
+
+\usepackage{vorschule}
+\usepackage[
+    typ=ab,
+    fach=Mathematik,
+    lerngruppe={Q1 GK},
+    nummer=4,
+    module={Symbole,Lizenzen},
+    seitenzahlen=keine,
+    farbig,
+    lizenz=cc-by-nc-sa-4,
+]{schule}
+
+\usepackage[
+	kuerzel={Ngb},
+	reihe={Analysis},
+	version={2019-05-13},
+]{ngbschule}
+
+\author{J. Neugebauer}
+\title{Ableitungsregeln}
+\date{\Heute}
+
+\renewcommand{\arraystretch}{1.6}
+
+\begin{document}
+	\section*{Ableitungs- und Integrationsregeln}
+	\begin{tabularx}{\columnwidth}{c|c|c|X}
+		$F(x)$ & $f(x)$ & $f'(x)$ & Beispiele \\ \hline\hline
+		$kx$ & $k$ & $0$ &\small
+			$F(x) = 5x$ \newline $f(x) = 5$ \newline $f'(x) = 0$ \\ \hline
+		$\frac{1}{2}x^2$ & $x$ & $1$ &\small
+			$F(x) = \frac{1}{2}x^2$ \newline $f(x) = x$ \newline $f'(x) = 1$ \\ \hline
+		$k\cdot \frac{1}{2}x^2$ & $k\cdot x$ & $k$ &\small
+			$F(x) = 2,5x^2$ \newline $f(x) = 5x$ \newline $f'(x) = 5$ \\ \hline
+		$k\cdot U(x)$ & $k\cdot u(x)$ & $k\cdot u'(x)$ &\small
+			$F(x)=-5\cdot\cos{x}$ \newline $f(x) = 5\cdot\sin{x}$ \newline $f'(x) = 5\cdot\cos{x}$ \\ \hline
+		$\frac{1}{n+1}\cdot x^{n+1}$ & $x^n$ & $n\cdot x^{n-1}$ &\small
+			$F(x) = 5x$ \newline $f(x) = 5$ \newline $f'(x) = 0$ \\ \hline
+		$k\cdot \frac{1}{n+1}\cdot x^{n+1}$ & $k\cdot x^n$ & $k\cdot n\cdot x^{n-1}$ &\small
+			$F(x) = \frac{4}{6}x^6$ \newline $f(x) = 4x^5$ \newline $f'(x) = 20x^4$ \\ \hline
+		$U(x)+V(x)$ & $u(x)+v(x)$ & $u'(x)+v'(x)$
+			& \small $F(x) = 2,5x^2 + 0,2x^5$\newline $f(x) = 5x+x^4$\newline $f'(x) = 5+4x^3$ \\ \hline	
+		$a\cdot \frac{1}{\ln{b}}\cdot b^x$ & $a\cdot b^x$ & $a\cdot\ln{b}\cdot b^x$ &\small
+			
+	\end{tabularx}
+
+	\newpage
+	
+	\begin{tabularx}{\columnwidth}{c|c|X}
+		$f(x)$ & $f'(x)$ & Beispiele \\ \hline\hline
+		$u(x)\cdot v(x)$ & $u'(x)\cdot v(x) \quad + u(x)\cdot v'(x)$ &\small
+			$f(x) = \sin{x}\cdot x^4$ \newline $f'(x) = \cos{x}\cdot 4x^3$ \\ \hline
+		$u(v(x))$ & $v'(x)\cdot u'(v(x))$ &\small
+			$f(x) = \sin{x^2}$ \newline $f'(x) = 2x\cdot\cos{x^2}$
+	\end{tabularx}
+
+	\section*{Wichtige Funktionen}
+	\begin{center}
+		\begin{tabular}{p{3cm}|p{3cm}|p{3cm}}
+			$F(x)$ & $f(x)$ & $f'(x)$ \\ \hline\hline
+			$-\cos{x}$ & $\sin{x}$ & $\cos{x}$ \\ \hline
+			$\sin{x}$ & $\cos{x}$ & $-\sin{x}$ \\ \hline
+			$e^x$ & $e^x$ & $e^x$ \\ \hline
+			---	& $\ln{x}$ & $\frac{1}{x}$ \\ \hline
+			&& \\ \hline
+			&& \\ \hline
+			&& \\ \hline
+			&&
+		\end{tabular}
+	\end{center}
+\end{document}
