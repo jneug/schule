@@ -1,0 +1,131 @@
+\documentclass[10pt, a4paper]{arbeitsblatt}
+
+\ladeModule{theme,boxen}
+\ladeFach[algorithmen,listings,uml]{informatik}
+
+\aboptionen{
+	name		= {J. Neugebauer},
+	kuerzel		= {Ngb},
+	titel		= {Operationen des Stapels},
+	reihe		= {Lineare dynamische Datenstrukturen},
+	fach		= {Informatik},
+	lerngruppe	= {Q1},
+	nummer		= {II.03},
+	lizenz		= {cc-by-nc-sa-4},
+	version		= {2022-09-21},
+}
+
+\begin{document}
+\ReiheTitel
+
+Der generische Stapel besteht aus einer Klasse \code{Stack<ContentType>} und einer
+Klasse \code{Node<ContentType>}.
+
+\begin{center}
+	\begin{tikzpicture}\small
+		\begin{class}[text width=6cm]{Stack<ContentType>}{0,0}
+		  \operation{+ push(content : ContentType) : void}
+		  \operation{+ pop() : void}
+		  \operation{+ isEmpty() : boolean}
+		  \operation{+ top() : ContentType}
+		\end{class}
+		\begin{class}[text width=7cm]{Node<ContentType>}{8.5,0}
+		  \attribute{- content : ContentType}
+		  \operation{+ setNext(pNext : Node<ContentType>) : void}
+		  \operation{+ getNext() : Node<ContentType>}
+		  \operation{+ getContent() : ContentType}
+		\end{class}
+		\uses{Stack<ContentType>}{head}{0,1}{Node<ContentType>}
+		\usesself{Node<ContentType>}{next}{0,1}
+	  \end{tikzpicture}
+\end{center}
+
+\begin{aufgabe}
+Unten sind die \emph{Struktogramme} der Operationen \code{push}
+und \code{pop} abgebildet. \operator{Analysiere} ihren Aufbau und
+\operator{erkläre} das \emph{Verkettungsprinzip} der Datenstruktur
+\emph{Stapel} anhand eines Beispiels.
+
+\subsection*{push-Operation}
+\begin{center}
+	\ttfamily\small
+	\begin{struktogramm}(100,32)
+		\ifthen{5}{5}{head == null}
+			\instruction[8]{node = new Node}
+			\instruction[8]{head = node}
+			\assign[8]{}
+		\change
+			\instruction[8]{node = new Node}
+			\instruction[8]{node.setNext(head)}
+			\instruction[8]{head = node}
+		\ifend
+	\end{struktogramm}
+\end{center}
+
+\subsection*{pop-Operation}
+\begin{center}
+	\ttfamily\small
+	\begin{struktogramm}(80,16)
+		\ifthen{7}{3}{head != null}
+			\instruction[8]{head = head.getNext()}
+		\change
+			% empty
+		\ifend
+	\end{struktogramm}
+
+\end{center}
+\end{aufgabe}
+
+\clearpage
+
+\ReiheTitel
+
+Der generische Stapel besteht aus einer Klasse \code{Stack<ContentType>} und einer
+Klasse \code{Node<ContentType>}.
+
+\begin{center}
+	\begin{tikzpicture}\small
+		\begin{class}[text width=6cm]{Stack<ContentType>}{0,0}
+		  \operation{+ push(content : ContentType) : void}
+		  \operation{+ pop() : void}
+		  \operation{+ isEmpty() : boolean}
+		  \operation{+ top() : ContentType}
+		\end{class}
+		\begin{class}[text width=7cm]{Node<ContentType>}{8.5,0}
+		  \attribute{- content : ContentType}
+		  \operation{+ setNext(pNext : Node<ContentType>) : void}
+		  \operation{+ getNext() : Node<ContentType>}
+		  \operation{+ getContent() : ContentType}
+		\end{class}
+		\uses{Stack<ContentType>}{head}{0,1}{Node<ContentType>}
+		\usesself{Node<ContentType>}{next}{0,1}
+	  \end{tikzpicture}
+\end{center}
+
+\begin{aufgabe}
+Unten sind die Operationen \code{push} und \code{pop}
+als \emph{Pseudocode} abgebildet. \operator{Analysiere} ihren Aufbau und
+\operator{erkläre} das \emph{Verkettungsprinzip} der Datenstruktur
+\emph{Stapel} anhand eines Beispiels.
+
+\subsection*{push-Operation}
+\begin{lstlisting}
+Wenn Stapel leer
+	erstelle einen neuen Knoten mit dem neuen Inhalt
+	setze head auf den neuen Knoten
+Sonst
+	erstelle einen neuen Knoten mit dem neuen Inhalt
+	setze den Nachfolger des neuen Knotens auf head
+	setze head auf den neuen Knoten
+Ende Wenn
+\end{lstlisting}
+
+\subsection*{pop-Operation}
+\begin{lstlisting}
+Wenn Stapel nicht leer
+	setze head auf den Nachfolger von head
+Ende Wenn
+\end{lstlisting}
+\end{aufgabe}
+
+\end{document}

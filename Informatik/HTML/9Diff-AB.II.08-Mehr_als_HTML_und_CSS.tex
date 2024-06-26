@@ -1,0 +1,63 @@
+\documentclass[11pt, a4paper, ngerman]{arbeitsblatt}
+
+\ladeModule{theme}
+
+\ladeFach[quelltexte]{informatik}
+
+\aboptionen{
+	name		= {J. Neugebauer},
+	kuerzel 	= {Ngb},
+	titel 		= {Mehr als HTML und CSS},
+	reihe 		= {HTML},
+	fach 		= {Informatik},
+	kurs 		= {9Diff},
+	nummer 		= {II.8},
+	lizenz 		= {cc-by-nc-sa-eu-4},
+	version 	= {2022-11-02},
+}
+
+\begin{document}
+\ReiheTitel
+
+\begin{aufgabe}[subtitle=Websiten untersuchen,icon=\iconPartner\,\iconComputer]
+	Sucht euch einen Rechnerarbeitsplatz und öffnet eine Webseite, die ihr regelmäßig besucht. Mit einem Rechtsklick könnt ihr den \menu{Seitenquelltext anzeigen} und/oder den Seitenquelltext \menu{Untersuchen}.
+
+	\begin{wrapfigure}[10]{r}{0pt}\centering
+		\includegraphics[width=4cm]{9Diff-AB.II.08-Abb_nachdenken.jpg}
+	\end{wrapfigure} \
+
+	\begin{enuma}
+		\item
+		Studiert den HTML-Code verschiedener Webseiten und unterhaltet euch darüber, was ihr seht. Welche Besonderheiten fallen euch auf? Was sind neue, unbekannte Elemente? Wo finden sich interessante Teile der Webseite im Quellcode wieder? Was würdet ihr gerne noch in Bezug auf Webgestaltung lernen?
+
+		\item
+		Welche Fragen habt ihr zu den Webseiten und den Quelltexten, dir ihr euch anseht? Schreibt eure Fragen in den digitalen Fragenraum.
+		\item
+		Vielleicht könnt ihr einige der gesammelten Fragen schon beantworten oder habt eine Ergänzung? Antwortet auf einige Fragen und ergänzt eure Überlegungen oder Recherchen.
+	\end{enuma}
+\end{aufgabe}
+
+\begin{aufgabe}[subtitle=Webseiten programmieren,icon=\iconPartner\,\iconComputer\,\iconHeft]
+	Heutzutage werden die meisten Webseiten nicht mehr von Hand geschrieben, sondern mithilfe verschiedener Programmiersprachen automatisch generiert. Eine der im Web am weitesten verbreiteten Sprachen heißt Javascript.
+
+	Besucht die Seite \url{https://ngb.schule/} und öffnet den \menu{Untersuchen} Menüpunkt. Wählt unten den Reiter \menu{Konsole} aus. Hier können nun Javascript-Befehle eingefügt werden, um mit der Webseite zu interagieren.
+
+	Gebt die folgenden Programmzeilen nacheinander in die Konsole ein und bestätigt mit \tasten{ENTER}. Analysiert die Ausgabe und beschreibt jeweils möglichst genau, was die Zeilen machen. Notiert euch Stichpunkte im Heft.
+
+	\begin{smallenum}
+		\item \mintinline{Javascript}{document}
+		\item \mintinline{Javascript}{document.getElementsByTagName('p')}
+		\item \mintinline{Javascript}{document.getElementsByTagName('p')[0]}
+		\item \mintinline{Javascript}{document.getElementsByTagName('p')[0].textContent}
+		\item \mintinline{Javascript}{document.getElementsByTagName('p')[0].textContent = "<b>Informatik 9Diff</b>"}
+		\item \mintinline{Javascript}{document.getElementsByTagName('p')[0].innerHTML = "<b>Informatik 9Diff</b>"}
+		\item \mintinline{Javascript}{document.getElementsByTagName('p')[0].remove()}
+		\item \mintinline{Javascript}{document.getElementsByTagName('a')[0].href="http://helmholtz-bi.de"}
+		\item \mintinline{Javascript}{for( var tag of document.getElementsByTagName('p') ) { tag.innerHTML = "EMPTY" }}
+	\end{smallenum}
+
+	Variiert die Befehle und probiert sie auf anderen Seiten aus.
+\end{aufgabe}
+
+
+\end{document}

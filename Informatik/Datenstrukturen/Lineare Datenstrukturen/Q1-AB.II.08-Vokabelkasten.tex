@@ -1,0 +1,65 @@
+\documentclass[10pt, a4paper, ngerman]{arbeitsblatt}
+
+\ladeModule{theme}
+
+\ladeFach[doku,quelltexte]{informatik}
+
+\aboptionen{
+	name		= {J. Neugebauer},
+	kuerzel 	= {Ngb},
+	titel 		= {Vokabelkasten},
+	reihe 		= {Lineare Datenstrukturen},
+	fach 		= {Informatik},
+	kurs 		= {Q1},
+	nummer 		= {II.8},
+	lizenz 		= {cc-by-nc-sa-eu-4},
+	version 	= {2022-11-04},
+	doku/stil	= abi21minted
+}
+
+\begin{document}
+\ReiheTitel
+
+\begin{aufgabe}
+Die Datenstruktur Liste ist gut geeignet, um einen Vokabeltrainer zu implementieren.
+
+\begin{enuma}
+	\item\label{aufg:modell} Entwickelt zu zweit ein Implementationsdiagramm für einen Vokabeltrainer. Es sollte möglich sein, neue Vokabeln hinzuzufügen, und natürlich sollte der Benutzer nach deutschen und englischen Vokabeln abgefragt werden können. Die Ein- und Ausgabe soll zunächst über die Kommandozeile erfolgen (siehe unten).
+	\item Implementiert euren Vokabeltrainer aus \prettyref{aufg:modell}.
+	\item Ergänzt den Vokabeltrainer um zusätzliche (sinnvolle) Funktionen. Hier sind einige Ideen:
+	\begin{smallitem}
+		\item Programmiert die Abfragemethode so, dass Vokabeln, die vom Benutzer nicht oder nicht korrekt eingegeben wurden, häufiger abgefragt werden als solche, die er bereits sicher beherrscht.
+		\item Erweitert das System so, dass für eine Vokabel mehrere Möglichkeiten für eine Übersetzung angegeben werden können, z. B. surprised - überrascht, erstaunt, verwundert.
+		\item Ergänzt weitere Sprachen für die Vokabeln.
+		\item Erweitert das Programm um eine grafische Oberfläche (GUI).
+	\end{smallitem}
+\end{enuma}
+\end{aufgabe}
+
+\subsection*{Ein- und Ausgaben auf der Kommandozeile}
+
+Ausgaben auf der Kommandozeile werden über die Variable \code{System.out} vorgenommen. \code{System.out} ist eine \code{PrintStream}-Objekt und besitzt eine Reihe von \code{print}-Methoden.
+
+\methodendoku{print(String pText)}{
+	Gibt einen String aus.
+}
+\methodendoku{println(String pText)}{
+	Gibt einen String aus und ergänzt am Ende einen Zeilenumbruch
+}
+\methodendoku{printf(String pFormatString, Object.. params)}{
+	Gibt einen String aus und fügt die weiteren Parameter an vordefinierten Formatpositionen im String ein. Beispielsweise steht \code{\%d} für eine Zahl und \code{\%s} für einen String (siehe \url{https://www.codeflow.site/de/article/java-printstream-printf}).
+}
+
+Eingaben können mit einer Instanz der Klasse java.util.Scanner gelesen werden. Sie wird mit einem „Stream“ initialisiert, von dem gelesen werden soll. Hier nutzen wir für die Kommandozeile System.in. Die Klasse muss oben in der Datei importiert werden:
+
+\begin{minted}{java}
+import java.util.Scanner;
+
+// Irgendwo in der Klasse
+Scanner input = new Scanner(System.in);
+
+String text = input.next(); // Liest einen String ein
+int zahl = input.nextInt(); // Liest einen Zahl ein
+\end{minted}
+
+\end{document}
