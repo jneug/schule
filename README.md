@@ -3,12 +3,12 @@
 
 Hier sammele ich meine Arbeitsblätter und Materialien (hauptsächlich für den Informatik- und Mathematikunterricht).
 
-Die Materialien sind unter [CC-BY-SA Lizenz 4.0](https://creativecommons.org/licenses/by-sa/4.0/deed.de) veröffentlicht und dürfen beliebig weiterverwendet werden.
+Die Materialien sind unter [CC-BY-SA Lizenz 4.0][cc-by-sa] veröffentlicht und dürfen beliebig weiterverwendet werden.
 
 Das Repository ist nach Fach und Thema sortiert. Alle Dateinamen folgen einem festen Schema. Zu jedem Dokument sind die Typst-Quelldateien im Repository vorhanden. Die kompilierten PDF-Dateien sind in einem zugehörigen öffentlichen Google Drive abgelegt.
 
 > [!NOTE]
-> Seit etwa 1,5 Jahren bin ich von LaTeX komplett auf [Typst](https://typst.app) umgestiegen, um meine Arbeitsmaterialien zu erstellen. Derzeit arbeit ich daran, alles Material in diesem Repository darauf umzustellen.
+> Seit etwa 1,5 Jahren bin ich von LaTeX komplett auf [Typst][typst] umgestiegen, um meine Arbeitsmaterialien zu erstellen. Derzeit arbeit ich daran, alles Material in diesem Repository darauf umzustellen.
 >
 > In diesem Zuge wurden alle PDF-Dateien aus diesem Repository entfernt.
 > Es enthält nun nur noch die Quelldateien. Die fertigen
@@ -18,4 +18,24 @@ Das Repository ist nach Fach und Thema sortiert. Alle Dateinamen folgen einem fe
 
 ## Fehler und Verbesserungen melden
 
-Fehler und Verbesserungen können gerne an mich gemeldet werden. Entweder per [GitHub Issue](https://github.com/jneug/schule/issues), per Nachricht an mich oder direkt als Pull-Request.
+Fehler und Verbesserungen können gerne an mich gemeldet werden. Entweder per [GitHub Issue][issues], per Nachricht an mich oder direkt als Pull-Request.
+
+## Eigene Änderungen vornehmen
+
+Um Änderungen vorzunehmen reicht ein einfacher Texteditor. Komfortabler ist es mit [VSCodium][vscodium] und den passenden Erweiterungen, wie [typst-preview][preview], [tinymist][tinymist] und [typstyle][typstyle].
+
+Um die `.typ` Dateien in `.pdf` zu kompilieren, muss [Typst][typst] installiert sein und es wird lokal mein Paket [schule-typst][schule] benötigt. Die Installation ist auf der Projektseite des Pakets beschrieben.
+
+> [!NOTE]
+> [schule-typst][schule] soll zukünftig auch im [Typst Universe][universe] verfügbar sein. Dann wird keine manuelle Installation von Paketen mehr notwendig sein.
+
+
+[typst]: https://typst.app
+[universe]: https://typst.app/universe
+[cc-by-sa]: https://creativecommons.org/licenses/by-sa/4.0/deed.de
+[issues]: https://github.com/jneug/schule/issues
+[vscodium]: https://vscodium.com
+[tinymist]: https://github.com/Myriad-Dreamin/tinymist
+[typstyle]: https://github.com/Enter-tainer/typstyle
+[preview]: https://github.com/Enter-tainer/typst-preview
+[schule]: https://github.com/jneug/schule-typst
