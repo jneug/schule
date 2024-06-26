@@ -29,6 +29,8 @@ Um die `.typ` Dateien in `.pdf` zu kompilieren, muss [Typst][typst] installiert 
 > [!NOTE]
 > [schule-typst][schule] soll zukünftig auch im [Typst Universe][universe] verfügbar sein. Dann wird keine manuelle Installation von Paketen mehr notwendig sein.
 
+Die Verwendung von [schule-typst][schule] und welche FUnktionen zur Verfügung stehen, kann in der Dokumentation des Pakets nachgelesen werden.
+
 
 [typst]: https://typst.app
 [universe]: https://typst.app/universe
