@@ -70,7 +70,7 @@ jobs:
 
       - name: Upload artifacts to Google Drive
         if: ${{ steps.filter.outputs.typst == 'true' }}
-        uses: wodndb/google-drive-upload-action@v1
+        uses: wodndb/google-drive-upload-action@v1.2.5
         with:
           credentials: ${{ secrets.GOOGLE_CLOUD_CREDENTIALS }}
           target: ./pdf
