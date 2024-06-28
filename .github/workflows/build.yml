@@ -21,7 +21,7 @@ jobs:
           list-files: shell
           filters: |
             typst:
-              - added|modified: '*.typ'
+              - added|modified: '**/*.typ'
 
       - name: Install fish shell
         if: ${{ steps.filter.outputs.typst == 'true' }}

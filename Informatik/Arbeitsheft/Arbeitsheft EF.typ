@@ -29,7 +29,6 @@ _Endlich_ bedeutet, dass der Algorihtmus irgendwann zu einem Ende kommt und nich
 / Finitheit: Der Algorihtmus lässt sich mit einer endlichen Anzahl Befehlen aufschreiben.
 / Determiniertheit: Der Algorihtmus hat eine eindeutige Abfolge von Befehlen.
 / Determinismus: Der Algorihtmus produiert für gleiche Eingaben immer dieselbe Ausgabe.
-/ Sicherheit: Die Sicherheit des Algorithmus.
 
 == Imperative Programmierung
 
