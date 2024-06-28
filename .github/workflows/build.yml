@@ -77,4 +77,5 @@ jobs:
           folderId: ${{ secrets.GDRIVE_FOLDER_ID }}
           overwrite: 'true'
           mirrorDirectoryStructure: 'true'
+          useCompleteSourceFilenameAsName: 'true'
 
