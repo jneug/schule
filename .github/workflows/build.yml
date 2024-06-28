@@ -44,7 +44,7 @@ jobs:
           typst-version: latest
 
       - name: Checkout schule package
-        #if: ${{ steps.filter.outputs.typst == 'true' }}
+        if: ${{ steps.filter.outputs.typst == 'true' }}
         uses: actions/checkout@v4
         with:
           repository: jneug/schule-typst
@@ -52,7 +52,7 @@ jobs:
           path: schule-typst
 
       - name: Install schule package to local package repository
-        #if: ${{ steps.filter.outputs.typst == 'true' }}
+        if: ${{ steps.filter.outputs.typst == 'true' }}
         run: |
             . schule-typst/scripts/setup
 
