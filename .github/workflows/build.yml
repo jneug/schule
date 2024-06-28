@@ -70,10 +70,9 @@ jobs:
 
       - name: Upload artifacts to Google Drive
         if: ${{ steps.filter.outputs.typst == 'true' }}
-        uses: Fork-on-the-Table-Collective/upload-to-download-from-gdrive@v2.0.0
+        uses: wodndb/google-drive-upload-action@v1
         with:
           credentials: ${{ secrets.GOOGLE_CLOUD_CREDENTIALS }}
-          actionType: upload
-          localPath: ./pdf
-          googleFolderId: 1S9DGFP-N0ztTMLivW-KtCZfnuWsAZRF2
+          target: ./pdf
+          parent_folder_id: 1S9DGFP-N0ztTMLivW-KtCZfnuWsAZRF2
 
