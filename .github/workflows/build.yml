@@ -7,7 +7,7 @@ env:
   OUTPUT_PATH: pdf
 
 jobs:
-  release:
+  build:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
