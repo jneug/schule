@@ -13,25 +13,6 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
 
-      - name: Install fish shell
-        uses: fish-actions/install-fish@v1.1.0
-
-      - name: Probe runner package cache
-        uses: awalsh128/cache-apt-pkgs-action@v1
-        with:
-          packages: cargo jq psutils
-          version: 1.0
-
-      - name: Install just from crates.io
-        uses: baptiste0928/cargo-install@v3
-        with:
-          crate: just
-
-      - name: Setup typst
-        uses: typst-community/setup-typst@v3
-        with:
-          typst-version: latest
-
       - name: Filte changed typ files
         uses: dorny/paths-filter@v3.0.2
         id: filter
@@ -40,6 +21,29 @@ jobs:
           filters: |
             typst:
               - added|modified: '*.typ'
+
+      - name: Install fish shell
+        if: ${{ steps.filter.outputs.typst == 'true' }}
+        uses: fish-actions/install-fish@v1.1.0
+
+      - name: Probe runner package cache
+        if: ${{ steps.filter.outputs.typst == 'true' }}
+        uses: awalsh128/cache-apt-pkgs-action@v1
+        with:
+          packages: cargo jq psutils
+          version: 1.0
+
+      - name: Install just from crates.io
+        if: ${{ steps.filter.outputs.typst == 'true' }}
+        uses: baptiste0928/cargo-install@v3
+        with:
+          crate: just
+
+      - name: Setup typst
+        if: ${{ steps.filter.outputs.typst == 'true' }}
+        uses: typst-community/setup-typst@v3
+        with:
+          typst-version: latest
 
       - name: Compile PDF files
         if: ${{ steps.filter.outputs.typst == 'true' }}
