@@ -6,15 +6,21 @@
 #let qrlink(target, ..args) = link(target, qrcode(target, width: 2cm, colors: (white, luma(20%)), ..args))
 
 #show: arbeitsblatt.with(
-  autor: (name: "J. Neugebauer", abbr: "Ngb"),
+  /* @typstyle:off */
   titel: "Winkelsumme im Dreieck",
   reihe: "Kongruenz",
   fach: "Mathematik",
   kurs: "Jg.7",
   nummer: "V.2",
-  lizenz: "cc-by-nc-sa-eu",
-  version: datetime.today(),
+
+  autor: (
+    name: "J. Neugebauer",
+    abbr: "Ngb"
+  ),
+
   fontsize: 11pt,
+
+  version: datetime.today(),
 )
 
 #aufgabe(icons: (icon.tablet, icon.partner), label: <vermutung-aufstellen>)[
