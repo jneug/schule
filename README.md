@@ -5,15 +5,7 @@ Hier sammele ich meine Arbeitsblätter und Materialien (hauptsächlich für den 
 
 Die Materialien sind unter [CC-BY-SA Lizenz 4.0][cc-by-sa] veröffentlicht und dürfen beliebig weiterverwendet werden.
 
-Das Repository ist nach Fach und Thema sortiert. Alle Dateinamen folgen einem festen Schema. Zu jedem Dokument sind die Typst-Quelldateien im Repository vorhanden. Die kompilierten PDF-Dateien sind in einem zugehörigen öffentlichen Google Drive abgelegt.
-
-> [!NOTE]
-> Seit etwa 1,5 Jahren bin ich von LaTeX komplett auf [Typst][typst] umgestiegen, um meine Arbeitsmaterialien zu erstellen. Derzeit arbeit ich daran, alles Material in diesem Repository darauf umzustellen.
->
-> In diesem Zuge wurden alle PDF-Dateien aus diesem Repository entfernt.
-> Es enthält nun nur noch die Quelldateien. Die aktuellen
-> PDFs sind unter [datei.ngb.schule/pdf](https://datei.ngb.schule/pdf)
-> abrufbar.
+Das Repository ist nach Fach und Thema sortiert. Alle Dateinamen folgen einem festen Schema. Zu jedem Dokument sind die Typst-Quelldateien im Repository vorhanden. Die aktuellen PDF-Dateien sind unter [datei.ngb.schule/pdf](https://datei.ngb.schule/pdf) abrufbar.
 
 ## Fehler und Verbesserungen melden
 
