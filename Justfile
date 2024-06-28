@@ -6,8 +6,8 @@ export TYPST_ROOT := root
 default:
     @just --list --unsorted
 
-compile file:
-    fish scripts/compile.fish "{{ file }}" -o "{{ pdf_path }}"
+compile *args:
+    fish scripts/compile.fish "{{ args }}" -o "{{ pdf_path }}"
 
 publish:
     echo "nyi"
