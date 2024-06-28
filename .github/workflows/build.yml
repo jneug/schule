@@ -1,0 +1,65 @@
+name: Build PDF files for modified Typst sources
+on:
+  push:
+    branches: [ main ]
+
+env:
+  OUTPUT_PATH: pdf
+
+jobs:
+  release:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Install fish shell
+        uses: fish-actions/install-fish@v1.1.0
+
+      - name: Probe runner package cache
+        uses: awalsh128/cache-apt-pkgs-action@v1
+        with:
+          packages: cargo jq psutils
+          version: 1.0
+
+      - name: Install just from crates.io
+        uses: baptiste0928/cargo-install@v3
+        with:
+          crate: just
+
+      - name: Setup typst
+        uses: typst-community/setup-typst@v3
+        with:
+          typst-version: latest
+
+      - name: Filte changed typ files
+        uses: dorny/paths-filter@v3.0.2
+        id: filter
+        with:
+          list-files: shell
+          filters: |
+            typst:
+              - added|modified: '*.typ'
+
+      - name: Compile PDF files
+        if: ${{ steps.filter.outputs.typst == 'true' }}
+        run: |
+          just compile -o {{ env.OUTPUT_PATH }} ${{ steps.filter.outputs.typst_files }}
+
+      # - name: Release package
+      #   run: |
+      #     mkdir -p "typst-packages/${{ env.PATH_PREFIX }}/$PKG_NAME"
+      #     mv "out/${PKG_NAME}/${PKG_VERSION}" "typst-packages/${{ env.PATH_PREFIX }}/${PKG_NAME}"
+      #     rmdir "out/${PKG_NAME}"
+      #     rmdir out
+
+      #     GIT_USER_NAME="$(git log -1 --pretty=format:'%an')"
+      #     GIT_USER_EMAIL="$(git log -1 --pretty=format:'%ae')"
+
+      #     cd typst-packages
+      #     git config user.name "${GIT_USER_NAME}"
+      #     git config user.email "${GIT_USER_EMAIL}"
+      #     git checkout -b "${PKG_NAME}-${PKG_VERSION}"
+      #     git add .
+      #     git commit -m "${PKG_NAME}:${PKG_VERSION}"
+      #     git push --set-upstream origin "${PKG_NAME}-${PKG_VERSION}"
