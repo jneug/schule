@@ -50,7 +50,7 @@ Das Rechnen mit negativen Zahlen kann man sich leicht anschaulich vorstellen, in
       columns: 2,
       rows: 1cm,
       align: horizon + left,
-      fill: tablefill(),
+      fill: table-fill(),
       [Zeichen], [Aktion],
       [Erste Zahl der Rechnung], [Stelle dich bei der Zahl auf],
       [Positive Zahl], [Gehe so viele Schritte nach vorne],

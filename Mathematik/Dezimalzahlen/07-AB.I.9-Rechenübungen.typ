@@ -7,11 +7,12 @@
   /* @typstyle:off */
   reihe: "Dezimalzahlen",
   titel: "Rechenübungen",
+  fach: "Mathematik",
+
   autor: (
     name: "J. Neugebauer",
     abbr: "Ngb"
   ),
-  fach: "Mathematik",
 
   paper: "a5",
   flipped: true,
