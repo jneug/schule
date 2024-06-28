@@ -70,9 +70,10 @@ jobs:
 
       - name: Upload artifacts to Google Drive
         if: ${{ steps.filter.outputs.typst == 'true' }}
-        uses: wodndb/google-drive-upload-action@v1.2.5
+        uses: guillep2k/github-to-drive@v1.0.0
         with:
-          credentials: ${{ secrets.GOOGLE_CLOUD_CREDENTIALS }}
-          target: ./pdf
-          parent_folder_id: 1S9DGFP-N0ztTMLivW-KtCZfnuWsAZRF2
+          GOOGLE_KEY: ${{ secrets.GOOGLE_KEY }}
+          GDRIVE_FOLDERID: 1S9DGFP-N0ztTMLivW-KtCZfnuWsAZRF2
+          GIT_ORIGIN: origin/main
+          GIT_SUBDIR: ./pdf
 
