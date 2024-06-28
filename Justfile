@@ -1,5 +1,5 @@
 root := justfile_directory()
-pdf_path := root + "/pdf"
+pdf_path := root + "pdf"
 export TYPST_ROOT := root
 
 [private]
@@ -7,7 +7,10 @@ default:
     @just --list --unsorted
 
 compile file:
-    fish scripts/compile.fish "{{ file }}"
+    fish scripts/compile.fish "{{ file }}" -o "{{ pdf_path }}"
+
+publish:
+    echo "nyi"
 
 p4upa3 file:
     just compile {{ file }}
