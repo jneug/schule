@@ -2,16 +2,21 @@
 #import ab: *
 
 #show: arbeitsblatt.with(
+  /* @typstyle:off */
   reihe: "Ganze Zahlen",
   titel: "Mit negativen Zahlen rechnen",
   fach: "Mathematik",
   kurs: "Jg.7",
   nummer: "V.2",
-  autor: (name: "J. Neugebauer", abbr: "Ngb"),
-  lizenz: "cc-by-nc-sa-eu",
-  version: datetime.today(),
+
+  autor: (
+    name: "J. Neugebauer",
+    abbr: "Ngb"
+  ),
+
   fontsize: 11pt,
-  binding: true,
+
+  version: datetime.today(),
 )
 
 Das Rechnen mit negativen Zahlen kann man sich leicht anschaulich vorstellen, indem man an der Zahlengerade entlangläuft.

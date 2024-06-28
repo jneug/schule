@@ -2,15 +2,21 @@
 #import ab: *
 
 #show: arbeitsblatt.with(
-  titel: "Hin und Her",
-  reihe: "Ganze Zahlen",
-  fach: "Mathematik",
-  kurs: "Jg.7",
-  nummer: "V.2",
-  autor: (name: "J. Neugebauer", abbr: "Ngb"),
-  lizenz: "cc-by-nc-sa-eu",
-  version: datetime.today(),
-  fontsize: 11pt,
+  /* @typstyle:off */
+  titel:       "Hin und Her",
+  reihe:       "Ganze Zahlen",
+  fach:        "Mathematik",
+  kurs:        "Jg.7",
+  nummer:      "V.2",
+
+  autor: (
+    name:      "J. Neugebauer",
+    abbr:      "Ngb"
+  ),
+
+  fontsize:    11pt,
+
+  version:     datetime.today(),
 )
 
 #aufgabe(icons: icon.gruppe)[

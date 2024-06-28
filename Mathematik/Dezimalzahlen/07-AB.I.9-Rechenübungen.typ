@@ -4,15 +4,20 @@
 #import mathe: *
 
 #show: arbeitsblatt.with(
+  /* @typstyle:off */
   reihe: "Dezimalzahlen",
   titel: "Rechenübungen",
-  autor: (name: "J. Neugebauer", abbr: "Ngb"),
+  autor: (
+    name: "J. Neugebauer",
+    abbr: "Ngb"
+  ),
   fach: "Mathematik",
-  version: datetime.today(),
-  binding: true,
+
   paper: "a5",
   flipped: true,
   fontsize: 11pt,
+
+  version: datetime.today(),
 )
 
 #let eqns(a, b, c) = [
