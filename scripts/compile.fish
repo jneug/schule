@@ -29,12 +29,12 @@ argparse -N 1 'o/out=' 't/theme=' 'v/varis=' 'nup=' -- $argv
 set -f cwd (pwd)
 set -f out $OUTPUT_PATH
 if set -q _flag_o
-    set -f out (path resolve "$_flag_o")
+    set -f out "$_flag_o"
 end
 
 for typ_file in $argv
     set -f file_path (string replace $cwd"/" "" (path resolve $typ_file))
-    set -f out_path $out"/"(path change-extension pdf $file_path)
+    set -f out_path (path resolve $out"/"(path change-extension pdf $file_path))
 
     # Query document metadata from Typst file
     set -f doc (typst query "$file_path" "<schule-document>" | jq '.[0]["value"]')
