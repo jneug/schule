@@ -77,4 +77,4 @@ jobs:
           key: ${{ secrets.UBERSPACE_KEY }}
           port: 22
           uploads: |
-            ./pdf/ => ./domains/datei.ngb.schule/schule/
+            ./pdf/ => ./domains/datei.ngb.schule/pdf/
