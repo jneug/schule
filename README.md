@@ -11,10 +11,9 @@ Das Repository ist nach Fach und Thema sortiert. Alle Dateinamen folgen einem fe
 > Seit etwa 1,5 Jahren bin ich von LaTeX komplett auf [Typst][typst] umgestiegen, um meine Arbeitsmaterialien zu erstellen. Derzeit arbeit ich daran, alles Material in diesem Repository darauf umzustellen.
 >
 > In diesem Zuge wurden alle PDF-Dateien aus diesem Repository entfernt.
-> Es enthält nun nur noch die Quelldateien. Die fertigen
-> PDFs werde ich über einen öffentlichen Google-Drive Ordner
-> bereitstellen, in den die aktuellsten Versionen der Materialien
-> regelmäßig übertragen werden.
+> Es enthält nun nur noch die Quelldateien. Die aktuellen
+> PDFs sind unter [datei.ngb.schule/pdf](https://datei.ngb.schule/pdf)
+> abrufbar.
 
 ## Fehler und Verbesserungen melden
 
