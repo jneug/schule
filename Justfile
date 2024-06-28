@@ -1,5 +1,6 @@
 root := justfile_directory()
-pdf_path := root + "pdf"
+pdf_path := root + "/pdf"
+
 export TYPST_ROOT := root
 
 [private]
