@@ -70,12 +70,11 @@ jobs:
 
       - name: Upload artifacts to Google Drive
         if: ${{ steps.filter.outputs.typst == 'true' }}
-        uses: logickoder/google-drive-upload@1.0.0
+        uses: Dylan700/sftp-upload-action@latest
         with:
-          credentials: ${{ secrets.GOOGLE_KEY }}
-          filename: pdf
-          folderId: ${{ secrets.GDRIVE_FOLDER_ID }}
-          overwrite: 'true'
-          mirrorDirectoryStructure: 'true'
-          useCompleteSourceFilenameAsName: 'true'
-
+          server: westphal.uberspace.de
+          username: ngb
+          key: ${{ secrets.UBERSPACE_KEY }}
+          port: 22
+          uploads: |
+            ./pdf/ => ./domains/datei.ngb.schule/schule/
