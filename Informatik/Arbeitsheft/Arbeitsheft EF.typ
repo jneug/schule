@@ -33,7 +33,7 @@ _Endlich_ bedeutet, dass der Algorihtmus irgendwann zu einem Ende kommt und nich
 == Imperative Programmierung
 
 _Imperative Programmierung_ ist ein _Programmierparadigma_, bei dem alle Befehle eines Algorithmus hintereinander aufgeschrieben werden und in einer eindeutig definierten Abfolge ausgeführt werden. Dabei kann es Sprünge zu früheren Programmteilen geben und Programmteile, die nur unter bestimmten Bedingungen ausgeführt werden. Aber grundsätzlich gibt es eine klare Reihenfolge der Befehle.
-//
+
 == Programmierung mit Java
 
 Quelltext #sym.arrow Compiler #sym.arrow Interpreter
