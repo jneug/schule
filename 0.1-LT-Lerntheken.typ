@@ -5,7 +5,6 @@
 
 #show: lerntheke.with(
   /* @typstyle:off */
-
   titel:     "Lernen mit einer Lerntheke",
 
   nummer:    "0.1",
