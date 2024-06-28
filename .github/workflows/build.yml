@@ -55,10 +55,11 @@ jobs:
         #if: ${{ steps.filter.outputs.typst == 'true' }}
         run: |
             . schule-typst/scripts/setup
-            echo "SCHULE_NAME=${PKG_PREFIX}" >> "${GITHUB_ENV}"
-            echo "SCHULE_VERSION=${VERSION}" >> "${GITHUB_ENV}"
+
+            SCHULE_NAME="${PKG_PREFIX}"
+            SCHULE_VERSION="${VERSION}"
             TYPST_LOCAL="${XDG_DATA_HOME:-$HOME/.local/share}/typst/packages/local"
-            echo "installing schule-typst to $TYPST_LOCAL/$SCHULE_NAME/$SCHULE_VERSION"
+            echo "installing schule-typst to $TYPST_LOCAL"
             mkdir -p "$TYPST_LOCAL/$SCHULE_NAME"
             mv schule-typst "$TYPST_LOCAL/$SCHULE_NAME/$SCHULE_VERSION"
 
