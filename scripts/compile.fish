@@ -1,4 +1,5 @@
 # TODO Add psnup support
+# TODO fail if file not found or error
 
 # Utilities
 function cecho -d "Colorful echo" -w echo

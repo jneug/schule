@@ -1,5 +1,5 @@
 root := justfile_directory()
-pdf_path := root + "/pdf"
+OUTPUT_PATH := root + "/pdf"
 
 export TYPST_ROOT := root
 
@@ -7,20 +7,17 @@ export TYPST_ROOT := root
 default:
     @just --list --unsorted
 
-compile *args:
-    fish scripts/compile.fish "{{ args }}" -o "{{ pdf_path }}"
+compile +FILES:
+    fish scripts/compile.fish {{FILES}} -o "{{OUTPUT_PATH}}"
 
-publish:
-    echo "nyi"
-
-p4upa3 file:
-    just compile {{ file }}
-    typ="{{ file }}"; pdf="{{ pdf_path }}/${typ%.typ}.pdf"; out="{{ pdf_path }}/${typ%.typ}-p4upA3.pdf"; psnup -pa3 -4 "$pdf" "$out"
+p4upa3 FILE:
+    just compile {{FILE}}
+    typ="{{FILE}}"; pdf="{{OUTPUT_PATH}}/${typ%.typ}.pdf"; out="{{OUTPUT_PATH}}/${typ%.typ}-p4upA3.pdf"; psnup -pa3 -4 "$pdf" "$out"
 
 p2upa4 file:
-    just compile {{ file }}
-    typ="{{ file }}"; pdf="{{ pdf_path }}/${typ%.typ}.pdf"; out="{{ pdf_path }}/${typ%.typ}-p4upA4.pdf"; psnup -pa4 -2 "$pdf" "$out"
+    just compile {{FILE}}
+    typ="{{FILE}}"; pdf="{{OUTPUT_PATH}}/${typ%.typ}.pdf"; out="{{OUTPUT_PATH}}/${typ%.typ}-p4upA4.pdf"; psnup -pa4 -2 "$pdf" "$out"
 
 p4upa4 file:
-    just compile {{ file }}
-    typ="{{ file }}"; pdf="{{ pdf_path }}/${typ%.typ}.pdf"; out="{{ pdf_path }}/${typ%.typ}-p4upA4.pdf"; psnup -pa4 -4 "$pdf" "$out"
+    just compile {{FILE}}
+    typ="{{FILE}}"; pdf="{{OUTPUT_PATH}}/${typ%.typ}.pdf"; out="{{OUTPUT_PATH}}/${typ%.typ}-p4upA4.pdf"; psnup -pa4 -4 "$pdf" "$out"
