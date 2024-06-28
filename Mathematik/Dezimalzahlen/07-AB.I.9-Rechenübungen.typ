@@ -2,6 +2,7 @@
 #import ab: *
 #import mathe: *
 
+
 #show: arbeitsblatt.with(
   /* @typstyle:off */
   reihe: "Dezimalzahlen",

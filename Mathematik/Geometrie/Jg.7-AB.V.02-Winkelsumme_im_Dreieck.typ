@@ -2,6 +2,7 @@
 #import ab: *
 #import mathe: *
 
+
 #import "@preview/codetastic:0.2.2": qrcode
 #let qrlink(target, ..args) = link(target, qrcode(target, width: 2cm, colors: (white, luma(20%)), ..args))
 
