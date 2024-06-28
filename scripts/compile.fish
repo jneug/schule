@@ -1,5 +1,6 @@
 # TODO Add psnup support
 # TODO fail if file not found or error
+# TODO abort on compile error
 
 # Utilities
 function cecho -d "Colorful echo" -w echo
