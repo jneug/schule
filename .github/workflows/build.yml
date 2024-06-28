@@ -1,7 +1,8 @@
 name: Build PDF files for modified Typst sources
 on:
+  workflow_dispatch:
   push:
-    branches: [ main, workflow_dispatch ]
+    branches: [ main ]
 
 env:
   OUTPUT_PATH: pdf
