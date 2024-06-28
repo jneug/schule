@@ -4,9 +4,6 @@ on:
   push:
     branches: [ main ]
 
-env:
-  OUTPUT_PATH: pdf
-
 jobs:
   build:
     runs-on: ubuntu-latest
@@ -49,7 +46,7 @@ jobs:
       - name: Compile PDF files
         if: ${{ steps.filter.outputs.typst == 'true' }}
         run: |
-          just compile -o {{ env.OUTPUT_PATH }} ${{ steps.filter.outputs.typst_files }}
+          just compile ${{ steps.filter.outputs.typst_files }}
 
       # - name: Release package
       #   run: |

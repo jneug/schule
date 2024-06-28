@@ -16,7 +16,7 @@
 
   version:   "2024-06-25",
 )
-
+//
 #hilfekarte(
   label: <die-lerntheke>,
   infotext: ["Malvorlage Wissenschaft lernen" von #link("http://www.schulbilder.org", "Schulbilder.org")],
