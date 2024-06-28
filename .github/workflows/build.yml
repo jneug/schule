@@ -68,7 +68,7 @@ jobs:
         run: |
           just compile ${{ steps.filter.outputs.typst_files }}
 
-      - name: Upload artifacts to Google Drive
+      - name: Upload artifacts via SFTP
         if: ${{ steps.filter.outputs.typst == 'true' }}
         uses: Dylan700/sftp-upload-action@latest
         with:
