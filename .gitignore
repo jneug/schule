@@ -2,7 +2,11 @@
 out/*
 pdf/
 
+# meta files
 .DS_Store
+Thumbs.db
+
+.env
 
 ## Core latex/pdflatex auxiliary files:
 *.aux
